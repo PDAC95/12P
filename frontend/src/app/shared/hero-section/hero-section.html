@@ -1,0 +1,70 @@
+<!-- src/app/shared/hero-section/hero-section.html -->
+<section class="hero-section">
+  <div class="container">
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <!-- Main Title - Más pequeño y centrado -->
+      <h1 class="hero-title">
+        <span class="title-line">Find Your</span>
+        <span class="title-line"
+          ><span class="highlight">Dream Home</span></span
+        >
+      </h1>
+    </div>
+
+    <!-- AI Chat Section - Barra principal para iniciar conversación -->
+    <div class="ai-chat-section">
+      <div class="chat-container">
+        <div class="chat-input-area">
+          <input
+            type="text"
+            class="chat-input"
+            [(ngModel)]="aiQuery"
+            placeholder="Tell us what you're looking for... 'I need a 3-bedroom house near downtown under $500k'"
+            (keyup.enter)="onAISearch()"
+          />
+          <button class="chat-btn" (click)="onAISearch()">Ask AI</button>
+        </div>
+
+        <!-- Sugerencias horizontales -->
+        <div class="chat-suggestions">
+          <div
+            class="suggestion-chip"
+            *ngFor="let suggestion of aiSuggestions"
+            (click)="selectSuggestion(suggestion)"
+          >
+            {{ suggestion }}
+          </div>
+        </div>
+
+        <!-- Opciones de ubicación -->
+        <div class="location-options">
+          <div
+            class="location-option"
+            [class.active]="useCurrentLocation"
+            (click)="toggleCurrentLocation()"
+          >
+            <i class="fas fa-location-arrow"></i>
+            <span>Use current location</span>
+          </div>
+          <div
+            class="location-option"
+            [class.active]="!useCurrentLocation"
+            (click)="toggleCurrentLocation()"
+          >
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Choose different location</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link a filtros tradicionales - fuera del hero -->
+    <div class="filters-link-section">
+      <div class="filters-link">
+        Or use traditional search filters
+        <a class="link-text" (click)="scrollToFilters()">Show Filters</a>
+      </div>
+    </div>
+  </div>
+</section>

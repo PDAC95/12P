@@ -1,0 +1,37 @@
+<!-- src/app/features/properties/property-card/property-card.html -->
+<div class="card h-100 shadow-sm property-card">
+  <div class="card-img-container">
+    <img [src]="property.image" class="card-img-top" [alt]="property.title" />
+    <div class="property-type-badge">{{ property.type }}</div>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ property.title }}</h5>
+    <p class="card-text location">
+      <i class="fas fa-map-marker-alt"></i> {{ property.location }}
+    </p>
+    <p class="card-text description">{{ property.description }}</p>
+
+    <div class="property-details">
+      <span class="detail-item">
+        <i class="fas fa-bed"></i> {{ property.bedrooms }} bed
+      </span>
+      <span class="detail-item">
+        <i class="fas fa-bath"></i> {{ property.bathrooms }} bath
+      </span>
+      <span class="detail-item">
+        <i class="fas fa-ruler-combined"></i> {{ property.area }} sqft
+      </span>
+    </div>
+
+    <div class="price-section">
+      <strong class="price">${{ property.price | number }}</strong>
+      <button
+        class="btn btn-primary btn-sm"
+        [routerLink]="['/properties/detail', property.id]"
+      >
+        View Details
+      </button>
+    </div>
+  </div>
+</div>

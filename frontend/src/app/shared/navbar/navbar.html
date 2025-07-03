@@ -1,0 +1,76 @@
+<!-- src/app/shared/navbar/navbar.html -->
+<nav
+  class="navbar navbar-expand-lg fixed-top"
+  [class.navbar-scrolled]="isScrolled"
+>
+  <div class="container">
+    <!-- Logo estilo Bery -->
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <span class="logo-text">🏠 Plaice</span>
+      <small class="text-muted ms-1">Real Estate</small>
+    </a>
+
+    <!-- Mobile toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Center Menu -->
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/properties" routerLinkActive="active"
+            >Properties</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/chat" routerLinkActive="active"
+            >AI Search</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+      </ul>
+
+      <!-- Right side -->
+      <div class="d-flex align-items-center">
+        <!-- User Avatar -->
+        <div class="user-avatar me-3">
+          <img
+            src="https://via.placeholder.com/40x40/016450/ffffff?text=U"
+            alt="User"
+            class="rounded-circle"
+            width="40"
+            height="40"
+          />
+        </div>
+
+        <!-- Add Property Button -->
+        <button
+          class="btn btn-primary btn-add-property"
+          routerLink="/auth/register"
+        >
+          Add Property
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,12 @@
+// src/app/app.scss
+
+// Asegurar que el contenido no se superponga con el navbar fijo
+body {
+  padding-top: 80px; // Espacio para el navbar fijo
+}
+
+// Contenedor principal para el router-outlet
+.main-content {
+  min-height: calc(100vh - 160px); // Altura mínima menos navbar y footer
+  padding: 2rem 0;
+}

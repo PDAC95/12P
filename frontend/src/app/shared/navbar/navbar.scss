@@ -1,0 +1,130 @@
+// src/app/shared/navbar/navbar.scss - Navbar exacto Bery
+.navbar {
+  background: transparent !important; // Completamente transparente inicialmente
+  backdrop-filter: none;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  padding: 1.5rem 0;
+  border: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .container {
+    max-width: 1400px;
+  }
+
+  .navbar-brand {
+    .logo-text {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0b2c3d;
+      letter-spacing: -1px;
+      font-family: "Lora", serif;
+      text-shadow: 0 2px 10px rgba(11, 44, 61, 0.1);
+    }
+
+    small {
+      font-size: 0.7rem;
+      color: #016450;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: "Karla", sans-serif;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .nav-link {
+    color: #0b2c3d !important;
+    font-weight: 600;
+    margin: 0 1.2rem;
+    padding: 0.8rem 0 !important;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+    background: transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #b39359;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    &:hover,
+    &.active {
+      color: #016450 !important;
+      background: transparent;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .user-avatar img {
+    border: 2px solid rgba(1, 100, 80, 0.2);
+    transition: all 0.3s ease;
+    width: 45px;
+    height: 45px;
+  }
+
+  .btn-add-property {
+    background: linear-gradient(135deg, #016450 0%, #0b2c3d 100%) !important;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    font-weight: 700;
+    border-radius: 8px; // Border radius pequeño como Bery
+    transition: all 0.3s ease;
+    text-transform: none; // Sin uppercase
+    letter-spacing: 0.3px;
+    font-size: 0.9rem;
+    font-family: "Karla", sans-serif;
+    box-shadow: 0 4px 15px rgba(1, 100, 80, 0.2);
+
+    &:hover {
+      background: linear-gradient(135deg, #b39359 0%, #016450 100%) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(179, 147, 89, 0.3);
+      color: white;
+    }
+  }
+}
+
+// Efecto scroll - fondo blanco sólido
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(1, 100, 80, 0.08);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(1, 100, 80, 0.08);
+}
+
+// Mobile
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 0;
+
+    .navbar-brand .logo-text {
+      font-size: 2rem;
+    }
+
+    .navbar-collapse {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      margin-top: 1rem;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(1, 100, 80, 0.15);
+    }
+  }
+}

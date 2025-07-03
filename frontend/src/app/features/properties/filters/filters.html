@@ -1,0 +1,85 @@
+<!-- src/app/features/properties/filters/filters.html -->
+<div class="filters-container">
+  <div class="row g-3">
+    <!-- Location Filter -->
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <label class="form-label">Location</label>
+      <select
+        class="form-select"
+        [(ngModel)]="filters.location"
+        (change)="onFilterChange()"
+      >
+        <option
+          *ngFor="let location of locations"
+          [value]="location === 'All Locations' ? '' : location"
+        >
+          {{ location }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Property Type Filter -->
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <label class="form-label">Property Type</label>
+      <select
+        class="form-select"
+        [(ngModel)]="filters.propertyType"
+        (change)="onFilterChange()"
+      >
+        <option
+          *ngFor="let type of propertyTypes"
+          [value]="type === 'All Types' ? '' : type"
+        >
+          {{ type }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Bedrooms Filter -->
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <label class="form-label">Bedrooms</label>
+      <select
+        class="form-select"
+        [(ngModel)]="filters.bedrooms"
+        (change)="onFilterChange()"
+      >
+        <option value="0">Any</option>
+        <option *ngFor="let bed of bedroomOptions.slice(1)" [value]="bed">
+          {{ bed }}+ bed
+        </option>
+      </select>
+    </div>
+
+    <!-- Price Range -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <label class="form-label">Price Range</label>
+      <div class="price-inputs">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Min"
+          [(ngModel)]="filters.minPrice"
+          (change)="onFilterChange()"
+        />
+        <span class="price-separator">-</span>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Max"
+          [(ngModel)]="filters.maxPrice"
+          (change)="onFilterChange()"
+        />
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-end">
+      <button class="btn btn-outline-secondary me-2" (click)="clearFilters()">
+        Clear All
+      </button>
+      <button class="btn btn-primary" (click)="onFilterChange()">
+        Apply Filters
+      </button>
+    </div>
+  </div>
+</div>

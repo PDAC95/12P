@@ -1,0 +1,157 @@
+<!-- src/app/features/properties/property-detail/property-detail.html -->
+<div class="container">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="text-center py-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="mt-3">Loading property details...</p>
+    </div>
+  </div>
+
+  <!-- Property Detail Content -->
+  <div *ngIf="!loading && property" class="property-detail">
+    <!-- Back Button -->
+    <div class="back-navigation">
+      <button class="btn btn-outline-secondary" (click)="goBack()">
+        <i class="fas fa-arrow-left"></i> Back to Properties
+      </button>
+    </div>
+
+    <!-- Property Header -->
+    <div class="property-header">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1 class="property-title">{{ property.title }}</h1>
+          <div class="property-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{ property.location }}</span>
+          </div>
+          <div class="property-price">${{ property.price | number }}</div>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <div class="property-type-badge">{{ property.type }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Property Image -->
+    <div class="property-image-section">
+      <img
+        [src]="property.image"
+        [alt]="property.title"
+        class="property-main-image"
+      />
+    </div>
+
+    <!-- Property Info Grid -->
+    <div class="row mt-4">
+      <!-- Main Details -->
+      <div class="col-lg-8">
+        <div class="detail-section">
+          <h3>Property Details</h3>
+          <div class="property-specs">
+            <div class="spec-item">
+              <i class="fas fa-bed"></i>
+              <span class="spec-value">{{ property.bedrooms }}</span>
+              <span class="spec-label">Bedrooms</span>
+            </div>
+            <div class="spec-item">
+              <i class="fas fa-bath"></i>
+              <span class="spec-value">{{ property.bathrooms }}</span>
+              <span class="spec-label">Bathrooms</span>
+            </div>
+            <div class="spec-item">
+              <i class="fas fa-ruler-combined"></i>
+              <span class="spec-value">{{ property.area }}</span>
+              <span class="spec-label">Sq Ft</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h3>Description</h3>
+          <p class="property-description">{{ property.description }}</p>
+          <p class="extended-description">
+            This beautiful {{ property.type.toLowerCase() }} in {{
+            property.location }} offers modern living with {{ property.bedrooms
+            }} spacious bedrooms and {{ property.bathrooms }} well-appointed
+            bathrooms. With {{ property.area }} square feet of living space,
+            this property provides comfort and convenience in one of the most
+            sought-after areas in the Kitchener-Waterloo region.
+          </p>
+        </div>
+
+        <div class="detail-section">
+          <h3>Features & Amenities</h3>
+          <div class="features-grid">
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Modern Kitchen</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Hardwood Floors</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Central Air</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Parking Available</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Close to Transit</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Pet Friendly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="contact-card">
+          <h4>Interested in this property?</h4>
+          <p>
+            Contact our real estate professionals for more information or to
+            schedule a viewing.
+          </p>
+
+          <div class="contact-buttons">
+            <button class="btn btn-primary btn-block mb-2">
+              <i class="fas fa-phone"></i> Call Now
+            </button>
+            <button class="btn btn-outline-primary btn-block mb-2">
+              <i class="fas fa-envelope"></i> Send Message
+            </button>
+            <button class="btn btn-outline-secondary btn-block">
+              <i class="fas fa-calendar"></i> Schedule Tour
+            </button>
+          </div>
+
+          <div class="agent-info mt-4">
+            <h5>Your Agent</h5>
+            <div class="agent-profile">
+              <img
+                src="https://via.placeholder.com/60x60/007bff/ffffff?text=AG"
+                alt="Agent"
+                class="agent-avatar"
+              />
+              <div class="agent-details">
+                <strong>Sarah Johnson</strong>
+                <p>Real Estate Professional</p>
+                <p><i class="fas fa-phone"></i> (519) 555-0123</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
