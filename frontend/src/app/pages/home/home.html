@@ -9,6 +9,10 @@
     <app-filters (filtersChanged)="onFiltersChanged($event)"></app-filters>
   </section>
 
+  <app-property-types
+    (typeSelected)="onPropertyTypeSelected($event)"
+  ></app-property-types>
+
   <app-property-list
     [appliedFilters]="currentFilters"
     [searchQuery]="searchQuery"

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroSection } from '../../shared/hero-section/hero-section';
 import { Filters } from '../../features/properties/filters/filters';
+import { PropertyTypes } from '../../features/properties/property-types/property-types';
 import { PropertyList } from '../../features/properties/property-list/property-list';
 import type {
   SearchCriteria,
@@ -9,11 +10,12 @@ import type {
   QuickCategory,
 } from '../../shared/hero-section/hero-section';
 import type { FilterCriteria } from '../../features/properties/filters/filters';
+import type { PropertyType } from '../../features/properties/property-types/property-types';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeroSection, Filters, PropertyList],
+  imports: [CommonModule, HeroSection, Filters, PropertyTypes, PropertyList],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
@@ -47,5 +49,12 @@ export class Home {
     this.currentFilters = filters;
     this.searchQuery = '';
     this.selectedCategory = '';
+  }
+
+  onPropertyTypeSelected(propertyType: PropertyType): void {
+    console.log('🏠 Property Type Selected:', propertyType);
+    this.selectedCategory = propertyType.id;
+    this.searchQuery = '';
+    this.currentFilters = null;
   }
 }

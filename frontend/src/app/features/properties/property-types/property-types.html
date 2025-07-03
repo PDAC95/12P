@@ -1,1 +1,47 @@
-<p>property-types works!</p>
+<section class="property-types-section">
+  <div class="container">
+    <div class="section-header">
+      <h3 class="section-title">Browse by Property Type</h3>
+    </div>
+
+    <div class="property-types-horizontal">
+      <div
+        class="property-type-card-small"
+        *ngFor="let type of getDisplayedTypes()"
+        (click)="onTypeSelect(type)"
+      >
+        <div class="card-icon">
+          <img
+            *ngIf="isImageIcon(type.icon)"
+            [src]="type.icon"
+            [alt]="type.name"
+            class="building-illustration"
+          />
+          <i *ngIf="!isImageIcon(type.icon)" [class]="type.icon"></i>
+        </div>
+        <div class="card-info">
+          <h5 class="card-title">{{ type.name }}</h5>
+          <span class="card-count">{{ type.count }}+</span>
+        </div>
+      </div>
+
+      <button
+        class="show-more-btn-small"
+        *ngIf="!showAllTypes"
+        (click)="toggleShowAll()"
+      >
+        <i class="fas fa-plus"></i>
+        <span>More</span>
+      </button>
+
+      <button
+        class="show-less-btn-small"
+        *ngIf="showAllTypes"
+        (click)="toggleShowAll()"
+      >
+        <i class="fas fa-minus"></i>
+        <span>Less</span>
+      </button>
+    </div>
+  </div>
+</section>
