@@ -1,0 +1,144 @@
+.properties-page {
+  min-height: 100vh;
+  padding-top: 120px;
+
+  // Header de la página
+  .properties-header {
+    padding: 4rem 0 2rem;
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      rgba(1, 100, 80, 0.02) 100%
+    );
+    border-bottom: 1px solid rgba(1, 100, 80, 0.1);
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .header-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+
+      .page-title {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        color: #0b2c3d;
+        margin-bottom: 1.5rem;
+
+        .title-line {
+          display: block;
+          margin-bottom: 0.2em;
+        }
+
+        .highlight {
+          color: #b39359;
+        }
+      }
+
+      .page-description {
+        font-size: 1.125rem;
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 0;
+        font-family: "Inter", sans-serif;
+      }
+    }
+  }
+
+  // Sección de filtros
+  .filters-section {
+    background: #f8fafc;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(1, 100, 80, 0.1);
+  }
+
+  // Componentes integrados
+  app-filters {
+    display: block;
+  }
+
+  app-property-types {
+    display: block;
+  }
+
+  app-property-list {
+    display: block;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .properties-page {
+    padding-top: 100px;
+
+    .properties-header {
+      padding: 2rem 0 1rem;
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .header-content {
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .page-description {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .filters-section {
+      padding: 1rem 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .properties-page {
+    .properties-header {
+      .header-content {
+        .page-title {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.properties-page {
+  .properties-header {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .filters-section {
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+  }
+
+  app-property-types {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+  }
+
+  app-property-list {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+  }
+}

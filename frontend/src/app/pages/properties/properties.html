@@ -1,1 +1,36 @@
-<p>properties works!</p>
+<div class="properties-page">
+  <!-- Page Header -->
+  <section class="properties-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="page-title">
+          <span class="title-line">Browse All</span>
+          <span class="title-line"
+            ><span class="highlight">Properties</span></span
+          >
+        </h1>
+        <p class="page-description">
+          Find your perfect property with our advanced search filters and
+          AI-powered recommendations
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <app-filters (filtersChanged)="onFiltersChanged($event)"></app-filters>
+  </section>
+
+  <!-- Property Types Section -->
+  <app-property-types
+    (typeSelected)="onPropertyTypeSelected($event)"
+  ></app-property-types>
+
+  <!-- Property List Section -->
+  <app-property-list
+    [appliedFilters]="currentFilters"
+    [searchQuery]="''"
+    [selectedCategory]="selectedCategory"
+  ></app-property-list>
+</div>
