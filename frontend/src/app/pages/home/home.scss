@@ -1,0 +1,20 @@
+.home-page {
+  min-height: 100vh;
+
+  app-hero-section {
+    display: block;
+  }
+
+  #filters-section {
+    display: block;
+    scroll-margin-top: 100px;
+  }
+
+  app-filters {
+    display: block;
+  }
+
+  app-property-list {
+    display: block;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="home-page">
+  <app-hero-section
+    (aiSearchExecuted)="onAISearch($event)"
+    (traditionalSearchExecuted)="onTraditionalSearch($event)"
+    (categorySelected)="onCategorySelected($event)"
+  ></app-hero-section>
+
+  <section id="filters-section">
+    <app-filters (filtersChanged)="onFiltersChanged($event)"></app-filters>
+  </section>
+
+  <app-property-list
+    [appliedFilters]="currentFilters"
+    [searchQuery]="searchQuery"
+    [selectedCategory]="selectedCategory"
+  ></app-property-list>
+</div>

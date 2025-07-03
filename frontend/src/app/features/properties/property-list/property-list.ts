@@ -1,143 +1,178 @@
-// src/app/features/properties/property-list/property-list.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroSection } from '../../../shared/hero-section/hero-section';
-import type {
-  SearchCriteria,
-  AISearchQuery,
-  QuickCategory,
-} from '../../../shared/hero-section/hero-section';
-
-// Property interface
-interface Property {
-  id: string;
-  title: string;
-  price: number;
-  location: string;
-  bedrooms: number;
-  bathrooms: number;
-  sqft: number;
-  type: string;
-  images: string[];
-  featured: boolean;
-}
+import { PropertyCard } from '../property-card/property-card';
+import {
+  Property as PropertyService,
+  PropertyModel,
+} from '../../../services/property';
 
 @Component({
   selector: 'app-property-list',
   standalone: true,
-  imports: [CommonModule, HeroSection],
+  imports: [CommonModule, PropertyCard],
   templateUrl: './property-list.html',
   styleUrl: './property-list.scss',
 })
-export class PropertyList implements OnInit {
-  // Properties data
-  allProperties: Property[] = [];
-  filteredProperties: Property[] = [];
-  currentFilters: any = null;
+export class PropertyList implements OnInit, OnChanges {
+  @Input() appliedFilters: any = null;
+  @Input() searchQuery: string = '';
+  @Input() selectedCategory: string = '';
+
+  allProperties: PropertyModel[] = [];
+  filteredProperties: PropertyModel[] = [];
+  loading = false;
+  noResults = false;
+
+  constructor(private propertyService: PropertyService) {}
 
   ngOnInit() {
-    this.loadMockProperties();
-    this.filteredProperties = [...this.allProperties];
+    this.loadProperties();
   }
 
-  // Load mock properties data
-  loadMockProperties() {
-    this.allProperties = [
-      {
-        id: '1',
-        title: 'Modern Downtown Condo',
-        price: 450000,
-        location: 'Kitchener',
-        bedrooms: 2,
-        bathrooms: 2,
-        sqft: 1200,
-        type: 'condo',
-        images: ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00'],
-        featured: true,
-      },
-      {
-        id: '2',
-        title: 'Family Home with Garden',
-        price: 650000,
-        location: 'Waterloo',
-        bedrooms: 4,
-        bathrooms: 3,
-        sqft: 2200,
-        type: 'house',
-        images: ['https://images.unsplash.com/photo-1558618047-3c8c76ca7d13'],
-        featured: false,
-      },
-      {
-        id: '3',
-        title: 'Luxury Townhouse',
-        price: 750000,
-        location: 'Cambridge',
-        bedrooms: 3,
-        bathrooms: 2,
-        sqft: 1800,
-        type: 'townhouse',
-        images: [
-          'https://images.unsplash.com/photo-1564013799919-ab600027ffc6',
-        ],
-        featured: true,
-      },
-    ];
-  }
-
-  // Handle AI Search from Hero Section
-  onAISearch(aiQuery: AISearchQuery): void {
-    console.log('🤖 AI Search received:', aiQuery);
-    // TODO: Implement AI search logic
-    // For now, just show all properties
-    this.filteredProperties = [...this.allProperties];
-  }
-
-  // Handle Traditional Search from Hero Section
-  onTraditionalSearch(criteria: SearchCriteria): void {
-    console.log('🔍 Traditional Search received:', criteria);
-    // TODO: Implement traditional search logic
-    this.applySearchCriteria(criteria);
-  }
-
-  // Handle Category Selection from Hero Section
-  onCategorySelected(category: QuickCategory): void {
-    console.log('📂 Category selected:', category);
-    // TODO: Filter by category
-    this.filterByCategory(category.id);
-  }
-
-  // Apply search criteria
-  applySearchCriteria(criteria: SearchCriteria): void {
-    this.currentFilters = criteria;
-    this.filteredProperties = this.allProperties.filter((property) => {
-      // Implement filtering logic based on criteria
-      return true; // For now, show all
-    });
-  }
-
-  // Filter by category
-  filterByCategory(categoryId: string): void {
-    // Map category IDs to property types
-    const categoryTypeMap: { [key: string]: string } = {
-      'family-homes': 'house',
-      condos: 'condo',
-      luxury: 'luxury',
-      investment: 'investment',
-      commercial: 'commercial',
-      rentals: 'rental',
-    };
-
-    const propertyType = categoryTypeMap[categoryId];
-    if (propertyType) {
-      this.filteredProperties = this.allProperties.filter(
-        (property) => property.type === propertyType
-      );
+  ngOnChanges() {
+    if (this.allProperties.length > 0) {
+      this.applyFilters();
     }
   }
 
-  // Show all properties
-  showAllProperties(): void {
+  loadProperties() {
+    this.loading = true;
+    this.propertyService.getProperties().subscribe({
+      next: (properties) => {
+        this.allProperties = properties;
+        this.filteredProperties = [...properties];
+        this.loading = false;
+        this.checkResults();
+      },
+      error: (error) => {
+        console.error('Error loading properties:', error);
+        this.loading = false;
+      },
+    });
+  }
+
+  applyFilters() {
+    let filtered = [...this.allProperties];
+
+    if (this.searchQuery) {
+      filtered = this.filterBySearch(filtered, this.searchQuery);
+    }
+
+    if (this.selectedCategory) {
+      filtered = this.filterByCategory(filtered, this.selectedCategory);
+    }
+
+    if (this.appliedFilters) {
+      filtered = this.applyTraditionalFilters(filtered, this.appliedFilters);
+    }
+
+    this.filteredProperties = filtered;
+    this.checkResults();
+  }
+
+  private filterBySearch(
+    properties: PropertyModel[],
+    query: string
+  ): PropertyModel[] {
+    const searchTerm = query.toLowerCase();
+    return properties.filter(
+      (property) =>
+        property.title.toLowerCase().includes(searchTerm) ||
+        property.location.toLowerCase().includes(searchTerm) ||
+        property.description.toLowerCase().includes(searchTerm) ||
+        property.type.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  private filterByCategory(
+    properties: PropertyModel[],
+    category: string
+  ): PropertyModel[] {
+    const categoryMap: { [key: string]: string[] } = {
+      'family-homes': ['Detached House', 'House'],
+      condos: ['Condo'],
+      luxury: [],
+      investment: [],
+      commercial: ['Commercial'],
+      rentals: [],
+    };
+
+    if (category === 'luxury') {
+      return properties.filter((property) => property.price > 750000);
+    }
+
+    const types = categoryMap[category];
+    if (types && types.length > 0) {
+      return properties.filter((property) =>
+        types.some((type) => property.type.includes(type))
+      );
+    }
+
+    return properties;
+  }
+
+  private applyTraditionalFilters(
+    properties: PropertyModel[],
+    filters: any
+  ): PropertyModel[] {
+    let filtered = properties;
+
+    if (filters.location && filters.location !== '') {
+      filtered = filtered.filter((property) =>
+        property.location.toLowerCase().includes(filters.location.toLowerCase())
+      );
+    }
+
+    if (filters.propertyType && filters.propertyType !== '') {
+      filtered = filtered.filter((property) =>
+        property.type.toLowerCase().includes(filters.propertyType.toLowerCase())
+      );
+    }
+
+    if (filters.priceRange && filters.priceRange !== '') {
+      filtered = this.filterByPriceRange(filtered, filters.priceRange);
+    }
+
+    if (filters.bedrooms && filters.bedrooms > 0) {
+      filtered = filtered.filter(
+        (property) => property.bedrooms >= filters.bedrooms
+      );
+    }
+
+    return filtered;
+  }
+
+  private filterByPriceRange(
+    properties: PropertyModel[],
+    priceRange: string
+  ): PropertyModel[] {
+    switch (priceRange) {
+      case '0-300000':
+        return properties.filter((p) => p.price < 300000);
+      case '300000-500000':
+        return properties.filter((p) => p.price >= 300000 && p.price <= 500000);
+      case '500000-750000':
+        return properties.filter((p) => p.price >= 500000 && p.price <= 750000);
+      case '750000+':
+        return properties.filter((p) => p.price > 750000);
+      default:
+        return properties;
+    }
+  }
+
+  private checkResults() {
+    this.noResults = this.filteredProperties.length === 0 && !this.loading;
+  }
+
+  clearFilters() {
+    this.appliedFilters = null;
+    this.searchQuery = '';
+    this.selectedCategory = '';
     this.filteredProperties = [...this.allProperties];
-    this.currentFilters = null;
+    this.checkResults();
+  }
+
+  showAllProperties() {
+    this.clearFilters();
   }
 }

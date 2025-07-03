@@ -1,25 +1,19 @@
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./features/properties/property-list/property-list').then(
-        (c) => c.PropertyList
-      ),
+    loadComponent: () => import('./pages/home/home').then((c) => c.Home),
   },
   {
     path: 'properties',
     loadComponent: () =>
-      import('./features/properties/property-list/property-list').then(
-        (c) => c.PropertyList
-      ),
+      import('./pages/properties/properties').then((c) => c.Properties),
   },
   {
     path: 'properties/detail/:id',
     loadComponent: () =>
-      import('./features/properties/property-detail/property-detail').then(
+      import('./pages/property-detail/property-detail').then(
         (c) => c.PropertyDetail
       ),
   },
