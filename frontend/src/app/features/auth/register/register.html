@@ -1,1 +1,252 @@
-<p>register works!</p>
+<!-- src/app/features/auth/register/register.html -->
+<div class="auth-page">
+  <div class="auth-container">
+    <!-- Header con logo -->
+    <div class="auth-header">
+      <a routerLink="/" class="logo-link">
+        <span class="logo-text">🏠 Plaice</span>
+        <span class="logo-subtitle">Real Estate</span>
+      </a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="auth-content">
+      <div class="auth-card register-card">
+        <div class="card-header">
+          <h1>Create your account</h1>
+          <p>Join thousands of users finding their perfect property</p>
+        </div>
+
+        <!-- Social Register -->
+        <div class="social-auth">
+          <button
+            type="button"
+            class="social-btn"
+            (click)="registerWithGoogle()"
+          >
+            <i class="fab fa-google"></i>
+            <span>Sign up with Google</span>
+          </button>
+          <button
+            type="button"
+            class="social-btn"
+            (click)="registerWithFacebook()"
+          >
+            <i class="fab fa-facebook-f"></i>
+            <span>Sign up with Facebook</span>
+          </button>
+        </div>
+
+        <div class="divider">
+          <span>or create account with email</span>
+        </div>
+
+        <!-- Register Form -->
+        <form
+          (ngSubmit)="onSubmit()"
+          #registerFormRef="ngForm"
+          class="auth-form"
+        >
+          <!-- Error Message -->
+          <div class="error-alert" *ngIf="registerError">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>{{ registerError }}</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="firstName">First name</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                [(ngModel)]="registerForm.firstName"
+                required
+                class="form-input"
+                placeholder="First name"
+              />
+            </div>
+            <div class="form-field">
+              <label for="lastName">Last name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                [(ngModel)]="registerForm.lastName"
+                required
+                class="form-input"
+                placeholder="Last name"
+              />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="registerForm.email"
+              required
+              class="form-input"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Phone number (optional)</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              [(ngModel)]="registerForm.phone"
+              class="form-input"
+              placeholder="Enter your phone"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="userType">I am a</label>
+            <select
+              id="userType"
+              name="userType"
+              [(ngModel)]="registerForm.userType"
+              required
+              class="form-input"
+            >
+              <option value="">Select your role</option>
+              <option *ngFor="let type of userTypes" [value]="type.value">
+                {{ type.label }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                id="password"
+                name="password"
+                [(ngModel)]="registerForm.password"
+                required
+                class="form-input"
+                placeholder="Create a password"
+                (input)="onPasswordChange()"
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                (click)="togglePasswordVisibility('password')"
+              >
+                <i
+                  [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+                ></i>
+              </button>
+            </div>
+            <!-- Password Strength -->
+            <div class="password-strength" *ngIf="registerForm.password">
+              <div class="strength-bar">
+                <div
+                  class="strength-fill"
+                  [style.width.%]="passwordStrength"
+                  [style.background-color]="getPasswordStrengthColor()"
+                ></div>
+              </div>
+              <span
+                class="strength-text"
+                [style.color]="getPasswordStrengthColor()"
+              >
+                {{ getPasswordStrengthText() }}
+              </span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="confirmPassword">Confirm password</label>
+            <div class="password-field">
+              <input
+                [type]="showConfirmPassword ? 'text' : 'password'"
+                id="confirmPassword"
+                name="confirmPassword"
+                [(ngModel)]="registerForm.confirmPassword"
+                required
+                class="form-input"
+                placeholder="Confirm your password"
+                [class.error]="registerForm.confirmPassword && !passwordsMatch()"
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                (click)="togglePasswordVisibility('confirmPassword')"
+              >
+                <i
+                  [class]="showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"
+                ></i>
+              </button>
+            </div>
+            <div
+              class="password-error"
+              *ngIf="registerForm.confirmPassword && !passwordsMatch()"
+            >
+              Passwords do not match
+            </div>
+          </div>
+
+          <div class="form-checkboxes">
+            <label class="checkbox-field">
+              <input
+                type="checkbox"
+                name="agreeToTerms"
+                [(ngModel)]="registerForm.agreeToTerms"
+                required
+              />
+              <span class="checkmark"></span>
+              <span>
+                I agree to the
+                <a href="#" class="terms-link">Terms of Service</a> and
+                <a href="#" class="terms-link">Privacy Policy</a>
+              </span>
+            </label>
+
+            <label class="checkbox-field">
+              <input
+                type="checkbox"
+                name="subscribeNewsletter"
+                [(ngModel)]="registerForm.subscribeNewsletter"
+              />
+              <span class="checkmark"></span>
+              <span>Subscribe to newsletter for property updates</span>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-button"
+            [disabled]="!registerFormRef.form.valid || isSubmitting || !passwordsMatch()"
+          >
+            <span *ngIf="!isSubmitting">Create account</span>
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i>
+              Creating account...
+            </span>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>
+            Already have an account?
+            <a routerLink="/auth/login" class="auth-link">Sign in</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background decoration -->
+    <div class="auth-decoration">
+      <div class="decoration-circle decoration-1"></div>
+      <div class="decoration-circle decoration-2"></div>
+      <div class="decoration-circle decoration-3"></div>
+    </div>
+  </div>
+</div>
