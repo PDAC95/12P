@@ -1,0 +1,73 @@
+<div class="results-container">
+  <div class="results-header">
+    <h3 class="results-title">
+      <i class="fas fa-search"></i>
+      Search Results
+    </h3>
+    <div class="results-info" *ngIf="currentQuery">
+      <span class="search-query">"{{ currentQuery }}"</span>
+      <span class="results-count" *ngIf="!isSearching">
+        {{ searchResults.length }} properties found
+      </span>
+    </div>
+  </div>
+
+  <div class="results-loading" *ngIf="isSearching">
+    <div class="loading-animation">
+      <div class="loading-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>AI is analyzing your request...</p>
+    </div>
+  </div>
+
+  <div class="results-empty" *ngIf="!isSearching && !currentQuery">
+    <div class="empty-icon">
+      <i class="fas fa-comments"></i>
+    </div>
+    <h4>Start a conversation</h4>
+    <p>Ask our AI assistant about the type of property you're looking for</p>
+  </div>
+
+  <div class="results-grid" *ngIf="!isSearching && searchResults.length > 0">
+    <div class="result-item" *ngFor="let result of searchResults">
+      <div class="relevance-score">
+        <span class="score">{{ result.relevanceScore }}%</span>
+        <span class="label">Match</span>
+      </div>
+      <div class="ai-reason">
+        <i class="fas fa-lightbulb"></i>
+        <span>{{ result.reason }}</span>
+      </div>
+      <div class="property-card">
+        <img [src]="result.property.image" [alt]="result.property.title" />
+        <div class="property-info">
+          <h5>{{ result.property.title }}</h5>
+          <p class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            {{ result.property.location }}
+          </p>
+          <p class="description">{{ result.property.description }}</p>
+          <div class="property-details">
+            <span
+              ><i class="fas fa-bed"></i> {{ result.property.bedrooms }}</span
+            >
+            <span
+              ><i class="fas fa-bath"></i> {{ result.property.bathrooms }}</span
+            >
+            <span
+              ><i class="fas fa-ruler-combined"></i> {{ result.property.area }}
+              sqft</span
+            >
+          </div>
+          <div class="property-price">
+            <strong>${{ result.property.price | number }}</strong>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

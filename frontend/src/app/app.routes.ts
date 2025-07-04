@@ -1,3 +1,4 @@
+// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -18,6 +19,11 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'ai-search',
+    loadComponent: () =>
+      import('./pages/ai-search/ai-search').then((c) => c.AiSearch),
+  },
+  {
     path: 'auth/login',
     loadComponent: () =>
       import('./features/auth/login/login').then((c) => c.Login),
@@ -29,10 +35,8 @@ export const routes: Routes = [
   },
   {
     path: 'chat',
-    loadComponent: () =>
-      import('./features/chat/chat-interface/chat-interface').then(
-        (c) => c.ChatInterface
-      ),
+    redirectTo: 'ai-search',
+    pathMatch: 'full',
   },
   {
     path: 'users/profile',

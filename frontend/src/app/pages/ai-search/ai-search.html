@@ -1,0 +1,46 @@
+<!-- src/app/pages/ai-search/ai-search.html -->
+<div class="ai-search-page">
+  <!-- Page Header -->
+  <section class="ai-search-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="page-title">
+          <span class="title-line">AI-Powered</span>
+          <span class="title-line"
+            ><span class="highlight">Property Search</span></span
+          >
+        </h1>
+        <p class="page-description">
+          Tell us what you're looking for and let our AI find the perfect
+          properties for you
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Layout -->
+  <section class="ai-search-content">
+    <div class="container">
+      <div class="search-layout">
+        <!-- Chat Column (Left) -->
+        <div class="chat-column">
+          <app-ai-chat
+            (newSearch)="onNewSearch($event)"
+            [isSearching]="isSearching"
+          >
+          </app-ai-chat>
+        </div>
+
+        <!-- Results Column (Right) -->
+        <div class="results-column">
+          <app-search-results-grid
+            [searchResults]="searchResults"
+            [isSearching]="isSearching"
+            [currentQuery]="currentQuery"
+          >
+          </app-search-results-grid>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

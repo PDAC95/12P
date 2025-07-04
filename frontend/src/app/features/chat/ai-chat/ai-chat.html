@@ -1,0 +1,74 @@
+<!-- src/app/features/chat/ai-chat/ai-chat.html -->
+<div class="chat-container">
+  <div class="chat-header">
+    <div class="chat-title">
+      <i class="fas fa-robot"></i>
+      <span>AI Assistant</span>
+    </div>
+    <div class="chat-status">
+      <span class="status-indicator" [class.active]="!isSearching"></span>
+      <span class="status-text">
+        {{ isSearching ? 'Searching...' : 'Ready to help' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Chat Messages Area -->
+  <div class="chat-messages">
+    <div class="welcome-message">
+      <div class="ai-avatar">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div class="message-content">
+        <p>
+          Hi! I'm your AI property assistant. Tell me what kind of property
+          you're looking for and I'll help you find the perfect match.
+        </p>
+        <div class="suggestion-chips">
+          <button
+            class="suggestion-chip"
+            (click)="onSuggestionClick('Modern condo downtown')"
+            [disabled]="isSearching"
+          >
+            Modern condo downtown
+          </button>
+          <button
+            class="suggestion-chip"
+            (click)="onSuggestionClick('Family home with garden')"
+            [disabled]="isSearching"
+          >
+            Family home with garden
+          </button>
+          <button
+            class="suggestion-chip"
+            (click)="onSuggestionClick('Investment property under 500k')"
+            [disabled]="isSearching"
+          >
+            Investment property under 500k
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Input -->
+  <div class="chat-input-area">
+    <div class="input-container">
+      <input
+        type="text"
+        class="chat-input"
+        placeholder="Describe your ideal property..."
+        #chatInput
+        (keyup.enter)="onSendMessage(chatInput.value); chatInput.value = ''"
+        [disabled]="isSearching"
+      />
+      <button
+        class="send-btn"
+        (click)="onSendMessage(chatInput.value); chatInput.value = ''"
+        [disabled]="isSearching"
+      >
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
