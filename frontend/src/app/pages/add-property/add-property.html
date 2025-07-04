@@ -1,0 +1,325 @@
+<div class="add-property-page">
+  <!-- Page Header -->
+  <section class="add-property-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="page-title">
+          <span class="title-line">Add Your</span>
+          <span class="title-line"
+            ><span class="highlight">Property</span></span
+          >
+        </h1>
+        <p class="page-description">
+          List your property with us and reach thousands of potential buyers and
+          renters.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Message -->
+  <div class="success-overlay" *ngIf="isSubmitted">
+    <div class="success-content">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>Property Listed Successfully!</h3>
+      <p>
+        Your property has been submitted for review. We'll contact you within 24
+        hours.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="add-property-content" *ngIf="!isSubmitted">
+    <div class="container">
+      <!-- Progress Steps -->
+      <div class="progress-steps">
+        <div
+          class="step"
+          [class.active]="currentStep >= 1"
+          [class.completed]="currentStep > 1"
+        >
+          <div class="step-number">1</div>
+          <div class="step-label">Property Details</div>
+        </div>
+        <div class="step-line" [class.completed]="currentStep > 1"></div>
+        <div
+          class="step"
+          [class.active]="currentStep >= 2"
+          [class.completed]="currentStep > 2"
+        >
+          <div class="step-number">2</div>
+          <div class="step-label">Features & Images</div>
+        </div>
+        <div class="step-line" [class.completed]="currentStep > 2"></div>
+        <div class="step" [class.active]="currentStep >= 3">
+          <div class="step-number">3</div>
+          <div class="step-label">Contact Info</div>
+        </div>
+      </div>
+
+      <!-- Form Container -->
+      <div class="form-container">
+        <div class="form-header">
+          <h3>{{ getStepTitle() }}</h3>
+          <p>Step {{ currentStep }} of {{ totalSteps }}</p>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" #propertyFormRef="ngForm">
+          <!-- Step 1: Property Details -->
+          <div class="form-step" *ngIf="currentStep === 1">
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="title">Property Title *</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  [(ngModel)]="propertyForm.title"
+                  required
+                  class="form-control"
+                  placeholder="e.g., Modern 3-Bedroom Condo in Downtown"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="type">Property Type *</label>
+                <select
+                  id="type"
+                  name="type"
+                  [(ngModel)]="propertyForm.type"
+                  required
+                  class="form-control"
+                >
+                  <option value="">Select property type</option>
+                  <option *ngFor="let type of propertyTypes" [value]="type">
+                    {{ type }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="price">Price (CAD) *</label>
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  [(ngModel)]="propertyForm.price"
+                  required
+                  class="form-control"
+                  placeholder="500000"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bedrooms">Bedrooms</label>
+                <input
+                  type="number"
+                  id="bedrooms"
+                  name="bedrooms"
+                  [(ngModel)]="propertyForm.bedrooms"
+                  class="form-control"
+                  min="0"
+                  max="10"
+                />
+              </div>
+              <div class="form-group">
+                <label for="bathrooms">Bathrooms</label>
+                <input
+                  type="number"
+                  id="bathrooms"
+                  name="bathrooms"
+                  [(ngModel)]="propertyForm.bathrooms"
+                  class="form-control"
+                  min="0"
+                  max="10"
+                  step="0.5"
+                />
+              </div>
+              <div class="form-group">
+                <label for="area">Area (sq ft)</label>
+                <input
+                  type="number"
+                  id="area"
+                  name="area"
+                  [(ngModel)]="propertyForm.area"
+                  class="form-control"
+                  placeholder="1200"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="location">Location *</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  [(ngModel)]="propertyForm.location"
+                  required
+                  class="form-control"
+                  placeholder="e.g., Downtown Toronto, ON"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group full-width">
+                <label for="description">Description *</label>
+                <textarea
+                  id="description"
+                  name="description"
+                  [(ngModel)]="propertyForm.description"
+                  required
+                  class="form-control"
+                  rows="6"
+                  placeholder="Describe your property, its unique features, neighborhood, and what makes it special..."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Features & Images -->
+          <div class="form-step" *ngIf="currentStep === 2">
+            <div class="form-group">
+              <label>Property Features</label>
+              <div class="features-grid">
+                <div
+                  *ngFor="let feature of availableFeatures"
+                  class="feature-item"
+                  [class.selected]="isFeatureSelected(feature)"
+                  (click)="toggleFeature(feature)"
+                >
+                  <i
+                    class="fas fa-check"
+                    *ngIf="isFeatureSelected(feature)"
+                  ></i>
+                  <span>{{ feature }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Property Images</label>
+              <div class="image-upload-area">
+                <div class="upload-placeholder">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <h4>Upload Property Images</h4>
+                  <p>Drag and drop images here or click to browse</p>
+                  <button type="button" class="upload-btn">
+                    Choose Images
+                  </button>
+                </div>
+              </div>
+              <p class="upload-hint">
+                You can upload up to 10 images. Supported formats: JPG, PNG,
+                WEBP
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3: Contact Information -->
+          <div class="form-step" *ngIf="currentStep === 3">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Full Name *</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="contactName"
+                  [(ngModel)]="propertyForm.contactName"
+                  required
+                  class="form-control"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Email Address *</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="contactEmail"
+                  [(ngModel)]="propertyForm.contactEmail"
+                  required
+                  class="form-control"
+                  placeholder="Enter your email"
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactPhone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="contactPhone"
+                  name="contactPhone"
+                  [(ngModel)]="propertyForm.contactPhone"
+                  class="form-control"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </div>
+
+            <div class="terms-section">
+              <label class="checkbox-container">
+                <input type="checkbox" required />
+                <span class="checkmark"></span>
+                <span class="terms-text">
+                  I agree to the
+                  <a href="#" class="terms-link">Terms of Service</a> and
+                  <a href="#" class="terms-link">Privacy Policy</a>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="form-navigation">
+            <button
+              type="button"
+              class="nav-btn prev-btn"
+              (click)="prevStep()"
+              *ngIf="currentStep > 1"
+            >
+              <i class="fas fa-arrow-left"></i>
+              Previous
+            </button>
+
+            <button
+              type="button"
+              class="nav-btn next-btn"
+              (click)="nextStep()"
+              *ngIf="currentStep < totalSteps"
+            >
+              Next
+              <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <button
+              type="submit"
+              class="nav-btn submit-btn"
+              *ngIf="currentStep === totalSteps"
+              [disabled]="!propertyFormRef.form.valid || isSubmitting"
+            >
+              <span *ngIf="!isSubmitting">
+                <i class="fas fa-check"></i>
+                Submit Property
+              </span>
+              <span *ngIf="isSubmitting">
+                <i class="fas fa-spinner fa-spin"></i>
+                Submitting...
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

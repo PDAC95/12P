@@ -24,6 +24,16 @@ export const routes: Routes = [
       import('./pages/ai-search/ai-search').then((c) => c.AiSearch),
   },
   {
+    path: 'contact',
+    loadComponent: () =>
+      import('./pages/contact/contact').then((c) => c.Contact),
+  },
+  {
+    path: 'add-property',
+    loadComponent: () =>
+      import('./pages/add-property/add-property').then((c) => c.AddProperty),
+  },
+  {
     path: 'auth/login',
     loadComponent: () =>
       import('./features/auth/login/login').then((c) => c.Login),

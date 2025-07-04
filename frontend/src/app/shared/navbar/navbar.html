@@ -1,16 +1,13 @@
-<!-- src/app/shared/navbar/navbar.html -->
 <nav
   class="navbar navbar-expand-lg fixed-top"
   [class.navbar-scrolled]="isScrolled"
 >
   <div class="container">
-    <!-- Logo estilo Bery -->
     <a class="navbar-brand d-flex align-items-center" routerLink="/">
       <span class="logo-text">🏠 Plaice</span>
       <small class="text-muted ms-1">Real Estate</small>
     </a>
 
-    <!-- Mobile toggle -->
     <button
       class="navbar-toggler"
       type="button"
@@ -20,9 +17,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navigation -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Center Menu -->
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <a
@@ -44,29 +39,70 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active"
-            >Login</a
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active"
+            >Contact</a
           >
         </li>
       </ul>
 
-      <!-- Right side -->
       <div class="d-flex align-items-center">
-        <!-- User Avatar -->
-        <div class="user-avatar me-3">
-          <img
-            src="https://via.placeholder.com/40x40/016450/ffffff?text=U"
-            alt="User"
-            class="rounded-circle"
-            width="40"
-            height="40"
-          />
+        <div class="user-dropdown-container position-relative me-3">
+          <div class="user-avatar" (click)="toggleUserDropdown()">
+            <img
+              *ngIf="isUserLoggedIn"
+              src="https://via.placeholder.com/40x40/016450/ffffff?text=U"
+              alt="User"
+              class="rounded-circle user-image"
+              width="40"
+              height="40"
+            />
+            <div *ngIf="!isUserLoggedIn" class="user-icon">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+
+          <div
+            class="user-dropdown"
+            [class.show]="showUserDropdown"
+            *ngIf="showUserDropdown"
+          >
+            <div *ngIf="!isUserLoggedIn" class="dropdown-content">
+              <a routerLink="/auth/login" class="dropdown-item">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Login</span>
+              </a>
+              <a routerLink="/auth/register" class="dropdown-item">
+                <i class="fas fa-user-plus"></i>
+                <span>Sign Up</span>
+              </a>
+            </div>
+
+            <div *ngIf="isUserLoggedIn" class="dropdown-content">
+              <div class="user-info">
+                <div class="user-name">John Doe</div>
+                <div class="user-email">john&#64;example.com</div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a routerLink="/users/profile" class="dropdown-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+              </a>
+              <a routerLink="/users/dashboard" class="dropdown-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)="onLogout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Add Property Button -->
         <button
           class="btn btn-primary btn-add-property"
-          routerLink="/auth/register"
+          routerLink="/add-property"
         >
           Add Property
         </button>

@@ -1,0 +1,202 @@
+<div class="contact-page">
+  <!-- Page Header -->
+  <section class="contact-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="page-title">
+          <span class="title-line">Get in</span>
+          <span class="title-line"><span class="highlight">Touch</span></span>
+        </h1>
+        <p class="page-description">
+          Have questions about properties or need assistance? We're here to help
+          you find your perfect home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Contact Form (Left) -->
+        <div class="form-column">
+          <div class="form-container">
+            <div class="form-header">
+              <h3>Send us a Message</h3>
+              <p>
+                Fill out the form below and we'll get back to you as soon as
+                possible.
+              </p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" *ngIf="isSubmitted">
+              <i class="fas fa-check-circle"></i>
+              <span>Thank you! Your message has been sent successfully.</span>
+            </div>
+
+            <form (ngSubmit)="onSubmit()" #contactFormRef="ngForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    [(ngModel)]="contactForm.name"
+                    required
+                    class="form-control"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    [(ngModel)]="contactForm.email"
+                    required
+                    class="form-control"
+                    placeholder="Enter your email"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    [(ngModel)]="contactForm.phone"
+                    class="form-control"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject *</label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    [(ngModel)]="contactForm.subject"
+                    required
+                    class="form-control"
+                  >
+                    <option value="">Select a subject</option>
+                    <option *ngFor="let subject of subjects" [value]="subject">
+                      {{ subject }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  [(ngModel)]="contactForm.message"
+                  required
+                  class="form-control"
+                  rows="6"
+                  placeholder="Tell us how we can help you..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="submit-btn"
+                [disabled]="!contactFormRef.form.valid || isSubmitting"
+              >
+                <span *ngIf="!isSubmitting">
+                  <i class="fas fa-paper-plane"></i>
+                  Send Message
+                </span>
+                <span *ngIf="isSubmitting">
+                  <i class="fas fa-spinner fa-spin"></i>
+                  Sending...
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Info (Right) -->
+        <div class="info-column">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>Get in touch with us through any of these channels</p>
+
+            <div class="info-items">
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h5>Office Address</h5>
+                  <p>
+                    123 Real Estate Avenue<br />Kitchener, ON N2M 1P4<br />Canada
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="info-content">
+                  <h5>Phone Number</h5>
+                  <p>+1 (519) 555-0123</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-content">
+                  <h5>Email Address</h5>
+                  <p>info&#64;plaice.com<br />support&#64;plaice.com</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="info-content">
+                  <h5>Business Hours</h5>
+                  <p>
+                    Monday - Friday: 9:00 AM - 6:00 PM<br />Saturday: 10:00 AM -
+                    4:00 PM<br />Sunday: Closed
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-section">
+              <h5>Follow Us</h5>
+              <div class="social-links">
+                <a href="#" class="social-link">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
