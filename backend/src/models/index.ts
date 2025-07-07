@@ -1,5 +1,8 @@
 // src/types/index.ts
-import { Document, ObjectId } from "mongoose";
+import { Document, Types } from "mongoose";
+
+// Use Types.ObjectId instead of ObjectId
+export type ObjectId = Types.ObjectId;
 
 // Base interface for all documents
 export interface BaseDocument extends Document {
@@ -23,6 +26,12 @@ export interface IUser extends BaseDocument {
   emailVerificationToken?: string;
   resetPasswordToken?: string;
   resetPasswordExpires?: Date;
+
+  // Instance methods
+  comparePassword?(candidatePassword: string): Promise<boolean>;
+  getFullName?(): string;
+  generateEmailVerificationToken?(): string;
+  generatePasswordResetToken?(): string;
 }
 
 // Location interface for properties
@@ -67,16 +76,27 @@ export interface IProperty extends BaseDocument {
   views: number;
   featured: boolean;
   listingDate: Date;
+
+  // Virtual properties
+  pricePerSqFt?: number;
+  daysOnMarket?: number;
+
+  // Instance methods
+  incrementViews?(): Promise<IProperty>;
+  getFormattedPrice?(): string;
+  getFullAddress?(): string;
+  isAvailable?(): boolean;
 }
 
 // Chat and AI Search related types
 export type MessageType = "user" | "ai";
 
 export interface IChatMessage {
+  _id?: Types.ObjectId;
   type: MessageType;
   content: string;
   timestamp: Date;
-  searchResults?: ObjectId[]; // References to Properties
+  searchResults?: Types.ObjectId[];
   metadata?: {
     searchQuery?: string;
     filters?: any;
@@ -90,6 +110,30 @@ export interface IChatSession extends BaseDocument {
   messages: IChatMessage[];
   isActive: boolean;
   lastActivity: Date;
+
+  // Virtual properties
+  duration?: number;
+  formattedDuration?: string;
+  messageSummary?: {
+    total: number;
+    user: number;
+    ai: number;
+  };
+
+  // Instance methods
+  addUserMessage?(content: string): Promise<IChatSession>;
+  addAIMessage?(
+    content: string,
+    searchResults?: ObjectId[],
+    metadata?: any
+  ): Promise<IChatSession>;
+  getRecentMessages?(limit?: number): IChatMessage[];
+  getMessageCount?(): number;
+  getUserMessageCount?(): number;
+  getAIMessageCount?(): number;
+  archive?(): Promise<IChatSession>;
+  reactivate?(): Promise<IChatSession>;
+  clearMessages?(): Promise<IChatSession>;
 }
 
 // Contact form interface
@@ -210,4 +254,18 @@ export interface IEnvironmentVariables {
   SMTP_PORT?: string;
   SMTP_USER?: string;
   SMTP_PASS?: string;
+}
+
+// JWT Payload interface
+export interface IJWTPayload {
+  userId: ObjectId;
+  email: string;
+  userType: UserType;
+  iat?: number;
+  exp?: number;
+}
+
+// Request interface with user
+export interface IAuthenticatedRequest extends Request {
+  user?: IUser;
 }
