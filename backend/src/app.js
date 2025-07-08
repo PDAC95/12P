@@ -13,6 +13,7 @@ const { logInfo, logError } = require("./utils/logger");
 
 // Import route handlers
 const propertyRoutes = require("./routes/propertyRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 // Create Express application
 const app = express();
@@ -46,6 +47,7 @@ logInfo("12P Backend API Starting", {
 
 // API Routes
 app.use("/api/properties", propertyRoutes);
+app.use("/api/auth", authRoutes);
 
 // Health check route with enhanced response
 app.get("/api/health", (req, res) => {
@@ -60,6 +62,10 @@ app.get("/api/health", (req, res) => {
         used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + " MB",
         total:
           Math.round(process.memoryUsage().heapTotal / 1024 / 1024) + " MB",
+      },
+      endpoints: {
+        properties: "/api/properties",
+        auth: "/api/auth",
       },
     };
 
