@@ -1,0 +1,158 @@
+// src/app/pages/dashboard/agent-dashboard.scss
+.dashboard-page {
+  min-height: 100vh;
+  padding-top: 120px;
+  background: #f8fafc;
+
+  .dashboard-header {
+    padding: 3rem 0 1rem;
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      rgba(1, 100, 80, 0.02) 100%
+    );
+    border-bottom: 1px solid rgba(1, 100, 80, 0.1);
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .header-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+
+      .page-title {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        color: #0b2c3d;
+        margin-bottom: 1.5rem;
+
+        .title-line {
+          display: block;
+          margin-bottom: 0.2em;
+        }
+
+        .highlight {
+          color: #b39359;
+        }
+      }
+
+      .page-description {
+        font-size: 1.125rem;
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 0;
+        font-family: "Inter", sans-serif;
+      }
+    }
+  }
+
+  .dashboard-content {
+    padding: 4rem 0;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+
+      .dashboard-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: 0 10px 40px rgba(1, 100, 80, 0.1);
+        border: 1px solid rgba(1, 100, 80, 0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 60px rgba(1, 100, 80, 0.15);
+        }
+
+        h3 {
+          font-family: "Lora", serif;
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #0b2c3d;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          color: #64748b;
+          font-family: "Karla", sans-serif;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+        }
+
+        .btn {
+          background: linear-gradient(135deg, #b39359 0%, #c5a572 100%);
+          color: white;
+          border: none;
+          padding: 0.8rem 2rem;
+          border-radius: 12px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          font-family: "Karla", sans-serif;
+
+          &:hover {
+            background: linear-gradient(135deg, #016450 0%, #0b2c3d 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(179, 147, 89, 0.3);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding-top: 100px;
+
+    .dashboard-header {
+      padding: 2rem 0 1rem;
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .header-content {
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .page-description {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .dashboard-content {
+      padding: 2rem 0;
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        .dashboard-card {
+          padding: 2rem;
+        }
+      }
+    }
+  }
+}

@@ -43,6 +43,21 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/auth/register/register').then((c) => c.Register),
   },
+  // Dashboard routes for different user roles
+  {
+    path: 'agent/dashboard',
+    loadComponent: () =>
+      import('./pages/dashboard/agent-dashboard/agent-dashboard').then(
+        (c) => c.AgentDashboard
+      ),
+  },
+  {
+    path: 'admin/dashboard',
+    loadComponent: () =>
+      import('./pages/dashboard/admin-dashboard/admin-dashboard').then(
+        (c) => c.AdminDashboard
+      ),
+  },
   {
     path: 'chat',
     redirectTo: 'ai-search',
