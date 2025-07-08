@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-07-08T15:55:28.868Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T15:55:51.729Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T15:56:02.522Z",
+  "level": "ERROR",
+  "message": "This is a test error for development",
+  "stack": "Error: This is a test error for development\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\app.js:74:19\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at urlencodedParser (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\body-parser\\lib\\types\\urlencoded.js:94:7)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)",
+  "request": {
+    "method": "GET",
+    "url": "/api/test-error",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0",
+    "body": {},
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-07-08T15:56:02.688Z",
+  "level": "INFO",
+  "message": "Route not found",
+  "path": "/favicon.ico",
+  "method": "GET",
+  "ip": "::1"
+}
