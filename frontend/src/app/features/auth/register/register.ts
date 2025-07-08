@@ -44,10 +44,16 @@ export class Register {
   passwordStrength = 0;
 
   userTypes = [
-    { value: 'client', label: 'Property Buyer' },
-    { value: 'client', label: 'Property Seller' },
-    { value: 'agent', label: 'Real Estate Agent' },
-    { value: 'client', label: 'Property Investor' },
+    {
+      value: 'client',
+      label: 'Property Seeker',
+      description: "I'm looking for properties to buy or rent",
+    },
+    {
+      value: 'agent',
+      label: 'Property Lister',
+      description: 'I want to list and manage properties',
+    },
   ];
 
   constructor(private authService: AuthService, private router: Router) {
@@ -155,6 +161,11 @@ export class Register {
 
   passwordsMatch(): boolean {
     return this.registerForm.password === this.registerForm.confirmPassword;
+  }
+
+  selectUserType(userType: string): void {
+    this.registerForm.userType = userType;
+    console.log('🔧 User type selected:', userType);
   }
 
   private isValidForm(): boolean {

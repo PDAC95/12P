@@ -1601,3 +1601,20 @@
   "role": "client",
   "lastLogin": "2025-07-08T19:10:18.396Z"
 }
+{
+  "timestamp": "2025-07-08T19:44:46.818Z",
+  "level": "INFO",
+  "message": "User registration attempt",
+  "email": "test.user2@example.com",
+  "role": "client",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0"
+}
+{
+  "timestamp": "2025-07-08T19:44:47.069Z",
+  "level": "INFO",
+  "message": "User registration successful",
+  "userId": "686d752e8de09a4f48df03ac",
+  "email": "test.user2@example.com",
+  "role": "client"
+}

@@ -105,20 +105,39 @@
             />
           </div>
 
-          <div class="form-field">
-            <label for="userType">I am a</label>
-            <select
-              id="userType"
+          <div class="form-field user-type-field">
+            <label>I am a</label>
+            <div class="user-type-options">
+              <div
+                *ngFor="let type of userTypes"
+                class="user-type-card"
+                [class.selected]="registerForm.userType === type.value"
+                (click)="selectUserType(type.value)"
+              >
+                <div class="type-icon">
+                  <i
+                    [class]="type.value === 'client' ? 'fas fa-search-location' : 'fas fa-home'"
+                  ></i>
+                </div>
+                <div class="type-content">
+                  <h4>{{ type.label }}</h4>
+                  <p>{{ type.description }}</p>
+                </div>
+                <div
+                  class="type-check"
+                  *ngIf="registerForm.userType === type.value"
+                >
+                  <i class="fas fa-check-circle"></i>
+                </div>
+              </div>
+            </div>
+            <!-- Hidden input for form validation -->
+            <input
+              type="hidden"
               name="userType"
               [(ngModel)]="registerForm.userType"
               required
-              class="form-input"
-            >
-              <option value="">Select your role</option>
-              <option *ngFor="let type of userTypes" [value]="type.value">
-                {{ type.label }}
-              </option>
-            </select>
+            />
           </div>
 
           <div class="form-field">

@@ -489,3 +489,119 @@
     }
   }
 }
+// User Type Selection Cards
+.user-type-field {
+  .user-type-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    .user-type-card {
+      position: relative;
+      padding: 1.5rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 140px;
+
+      &:hover {
+        border-color: #cbd5e1;
+        background: #f8fafc;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      &.selected {
+        border-color: #3b82f6;
+        background: #eff6ff;
+        box-shadow: 0 0 0 1px #3b82f6;
+
+        .type-icon i {
+          color: #3b82f6;
+        }
+
+        .type-content h4 {
+          color: #1e40af;
+        }
+      }
+
+      .type-icon {
+        margin-bottom: 0.75rem;
+
+        i {
+          font-size: 2rem;
+          color: #6b7280;
+          transition: color 0.3s ease;
+        }
+      }
+
+      .type-content {
+        flex: 1;
+
+        h4 {
+          font-family: "Inter", sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #374151;
+          margin: 0 0 0.5rem 0;
+          transition: color 0.3s ease;
+        }
+
+        p {
+          font-family: "Inter", sans-serif;
+          font-size: 0.8rem;
+          color: #6b7280;
+          margin: 0;
+          line-height: 1.4;
+        }
+      }
+
+      .type-check {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+
+        i {
+          font-size: 1.2rem;
+          color: #10b981;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design for user type cards
+@media (max-width: 640px) {
+  .user-type-field {
+    .user-type-options {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+
+      .user-type-card {
+        min-height: 120px;
+        padding: 1.25rem 1rem;
+
+        .type-icon i {
+          font-size: 1.75rem;
+        }
+
+        .type-content {
+          h4 {
+            font-size: 0.9rem;
+          }
+
+          p {
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
