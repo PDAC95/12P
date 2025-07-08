@@ -2,7 +2,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
+import { AuthService, RegisterData } from '../../../services/auth.service';
 
 export interface RegisterForm {
   firstName: string;
@@ -43,26 +44,74 @@ export class Register {
   passwordStrength = 0;
 
   userTypes = [
-    { value: 'buyer', label: 'Property Buyer' },
-    { value: 'seller', label: 'Property Seller' },
+    { value: 'client', label: 'Property Buyer' },
+    { value: 'client', label: 'Property Seller' },
     { value: 'agent', label: 'Real Estate Agent' },
-    { value: 'investor', label: 'Property Investor' },
+    { value: 'client', label: 'Property Investor' },
   ];
+
+  constructor(private authService: AuthService, private router: Router) {
+    // Redirect if already authenticated
+    if (this.authService.isAuthenticated()) {
+      this.redirectBasedOnRole();
+    }
+  }
 
   onSubmit(): void {
     if (this.isValidForm()) {
       this.isSubmitting = true;
       this.registerError = '';
 
-      // Simular proceso de registro
-      setTimeout(() => {
-        console.log('📝 Registration Attempt:', this.registerForm);
+      const userData: RegisterData = {
+        firstName: this.registerForm.firstName.trim(),
+        lastName: this.registerForm.lastName.trim(),
+        email: this.registerForm.email.trim().toLowerCase(),
+        password: this.registerForm.password,
+        phone: this.registerForm.phone.trim() || undefined,
+        role: (this.registerForm.userType as 'client' | 'agent') || 'client',
+      };
 
-        // Simular registro exitoso
-        console.log('✅ Registration successful');
-        this.isSubmitting = false;
-        // Aquí redirigirías a login o dashboard
-      }, 2000);
+      // Add agent info if user is registering as agent
+      if (userData.role === 'agent') {
+        userData.agentInfo = {
+          // This could be expanded with more agent-specific fields
+          experience: 0,
+          specializations: [],
+        };
+      }
+
+      this.authService.register(userData).subscribe({
+        next: (response) => {
+          console.log('✅ Registration successful:', response);
+          this.isSubmitting = false;
+
+          // Redirect based on user role
+          this.redirectBasedOnRole();
+        },
+        error: (error) => {
+          console.error('❌ Registration failed:', error);
+          this.isSubmitting = false;
+
+          // Handle different types of errors
+          if (error.error?.error?.message) {
+            this.registerError = error.error.error.message;
+          } else if (error.error?.error?.details?.errors) {
+            // Handle validation errors
+            const errors = error.error.error.details.errors;
+            this.registerError = Array.isArray(errors)
+              ? errors.join(', ')
+              : errors[0];
+          } else if (error.error?.message) {
+            this.registerError = error.error.message;
+          } else if (error.status === 0) {
+            this.registerError =
+              'Unable to connect to server. Please check your connection.';
+          } else {
+            this.registerError =
+              'An unexpected error occurred. Please try again.';
+          }
+        },
+      });
     }
   }
 
@@ -122,12 +171,39 @@ export class Register {
     );
   }
 
-  // Métodos para registro social (placeholder)
+  private redirectBasedOnRole(): void {
+    const user = this.authService.getCurrentUserValue();
+
+    if (!user) {
+      this.router.navigate(['/']);
+      return;
+    }
+
+    // Redirect based on user role
+    switch (user.role) {
+      case 'admin':
+        this.router.navigate(['/admin/dashboard']);
+        break;
+      case 'agent':
+        this.router.navigate(['/agent/dashboard']);
+        break;
+      case 'client':
+      default:
+        this.router.navigate(['/']);
+        break;
+    }
+
+    console.log(`🔄 Redirecting ${user.role} to appropriate dashboard`);
+  }
+
+  // Social registration methods (placeholder for future implementation)
   registerWithGoogle(): void {
     console.log('🔑 Google Registration initiated');
+    // TODO: Implement Google OAuth registration
   }
 
   registerWithFacebook(): void {
     console.log('🔑 Facebook Registration initiated');
+    // TODO: Implement Facebook OAuth registration
   }
 }

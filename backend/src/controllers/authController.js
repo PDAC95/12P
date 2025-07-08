@@ -38,15 +38,13 @@ const register = async (req, res, next) => {
     if (existingUser) {
       logWarning("Registration attempt with existing email", { email });
       const errorObj = createError("AUTH", "USER_EXISTS");
-      return sendError(res, "User already exists with this email", 400);
+      return sendError(res, errorObj.message, errorObj.statusCode);
     }
 
     // Validate password strength
     if (password.length < 8) {
-      return sendValidationError(
-        res,
-        "Password must be at least 8 characters long"
-      );
+      const errorObj = createError("AUTH", "PASSWORD_TOO_WEAK");
+      return sendValidationError(res, errorObj.message);
     }
 
     // Create user data
@@ -98,7 +96,7 @@ const register = async (req, res, next) => {
     // Handle duplicate key error (email already exists)
     if (error.code === 11000) {
       const errorObj = createError("AUTH", "USER_EXISTS");
-      return sendError(res, errorObj.message, 400);
+      return sendError(res, errorObj.message, errorObj.statusCode);
     }
 
     // Handle validation errors
@@ -136,6 +134,7 @@ const login = async (req, res, next) => {
 
     // Validate required fields - ONLY email and password for login
     if (!email || !password) {
+      const errorObj = createError("VALIDATION", "REQUIRED_FIELD");
       return sendValidationError(res, "Email and password are required");
     }
 
@@ -144,7 +143,8 @@ const login = async (req, res, next) => {
 
     if (!user) {
       logWarning("Login attempt with non-existent email", { email });
-      return sendError(res, "Invalid email or password", 401);
+      const errorObj = createError("AUTH", "INVALID_CREDENTIALS");
+      return sendError(res, errorObj.message, errorObj.statusCode);
     }
 
     // Check if user is active
@@ -153,7 +153,8 @@ const login = async (req, res, next) => {
         userId: user._id,
         email,
       });
-      return sendError(res, "Account is deactivated", 401);
+      const errorObj = createError("AUTH", "ACCOUNT_LOCKED");
+      return sendError(res, errorObj.message, errorObj.statusCode);
     }
 
     // Verify password
@@ -164,7 +165,8 @@ const login = async (req, res, next) => {
         userId: user._id,
         email,
       });
-      return sendError(res, "Invalid email or password", 401);
+      const errorObj = createError("AUTH", "INVALID_CREDENTIALS");
+      return sendError(res, errorObj.message, errorObj.statusCode);
     }
 
     // Update last login

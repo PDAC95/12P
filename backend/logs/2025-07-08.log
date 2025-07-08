@@ -1396,3 +1396,208 @@
   "userId": "686d59cc74e0bd046e2a8d93",
   "email": "john.doe@example.com"
 }
+{
+  "timestamp": "2025-07-08T18:04:22.802Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T18:04:22.808Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-08T18:04:22.855Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-08T18:04:22.888Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-08T18:04:22.892Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-08T18:10:26.142Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "usuario.inexistente@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.0"
+}
+{
+  "timestamp": "2025-07-08T18:10:26.147Z",
+  "level": "WARN",
+  "message": "Login attempt with non-existent email",
+  "email": "usuario.inexistente@example.com"
+}
+{
+  "timestamp": "2025-07-08T18:12:41.385Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T18:12:41.391Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-08T18:12:41.424Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-08T18:12:41.458Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-08T18:12:41.462Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-08T18:12:55.814Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "usuario.inexistente@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.0"
+}
+{
+  "timestamp": "2025-07-08T18:12:55.819Z",
+  "level": "WARN",
+  "message": "Login attempt with non-existent email",
+  "email": "usuario.inexistente@example.com"
+}
+{
+  "timestamp": "2025-07-08T18:13:37.987Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.0"
+}
+{
+  "timestamp": "2025-07-08T18:13:38.260Z",
+  "level": "WARN",
+  "message": "Login attempt with invalid password",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-08T18:16:14.774Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.0"
+}
+{
+  "timestamp": "2025-07-08T18:17:59.046Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T18:17:59.052Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-08T18:17:59.082Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-08T18:17:59.104Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-08T18:17:59.106Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-08T18:19:35.830Z",
+  "level": "INFO",
+  "message": "User registration attempt",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.0"
+}
+{
+  "timestamp": "2025-07-08T18:19:35.842Z",
+  "level": "WARN",
+  "message": "Registration attempt with existing email",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-08T18:20:09.092Z",
+  "level": "INFO",
+  "message": "User registration attempt",
+  "email": "test.user@example.com",
+  "role": "client",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.0"
+}
+{
+  "timestamp": "2025-07-08T19:10:18.130Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0"
+}
+{
+  "timestamp": "2025-07-08T19:10:18.417Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "lastLogin": "2025-07-08T19:10:18.396Z"
+}
