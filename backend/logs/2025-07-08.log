@@ -38,3 +38,582 @@
   "method": "GET",
   "ip": "::1"
 }
+{
+  "timestamp": "2025-07-08T16:37:09.769Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:37:15.280Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:37:44.960Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:38:54.956Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:39:19.826Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:39:28.085Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:39:41.691Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:39:50.684Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:40:04.461Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:40:39.200Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:40:39.203Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "Connected"
+}
+{
+  "timestamp": "2025-07-08T16:40:39.212Z",
+  "level": "ERROR",
+  "message": "MongoDB connection failed",
+  "error": "option buffermaxentries is not supported",
+  "stack": "MongoParseError: option buffermaxentries is not supported\n    at parseOptions (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\connection_string.js:273:15)\n    at new MongoClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\mongo_client.js:48:63)\n    at NativeConnection.createClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\connection.js:288:14)\n    at NativeConnection.openUri (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:766:34)\n    at Mongoose.connect (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\index.js:416:15)\n    at connectDB (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\config\\database.js:24:33)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:15:11)\n    at Object.<anonymous> (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:104:1)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)"
+}
+{
+  "timestamp": "2025-07-08T16:40:52.559Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:40:52.566Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "Connected"
+}
+{
+  "timestamp": "2025-07-08T16:40:52.578Z",
+  "level": "ERROR",
+  "message": "MongoDB connection failed",
+  "error": "option buffermaxentries is not supported",
+  "stack": "MongoParseError: option buffermaxentries is not supported\n    at parseOptions (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\connection_string.js:273:15)\n    at new MongoClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\mongo_client.js:48:63)\n    at NativeConnection.createClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\connection.js:288:14)\n    at NativeConnection.openUri (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:766:34)\n    at Mongoose.connect (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\index.js:416:15)\n    at connectDB (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\config\\database.js:24:33)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:15:11)\n    at Object.<anonymous> (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:104:1)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)"
+}
+{
+  "timestamp": "2025-07-08T16:41:03.084Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:41:03.087Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "Connected"
+}
+{
+  "timestamp": "2025-07-08T16:41:03.093Z",
+  "level": "ERROR",
+  "message": "MongoDB connection failed",
+  "error": "option buffermaxentries is not supported",
+  "stack": "MongoParseError: option buffermaxentries is not supported\n    at parseOptions (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\connection_string.js:273:15)\n    at new MongoClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\mongo_client.js:48:63)\n    at NativeConnection.createClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\connection.js:288:14)\n    at NativeConnection.openUri (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:766:34)\n    at Mongoose.connect (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\index.js:416:15)\n    at connectDB (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\config\\database.js:24:33)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:15:11)\n    at Object.<anonymous> (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:104:1)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)"
+}
+{
+  "timestamp": "2025-07-08T16:41:09.778Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:41:09.781Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "Connected"
+}
+{
+  "timestamp": "2025-07-08T16:41:09.788Z",
+  "level": "ERROR",
+  "message": "MongoDB connection failed",
+  "error": "option buffermaxentries is not supported",
+  "stack": "MongoParseError: option buffermaxentries is not supported\n    at parseOptions (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\connection_string.js:273:15)\n    at new MongoClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\mongo_client.js:48:63)\n    at NativeConnection.createClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\connection.js:288:14)\n    at NativeConnection.openUri (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:766:34)\n    at Mongoose.connect (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\index.js:416:15)\n    at connectDB (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\config\\database.js:24:33)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:15:11)\n    at Object.<anonymous> (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:104:1)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)"
+}
+{
+  "timestamp": "2025-07-08T16:42:02.426Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:42:02.433Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "Connected"
+}
+{
+  "timestamp": "2025-07-08T16:42:02.442Z",
+  "level": "ERROR",
+  "message": "MongoDB connection failed",
+  "error": "option buffermaxentries is not supported",
+  "stack": "MongoParseError: option buffermaxentries is not supported\n    at parseOptions (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\connection_string.js:273:15)\n    at new MongoClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\mongo_client.js:48:63)\n    at NativeConnection.createClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\connection.js:288:14)\n    at NativeConnection.openUri (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:766:34)\n    at Mongoose.connect (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\index.js:416:15)\n    at connectDB (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\config\\database.js:24:33)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:16:11)\n    at Object.<anonymous> (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:111:1)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)"
+}
+{
+  "timestamp": "2025-07-08T16:42:22.548Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:42:22.552Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "Connected"
+}
+{
+  "timestamp": "2025-07-08T16:42:22.559Z",
+  "level": "ERROR",
+  "message": "MongoDB connection failed",
+  "error": "option buffermaxentries is not supported",
+  "stack": "MongoParseError: option buffermaxentries is not supported\n    at parseOptions (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\connection_string.js:273:15)\n    at new MongoClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongodb\\lib\\mongo_client.js:48:63)\n    at NativeConnection.createClient (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\connection.js:288:14)\n    at NativeConnection.openUri (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:766:34)\n    at Mongoose.connect (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\index.js:416:15)\n    at connectDB (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\config\\database.js:24:33)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:16:11)\n    at Object.<anonymous> (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:111:1)\n    at Module._compile (node:internal/modules/cjs/loader:1730:14)\n    at Object..js (node:internal/modules/cjs/loader:1895:10)"
+}
+{
+  "timestamp": "2025-07-08T16:44:48.060Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:44:48.065Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-08T16:44:48.111Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p-real-estate"
+}
+{
+  "timestamp": "2025-07-08T16:44:48.197Z",
+  "level": "INFO",
+  "message": "Mock properties seeded successfully",
+  "count": 5,
+  "properties": [
+    {
+      "id": "686d4b001be99bd3757635bb",
+      "title": "Modern Downtown Kitchener Condo"
+    },
+    {
+      "id": "686d4b001be99bd3757635bd",
+      "title": "Family Home in Waterloo"
+    },
+    {
+      "id": "686d4b001be99bd3757635bf",
+      "title": "Luxury Townhouse in Cambridge"
+    },
+    {
+      "id": "686d4b001be99bd3757635c1",
+      "title": "Cozy Bungalow in Baden"
+    },
+    {
+      "id": "686d4b001be99bd3757635c3",
+      "title": "Executive Loft in Uptown Waterloo"
+    }
+  ]
+}
+{
+  "timestamp": "2025-07-08T16:44:48.202Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-08T16:46:39.147Z",
+  "level": "INFO",
+  "message": "Health check accessed",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:46:55.258Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:46:55.260Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-08T16:46:55.279Z",
+  "level": "ERROR",
+  "message": "Error getting properties",
+  "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)",
+  "stack": "MissingSchemaError: Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)\n    at Connection.model (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:1136:13)\n    at _getModelFromConn (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:585:15)\n    at addModelNamesToMap (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:512:17)\n    at getModelsMapForPopulate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:201:7)\n    at populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4394:21)\n    at _populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4354:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4326:5\n    at new Promise (<anonymous>)\n    at Function.populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4325:10)\n    at model.Query._find (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\query.js:2316:24)",
+  "query": {}
+}
+{
+  "timestamp": "2025-07-08T16:47:15.734Z",
+  "level": "DEBUG",
+  "message": "Getting property by ID",
+  "propertyId": "686d4b001be99bd3757635bb",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:47:15.741Z",
+  "level": "ERROR",
+  "message": "Error getting property by ID",
+  "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)",
+  "stack": "MissingSchemaError: Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)\n    at Connection.model (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:1136:13)\n    at _getModelFromConn (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:585:15)\n    at addModelNamesToMap (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:512:17)\n    at getModelsMapForPopulate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:201:7)\n    at populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4394:21)\n    at _populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4354:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4326:5\n    at new Promise (<anonymous>)\n    at Function.populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4325:10)\n    at Query._completeOne (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\query.js:2507:18)",
+  "propertyId": "686d4b001be99bd3757635bb"
+}
+{
+  "timestamp": "2025-07-08T16:47:15.744Z",
+  "level": "ERROR",
+  "message": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)",
+  "stack": "MissingSchemaError: Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)\n    at Connection.model (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:1136:13)\n    at _getModelFromConn (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:585:15)\n    at addModelNamesToMap (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:512:17)\n    at getModelsMapForPopulate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:201:7)\n    at populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4394:21)\n    at _populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4354:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4326:5\n    at new Promise (<anonymous>)\n    at Function.populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4325:10)\n    at Query._completeOne (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\query.js:2507:18)",
+  "request": {
+    "method": "GET",
+    "url": "/api/properties/686d4b001be99bd3757635bb",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0",
+    "body": {},
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-07-08T16:47:45.846Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "Waterloo"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:47:45.847Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "Waterloo",
+      "$options": "i"
+    }
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-08T16:47:45.859Z",
+  "level": "ERROR",
+  "message": "Error getting properties",
+  "error": "Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)",
+  "stack": "MissingSchemaError: Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)\n    at Connection.model (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\connection.js:1136:13)\n    at _getModelFromConn (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:585:15)\n    at addModelNamesToMap (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:512:17)\n    at getModelsMapForPopulate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\helpers\\populate\\getModelsMapForPopulate.js:201:7)\n    at populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4394:21)\n    at _populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4354:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4326:5\n    at new Promise (<anonymous>)\n    at Function.populate (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\model.js:4325:10)\n    at model.Query._find (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\mongoose\\lib\\query.js:2316:24)",
+  "query": {
+    "city": "Waterloo"
+  }
+}
+{
+  "timestamp": "2025-07-08T16:49:00.019Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:49:00.025Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-08T16:49:00.057Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-08T16:49:00.104Z",
+  "level": "INFO",
+  "message": "Mock properties seeded successfully",
+  "count": 5,
+  "properties": [
+    {
+      "id": "686d4bfc6e372e86b85ce6ab",
+      "title": "Modern Downtown Kitchener Condo"
+    },
+    {
+      "id": "686d4bfc6e372e86b85ce6ad",
+      "title": "Family Home in Waterloo"
+    },
+    {
+      "id": "686d4bfc6e372e86b85ce6af",
+      "title": "Luxury Townhouse in Cambridge"
+    },
+    {
+      "id": "686d4bfc6e372e86b85ce6b1",
+      "title": "Cozy Bungalow in Baden"
+    },
+    {
+      "id": "686d4bfc6e372e86b85ce6b3",
+      "title": "Executive Loft in Uptown Waterloo"
+    }
+  ]
+}
+{
+  "timestamp": "2025-07-08T16:49:00.107Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-08T16:49:01.652Z",
+  "level": "INFO",
+  "message": "SIGINT received, shutting down gracefully"
+}
+{
+  "timestamp": "2025-07-08T16:49:15.374Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T16:49:15.378Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-08T16:49:15.410Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-08T16:49:15.427Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-08T16:49:15.431Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-08T16:49:23.906Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:49:23.907Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-08T16:49:23.916Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-08T16:49:27.996Z",
+  "level": "INFO",
+  "message": "Health check accessed",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:49:31.181Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "Waterloo"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:49:31.183Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "Waterloo",
+      "$options": "i"
+    }
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-08T16:49:31.191Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-08T16:50:28.701Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "2"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-08T16:50:28.702Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 2,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-08T16:50:28.707Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 2,
+  "filtersApplied": true
+}

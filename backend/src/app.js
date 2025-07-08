@@ -11,6 +11,9 @@ const errorHandler = require("./middleware/errorHandler");
 const { sendSuccess, sendNotFound } = require("./utils/apiResponse");
 const { logInfo, logError } = require("./utils/logger");
 
+// Import route handlers
+const propertyRoutes = require("./routes/propertyRoutes");
+
 // Create Express application
 const app = express();
 
@@ -40,6 +43,9 @@ logInfo("12P Backend API Starting", {
   port: process.env.PORT || 5001,
   frontendUrl: process.env.FRONTEND_URL || "http://localhost:4200",
 });
+
+// API Routes
+app.use("/api/properties", propertyRoutes);
 
 // Health check route with enhanced response
 app.get("/api/health", (req, res) => {
