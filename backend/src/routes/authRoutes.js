@@ -1,5 +1,10 @@
 const express = require("express");
-const { register, getCurrentUser } = require("../controllers/authController");
+const {
+  register,
+  login,
+  getCurrentUser,
+} = require("../controllers/authController");
+const { authenticate } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -12,10 +17,18 @@ const router = express.Router();
 router.post("/register", register);
 
 /**
+ * @route   POST /api/auth/login
+ * @desc    Login user and get JWT token
+ * @access  Public
+ * @body    {email, password}
+ */
+router.post("/login", login);
+
+/**
  * @route   GET /api/auth/me
  * @desc    Get current user profile
- * @access  Private
+ * @access  Private (requires authentication)
  */
-router.get("/me", getCurrentUser); // Will add auth middleware later
+router.get("/me", authenticate, getCurrentUser);
 
 module.exports = router;

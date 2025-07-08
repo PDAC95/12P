@@ -8,7 +8,7 @@ const { logInfo, logError, logWarning } = require("../utils/logger");
 const { createError } = require("../utils/errorMessages");
 
 /**
- * Register a new user
+ * Register new user
  * @route POST /api/auth/register
  * @access Public
  */
@@ -29,31 +29,27 @@ const register = async (req, res, next) => {
       const errorObj = createError("VALIDATION", "REQUIRED_FIELD");
       return sendValidationError(
         res,
-        "First name, last name, email, and password are required"
+        "First name, last name, email and password are required"
       );
-    }
-
-    // Validate role
-    if (role && !["client", "agent"].includes(role)) {
-      const errorObj = createError("VALIDATION", "INVALID_FORMAT");
-      return sendValidationError(res, "Role must be either client or agent");
-    }
-
-    // Validate password strength
-    if (password.length < 8) {
-      const errorObj = createError("USER", "PASSWORD_REQUIREMENTS");
-      return sendValidationError(res, errorObj.message);
     }
 
     // Check if user already exists
     const existingUser = await User.findOne({ email: email.toLowerCase() });
     if (existingUser) {
       logWarning("Registration attempt with existing email", { email });
-      const errorObj = createError("USER", "EMAIL_EXISTS");
-      return sendError(res, errorObj.message, 400);
+      const errorObj = createError("AUTH", "USER_EXISTS");
+      return sendError(res, "User already exists with this email", 400);
     }
 
-    // Prepare user data
+    // Validate password strength
+    if (password.length < 8) {
+      return sendValidationError(
+        res,
+        "Password must be at least 8 characters long"
+      );
+    }
+
+    // Create user data
     const userData = {
       firstName: firstName.trim(),
       lastName: lastName.trim(),
@@ -64,25 +60,121 @@ const register = async (req, res, next) => {
 
     // Add optional fields
     if (phone) userData.phone = phone.trim();
-
-    // Add agent-specific information if role is agent
-    if (userData.role === "agent" && agentInfo) {
-      userData.agentInfo = {
-        licenseNumber: agentInfo.licenseNumber?.trim(),
-        agency: agentInfo.agency?.trim(),
-        experience: agentInfo.experience,
-        specializations: agentInfo.specializations || [],
-      };
-    }
+    if (role === "agent" && agentInfo) userData.agentInfo = agentInfo;
 
     // Create new user
-    const user = new User(userData);
+    const newUser = new User(userData);
+    await newUser.save();
+
+    // Generate JWT token
+    const token = newUser.generateAuthToken();
+
+    // Prepare response data
+    const responseData = {
+      user: {
+        id: newUser._id,
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        fullName: newUser.fullName,
+        email: newUser.email,
+        phone: newUser.phone,
+        role: newUser.role,
+        isEmailVerified: newUser.isEmailVerified,
+        createdAt: newUser.createdAt,
+        ...(newUser.role === "agent" && { agentInfo: newUser.agentInfo }),
+      },
+      token,
+      expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+    };
+
+    logInfo("User registration successful", {
+      userId: newUser._id,
+      email: newUser.email,
+      role: newUser.role,
+    });
+
+    sendSuccess(res, responseData, "User registered successfully", 201);
+  } catch (error) {
+    // Handle duplicate key error (email already exists)
+    if (error.code === 11000) {
+      const errorObj = createError("AUTH", "USER_EXISTS");
+      return sendError(res, errorObj.message, 400);
+    }
+
+    // Handle validation errors
+    if (error.name === "ValidationError") {
+      const errorMessages = Object.values(error.errors).map(
+        (err) => err.message
+      );
+      return sendValidationError(res, errorMessages.join(", "));
+    }
+
+    logError("Registration failed - server error", {
+      error: error.message,
+      stack: error.stack,
+      email: req.body.email,
+    });
+
+    next(error);
+  }
+};
+
+/**
+ * Login user
+ * @route POST /api/auth/login
+ * @access Public
+ */
+const login = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    logInfo("User login attempt", {
+      email,
+      ip: req.ip,
+      userAgent: req.get("User-Agent"),
+    });
+
+    // Validate required fields - ONLY email and password for login
+    if (!email || !password) {
+      return sendValidationError(res, "Email and password are required");
+    }
+
+    // Find user by email and include password
+    const user = await User.findByEmailWithPassword(email.toLowerCase());
+
+    if (!user) {
+      logWarning("Login attempt with non-existent email", { email });
+      return sendError(res, "Invalid email or password", 401);
+    }
+
+    // Check if user is active
+    if (!user.isActive) {
+      logWarning("Login attempt for inactive user", {
+        userId: user._id,
+        email,
+      });
+      return sendError(res, "Account is deactivated", 401);
+    }
+
+    // Verify password
+    const isPasswordValid = await user.comparePassword(password);
+
+    if (!isPasswordValid) {
+      logWarning("Login attempt with invalid password", {
+        userId: user._id,
+        email,
+      });
+      return sendError(res, "Invalid email or password", 401);
+    }
+
+    // Update last login
+    user.lastLogin = new Date();
     await user.save();
 
     // Generate JWT token
     const token = user.generateAuthToken();
 
-    // Prepare response data (password is automatically excluded by schema transform)
+    // Prepare response data (password is automatically excluded)
     const responseData = {
       user: {
         id: user._id,
@@ -93,6 +185,7 @@ const register = async (req, res, next) => {
         phone: user.phone,
         role: user.role,
         isEmailVerified: user.isEmailVerified,
+        lastLogin: user.lastLogin,
         createdAt: user.createdAt,
         ...(user.role === "agent" && { agentInfo: user.agentInfo }),
       },
@@ -100,52 +193,19 @@ const register = async (req, res, next) => {
       expiresIn: process.env.JWT_EXPIRES_IN || "7d",
     };
 
-    logInfo("User registered successfully", {
+    logInfo("User login successful", {
       userId: user._id,
       email: user.email,
       role: user.role,
+      lastLogin: user.lastLogin,
     });
 
-    sendSuccess(res, responseData, "User registered successfully", 201);
+    sendSuccess(res, responseData, "Login successful", 200);
   } catch (error) {
-    // Handle MongoDB duplicate key error
-    if (error.code === 11000) {
-      const field = Object.keys(error.keyValue)[0];
-      let message;
-
-      if (field === "email") {
-        const errorObj = createError("USER", "EMAIL_EXISTS");
-        message = errorObj.message;
-      } else if (field === "phone") {
-        const errorObj = createError("USER", "PHONE_EXISTS");
-        message = errorObj.message;
-      } else {
-        message = `${field} already exists`;
-      }
-
-      logWarning("Registration failed - duplicate key", {
-        field,
-        value: error.keyValue[field],
-      });
-
-      return sendError(res, message, 400);
-    }
-
-    // Handle validation errors
-    if (error.name === "ValidationError") {
-      const errors = Object.values(error.errors).map((err) => ({
-        field: err.path,
-        message: err.message,
-      }));
-
-      logWarning("Registration failed - validation error", { errors });
-      return sendValidationError(res, errors);
-    }
-
-    logError("Registration failed - server error", {
+    logError("Login failed - server error", {
       error: error.message,
       stack: error.stack,
-      requestBody: { ...req.body, password: "[REDACTED]" },
+      email: req.body.email,
     });
 
     next(error);
@@ -159,34 +219,56 @@ const register = async (req, res, next) => {
  */
 const getCurrentUser = async (req, res, next) => {
   try {
-    // req.user is set by auth middleware
-    const user = await User.findById(req.user.id);
+    // Note: req.user will be set by auth middleware (to be implemented)
+    const userId = req.user?.id;
+
+    if (!userId) {
+      const errorObj = createError("AUTH", "UNAUTHORIZED");
+      return sendError(res, errorObj.message, 401);
+    }
+
+    // Find user by ID
+    const user = await User.findById(userId);
 
     if (!user) {
-      const errorObj = createError("USER", "NOT_FOUND");
+      const errorObj = createError("AUTH", "USER_NOT_FOUND");
       return sendError(res, errorObj.message, 404);
     }
 
-    logInfo("User profile accessed", { userId: user._id });
+    // Check if user is active
+    if (!user.isActive) {
+      const errorObj = createError("AUTH", "ACCOUNT_LOCKED");
+      return sendError(res, errorObj.message, 401);
+    }
 
+    // Prepare response data
     const responseData = {
-      id: user._id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      fullName: user.fullName,
-      email: user.email,
-      phone: user.phone,
-      role: user.role,
-      isEmailVerified: user.isEmailVerified,
-      lastLogin: user.lastLogin,
-      createdAt: user.createdAt,
-      ...(user.role === "agent" && { agentInfo: user.agentInfo }),
+      user: {
+        id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        fullName: user.fullName,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+        isEmailVerified: user.isEmailVerified,
+        lastLogin: user.lastLogin,
+        createdAt: user.createdAt,
+        preferences: user.preferences,
+        ...(user.role === "agent" && { agentInfo: user.agentInfo }),
+      },
     };
 
-    sendSuccess(res, responseData, "User profile retrieved successfully");
+    logInfo("User profile retrieved", {
+      userId: user._id,
+      email: user.email,
+    });
+
+    sendSuccess(res, responseData, "User profile retrieved successfully", 200);
   } catch (error) {
-    logError("Error getting current user", {
+    logError("Get current user failed - server error", {
       error: error.message,
+      stack: error.stack,
       userId: req.user?.id,
     });
 
@@ -196,5 +278,6 @@ const getCurrentUser = async (req, res, next) => {
 
 module.exports = {
   register,
+  login,
   getCurrentUser,
 };
