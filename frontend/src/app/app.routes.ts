@@ -1,5 +1,6 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
+import { authGuard, adminGuard, agentGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,7 @@ export const routes: Routes = [
     path: 'add-property',
     loadComponent: () =>
       import('./pages/add-property/add-property').then((c) => c.AddProperty),
+    canActivate: [authGuard], // Protected route - requires authentication
   },
   {
     path: 'auth/login',
@@ -43,13 +45,14 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/auth/register/register').then((c) => c.Register),
   },
-  // Dashboard routes for different user roles
+  // Dashboard routes for different user roles - Protected with specific guards
   {
     path: 'agent/dashboard',
     loadComponent: () =>
       import('./pages/dashboard/agent-dashboard/agent-dashboard').then(
         (c) => c.AgentDashboard
       ),
+    canActivate: [agentGuard], // Only agents can access
   },
   {
     path: 'admin/dashboard',
@@ -57,6 +60,7 @@ export const routes: Routes = [
       import('./pages/dashboard/admin-dashboard/admin-dashboard').then(
         (c) => c.AdminDashboard
       ),
+    canActivate: [adminGuard], // Only admins can access
   },
   {
     path: 'chat',
@@ -69,6 +73,7 @@ export const routes: Routes = [
       import('./features/users/user-profile/user-profile').then(
         (c) => c.UserProfile
       ),
+    canActivate: [authGuard], // Protected route - requires authentication
   },
   {
     path: '**',

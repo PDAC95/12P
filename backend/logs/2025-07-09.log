@@ -1,0 +1,62 @@
+{
+  "timestamp": "2025-07-09T18:52:55.215Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-09T18:52:55.219Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-09T18:52:55.262Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-09T18:52:55.310Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-09T18:52:55.313Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-09T18:53:19.270Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "test.user2@example.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0"
+}
+{
+  "timestamp": "2025-07-09T18:53:19.606Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d752e8de09a4f48df03ac",
+  "email": "test.user2@example.com",
+  "role": "client",
+  "lastLogin": "2025-07-09T18:53:19.581Z"
+}
+{
+  "timestamp": "2025-07-09T18:55:33.095Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d752e8de09a4f48df03ac",
+  "email": "test.user2@example.com"
+}

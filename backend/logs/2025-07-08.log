@@ -1618,3 +1618,75 @@
   "email": "test.user2@example.com",
   "role": "client"
 }
+{
+  "timestamp": "2025-07-08T20:21:23.464Z",
+  "level": "INFO",
+  "message": "User registration attempt",
+  "email": "agent@test.com",
+  "role": "agent",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0"
+}
+{
+  "timestamp": "2025-07-08T20:21:23.719Z",
+  "level": "INFO",
+  "message": "User registration successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-07-08T20:22:45.553Z",
+  "level": "INFO",
+  "message": "User registration attempt",
+  "email": "client@test.com",
+  "role": "client",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0"
+}
+{
+  "timestamp": "2025-07-08T20:22:45.806Z",
+  "level": "INFO",
+  "message": "User registration successful",
+  "userId": "686d7e158de09a4f48df03b2",
+  "email": "client@test.com",
+  "role": "client"
+}
+{
+  "timestamp": "2025-07-08T20:27:04.290Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-08T20:27:04.294Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-08T20:27:04.318Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-08T20:27:04.336Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-08T20:27:04.338Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
