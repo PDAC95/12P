@@ -13,4 +13,13 @@ import { PropertyModel } from '../../../services/property';
 })
 export class PropertyCard {
   @Input() property!: PropertyModel;
+
+  // Debug method to check what's happening with navigation
+  onViewDetailsClick() {
+    console.log('🔍 View Details clicked for property:', {
+      id: this.property.id,
+      title: this.property.title,
+      navigateTo: `/properties/detail/${this.property.id}`,
+    });
+  }
 }

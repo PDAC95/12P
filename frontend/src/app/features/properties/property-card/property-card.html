@@ -29,6 +29,7 @@
       <button
         class="btn btn-primary btn-sm"
         [routerLink]="['/properties/detail', property.id]"
+        (click)="onViewDetailsClick()"
       >
         View Details
       </button>
