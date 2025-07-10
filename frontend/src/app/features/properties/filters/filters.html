@@ -7,21 +7,24 @@
       [class.active]="selectedTab === 'buy'"
       (click)="selectTab('buy')"
     >
-      Buy
+      <i class="fas fa-home"></i>
+      {{ getTabLabel('buy') }}
     </button>
     <button
       class="tab-button"
       [class.active]="selectedTab === 'rent'"
       (click)="selectTab('rent')"
     >
-      Rent
+      <i class="fas fa-key"></i>
+      {{ getTabLabel('rent') }}
     </button>
     <button
       class="tab-button"
       [class.active]="selectedTab === 'co-living'"
       (click)="selectTab('co-living')"
     >
-      Co-Living
+      <i class="fas fa-users"></i>
+      {{ getTabLabel('co-living') }}
     </button>
   </div>
 
@@ -61,6 +64,7 @@
             [(ngModel)]="filters.location"
             placeholder="Choose location"
             (input)="onLocationInputChange()"
+            (keypress)="onLocationKeyPress($event)"
           />
         </div>
       </div>
@@ -256,6 +260,8 @@
   </div>
 
   <!-- Overlay para cerrar dropdowns al hacer click fuera -->
+  <!-- src/app/features/properties/filters/filters.html -->
+  <!-- Busca esta línea al final del archivo y cámbiala -->
   <div
     class="dropdown-backdrop"
     *ngIf="showPropertyTypeDropdown || showPriceModal || showSizeDropdown"

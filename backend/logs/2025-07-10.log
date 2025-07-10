@@ -388,3 +388,4828 @@
   "limit": 10,
   "filtersApplied": false
 }
+{
+  "timestamp": "2025-07-10T19:32:52.309Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:32:52.310Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:32:52.314Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:32:52.316Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:32:52.316Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:32:52.319Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:33:17.212Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Houses",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:33:17.213Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Houses",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:33:17.219Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 0,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:33:35.687Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:33:35.687Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:33:35.692Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:35:42.111Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:35:42.112Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:35:42.115Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:35:42.116Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:35:42.120Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:35:42.128Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:37:36.193Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:37:36.195Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:37:36.199Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:37:36.201Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:37:36.205Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:37:36.209Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:41:52.560Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:41:52.562Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:41:52.566Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:41:52.567Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:41:52.571Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:41:52.574Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:42:30.048Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "ware",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:42:30.049Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "ware",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:42:30.068Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 0,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:42:47.072Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:42:47.073Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:42:47.077Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:47:58.851Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:47:58.852Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:47:58.855Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:47:58.856Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:47:58.862Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:47:58.880Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:48:28.771Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:48:28.771Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:48:28.774Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:48:28.775Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:48:28.777Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:48:28.780Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:49:45.917Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:49:45.918Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:49:45.920Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:49:45.921Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:49:45.924Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:49:45.926Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:49:59.803Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:49:59.804Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:49:59.808Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:06.653Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "cambri",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:06.654Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "cambri",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:06.658Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:07.506Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "cambridge",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:07.508Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "cambridge",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:07.511Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:14.991Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "kitchener",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:14.992Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "kitchener",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:14.995Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:20.445Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:20.446Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:20.450Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:27.626Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:27.626Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:27.630Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:36.805Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:36.806Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:36.810Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:41.878Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Condo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:41.879Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Condo",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:41.883Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:46.632Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:46.633Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:46.637Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:50:55.907Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:50:55.907Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:50:55.912Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:03.188Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:03.189Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:03.192Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:07.131Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:07.132Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:07.136Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:16.163Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Loft",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:16.164Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Loft",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:16.171Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:24.502Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:24.502Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:24.506Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:27.049Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "bedrooms": "4",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:27.050Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "bedrooms": {
+      "$gte": 4
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:27.056Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:34.188Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "bedrooms": "1",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:34.189Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "bedrooms": {
+      "$gte": 1
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:34.192Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:39.572Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "bedrooms": "1",
+    "bathrooms": "2",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:39.573Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "bedrooms": {
+      "$gte": 1
+    },
+    "bathrooms": {
+      "$gte": 2
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:39.576Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 4,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:51:46.087Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:51:46.087Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:51:46.096Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:54:05.146Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-10T19:54:05.149Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-10T19:54:05.176Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-10T19:54:05.199Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-10T19:54:05.202Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-10T19:54:39.165Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-10T19:54:39.169Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-10T19:54:39.199Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-10T19:54:39.221Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-10T19:54:39.224Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-10T19:54:47.305Z",
+  "level": "INFO",
+  "message": "SIGINT received, shutting down gracefully"
+}
+{
+  "timestamp": "2025-07-10T19:54:47.307Z",
+  "level": "INFO",
+  "message": "HTTP server closed"
+}
+{
+  "timestamp": "2025-07-10T19:57:15.405Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-10T19:57:15.411Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-10T19:57:15.452Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-10T19:57:15.474Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 55
+}
+{
+  "timestamp": "2025-07-10T19:57:15.478Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-10T19:57:41.278Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:57:41.280Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:57:41.290Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:57:41.300Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:57:41.301Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:57:41.305Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:58:32.474Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:58:32.475Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:58:32.479Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:58:39.815Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:58:39.816Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:58:39.819Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:58:42.602Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:58:42.603Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:58:42.608Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 4,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:58:53.811Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:58:53.812Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:58:53.816Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 4,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T19:59:35.198Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:59:35.200Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:59:35.205Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:59:35.209Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:59:35.210Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:59:35.214Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:00:10.570Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:00:10.571Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:00:10.577Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:00:10.583Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:00:10.583Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:00:10.588Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:01:10.364Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "wa",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:10.365Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "wa",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:10.369Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:11.409Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterl",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:11.410Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterl",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:11.414Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:11.929Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterlo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:11.929Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterlo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:11.933Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:12.700Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:12.701Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:12.704Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:12.729Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:12.730Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:12.733Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:20.032Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:20.033Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:20.039Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 1,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:33.087Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "type": "Condo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:33.087Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "type": "Condo",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:33.091Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:42.685Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:42.686Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:42.690Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:53.527Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "bedrooms": "3",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:53.528Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "bedrooms": {
+      "$gte": 3
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:53.531Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 26,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:01:55.372Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "bedrooms": "3",
+    "bathrooms": "2",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:01:55.373Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "bedrooms": {
+      "$gte": 3
+    },
+    "bathrooms": {
+      "$gte": 2
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:01:55.378Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 19,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:02:04.646Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "kitchener",
+    "bedrooms": "3",
+    "bathrooms": "2",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:02:04.647Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "kitchener",
+      "$options": "i"
+    },
+    "bedrooms": {
+      "$gte": 3
+    },
+    "bathrooms": {
+      "$gte": 2
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:02:04.651Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:02:21.405Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:02:21.406Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:02:21.410Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:02:25.678Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:02:25.680Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:02:25.684Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:02:32.523Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:02:32.524Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:02:32.527Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:02:42.731Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "toronto",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:02:42.731Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "toronto",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:02:42.735Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 6,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:02:48.754Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "toronto",
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:02:48.755Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "toronto",
+      "$options": "i"
+    },
+    "type": "Detached House",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:02:48.758Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 0,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:03:03.290Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "toronto",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:03.291Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "toronto",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:03.295Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 6,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:03:36.513Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:36.514Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:36.517Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:03:38.113Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:38.114Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:38.117Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:03:39.538Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:39.539Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:39.542Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:03:45.254Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:45.255Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:45.259Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:03:47.562Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:47.563Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:47.567Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:03:53.305Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:53.306Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:53.309Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:03:54.037Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:54.038Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:54.042Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:03:55.117Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:55.118Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:55.122Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:03:56.304Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:03:56.305Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:03:56.308Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:05:25.767Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:05:25.768Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:05:25.773Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:05:25.780Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:05:25.781Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:05:25.786Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 55,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:07:45.856Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:07:45.858Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:07:45.864Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:07:46.737Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:07:46.737Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:07:46.741Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:07:47.751Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:07:47.753Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:07:47.757Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:07:50.349Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:07:50.350Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:07:50.353Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:08:01.112Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:08:01.113Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:08:01.116Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:08:05.416Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:08:05.417Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:08:05.421Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:09:37.798Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:09:37.799Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:09:37.803Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:09:48.363Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:09:48.364Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:09:48.368Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:09:53.996Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:09:53.996Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:09:54.000Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:09:57.917Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:09:57.918Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:09:57.922Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:10:28.122Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:10:28.124Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:10:28.128Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:10:33.362Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:10:33.363Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:10:33.366Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:10:36.733Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:10:36.734Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:10:36.737Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:11:43.519Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-10T20:11:43.523Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-10T20:11:43.547Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-10T20:11:43.566Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 55
+}
+{
+  "timestamp": "2025-07-10T20:11:43.569Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-10T20:11:53.595Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-10T20:11:53.599Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-10T20:11:53.627Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-10T20:11:53.651Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 55
+}
+{
+  "timestamp": "2025-07-10T20:11:53.654Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-10T20:12:39.038Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-10T20:12:39.043Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-10T20:12:39.073Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-10T20:12:39.094Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 55
+}
+{
+  "timestamp": "2025-07-10T20:12:39.097Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-10T20:13:22.035Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:13:22.036Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:13:22.045Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 4,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:13:29.310Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:13:29.311Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:13:29.316Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 4,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:13:46.005Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "city": "waterloo",
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:13:46.005Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "waterloo",
+      "$options": "i"
+    },
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:13:46.010Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 8,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:14:25.220Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:25.221Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:25.226Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:14:25.231Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:25.232Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:25.238Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:14:34.170Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:34.171Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:34.175Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:14:40.240Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:40.240Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:40.244Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:14:40.248Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:40.249Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:40.253Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:14:48.974Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:48.975Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:48.980Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:14:53.133Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:53.134Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:53.138Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:14:59.512Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:14:59.513Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:14:59.517Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:15:05.663Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:15:05.663Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:15:05.667Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:16:36.919Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:16:36.920Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:16:36.925Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:16:36.933Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:16:36.933Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:16:36.938Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:17:19.144Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:17:19.144Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:17:19.151Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:17:19.157Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:17:19.158Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:17:19.162Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:18:44.295Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:18:44.299Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:18:44.307Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:18:44.321Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:18:44.325Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:18:44.332Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:18:56.464Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:18:56.464Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:18:56.468Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:19:03.225Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:19:03.226Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:19:03.229Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:19:07.515Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:19:07.519Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:19:07.524Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:19:07.527Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:19:07.528Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:19:07.531Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:19:14.904Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "co-living"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:19:14.905Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "co-living"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:19:14.908Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 0,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:19:17.975Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:19:17.976Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:19:17.979Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:19:19.603Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:19:19.605Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:19:19.608Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:19:21.057Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:19:21.058Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:19:21.061Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:21:16.098Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:21:16.110Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:21:16.128Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:21:16.141Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:21:16.142Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:21:16.148Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:21:39.617Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:21:39.624Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:21:39.630Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:21:39.634Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:21:39.635Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:21:39.641Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:22:20.202Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:20.212Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:20.224Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:22:20.233Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:20.237Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:20.250Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:22:27.697Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:27.697Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:27.702Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:22:32.067Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:32.067Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:32.070Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:22:33.599Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:33.600Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:33.604Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:22:44.679Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:44.680Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:44.684Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:22:48.545Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:48.546Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:48.549Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:22:51.414Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:51.415Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:51.420Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:22:51.424Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:22:51.425Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:22:51.428Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 65,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T20:23:02.204Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:23:02.205Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:23:02.208Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:23:03.174Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "rent"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:23:03.175Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "rent"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:23:03.179Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 18,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-10T20:23:04.750Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T20:23:04.750Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T20:23:04.754Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 47,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}

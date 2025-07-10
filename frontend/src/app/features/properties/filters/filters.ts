@@ -1,8 +1,10 @@
 // src/app/features/properties/filters/filters.ts
+// Move the interface outside of the component and export it
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+// Export the interface so it can be imported by other components
 export interface FilterCriteria {
   location: string;
   minPrice: number;
@@ -13,6 +15,7 @@ export interface FilterCriteria {
   bathrooms: number;
   parking: string;
   listingType: string;
+  isCoLiving?: boolean;
 }
 
 @Component({
@@ -49,6 +52,7 @@ export class Filters {
     bathrooms: 0,
     parking: '',
     listingType: 'sale',
+    isCoLiving: false,
   };
 
   // Options for dropdowns
@@ -77,15 +81,45 @@ export class Filters {
 
   // Tab handling methods
   selectTab(tab: 'buy' | 'rent' | 'co-living') {
-    console.log('📋 Tab changed to:', tab);
+    console.log('📋 ========== TAB SELECTION ==========');
+    console.log('📋 Previous tab:', this.selectedTab);
+    console.log('📋 New tab selected:', tab);
+
     this.selectedTab = tab;
     this.closeAllDropdowns();
 
     // Update listing type based on tab
-    this.filters.listingType = tab === 'buy' ? 'sale' : 'rent';
-    console.log('📋 Listing type updated to:', this.filters.listingType);
+    if (tab === 'buy') {
+      this.filters.listingType = 'sale';
+      this.filters.isCoLiving = false;
+    } else if (tab === 'rent') {
+      this.filters.listingType = 'rent';
+      this.filters.isCoLiving = false;
+    } else if (tab === 'co-living') {
+      this.filters.listingType = 'co-living';
+      this.filters.isCoLiving = true;
+    }
 
+    console.log('📋 Listing type updated to:', this.filters.listingType);
+    console.log('📋 Is co-living:', this.filters.isCoLiving);
+    console.log('📋 ========== END TAB SELECTION ==========');
+
+    // Trigger filter change to reload properties
     this.triggerFilterChange();
+  }
+
+  // Add a method to get tab-specific property count
+  getTabLabel(tab: string): string {
+    switch (tab) {
+      case 'buy':
+        return 'Buy';
+      case 'rent':
+        return 'Rent';
+      case 'co-living':
+        return 'Co-Living';
+      default:
+        return tab;
+    }
   }
 
   // Simple dropdown methods
@@ -212,10 +246,33 @@ export class Filters {
 
   // Location input change
   onLocationInputChange() {
-    console.log('📝 Location changed to:', this.filters.location);
-    this.debounceFilterChange();
+    console.log('📝 Location input changed to:', this.filters.location);
+    console.log('📝 Input value length:', this.filters.location.length);
+    console.log('📝 Is empty?:', this.filters.location.trim() === '');
+
+    // Clear timeout for previous debounce
+    clearTimeout(this.debounceTimeout);
+
+    // If the field is empty, trigger immediately
+    if (this.filters.location.trim() === '') {
+      console.log('📝 Location cleared, triggering filter change immediately');
+      this.triggerFilterChange();
+    } else {
+      // Otherwise use debounce
+      this.debounceTimeout = setTimeout(() => {
+        console.log('📝 Debounce completed, triggering filter change');
+        this.triggerFilterChange();
+      }, 500);
+    }
   }
 
+  onLocationKeyPress(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      console.log('📝 Enter pressed, triggering search immediately');
+      clearTimeout(this.debounceTimeout);
+      this.triggerFilterChange();
+    }
+  }
   // Debounced filter change for text inputs
   private debounceTimeout: any;
   private debounceFilterChange() {

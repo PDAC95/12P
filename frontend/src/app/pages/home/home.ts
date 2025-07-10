@@ -45,10 +45,15 @@ export class Home {
   }
 
   onFiltersChanged(filters: FilterCriteria): void {
-    console.log('🎛️ Filters Changed:', filters);
-    this.currentFilters = filters;
+    console.log('🎛️ Home: Filters Changed:', filters);
+    console.log('🎛️ Home: Previous filters:', this.currentFilters);
+
+    // Create a new object reference to ensure change detection
+    this.currentFilters = { ...filters };
     this.searchQuery = '';
     this.selectedCategory = '';
+
+    console.log('🎛️ Home: New filters set:', this.currentFilters);
   }
 
   onPropertyTypeSelected(propertyType: PropertyType): void {

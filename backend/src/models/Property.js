@@ -107,6 +107,11 @@ const propertySchema = new mongoose.Schema(
       enum: ["sale", "rent"],
       required: [true, "Listing type is required"],
     },
+    isCoLiving: {
+      type: Boolean,
+      default: false,
+    },
+
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

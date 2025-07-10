@@ -32,8 +32,15 @@
         color: #0f172a;
       }
 
+      i {
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+      }
+
       &.active {
         color: #0f172a;
+        background: rgba(179, 147, 89, 0.1);
+        font-weight: 700;
 
         &::after {
           content: "";
@@ -42,9 +49,9 @@
           left: 50%;
           transform: translateX(-50%);
           width: 80%;
-          height: 2px;
-          background: #0f172a;
-          border-radius: 1px;
+          height: 3px;
+          background: #b39359; // Dorado para que sea más visible
+          border-radius: 2px;
         }
       }
     }
