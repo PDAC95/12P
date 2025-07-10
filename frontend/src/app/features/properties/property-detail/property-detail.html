@@ -26,58 +26,23 @@
           <h1 class="property-title">{{ property.title }}</h1>
           <div class="property-location">
             <i class="fas fa-map-marker-alt"></i>
-            <span>{{ getFullLocation() }}</span>
+            <span>{{ property.location }}</span>
           </div>
           <div class="property-price">${{ property.price | number }}</div>
-
-          <!-- Property Status and Type - Show if backend data -->
-          <div *ngIf="isRealProperty()" class="property-badges">
-            <span
-              class="status-badge"
-              [class]="'status-' + getPropertyStatus()"
-            >
-              {{ getPropertyStatus() | titlecase }}
-            </span>
-            <span class="listing-type-badge">
-              For {{ getListingType() | titlecase }}
-            </span>
-          </div>
         </div>
         <div class="col-lg-4 text-lg-end">
           <div class="property-type-badge">{{ property.type }}</div>
-
-          <!-- Creation Date for backend properties -->
-          <div *ngIf="isRealProperty()" class="creation-date">
-            Listed on {{ getCreatedDate() }}
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Property Images Section -->
+    <!-- Property Image -->
     <div class="property-image-section">
-      <!-- Primary Image -->
       <img
-        [src]="getPrimaryImage()"
+        [src]="property.image"
         [alt]="property.title"
         class="property-main-image"
       />
-
-      <!-- Additional Images (if backend property has multiple) -->
-      <div *ngIf="getAllImages().length > 1" class="additional-images">
-        <h4>More Images</h4>
-        <div class="images-grid">
-          <img
-            *ngFor="let image of getAllImages().slice(1, 4)"
-            [src]="image.url"
-            [alt]="image.alt || property.title"
-            class="additional-image"
-          />
-        </div>
-        <p *ngIf="getAllImages().length > 4" class="more-images-text">
-          +{{ getAllImages().length - 4 }} more images
-        </p>
-      </div>
     </div>
 
     <!-- Property Info Grid -->
@@ -105,69 +70,46 @@
           </div>
         </div>
 
-        <!-- Address Details (Enhanced for backend properties) -->
-        <div *ngIf="isRealProperty()" class="detail-section">
-          <h3>Location Details</h3>
-          <div class="address-details">
-            <div class="address-item">
-              <i class="fas fa-home"></i>
-              <span>{{ getAddressComponents().address }}</span>
-            </div>
-            <div class="address-item">
-              <i class="fas fa-city"></i>
-              <span
-                >{{ getAddressComponents().city }}, {{
-                getAddressComponents().province }}</span
-              >
-            </div>
-            <div *ngIf="getAddressComponents().postalCode" class="address-item">
-              <i class="fas fa-mail-bulk"></i>
-              <span>{{ getAddressComponents().postalCode }}</span>
-            </div>
-          </div>
-
-          <!-- Map placeholder if coordinates available -->
-          <div *ngIf="hasCoordinates()" class="map-placeholder">
-            <p>
-              <i class="fas fa-map"></i> Map view available ({{
-              getCoordinates()?.latitude }}, {{ getCoordinates()?.longitude }})
-            </p>
-          </div>
-        </div>
-
         <div class="detail-section">
           <h3>Description</h3>
           <p class="property-description">{{ property.description }}</p>
-          <p *ngIf="!isRealProperty()" class="extended-description">
+          <p class="extended-description">
             This beautiful {{ property.type.toLowerCase() }} in {{
             property.location }} offers modern living with {{ property.bedrooms
             }} spacious bedrooms and {{ property.bathrooms }} well-appointed
             bathrooms. With {{ property.area }} square feet of living space,
             this property provides comfort and convenience in one of the most
-            sought-after areas.
+            sought-after areas in the Kitchener-Waterloo region.
           </p>
         </div>
 
         <div class="detail-section">
           <h3>Features & Amenities</h3>
           <div class="features-grid">
-            <div
-              class="feature-item"
-              *ngFor="let feature of getPropertyFeatures()"
-            >
+            <div class="feature-item">
               <i class="fas fa-check-circle"></i>
-              <span>{{ feature }}</span>
+              <span>Modern Kitchen</span>
             </div>
-          </div>
-
-          <!-- Backend property indicator -->
-          <div *ngIf="isRealProperty()" class="data-source-indicator">
-            <i class="fas fa-database"></i>
-            <small>Property data from live database</small>
-          </div>
-          <div *ngIf="!isRealProperty()" class="data-source-indicator">
-            <i class="fas fa-vial"></i>
-            <small>Demo property data</small>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Hardwood Floors</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Central Air</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Parking Available</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Close to Transit</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Pet Friendly</span>
+            </div>
           </div>
         </div>
       </div>
@@ -196,9 +138,11 @@
           <div class="agent-info mt-4">
             <h5>Your Agent</h5>
             <div class="agent-profile">
-              <div class="agent-avatar-placeholder">
-                <i class="fas fa-user"></i>
-              </div>
+              <img
+                src="https://via.placeholder.com/60x60/007bff/ffffff?text=AG"
+                alt="Agent"
+                class="agent-avatar"
+              />
               <div class="agent-details">
                 <strong>Sarah Johnson</strong>
                 <p>Real Estate Professional</p>
@@ -206,22 +150,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Property Summary Card -->
-        <div class="property-summary-card mt-4">
-          <h5>Property Summary</h5>
-          <ul class="summary-list">
-            <li><strong>Type:</strong> {{ property.type }}</li>
-            <li><strong>Price:</strong> ${{ property.price | number }}</li>
-            <li><strong>Size:</strong> {{ property.area }} sq ft</li>
-            <li *ngIf="isRealProperty()">
-              <strong>Status:</strong> {{ getPropertyStatus() | titlecase }}
-            </li>
-            <li *ngIf="isRealProperty()">
-              <strong>Listed:</strong> {{ getCreatedDate() }}
-            </li>
-          </ul>
         </div>
       </div>
     </div>

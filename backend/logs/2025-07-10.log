@@ -1,0 +1,390 @@
+{
+  "timestamp": "2025-07-10T18:21:05.011Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-10T18:21:05.015Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-10T18:21:05.056Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-10T18:21:05.123Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-10T18:21:05.126Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-10T18:21:19.337Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T18:21:19.338Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T18:21:19.368Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T18:30:35.182Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T18:30:35.183Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T18:30:35.188Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T18:33:19.120Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T18:33:19.121Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T18:33:19.127Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T18:40:39.449Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T18:40:39.451Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T18:40:39.458Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T18:47:06.099Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T18:47:06.100Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T18:47:06.107Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T18:55:42.151Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T18:55:42.152Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T18:55:42.156Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:00:31.816Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:00:31.817Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:00:31.821Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:03:33.365Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:03:33.409Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:03:33.420Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:08:39.261Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:08:39.262Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:08:39.268Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:12:43.747Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:12:43.748Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:12:43.753Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-10T19:16:23.639Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-10T19:16:23.640Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-10T19:16:23.644Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}

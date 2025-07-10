@@ -12,6 +12,7 @@ export interface FilterCriteria {
   bedrooms: number;
   bathrooms: number;
   parking: string;
+  listingType: string;
 }
 
 @Component({
@@ -24,21 +25,20 @@ export interface FilterCriteria {
 export class Filters {
   @Output() filtersChanged = new EventEmitter<FilterCriteria>();
 
-  // Estado de los dropdowns
-  showLocationDropdown = false;
+  // State for dropdowns - simplified
   showPropertyTypeDropdown = false;
   showPriceModal = false;
   showSizeDropdown = false;
   showAdvancedFilters = false;
 
-  // Tab seleccionado
+  // Selected tab
   selectedTab: 'buy' | 'rent' | 'co-living' = 'buy';
 
-  // Precios temporales para el modal
+  // Temporary prices for modal
   tempMinPrice = 0;
   tempMaxPrice = 1000000;
 
-  // Filtros principales
+  // Main filters
   filters: FilterCriteria = {
     location: '',
     minPrice: 0,
@@ -48,18 +48,10 @@ export class Filters {
     bedrooms: 0,
     bathrooms: 0,
     parking: '',
+    listingType: 'sale',
   };
 
-  // Opciones para los dropdowns
-  locations = [
-    'All Locations',
-    'Kitchener',
-    'Waterloo',
-    'Cambridge',
-    'Guelph',
-    'Baden',
-  ];
-
+  // Options for dropdowns
   propertyTypes = [
     'All Types',
     'Duplex House',
@@ -73,7 +65,6 @@ export class Filters {
 
   propertySizes = [
     'Any Size',
-    '2500 Sqft',
     'Under 1000 sqft',
     '1000-1500 sqft',
     '1500-2000 sqft',
@@ -84,24 +75,32 @@ export class Filters {
 
   bedroomOptions = [0, 1, 2, 3, 4, 5];
 
-  // Métodos para manejar tabs
+  // Tab handling methods
   selectTab(tab: 'buy' | 'rent' | 'co-living') {
+    console.log('📋 Tab changed to:', tab);
     this.selectedTab = tab;
     this.closeAllDropdowns();
-    console.log('Tab selected:', tab);
+
+    // Update listing type based on tab
+    this.filters.listingType = tab === 'buy' ? 'sale' : 'rent';
+    console.log('📋 Listing type updated to:', this.filters.listingType);
+
+    this.triggerFilterChange();
   }
 
-  // Métodos para abrir dropdowns
-  openLocationDropdown() {
-    // No hacer nada - ahora location es un input
-  }
-
+  // Simple dropdown methods
   openPropertyTypeDropdown() {
+    console.log('🏠 Opening property type dropdown');
     this.closeAllDropdowns();
     this.showPropertyTypeDropdown = true;
+    console.log(
+      '🏠 Property type dropdown state:',
+      this.showPropertyTypeDropdown
+    );
   }
 
   openPriceModal() {
+    console.log('💰 Opening price modal');
     this.closeAllDropdowns();
     this.tempMinPrice = this.filters.minPrice;
     this.tempMaxPrice = this.filters.maxPrice;
@@ -109,61 +108,154 @@ export class Filters {
   }
 
   openSizeDropdown() {
+    console.log('📐 Opening size dropdown');
     this.closeAllDropdowns();
     this.showSizeDropdown = true;
   }
 
-  // Método para cerrar todos los dropdowns
+  // Close all dropdowns - simplified
   closeAllDropdowns() {
-    this.showLocationDropdown = false;
+    console.log('🔒 Closing all dropdowns');
     this.showPropertyTypeDropdown = false;
     this.showPriceModal = false;
     this.showSizeDropdown = false;
   }
 
-  // Métodos para seleccionar valores
-  selectLocation(location: string) {
-    this.filters.location = location === 'All Locations' ? '' : location;
-    this.closeAllDropdowns();
-    this.onFilterChange();
-  }
-
+  // Selection methods - simplified
   selectPropertyType(type: string) {
+    console.log('🏠 ========== PROPERTY TYPE SELECTION ==========');
+    console.log('🏠 Selected type:', type);
+    console.log('🏠 Before update - filter value:', this.filters.propertyType);
+
+    // Update the filter
     this.filters.propertyType = type === 'All Types' ? '' : type;
+
+    console.log('🏠 After update - filter value:', this.filters.propertyType);
+
+    // Close dropdown
     this.closeAllDropdowns();
-    this.onFilterChange();
+
+    // Trigger filter change
+    console.log('🏠 Triggering filter change...');
+    this.triggerFilterChange();
+
+    console.log('🏠 ========== END PROPERTY TYPE SELECTION ==========');
   }
 
   selectPropertySize(size: string) {
+    console.log('📐 ========== PROPERTY SIZE SELECTION ==========');
+    console.log('📐 Selected size:', size);
+
     this.filters.propertySize = size === 'Any Size' ? '' : size;
     this.closeAllDropdowns();
-    this.onFilterChange();
+
+    console.log('📐 New filter value:', this.filters.propertySize);
+    this.triggerFilterChange();
+
+    console.log('📐 ========== END PROPERTY SIZE SELECTION ==========');
   }
 
-  // Método para aplicar rango de precios
+  // Helper methods to check selected state
+  isPropertyTypeSelected(type: string): boolean {
+    return type === 'All Types'
+      ? this.filters.propertyType === ''
+      : this.filters.propertyType === type;
+  }
+
+  isPropertySizeSelected(size: string): boolean {
+    return size === 'Any Size'
+      ? this.filters.propertySize === ''
+      : this.filters.propertySize === size;
+  }
+
+  // Price range methods
   applyPriceRange() {
+    console.log(
+      '💰 Applying price range:',
+      this.tempMinPrice,
+      '-',
+      this.tempMaxPrice
+    );
+
+    // Validate inputs
+    if (this.tempMinPrice < 0) this.tempMinPrice = 0;
+    if (this.tempMaxPrice < 0) this.tempMaxPrice = 1000000;
+    if (this.tempMinPrice > this.tempMaxPrice) {
+      [this.tempMinPrice, this.tempMaxPrice] = [
+        this.tempMaxPrice,
+        this.tempMinPrice,
+      ];
+    }
+
     this.filters.minPrice = this.tempMinPrice;
     this.filters.maxPrice = this.tempMaxPrice;
     this.closeAllDropdowns();
-    this.onFilterChange();
+
+    this.triggerFilterChange();
   }
 
-  // Método para toggle filtros avanzados
+  cancelPriceRange() {
+    console.log('💰 Canceling price range');
+    this.tempMinPrice = this.filters.minPrice;
+    this.tempMaxPrice = this.filters.maxPrice;
+    this.closeAllDropdowns();
+  }
+
+  // Advanced filters
   toggleAdvancedFilters() {
     this.showAdvancedFilters = !this.showAdvancedFilters;
     if (this.showAdvancedFilters) {
       this.closeAllDropdowns();
     }
+    console.log('⚙️ Advanced filters:', this.showAdvancedFilters);
   }
 
-  // Método principal para emitir cambios
-  onFilterChange() {
-    console.log('Filters changed:', this.filters);
-    this.filtersChanged.emit(this.filters);
+  // Location input change
+  onLocationInputChange() {
+    console.log('📝 Location changed to:', this.filters.location);
+    this.debounceFilterChange();
   }
 
-  // Método para limpiar filtros
+  // Debounced filter change for text inputs
+  private debounceTimeout: any;
+  private debounceFilterChange() {
+    clearTimeout(this.debounceTimeout);
+    this.debounceTimeout = setTimeout(() => {
+      this.triggerFilterChange();
+    }, 500);
+  }
+
+  // Advanced filter methods
+  onBedroomsChange() {
+    console.log('🛏️ Bedrooms changed to:', this.filters.bedrooms);
+    this.triggerFilterChange();
+  }
+
+  onBathroomsChange() {
+    console.log('🚿 Bathrooms changed to:', this.filters.bathrooms);
+    this.triggerFilterChange();
+  }
+
+  onParkingChange() {
+    console.log('🚗 Parking changed to:', this.filters.parking);
+    this.triggerFilterChange();
+  }
+
+  // Execute search
+  executeSearch() {
+    console.log('🔍 Execute search clicked');
+    this.triggerFilterChange();
+  }
+
+  // Clear all filters
   clearFilters() {
+    console.log('🧹 ========== CLEARING ALL FILTERS ==========');
+    console.log('🧹 Before clear:', JSON.stringify(this.filters, null, 2));
+
+    // Close all dropdowns
+    this.closeAllDropdowns();
+
+    // Reset filters
     this.filters = {
       location: '',
       minPrice: 0,
@@ -173,9 +265,66 @@ export class Filters {
       bedrooms: 0,
       bathrooms: 0,
       parking: '',
+      listingType: this.selectedTab === 'buy' ? 'sale' : 'rent',
     };
+
+    // Reset temp values
     this.tempMinPrice = 0;
     this.tempMaxPrice = 1000000;
-    this.onFilterChange();
+
+    console.log('🧹 After clear:', JSON.stringify(this.filters, null, 2));
+    console.log('🧹 ========== END CLEARING FILTERS ==========');
+
+    // Trigger filter change
+    this.triggerFilterChange();
+  }
+
+  // Main filter change method - simplified
+  private triggerFilterChange() {
+    console.log('🎛️ ========== TRIGGERING FILTER CHANGE ==========');
+    console.log('🎛️ Current filters:', JSON.stringify(this.filters, null, 2));
+    console.log('🎛️ Emitting filters to parent component...');
+
+    this.filtersChanged.emit(this.filters);
+
+    console.log('🎛️ ========== FILTER CHANGE COMPLETED ==========');
+  }
+
+  // Display methods
+  getDisplayPropertyType(): string {
+    return this.filters.propertyType || 'All Types';
+  }
+
+  getDisplayPropertySize(): string {
+    return this.filters.propertySize || 'Any Size';
+  }
+
+  getDisplayPriceRange(): string {
+    if (this.filters.minPrice === 0 && this.filters.maxPrice === 1000000) {
+      return 'All Prices';
+    }
+
+    let display = '';
+    if (this.filters.minPrice > 0) {
+      display += '$' + this.formatPrice(this.filters.minPrice);
+    }
+
+    if (this.filters.maxPrice < 1000000) {
+      if (display) display += ' - ';
+      display += '$' + this.formatPrice(this.filters.maxPrice);
+    } else if (display) {
+      display += '+';
+    }
+
+    return display || 'All Prices';
+  }
+
+  private formatPrice(price: number): string {
+    if (price >= 1000000) {
+      return (price / 1000000).toFixed(1) + 'M';
+    } else if (price >= 1000) {
+      return (price / 1000).toFixed(0) + 'K';
+    }
+    return price.toString();
   }
 }

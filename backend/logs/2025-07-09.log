@@ -1072,3 +1072,137 @@
   "limit": 10,
   "filtersApplied": false
 }
+{
+  "timestamp": "2025-07-09T20:24:51.696Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-09T20:24:51.698Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-09T20:24:51.706Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-09T20:29:51.895Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-09T20:29:51.897Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-09T20:29:51.904Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-09T20:32:43.322Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-09T20:32:43.324Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-09T20:32:43.335Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 5,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-09T20:32:58.369Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-09T20:32:58.375Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-09T20:32:58.412Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-09T20:32:58.441Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 5
+}
+{
+  "timestamp": "2025-07-09T20:32:58.445Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}

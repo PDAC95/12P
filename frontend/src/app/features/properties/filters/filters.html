@@ -60,40 +60,36 @@
             class="location-input"
             [(ngModel)]="filters.location"
             placeholder="Choose location"
-            (input)="onFilterChange()"
+            (input)="onLocationInputChange()"
           />
         </div>
       </div>
 
       <!-- Property Type -->
-      <div class="filter-field" (click)="openPropertyTypeDropdown()">
-        <div class="field-icon">
-          <img
-            src="/assets/images/icons/filters/type.png"
-            alt="Property Type"
-            class="filter-icon-img"
-          />
-        </div>
-        <div class="field-content">
-          <div class="field-label">Property Type</div>
-          <div class="field-value">
-            {{ filters.propertyType || 'Duplex House' }}
+      <div class="filter-field property-type-field">
+        <div class="field-content-wrapper" (click)="openPropertyTypeDropdown()">
+          <div class="field-icon">
+            <img
+              src="/assets/images/icons/filters/type.png"
+              alt="Property Type"
+              class="filter-icon-img"
+            />
           </div>
-          <i class="fas fa-chevron-down field-arrow"></i>
+          <div class="field-content">
+            <div class="field-label">Property Type</div>
+            <div class="field-value">{{ getDisplayPropertyType() }}</div>
+            <i class="fas fa-chevron-down field-arrow"></i>
+          </div>
         </div>
 
         <!-- Dropdown directo debajo del campo -->
-        <div
-          class="field-dropdown"
-          *ngIf="showPropertyTypeDropdown"
-          (click)="$event.stopPropagation()"
-        >
+        <div class="field-dropdown" *ngIf="showPropertyTypeDropdown">
           <div class="dropdown-options">
             <div
               class="dropdown-option"
               *ngFor="let type of propertyTypes"
               (click)="selectPropertyType(type)"
-              [class.selected]="filters.propertyType === type"
+              [class.selected]="isPropertyTypeSelected(type)"
             >
               <img
                 src="/assets/images/icons/filters/type.png"
@@ -107,34 +103,24 @@
       </div>
 
       <!-- Price Range -->
-      <div class="filter-field" (click)="openPriceModal()">
-        <div class="field-icon">
-          <img
-            src="/assets/images/icons/filters/price.png"
-            alt="Price Range"
-            class="filter-icon-img"
-          />
-        </div>
-        <div class="field-content">
-          <div class="field-label">Price Range</div>
-          <div class="field-value">
-            <span *ngIf="filters.minPrice === 0 && filters.maxPrice === 1000000"
-              >1500 USD</span
-            >
-            <span *ngIf="filters.minPrice > 0 || filters.maxPrice < 1000000">
-              ${{ filters.minPrice | number }}{{ filters.maxPrice < 1000000 ? '
-              - $' + (filters.maxPrice | number) : '+' }}
-            </span>
+      <div class="filter-field price-field">
+        <div class="field-content-wrapper" (click)="openPriceModal()">
+          <div class="field-icon">
+            <img
+              src="/assets/images/icons/filters/price.png"
+              alt="Price Range"
+              class="filter-icon-img"
+            />
           </div>
-          <i class="fas fa-chevron-down field-arrow"></i>
+          <div class="field-content">
+            <div class="field-label">Price Range</div>
+            <div class="field-value">{{ getDisplayPriceRange() }}</div>
+            <i class="fas fa-chevron-down field-arrow"></i>
+          </div>
         </div>
 
         <!-- Modal de precio debajo del campo -->
-        <div
-          class="field-dropdown price-dropdown"
-          *ngIf="showPriceModal"
-          (click)="$event.stopPropagation()"
-        >
+        <div class="field-dropdown price-dropdown" *ngIf="showPriceModal">
           <div class="price-inputs">
             <div class="price-input-group">
               <label>Minimum Price</label>
@@ -157,7 +143,7 @@
             </div>
           </div>
           <div class="dropdown-actions">
-            <button class="btn-cancel" (click)="closeAllDropdowns()">
+            <button class="btn-cancel" (click)="cancelPriceRange()">
               Cancel
             </button>
             <button class="btn-apply" (click)="applyPriceRange()">Apply</button>
@@ -166,34 +152,30 @@
       </div>
 
       <!-- Property Size -->
-      <div class="filter-field" (click)="openSizeDropdown()">
-        <div class="field-icon">
-          <img
-            src="/assets/images/icons/filters/size.png"
-            alt="Property Size"
-            class="filter-icon-img"
-          />
-        </div>
-        <div class="field-content">
-          <div class="field-label">Property Size</div>
-          <div class="field-value">
-            {{ filters.propertySize || '2500 Sqft' }}
+      <div class="filter-field size-field">
+        <div class="field-content-wrapper" (click)="openSizeDropdown()">
+          <div class="field-icon">
+            <img
+              src="/assets/images/icons/filters/size.png"
+              alt="Property Size"
+              class="filter-icon-img"
+            />
           </div>
-          <i class="fas fa-chevron-down field-arrow"></i>
+          <div class="field-content">
+            <div class="field-label">Property Size</div>
+            <div class="field-value">{{ getDisplayPropertySize() }}</div>
+            <i class="fas fa-chevron-down field-arrow"></i>
+          </div>
         </div>
 
         <!-- Dropdown directo debajo del campo -->
-        <div
-          class="field-dropdown"
-          *ngIf="showSizeDropdown"
-          (click)="$event.stopPropagation()"
-        >
+        <div class="field-dropdown" *ngIf="showSizeDropdown">
           <div class="dropdown-options">
             <div
               class="dropdown-option"
               *ngFor="let size of propertySizes"
               (click)="selectPropertySize(size)"
-              [class.selected]="filters.propertySize === size"
+              [class.selected]="isPropertySizeSelected(size)"
             >
               <img
                 src="/assets/images/icons/filters/size.png"
@@ -209,7 +191,7 @@
 
     <!-- Botón de búsqueda (derecha) -->
     <div class="search-button-container">
-      <button class="search-btn" (click)="onFilterChange()">
+      <button class="search-btn" (click)="executeSearch()">
         <img
           src="/assets/images/icons/filters/search.png"
           alt="Search"
@@ -229,7 +211,7 @@
           <select
             class="form-select"
             [(ngModel)]="filters.bedrooms"
-            (change)="onFilterChange()"
+            (change)="onBedroomsChange()"
           >
             <option value="0">Any</option>
             <option *ngFor="let bed of bedroomOptions.slice(1)" [value]="bed">
@@ -242,7 +224,7 @@
           <select
             class="form-select"
             [(ngModel)]="filters.bathrooms"
-            (change)="onFilterChange()"
+            (change)="onBathroomsChange()"
           >
             <option value="0">Any</option>
             <option value="1">1+</option>
@@ -255,7 +237,7 @@
           <select
             class="form-select"
             [(ngModel)]="filters.parking"
-            (change)="onFilterChange()"
+            (change)="onParkingChange()"
           >
             <option value="">Any</option>
             <option value="1">1+ space</option>
