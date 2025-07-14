@@ -104,12 +104,8 @@ const propertySchema = new mongoose.Schema(
     },
     listingType: {
       type: String,
-      enum: ["sale", "rent"],
+      enum: ["sale", "rent", "coliving"], // Add 'coliving' as a third option
       required: [true, "Listing type is required"],
-    },
-    isCoLiving: {
-      type: Boolean,
-      default: false,
     },
 
     owner: {

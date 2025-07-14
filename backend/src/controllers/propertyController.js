@@ -59,7 +59,7 @@ const getProperties = async (req, res, next) => {
       query.bathrooms = { $gte: parseInt(bathrooms) };
     }
 
-    // Listing type filter (sale/rent)
+    // Listing type filter (sale/rent/coliving)
     if (listingType) {
       query.listingType = listingType;
     }
@@ -90,11 +90,23 @@ const getProperties = async (req, res, next) => {
 
     logDebug("Query built", { query, pagination: { page, limit, skip }, sort });
 
-    // Execute query with pagination (removed populate for now since owner field uses string ID)
+    // Execute query with pagination
     const [properties, total] = await Promise.all([
-      Property.find(query).sort(sort).skip(skip).limit(limit).lean(), // Use lean() for better performance
+      Property.find(query).sort(sort).skip(skip).limit(limit).lean(),
       Property.countDocuments(query),
     ]);
+
+    // TEMPORARY DEBUG LOG - Remove after fixing
+    console.log("🔍 DEBUG - Query filters:", query);
+    console.log(
+      "🔍 DEBUG - Properties found:",
+      properties.map((p) => ({
+        title: p.title,
+        listingType: p.listingType,
+        type: p.type,
+      }))
+    );
+    // END TEMPORARY DEBUG LOG
 
     // Calculate pagination metadata
     const totalPages = Math.ceil(total / limit);

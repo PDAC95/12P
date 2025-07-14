@@ -91,32 +91,9 @@ export class PropertyList implements OnInit, OnChanges {
         // Store all properties
         this.allProperties = properties;
 
-        // Apply frontend filtering based on tab selection
-        let filtered = [...properties];
-
-        // Handle co-living vs regular rent filtering
-        if (this.appliedFilters) {
-          if (this.appliedFilters.listingType === 'co-living') {
-            console.log('🏘️ Filtering for co-living properties only');
-            // Show only properties with "Co-Living" in title
-            filtered = filtered.filter((property) =>
-              property.title.toLowerCase().includes('co-living')
-            );
-            console.log('🏘️ Co-living properties found:', filtered.length);
-          } else if (this.appliedFilters.listingType === 'rent') {
-            console.log(
-              '🏠 Filtering for regular rentals (excluding co-living)'
-            );
-            // Show rent properties but exclude co-living
-            filtered = filtered.filter(
-              (property) => !property.title.toLowerCase().includes('co-living')
-            );
-            console.log('🏠 Regular rental properties found:', filtered.length);
-          }
-          // For 'sale', we don't need additional filtering
-        }
-
-        this.filteredProperties = filtered;
+        // No additional frontend filtering needed for listingType
+        // Backend should return only the properties matching the listingType
+        this.filteredProperties = [...properties];
 
         // Apply additional frontend filters if needed
         if (this.searchQuery || this.selectedCategory) {
@@ -184,14 +161,10 @@ export class PropertyList implements OnInit, OnChanges {
         params.bathrooms = this.appliedFilters.bathrooms;
       }
 
-      // Listing type - For co-living, we still query rent from backend
-      if (this.appliedFilters.listingType === 'sale') {
-        params.listingType = 'sale';
-      } else if (
-        this.appliedFilters.listingType === 'rent' ||
-        this.appliedFilters.listingType === 'co-living'
-      ) {
-        params.listingType = 'rent'; // Both rent and co-living are stored as 'rent' in backend
+      // Listing type - Direct mapping now that coliving is a separate type
+      if (this.appliedFilters.listingType) {
+        params.listingType = this.appliedFilters.listingType;
+        console.log('📋 Setting listingType param:', params.listingType);
       }
     }
 
@@ -200,6 +173,7 @@ export class PropertyList implements OnInit, OnChanges {
       params.search = this.searchQuery.trim();
     }
 
+    console.log('📋 Final query parameters:', params);
     return params;
   }
 

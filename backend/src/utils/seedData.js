@@ -184,6 +184,83 @@ const mockProperties = [
     listingType: "sale",
     owner: "507f1f77bcf86cd799439011",
   },
+  // Add these coliving properties to the mockProperties array
+  {
+    title: "Modern Co-Living Space Downtown",
+    description:
+      "Shared living space in downtown Kitchener with private bedrooms and shared common areas. Perfect for young professionals.",
+    price: 800, // Monthly rent per room
+    location: {
+      address: "789 King Street East",
+      city: "Kitchener",
+      province: "Ontario",
+      postalCode: "N2G 2N1",
+      coordinates: {
+        latitude: 43.4516,
+        longitude: -80.4825,
+      },
+    },
+    type: "Condo",
+    bedrooms: 1, // Private bedroom
+    bathrooms: 1, // Shared bathrooms
+    area: 250, // Private room area
+    features: [
+      "Furnished",
+      "WiFi Included",
+      "Utilities Included",
+      "Shared Kitchen",
+      "Laundry",
+      "Gym Access",
+    ],
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        alt: "Co-living common area",
+        isPrimary: true,
+      },
+    ],
+    status: "available",
+    listingType: "coliving", // Set as coliving
+    owner: "507f1f77bcf86cd799439011",
+  },
+  {
+    title: "Student Co-Living Near University",
+    description:
+      "Affordable co-living space near University of Waterloo. All-inclusive pricing with furnished rooms.",
+    price: 650,
+    location: {
+      address: "234 Lester Street",
+      city: "Waterloo",
+      province: "Ontario",
+      postalCode: "N2L 3W2",
+      coordinates: {
+        latitude: 43.4723,
+        longitude: -80.5449,
+      },
+    },
+    type: "Townhouse",
+    bedrooms: 1,
+    bathrooms: 1,
+    area: 200,
+    features: [
+      "Furnished",
+      "All Inclusive",
+      "Study Room",
+      "Shared Kitchen",
+      "Parking",
+      "Near Campus",
+    ],
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        alt: "Student co-living space",
+        isPrimary: true,
+      },
+    ],
+    status: "available",
+    listingType: "coliving",
+    owner: "507f1f77bcf86cd799439011",
+  },
 ];
 
 /**

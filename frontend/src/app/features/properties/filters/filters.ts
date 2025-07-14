@@ -88,7 +88,7 @@ export class Filters {
     this.selectedTab = tab;
     this.closeAllDropdowns();
 
-    // Update listing type based on tab
+    // Update listing type based on tab - matching backend structure
     if (tab === 'buy') {
       this.filters.listingType = 'sale';
       this.filters.isCoLiving = false;
@@ -96,7 +96,7 @@ export class Filters {
       this.filters.listingType = 'rent';
       this.filters.isCoLiving = false;
     } else if (tab === 'co-living') {
-      this.filters.listingType = 'co-living';
+      this.filters.listingType = 'coliving'; // Changed from 'co-living' to 'coliving'
       this.filters.isCoLiving = true;
     }
 
@@ -312,7 +312,7 @@ export class Filters {
     // Close all dropdowns
     this.closeAllDropdowns();
 
-    // Reset filters
+    // Reset filters based on current tab
     this.filters = {
       location: '',
       minPrice: 0,
@@ -323,6 +323,7 @@ export class Filters {
       bathrooms: 0,
       parking: '',
       listingType: this.selectedTab === 'buy' ? 'sale' : 'rent',
+      isCoLiving: this.selectedTab === 'co-living',
     };
 
     // Reset temp values

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroSection } from '../../shared/hero-section/hero-section';
 import { Filters } from '../../features/properties/filters/filters';
@@ -19,16 +19,38 @@ import type { PropertyType } from '../../features/properties/property-types/prop
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
-  currentFilters: FilterCriteria | null = null;
+export class Home implements OnInit {
+  // Initialize with default filter for 'sale' properties
+  currentFilters: FilterCriteria | null = {
+    location: '',
+    minPrice: 0,
+    maxPrice: 1000000,
+    propertyType: '',
+    propertySize: '',
+    bedrooms: 0,
+    bathrooms: 0,
+    parking: '',
+    listingType: 'sale', // Default to sale
+    isCoLiving: false,
+  };
   searchQuery: string = '';
   selectedCategory: string = '';
+
+  ngOnInit() {
+    console.log(
+      '🏠 Home component initialized with default filters:',
+      this.currentFilters
+    );
+  }
 
   onAISearch(aiQuery: AISearchQuery): void {
     console.log('🤖 AI Search:', aiQuery);
     this.searchQuery = aiQuery.query;
     this.selectedCategory = '';
-    this.currentFilters = null;
+    // Keep the current listing type when doing AI search
+    if (this.currentFilters) {
+      this.currentFilters = { ...this.currentFilters };
+    }
   }
 
   onTraditionalSearch(criteria: SearchCriteria): void {
@@ -41,7 +63,10 @@ export class Home {
     console.log('📂 Category Selected:', category);
     this.selectedCategory = category.id;
     this.searchQuery = '';
-    this.currentFilters = null;
+    // Keep the current listing type when selecting category
+    if (this.currentFilters) {
+      this.currentFilters = { ...this.currentFilters };
+    }
   }
 
   onFiltersChanged(filters: FilterCriteria): void {
@@ -60,6 +85,9 @@ export class Home {
     console.log('🏠 Property Type Selected:', propertyType);
     this.selectedCategory = propertyType.id;
     this.searchQuery = '';
-    this.currentFilters = null;
+    // Keep the current listing type when selecting property type
+    if (this.currentFilters) {
+      this.currentFilters = { ...this.currentFilters };
+    }
   }
 }
