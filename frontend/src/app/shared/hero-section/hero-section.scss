@@ -44,7 +44,7 @@
       font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 800;
       line-height: 1.1;
-      color: #0b2c3d;
+      color: #3cade9; // Changed from #0b2c3d to blue from logo
       margin-bottom: 1.5rem;
       animation: fadeInUp 0.6s ease-out 0.1s both;
       max-width: 600px;
@@ -57,7 +57,7 @@
       }
 
       .highlight {
-        color: #b39359;
+        color: #7ed321; // Changed from #b39359 to green from logo
       }
     }
   }
@@ -88,13 +88,13 @@
           font-size: 1.125rem !important;
           background: #f8fafc !important;
           transition: all 0.3s ease;
-          color: #0b2c3d !important;
+          color: #3cade9 !important; // Changed to blue
           font-family: "Inter", sans-serif !important;
 
           &:focus {
-            border-color: #b39359 !important;
+            border-color: #7ed321 !important; // Changed to green
             background: #ffffff !important;
-            box-shadow: 0 0 0 3px rgba(179, 147, 89, 0.1) !important;
+            box-shadow: 0 0 0 3px rgba(126, 211, 33, 0.1) !important; // Green shadow
             outline: none !important;
           }
 
@@ -108,8 +108,9 @@
           padding: 1.5rem 3rem !important;
           background: linear-gradient(
             135deg,
-            #b39359 0%,
-            #c5a572 100%
+            #7ed321 0%,
+            // Green gradient
+            #9adf4c 100%
           ) !important;
           color: #ffffff !important;
           border: none !important;
@@ -123,7 +124,7 @@
 
           &:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(179, 147, 89, 0.3);
+            box-shadow: 0 0 20px rgba(126, 211, 33, 0.3); // Green glow
           }
 
           &:active {
@@ -152,9 +153,9 @@
           font-weight: 500;
 
           &:hover {
-            background: #b39359 !important;
+            background: #3cade9 !important; // Changed to blue
             color: #ffffff !important;
-            border-color: #b39359 !important;
+            border-color: #3cade9 !important;
             transform: translateY(-1px);
           }
         }
@@ -182,13 +183,13 @@
 
           &:hover {
             background: #f8fafc !important;
-            border-color: #b39359 !important;
+            border-color: #3cade9 !important; // Changed to blue
           }
 
           &.active {
-            background: #b39359 !important;
+            background: #3cade9 !important; // Changed to blue
             color: #ffffff !important;
-            border-color: #b39359 !important;
+            border-color: #3cade9 !important;
           }
 
           i {
@@ -210,14 +211,14 @@
       font-family: "Inter", sans-serif;
 
       .link-text {
-        color: #b39359 !important;
+        color: #7ed321 !important; // Changed to green
         font-weight: 600 !important;
         cursor: pointer;
         text-decoration: none;
         transition: all 0.3s ease;
 
         &:hover {
-          color: #0b2c3d !important;
+          color: #3cade9 !important; // Changed to blue
           text-decoration: underline;
         }
       }
