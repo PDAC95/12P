@@ -80,9 +80,10 @@ const authenticate = async (req, res, next) => {
 /**
  * Authorization middleware to check user roles
  * @param {Array} roles - Array of allowed roles
+ * @param {string} customMessage - Optional custom error message
  * @returns {Function} Middleware function
  */
-const authorize = (roles = []) => {
+const authorize = (roles = [], customMessage = null) => {
   return (req, res, next) => {
     try {
       // Check if user is authenticated
@@ -104,8 +105,10 @@ const authorize = (roles = []) => {
           requiredRoles: roles,
         });
 
-        const errorObj = createError("AUTH", "FORBIDDEN");
-        return sendError(res, "Access denied. Insufficient permissions.", 403);
+        // Use custom message if provided, otherwise use default
+        const message =
+          customMessage || "Access denied. Insufficient permissions.";
+        return sendError(res, message, 403);
       }
 
       next();

@@ -182,7 +182,109 @@ const getPropertyById = async (req, res, next) => {
   }
 };
 
+/**
+ * Create new property listing
+ * @route POST /api/properties
+ * @access Private (agents and admins only)
+ */
+const createProperty = async (req, res, next) => {
+  try {
+    // Check if user is agent or admin
+    if (req.user.role !== "agent" && req.user.role !== "admin") {
+      logWarning("Non-agent user attempted to create property", {
+        userId: req.user.id,
+        userRole: req.user.role,
+        email: req.user.email,
+      });
+      return sendError(
+        res,
+        "Only agents can create property listings. Please update your account to 'Property Lister' to list properties.",
+        403
+      );
+    }
+
+    const {
+      title,
+      description,
+      price,
+      location,
+      type,
+      bedrooms,
+      bathrooms,
+      area,
+      features,
+      images,
+      listingType,
+    } = req.body;
+
+    // Validate required fields
+    if (!title || !description || !price || !location || !type || !area) {
+      return sendError(
+        res,
+        "Title, description, price, location, type and area are required",
+        400
+      );
+    }
+
+    // Validate location object
+    if (!location.address || !location.city || !location.province) {
+      return sendError(
+        res,
+        "Location must include address, city and province",
+        400
+      );
+    }
+
+    // Create property data
+    const propertyData = {
+      title: title.trim(),
+      description: description.trim(),
+      price: Number(price),
+      location,
+      type,
+      bedrooms: Number(bedrooms) || 0,
+      bathrooms: Number(bathrooms) || 0,
+      area: Number(area),
+      features: features || [],
+      images: images || [],
+      listingType: listingType || "sale",
+      owner: req.user.id, // Automatically assign to authenticated user
+      status: "available",
+    };
+
+    const newProperty = new Property(propertyData);
+    await newProperty.save();
+
+    logInfo("New property created successfully", {
+      propertyId: newProperty._id,
+      createdBy: req.user.id,
+      userRole: req.user.role,
+      title: newProperty.title,
+      price: newProperty.price,
+    });
+
+    sendSuccess(res, newProperty, "Property created successfully", 201);
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      const errorMessages = Object.values(error.errors).map(
+        (err) => err.message
+      );
+      return sendError(res, errorMessages.join(", "), 400);
+    }
+
+    logError("Error creating property", {
+      error: error.message,
+      stack: error.stack,
+      userId: req.user?.id,
+      requestBody: req.body,
+    });
+
+    next(error);
+  }
+};
+
 module.exports = {
   getProperties,
   getPropertyById,
+  createProperty,
 };
