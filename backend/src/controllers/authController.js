@@ -278,8 +278,196 @@ const getCurrentUser = async (req, res, next) => {
   }
 };
 
+/**
+ * Forgot password - Generate reset token and send email
+ * @route POST /api/auth/forgot-password
+ * @access Public
+ */
+const forgotPassword = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    logInfo("Password reset request", {
+      email,
+      ip: req.ip,
+      userAgent: req.get("User-Agent"),
+    });
+
+    // Validate email field
+    if (!email) {
+      return sendValidationError(res, "Email is required");
+    }
+
+    // Find user by email
+    const user = await User.findOne({ email: email.toLowerCase() });
+
+    if (!user) {
+      // For security, don't reveal if email exists or not
+      logWarning("Password reset attempt for non-existent email", { email });
+      return sendSuccess(
+        res,
+        null,
+        "If an account with that email exists, a password reset link has been sent.",
+        200
+      );
+    }
+
+    // Check if user is active
+    if (!user.isActive) {
+      logWarning("Password reset attempt for inactive user", {
+        userId: user._id,
+        email,
+      });
+      return sendSuccess(
+        res,
+        null,
+        "If an account with that email exists, a password reset link has been sent.",
+        200
+      );
+    }
+
+    // Generate reset token
+    const resetToken = user.generatePasswordResetToken();
+    await user.save({ validateBeforeSave: false });
+
+    // Simulate email sending (replace with real email service later)
+    const resetURL = `${req.protocol}://${req.get(
+      "host"
+    )}/auth/reset-password?token=${resetToken}`;
+
+    // TODO: Replace this with actual email service
+    console.log("📧 PASSWORD RESET EMAIL (SIMULATED):");
+    console.log("To:", user.email);
+    console.log("Subject: Password Reset Request");
+    console.log("Reset Link:", resetURL);
+    console.log("Token expires in 10 minutes");
+    console.log("=".repeat(50));
+
+    logInfo("Password reset token generated", {
+      userId: user._id,
+      email: user.email,
+      tokenExpiry: user.resetPasswordExpires,
+    });
+
+    sendSuccess(
+      res,
+      {
+        resetURL: resetURL, // Only for development - remove in production
+        expiresIn: "10 minutes",
+      },
+      "Password reset link has been sent to your email",
+      200
+    );
+  } catch (error) {
+    // Clear reset token if something goes wrong
+    if (req.body.email) {
+      const user = await User.findOne({ email: req.body.email.toLowerCase() });
+      if (user) {
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
+        await user.save({ validateBeforeSave: false });
+      }
+    }
+
+    logError("Forgot password failed - server error", {
+      error: error.message,
+      stack: error.stack,
+      email: req.body.email,
+    });
+
+    next(error);
+  }
+};
+
+/**
+ * Reset password - Validate token and update password
+ * @route POST /api/auth/reset-password
+ * @access Public
+ */
+const resetPassword = async (req, res, next) => {
+  try {
+    const { token, password } = req.body;
+
+    logInfo("Password reset attempt", {
+      hasToken: !!token,
+      ip: req.ip,
+      userAgent: req.get("User-Agent"),
+    });
+
+    // Validate required fields
+    if (!token || !password) {
+      return sendValidationError(res, "Token and new password are required");
+    }
+
+    // Validate password strength
+    if (password.length < 8) {
+      return sendValidationError(res, "Password must be at least 8 characters");
+    }
+
+    // Hash the token and find user
+    const crypto = require("crypto");
+    const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+
+    const user = await User.findByResetToken(hashedToken);
+
+    if (!user) {
+      logWarning("Invalid or expired reset token used", { hashedToken });
+      return sendError(res, "Invalid or expired password reset token", 400);
+    }
+
+    // Check if user is active
+    if (!user.isActive) {
+      logWarning("Password reset attempt for inactive user", {
+        userId: user._id,
+      });
+      return sendError(res, "Account is deactivated", 401);
+    }
+
+    // Update password and clear reset fields
+    user.password = password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+    await user.save();
+
+    // Generate new JWT token
+    const authToken = user.generateAuthToken();
+
+    // Prepare response data
+    const responseData = {
+      user: {
+        id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        fullName: user.fullName,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+        isEmailVerified: user.isEmailVerified,
+      },
+      token: authToken,
+      expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+    };
+
+    logInfo("Password reset successful", {
+      userId: user._id,
+      email: user.email,
+    });
+
+    sendSuccess(res, responseData, "Password reset successful", 200);
+  } catch (error) {
+    logError("Reset password failed - server error", {
+      error: error.message,
+      stack: error.stack,
+    });
+
+    next(error);
+  }
+};
+
 module.exports = {
   register,
   login,
   getCurrentUser,
+  forgotPassword,
+  resetPassword,
 };

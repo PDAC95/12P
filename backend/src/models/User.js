@@ -63,6 +63,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    // Password reset fields
+    resetPasswordToken: {
+      type: String,
+      select: false, // Don't include in queries by default
+    },
+    resetPasswordExpires: {
+      type: Date,
+      select: false, // Don't include in queries by default
+    },
     preferences: {
       notifications: {
         email: { type: Boolean, default: true },
@@ -120,6 +129,7 @@ const userSchema = new mongoose.Schema(
 userSchema.index({ email: 1 });
 userSchema.index({ role: 1, isActive: 1 });
 userSchema.index({ createdAt: -1 });
+userSchema.index({ resetPasswordToken: 1 }); // Index for password reset lookups
 
 // Virtual for full name
 userSchema.virtual("fullName").get(function () {
@@ -165,9 +175,37 @@ userSchema.methods.generateAuthToken = function () {
   );
 };
 
+// Instance method to generate password reset token
+userSchema.methods.generatePasswordResetToken = function () {
+  const crypto = require("crypto");
+
+  // Generate random token
+  const resetToken = crypto.randomBytes(32).toString("hex");
+
+  // Hash and set reset password token
+  this.resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  // Set token expiry (10 minutes from now)
+  this.resetPasswordExpires = Date.now() + 10 * 60 * 1000;
+
+  // Return unhashed token
+  return resetToken;
+};
+
 // Static method to find user by email with password
 userSchema.statics.findByEmailWithPassword = function (email) {
   return this.findOne({ email }).select("+password");
+};
+
+// Static method to find user by reset password token
+userSchema.statics.findByResetToken = function (hashedToken) {
+  return this.findOne({
+    resetPasswordToken: hashedToken,
+    resetPasswordExpires: { $gt: Date.now() },
+  }).select("+resetPasswordToken +resetPasswordExpires");
 };
 
 module.exports = mongoose.model("User", userSchema);

@@ -3,6 +3,8 @@ const {
   register,
   login,
   getCurrentUser,
+  forgotPassword,
+  resetPassword,
 } = require("../controllers/authController");
 const { authenticate } = require("../middleware/auth");
 
@@ -30,5 +32,21 @@ router.post("/login", login);
  * @access  Private (requires authentication)
  */
 router.get("/me", authenticate, getCurrentUser);
+
+/**
+ * @route   POST /api/auth/forgot-password
+ * @desc    Send password reset email
+ * @access  Public
+ * @body    {email}
+ */
+router.post("/forgot-password", forgotPassword);
+
+/**
+ * @route   POST /api/auth/reset-password
+ * @desc    Reset password with token
+ * @access  Public
+ * @body    {token, password}
+ */
+router.post("/reset-password", resetPassword);
 
 module.exports = router;

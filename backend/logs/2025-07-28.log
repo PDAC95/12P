@@ -1081,3 +1081,148 @@
   "limit": 10,
   "filtersApplied": true
 }
+{
+  "timestamp": "2025-07-28T18:24:27.996Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-28T18:24:28.002Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-28T18:24:28.044Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-28T18:24:28.070Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-28T18:24:28.073Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-28T18:28:47.089Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-28T18:28:47.095Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-28T18:28:47.138Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-28T18:28:47.177Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-28T18:28:47.181Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-28T18:34:56.253Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-28T18:34:56.257Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-28T18:34:56.292Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-28T18:34:56.318Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-28T18:34:56.322Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-28T18:37:02.194Z",
+  "level": "INFO",
+  "message": "Password reset request",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-28T18:37:02.223Z",
+  "level": "INFO",
+  "message": "Password reset token generated",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "tokenExpiry": "2025-07-28T18:47:02.211Z"
+}
+{
+  "timestamp": "2025-07-28T18:38:06.261Z",
+  "level": "INFO",
+  "message": "Password reset attempt",
+  "hasToken": true,
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-28T18:38:06.668Z",
+  "level": "INFO",
+  "message": "Password reset successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
