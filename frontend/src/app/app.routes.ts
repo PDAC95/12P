@@ -1,5 +1,6 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
+import { authGuard, agentGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,7 @@ export const routes: Routes = [
     path: 'properties',
     loadComponent: () =>
       import('./pages/properties/properties').then((c) => c.Properties),
+    canActivate: [authGuard], // Protected: requires authentication
   },
   {
     path: 'properties/detail/:id',
@@ -17,11 +19,13 @@ export const routes: Routes = [
       import('./features/properties/property-detail/property-detail').then(
         (c) => c.PropertyDetail
       ),
+    canActivate: [authGuard], // Protected: requires authentication
   },
   {
     path: 'ai-search',
     loadComponent: () =>
       import('./pages/ai-search/ai-search').then((c) => c.AiSearch),
+    canActivate: [authGuard], // Protected: requires authentication
   },
   {
     path: 'contact',
@@ -32,6 +36,7 @@ export const routes: Routes = [
     path: 'add-property',
     loadComponent: () =>
       import('./pages/add-property/add-property').then((c) => c.AddProperty),
+    canActivate: [agentGuard], // Protected: only agents can access
   },
   {
     path: 'auth/login',
@@ -54,6 +59,7 @@ export const routes: Routes = [
       import('./features/users/user-profile/user-profile').then(
         (c) => c.UserProfile
       ),
+    canActivate: [authGuard], // Protected: requires authentication
   },
   {
     path: '**',

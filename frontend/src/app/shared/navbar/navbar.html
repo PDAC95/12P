@@ -83,8 +83,9 @@
 
             <div *ngIf="isUserLoggedIn" class="dropdown-content">
               <div class="user-info">
-                <div class="user-name">John Doe</div>
-                <div class="user-email">john&#64;example.com</div>
+                <div class="user-name">{{ getUserDisplayName() }}</div>
+                <div class="user-email">{{ getUserEmail() }}</div>
+                <div class="user-role">{{ getUserRole() }}</div>
               </div>
               <div class="dropdown-divider"></div>
               <a routerLink="/users/profile" class="dropdown-item">

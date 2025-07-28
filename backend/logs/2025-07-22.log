@@ -770,3 +770,89 @@
     "admin"
   ]
 }
+{
+  "timestamp": "2025-07-22T20:21:32.031Z",
+  "level": "INFO",
+  "message": "Route not found",
+  "path": "/auth/register",
+  "method": "POST",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-22T20:22:12.373Z",
+  "level": "INFO",
+  "message": "Route not found",
+  "path": "/auth/register",
+  "method": "POST",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-22T20:22:57.765Z",
+  "level": "INFO",
+  "message": "User registration attempt",
+  "email": "john.smith@example.com",
+  "role": "client",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-22T20:37:33.919Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "city": "Toronto",
+    "type": "Condo"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-22T20:37:33.921Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "location.city": {
+      "$regex": "Toronto",
+      "$options": "i"
+    },
+    "type": "Condo"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-22T20:37:33.933Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 2,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-22T20:41:10.715Z",
+  "level": "DEBUG",
+  "message": "Getting property by ID",
+  "propertyId": "68659cc74e0bd046e2a8d93",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-22T20:41:10.717Z",
+  "level": "INFO",
+  "message": "Invalid property ID format",
+  "propertyId": "68659cc74e0bd046e2a8d93"
+}
+{
+  "timestamp": "2025-07-22T20:43:29.647Z",
+  "level": "INFO",
+  "message": "Health check accessed",
+  "ip": "::1"
+}

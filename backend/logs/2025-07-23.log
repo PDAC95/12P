@@ -1,0 +1,248 @@
+{
+  "timestamp": "2025-07-23T13:44:02.937Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-23T13:44:02.941Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-23T13:44:02.972Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-23T13:44:02.999Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-23T13:44:03.002Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-23T13:44:20.140Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-23T13:44:20.141Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-23T13:44:20.148Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-23T13:44:20.157Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-23T13:44:20.158Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-23T13:44:20.163Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-23T13:45:29.044Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-23T13:45:29.045Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-23T13:45:29.050Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-23T13:45:29.058Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-23T13:45:29.060Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-23T13:45:29.067Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-23T13:45:33.956Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-23T13:45:33.957Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-23T13:45:33.963Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-23T13:45:33.966Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-23T13:45:33.967Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-23T13:45:33.972Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
