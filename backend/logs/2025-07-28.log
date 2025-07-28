@@ -1226,3 +1226,105 @@
   "userId": "686d7dc38de09a4f48df03af",
   "email": "agent@test.com"
 }
+{
+  "timestamp": "2025-07-28T18:42:45.516Z",
+  "level": "INFO",
+  "message": "User registration attempt",
+  "email": "agent@test.com",
+  "role": "client",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-28T18:42:45.520Z",
+  "level": "WARN",
+  "message": "Registration attempt with existing email",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-07-28T19:00:19.448Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0"
+}
+{
+  "timestamp": "2025-07-28T19:00:19.757Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "lastLogin": "2025-07-28T19:00:19.752Z"
+}
+{
+  "timestamp": "2025-07-28T19:00:19.803Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-28T19:00:19.808Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-28T19:00:19.831Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-28T19:00:19.838Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-28T19:00:19.839Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-28T19:00:19.851Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}

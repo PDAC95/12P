@@ -1,1 +1,250 @@
-<p>user-profile works!</p>
+<div class="profile-page">
+  <!-- Page Header -->
+  <div class="profile-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="back-link">
+          <a routerLink="/" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+          </a>
+        </div>
+        <h1 class="page-title">My Profile</h1>
+        <p class="page-subtitle">Manage your account information</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="profile-content">
+    <div class="container">
+      <!-- Loading State -->
+      <div class="loading-container" *ngIf="isLoading">
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <p>Loading your profile...</p>
+      </div>
+
+      <!-- Error State -->
+      <div class="error-container" *ngIf="error && !isLoading">
+        <div class="error-card">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h3>Unable to Load Profile</h3>
+          <p>{{ error }}</p>
+          <button class="btn btn-primary" routerLink="/auth/login">
+            Login Again
+          </button>
+        </div>
+      </div>
+
+      <!-- Profile Content -->
+      <div class="profile-container" *ngIf="currentUser && !isLoading">
+        <div class="row">
+          <!-- Profile Card -->
+          <div class="col-lg-4">
+            <div class="profile-card">
+              <div class="profile-avatar">
+                <div class="avatar-circle">
+                  <i class="fas fa-user"></i>
+                </div>
+                <div class="avatar-info">
+                  <h3>{{ getUserDisplayName() }}</h3>
+                  <span class="user-role">{{ getUserRoleName() }}</span>
+                </div>
+              </div>
+
+              <div class="profile-stats">
+                <div class="stat-item">
+                  <div class="stat-label">Member Since</div>
+                  <div class="stat-value">{{ getJoinedDate() }}</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-label">Last Login</div>
+                  <div class="stat-value">{{ getLastLoginDate() }}</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-label">Account Status</div>
+                  <div class="stat-value">
+                    <span class="status-badge active">Active</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="profile-actions">
+                <button
+                  class="btn btn-primary btn-block"
+                  (click)="onEditProfile()"
+                >
+                  <i class="fas fa-edit"></i>
+                  Edit Profile
+                </button>
+                <button
+                  class="btn btn-outline-secondary btn-block"
+                  (click)="onChangePassword()"
+                >
+                  <i class="fas fa-lock"></i>
+                  Change Password
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Details -->
+          <div class="col-lg-8">
+            <div class="details-card">
+              <div class="card-header">
+                <h4>Personal Information</h4>
+                <p>Your account details and contact information</p>
+              </div>
+
+              <div class="card-body">
+                <div class="info-grid">
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-user"></i>
+                      First Name
+                    </div>
+                    <div class="info-value">{{ currentUser.firstName }}</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-user"></i>
+                      Last Name
+                    </div>
+                    <div class="info-value">{{ currentUser.lastName }}</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-envelope"></i>
+                      Email Address
+                    </div>
+                    <div class="info-value">
+                      {{ currentUser.email }}
+                      <span
+                        class="verification-badge"
+                        [class.verified]="currentUser.isEmailVerified"
+                      >
+                        <i
+                          class="fas"
+                          [class.fa-check-circle]="currentUser.isEmailVerified"
+                          [class.fa-times-circle]="!currentUser.isEmailVerified"
+                        ></i>
+                        {{ currentUser.isEmailVerified ? 'Verified' : 'Not
+                        Verified' }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="info-item" *ngIf="currentUser.phone">
+                    <div class="info-label">
+                      <i class="fas fa-phone"></i>
+                      Phone Number
+                    </div>
+                    <div class="info-value">{{ currentUser.phone }}</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-id-badge"></i>
+                      Account Type
+                    </div>
+                    <div class="info-value">
+                      <span
+                        class="role-badge"
+                        [class]="'role-' + currentUser.role"
+                      >
+                        {{ getUserRoleName() }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-calendar-alt"></i>
+                      Join Date
+                    </div>
+                    <div class="info-value">{{ getJoinedDate() }}</div>
+                  </div>
+                </div>
+
+                <!-- Agent Info Section -->
+                <div
+                  class="agent-info-section"
+                  *ngIf="currentUser.role === 'agent' && currentUser.agentInfo"
+                >
+                  <div class="section-header">
+                    <h5>
+                      <i class="fas fa-home"></i>
+                      Agent Information
+                    </h5>
+                  </div>
+
+                  <div class="info-grid">
+                    <div
+                      class="info-item"
+                      *ngIf="currentUser.agentInfo.licenseNumber"
+                    >
+                      <div class="info-label">
+                        <i class="fas fa-certificate"></i>
+                        License Number
+                      </div>
+                      <div class="info-value">
+                        {{ currentUser.agentInfo.licenseNumber }}
+                      </div>
+                    </div>
+
+                    <div class="info-item" *ngIf="currentUser.agentInfo.agency">
+                      <div class="info-label">
+                        <i class="fas fa-building"></i>
+                        Agency
+                      </div>
+                      <div class="info-value">
+                        {{ currentUser.agentInfo.agency }}
+                      </div>
+                    </div>
+
+                    <div
+                      class="info-item"
+                      *ngIf="currentUser.agentInfo.experience"
+                    >
+                      <div class="info-label">
+                        <i class="fas fa-chart-line"></i>
+                        Experience
+                      </div>
+                      <div class="info-value">
+                        {{ currentUser.agentInfo.experience }} years
+                      </div>
+                    </div>
+
+                    <div
+                      class="info-item"
+                      *ngIf="currentUser.agentInfo.specializations?.length"
+                    >
+                      <div class="info-label">
+                        <i class="fas fa-tags"></i>
+                        Specializations
+                      </div>
+                      <div class="info-value">
+                        <div class="specialization-tags">
+                          <span
+                            class="tag"
+                            *ngFor="let spec of currentUser.agentInfo.specializations"
+                          >
+                            {{ spec }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
