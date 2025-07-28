@@ -3,6 +3,7 @@ const {
   register,
   login,
   getCurrentUser,
+  updateCurrentUser, // Add this import
   forgotPassword,
   resetPassword,
 } = require("../controllers/authController");
@@ -32,6 +33,14 @@ router.post("/login", login);
  * @access  Private (requires authentication)
  */
 router.get("/me", authenticate, getCurrentUser);
+
+/**
+ * @route   PUT /api/auth/me
+ * @desc    Update current user profile
+ * @access  Private (requires authentication)
+ * @body    {firstName?, lastName?, phone?, preferences?}
+ */
+router.put("/me", authenticate, updateCurrentUser);
 
 /**
  * @route   POST /api/auth/forgot-password

@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // Add this import
 import { Subscription } from 'rxjs';
 import { AuthService, User } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule], // Add FormsModule
   templateUrl: './user-profile.html',
   styleUrl: './user-profile.scss',
 })
@@ -14,6 +15,19 @@ export class UserProfile implements OnInit, OnDestroy {
   currentUser: User | null = null;
   isLoading = true;
   error = '';
+
+  // Edit modal properties
+  showEditModal = false;
+  isUpdating = false;
+  updateError = '';
+  updateSuccess = '';
+
+  // Edit form data
+  editForm = {
+    firstName: '',
+    lastName: '',
+    phone: '',
+  };
 
   private authSubscription: Subscription = new Subscription();
 
@@ -115,9 +129,69 @@ export class UserProfile implements OnInit, OnDestroy {
     });
   }
 
+  // Edit Profile Methods
   onEditProfile() {
     console.log('✏️ Edit profile clicked');
-    // TODO: Navigate to edit profile page
+    if (this.currentUser) {
+      this.editForm = {
+        firstName: this.currentUser.firstName || '',
+        lastName: this.currentUser.lastName || '',
+        phone: this.currentUser.phone || '',
+      };
+      this.updateError = '';
+      this.updateSuccess = '';
+      this.showEditModal = true;
+    }
+  }
+
+  onSaveProfile() {
+    if (!this.isValidEditForm()) {
+      this.updateError = 'Please fill in all required fields';
+      return;
+    }
+
+    this.isUpdating = true;
+    this.updateError = '';
+    this.updateSuccess = '';
+
+    console.log('💾 Saving profile changes:', this.editForm);
+
+    this.authService.updateProfile(this.editForm).subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.updateSuccess = 'Profile updated successfully!';
+          // Close modal after showing success message
+          setTimeout(() => {
+            this.onCloseEditModal();
+          }, 1500);
+        }
+      },
+      error: (error) => {
+        console.error('❌ Profile update failed:', error);
+
+        if (error.status === 401) {
+          this.updateError = 'Session expired. Please log in again.';
+        } else if (error.status === 400) {
+          this.updateError = error.error?.message || 'Invalid data provided';
+        } else {
+          this.updateError = 'Failed to update profile. Please try again.';
+        }
+      },
+      complete: () => {
+        this.isUpdating = false;
+      },
+    });
+  }
+
+  onCloseEditModal() {
+    this.showEditModal = false;
+    this.updateError = '';
+    this.updateSuccess = '';
+    this.isUpdating = false;
+  }
+
+  isValidEditForm(): boolean {
+    return !!(this.editForm.firstName.trim() && this.editForm.lastName.trim());
   }
 
   onChangePassword() {

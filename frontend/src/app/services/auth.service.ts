@@ -115,6 +115,36 @@ export class AuthService {
   }
 
   /**
+   * Update current user profile
+   */
+  updateProfile(updateData: {
+    firstName?: string;
+    lastName?: string;
+    phone?: string;
+    preferences?: any;
+  }): Observable<AuthResponse> {
+    return this.http.put<AuthResponse>(`${this.API_URL}/me`, updateData).pipe(
+      tap((response) => {
+        if (response.success) {
+          // Update the current user data in memory
+          this.currentUserSubject.next(response.data.user);
+
+          // Update localStorage with new user data
+          localStorage.setItem(
+            this.USER_KEY,
+            JSON.stringify(response.data.user)
+          );
+
+          console.log('✅ Profile updated successfully:', {
+            user: response.data.user.email,
+            updatedFields: Object.keys(updateData),
+          });
+        }
+      })
+    );
+  }
+
+  /**
    * Logout user and clear stored data
    */
   logout(): void {

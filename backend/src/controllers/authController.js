@@ -279,6 +279,109 @@ const getCurrentUser = async (req, res, next) => {
 };
 
 /**
+ * Update current user profile
+ * @route PUT /api/auth/me
+ * @access Private
+ */
+const updateCurrentUser = async (req, res, next) => {
+  try {
+    const userId = req.user?.id;
+    const { firstName, lastName, phone, preferences } = req.body;
+
+    if (!userId) {
+      const errorObj = createError("AUTH", "UNAUTHORIZED");
+      return sendError(res, errorObj.message, 401);
+    }
+
+    // Find user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      const errorObj = createError("AUTH", "USER_NOT_FOUND");
+      return sendError(res, errorObj.message, 404);
+    }
+
+    // Check if user is active
+    if (!user.isActive) {
+      const errorObj = createError("AUTH", "ACCOUNT_LOCKED");
+      return sendError(res, errorObj.message, 401);
+    }
+
+    // Validate and update allowed fields
+    const updateData = {};
+
+    if (firstName !== undefined) {
+      if (!firstName.trim()) {
+        return sendValidationError(res, "First name cannot be empty");
+      }
+      updateData.firstName = firstName.trim();
+    }
+
+    if (lastName !== undefined) {
+      if (!lastName.trim()) {
+        return sendValidationError(res, "Last name cannot be empty");
+      }
+      updateData.lastName = lastName.trim();
+    }
+
+    if (phone !== undefined) {
+      // Allow empty phone (optional field)
+      updateData.phone = phone ? phone.trim() : null;
+    }
+
+    if (preferences !== undefined && typeof preferences === "object") {
+      // Merge with existing preferences
+      updateData.preferences = {
+        ...user.preferences,
+        ...preferences,
+      };
+    }
+
+    // Update user in database
+    const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+      new: true, // Return updated document
+      runValidators: true, // Run mongoose validations
+    });
+
+    // Prepare response data
+    const responseData = {
+      user: {
+        id: updatedUser._id,
+        firstName: updatedUser.firstName,
+        lastName: updatedUser.lastName,
+        fullName: updatedUser.fullName,
+        email: updatedUser.email,
+        phone: updatedUser.phone,
+        role: updatedUser.role,
+        isEmailVerified: updatedUser.isEmailVerified,
+        lastLogin: updatedUser.lastLogin,
+        createdAt: updatedUser.createdAt,
+        preferences: updatedUser.preferences,
+        ...(updatedUser.role === "agent" && {
+          agentInfo: updatedUser.agentInfo,
+        }),
+      },
+    };
+
+    logInfo("User profile updated", {
+      userId: updatedUser._id,
+      email: updatedUser.email,
+      updatedFields: Object.keys(updateData),
+    });
+
+    sendSuccess(res, responseData, "Profile updated successfully", 200);
+  } catch (error) {
+    logError("Update current user failed - server error", {
+      error: error.message,
+      stack: error.stack,
+      userId: req.user?.id,
+    });
+
+    next(error);
+  }
+};
+
+/**
  * Forgot password - Generate reset token and send email
  * @route POST /api/auth/forgot-password
  * @access Public
@@ -468,6 +571,7 @@ module.exports = {
   register,
   login,
   getCurrentUser,
+  updateCurrentUser,
   forgotPassword,
   resetPassword,
 };
