@@ -22,6 +22,19 @@ export class UserProfile implements OnInit, OnDestroy {
   updateError = '';
   updateSuccess = '';
 
+  // Change password modal properties
+  showChangePasswordModal = false;
+  isChangingPassword = false;
+  changePasswordError = '';
+  changePasswordSuccess = '';
+
+  // Change password form data
+  changePasswordForm = {
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+  };
+
   // Edit form data
   editForm = {
     firstName: '',
@@ -196,6 +209,87 @@ export class UserProfile implements OnInit, OnDestroy {
 
   onChangePassword() {
     console.log('🔒 Change password clicked');
-    // TODO: Navigate to change password page
+    this.changePasswordForm = {
+      currentPassword: '',
+      newPassword: '',
+      confirmPassword: '',
+    };
+    this.changePasswordError = '';
+    this.changePasswordSuccess = '';
+    this.showChangePasswordModal = true;
+  }
+
+  onSavePassword() {
+    if (!this.isValidPasswordForm()) {
+      this.changePasswordError = 'Please fill in all required fields';
+      return;
+    }
+
+    if (
+      this.changePasswordForm.newPassword !==
+      this.changePasswordForm.confirmPassword
+    ) {
+      this.changePasswordError = 'New passwords do not match';
+      return;
+    }
+
+    this.isChangingPassword = true;
+    this.changePasswordError = '';
+    this.changePasswordSuccess = '';
+
+    console.log('🔐 Changing password...');
+
+    const passwordData = {
+      currentPassword: this.changePasswordForm.currentPassword,
+      newPassword: this.changePasswordForm.newPassword,
+    };
+
+    this.authService.changePassword(passwordData).subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.changePasswordSuccess = 'Password changed successfully!';
+          // Close modal after showing success message
+          setTimeout(() => {
+            this.onCloseChangePasswordModal();
+          }, 2000);
+        }
+      },
+      error: (error) => {
+        console.error('❌ Password change failed:', error);
+
+        if (error.status === 401) {
+          this.changePasswordError = 'Session expired. Please log in again.';
+        } else if (error.status === 400) {
+          this.changePasswordError =
+            error.error?.message || 'Invalid password data provided';
+        } else {
+          this.changePasswordError =
+            'Failed to change password. Please try again.';
+        }
+      },
+      complete: () => {
+        this.isChangingPassword = false;
+      },
+    });
+  }
+
+  onCloseChangePasswordModal() {
+    this.showChangePasswordModal = false;
+    this.changePasswordError = '';
+    this.changePasswordSuccess = '';
+    this.isChangingPassword = false;
+    this.changePasswordForm = {
+      currentPassword: '',
+      newPassword: '',
+      confirmPassword: '',
+    };
+  }
+
+  isValidPasswordForm(): boolean {
+    return !!(
+      this.changePasswordForm.currentPassword.trim() &&
+      this.changePasswordForm.newPassword.trim() &&
+      this.changePasswordForm.confirmPassword.trim()
+    );
   }
 }

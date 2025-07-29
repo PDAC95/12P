@@ -3,7 +3,8 @@ const {
   register,
   login,
   getCurrentUser,
-  updateCurrentUser, // Add this import
+  updateCurrentUser,
+  changePassword, // Add this import
   forgotPassword,
   resetPassword,
 } = require("../controllers/authController");
@@ -41,6 +42,14 @@ router.get("/me", authenticate, getCurrentUser);
  * @body    {firstName?, lastName?, phone?, preferences?}
  */
 router.put("/me", authenticate, updateCurrentUser);
+
+/**
+ * @route   PUT /api/auth/change-password
+ * @desc    Change user password
+ * @access  Private (requires authentication)
+ * @body    {currentPassword, newPassword}
+ */
+router.put("/change-password", authenticate, changePassword);
 
 /**
  * @route   POST /api/auth/forgot-password

@@ -567,11 +567,98 @@ const resetPassword = async (req, res, next) => {
   }
 };
 
+/**
+ * Change user password
+ * @route PUT /api/auth/change-password
+ * @access Private
+ */
+const changePassword = async (req, res, next) => {
+  try {
+    const userId = req.user?.id;
+    const { currentPassword, newPassword } = req.body;
+
+    if (!userId) {
+      const errorObj = createError("AUTH", "UNAUTHORIZED");
+      return sendError(res, errorObj.message, 401);
+    }
+
+    // Validate required fields
+    if (!currentPassword || !newPassword) {
+      return sendValidationError(
+        res,
+        "Current password and new password are required"
+      );
+    }
+
+    // Validate new password strength
+    if (newPassword.length < 8) {
+      return sendValidationError(
+        res,
+        "New password must be at least 8 characters long"
+      );
+    }
+
+    // Find user with password included
+    const user = await User.findByEmailWithPassword(req.user.email);
+
+    if (!user) {
+      const errorObj = createError("AUTH", "USER_NOT_FOUND");
+      return sendError(res, errorObj.message, 404);
+    }
+
+    // Check if user is active
+    if (!user.isActive) {
+      const errorObj = createError("AUTH", "ACCOUNT_LOCKED");
+      return sendError(res, errorObj.message, 401);
+    }
+
+    // Verify current password
+    const isCurrentPasswordValid = await user.comparePassword(currentPassword);
+
+    if (!isCurrentPasswordValid) {
+      logWarning("Password change attempt with invalid current password", {
+        userId: user._id,
+        email: user.email,
+      });
+      return sendValidationError(res, "Current password is incorrect");
+    }
+
+    // Check if new password is different from current
+    const isSamePassword = await user.comparePassword(newPassword);
+    if (isSamePassword) {
+      return sendValidationError(
+        res,
+        "New password must be different from current password"
+      );
+    }
+
+    // Update password (the User model will automatically hash it)
+    user.password = newPassword;
+    await user.save();
+
+    logInfo("Password changed successfully", {
+      userId: user._id,
+      email: user.email,
+    });
+
+    sendSuccess(res, null, "Password changed successfully", 200);
+  } catch (error) {
+    logError("Change password failed - server error", {
+      error: error.message,
+      stack: error.stack,
+      userId: req.user?.id,
+    });
+
+    next(error);
+  }
+};
+
 module.exports = {
   register,
   login,
   getCurrentUser,
   updateCurrentUser,
+  changePassword,
   forgotPassword,
   resetPassword,
 };

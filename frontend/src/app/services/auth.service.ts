@@ -52,6 +52,13 @@ export interface RegisterData {
   agentInfo?: any;
 }
 
+export interface ChangePasswordResponse {
+  success: boolean;
+  message: string;
+  data: null;
+  timestamp: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -144,6 +151,26 @@ export class AuthService {
     );
   }
 
+  /**
+   * Change user password
+   */
+  changePassword(passwordData: {
+    currentPassword: string;
+    newPassword: string;
+  }): Observable<ChangePasswordResponse> {
+    return this.http
+      .put<ChangePasswordResponse>(
+        `${this.API_URL}/change-password`,
+        passwordData
+      )
+      .pipe(
+        tap((response) => {
+          if (response.success) {
+            console.log('✅ Password changed successfully');
+          }
+        })
+      );
+  }
   /**
    * Logout user and clear stored data
    */
