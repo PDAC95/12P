@@ -358,3 +358,483 @@
   "userId": "686d59cc74e0bd046e2a8d93",
   "email": "john.doe@example.com"
 }
+{
+  "timestamp": "2025-07-29T19:54:28.068Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-29T19:54:28.072Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-29T19:54:28.100Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-29T19:54:28.127Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-29T19:54:28.130Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-29T19:54:35.675Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-29T19:54:35.678Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-29T19:54:35.703Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-29T19:54:35.725Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-29T19:54:35.727Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-29T19:55:05.942Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-29T19:55:05.949Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-29T19:55:05.981Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-29T19:55:06.002Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-29T19:55:06.005Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-29T19:55:12.246Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-29T19:55:12.249Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-29T19:55:12.276Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-29T19:55:12.302Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-29T19:55:12.304Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-29T19:56:21.307Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-29T19:56:21.310Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-29T19:56:21.334Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-29T19:56:21.352Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-29T19:56:21.355Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-29T19:59:16.528Z",
+  "level": "WARN",
+  "message": "Public profile requested for inactive user",
+  "userId": "686d59cc74e0bd046e2a8d93"
+}
+{
+  "timestamp": "2025-07-29T20:01:13.065Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-29T20:01:13.069Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-29T20:01:13.104Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-29T20:01:13.131Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-29T20:01:13.135Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-29T20:01:21.581Z",
+  "level": "WARN",
+  "message": "Public profile requested for inactive user",
+  "userId": "686d59cc74e0bd046e2a8d93"
+}
+{
+  "timestamp": "2025-07-29T20:03:56.255Z",
+  "level": "WARN",
+  "message": "Public profile requested for inactive user",
+  "userId": "686d4fc45d85566fff88ef9f"
+}
+{
+  "timestamp": "2025-07-29T20:04:09.895Z",
+  "level": "WARN",
+  "message": "Public profile requested for inactive user",
+  "userId": "686d4f885d85566fff88ef9c"
+}
+{
+  "timestamp": "2025-07-29T20:07:46.877Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-29T20:07:46.882Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-29T20:07:46.918Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-29T20:07:46.947Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 66
+}
+{
+  "timestamp": "2025-07-29T20:07:46.951Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-29T20:07:57.886Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d4f885d85566fff88ef9c",
+  "requestedBy": "::1"
+}
+{
+  "timestamp": "2025-07-29T20:08:23.627Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d4fc45d85566fff88ef9f",
+  "requestedBy": "::1"
+}
+{
+  "timestamp": "2025-07-29T20:21:15.191Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-29T20:21:15.210Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-29T20:21:30.967Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-29T20:21:43.827Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-29T20:21:43.828Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-29T20:21:43.836Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-29T20:21:43.837Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-29T20:21:43.848Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-29T20:21:43.863Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 48,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-29T20:21:47.036Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-29T20:21:47.037Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-29T20:21:47.044Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 66,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-29T20:21:47.053Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {},
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-29T20:21:47.055Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-29T20:21:47.060Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 66,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-07-29T20:21:57.248Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-29T20:25:10.083Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-29T20:25:10.152Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d4fc45d85566fff88ef9f",
+  "requestedBy": "::1"
+}

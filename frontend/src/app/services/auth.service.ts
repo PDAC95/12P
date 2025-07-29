@@ -171,6 +171,7 @@ export class AuthService {
         })
       );
   }
+
   /**
    * Logout user and clear stored data
    */

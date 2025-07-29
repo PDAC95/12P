@@ -1,0 +1,380 @@
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    i {
+      color: #60d394;
+    }
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: scale(1.1);
+    }
+  }
+}
+
+.modal-body {
+  padding: 0;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Profile Container */
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Loading & Error States */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+
+  .loading-spinner {
+    font-size: 2rem;
+    color: #1e3a5f;
+    margin-bottom: 16px;
+
+    i {
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  p {
+    color: #6b7280;
+    margin: 0;
+  }
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+
+  .error-card {
+    text-align: center;
+    padding: 32px;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    max-width: 400px;
+
+    i {
+      font-size: 2.5rem;
+      color: #dc2626;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      color: #991b1b;
+      margin: 0 0 8px 0;
+      font-size: 1.25rem;
+    }
+
+    p {
+      color: #7f1d1d;
+      margin: 0;
+    }
+  }
+}
+
+/* Profile Card */
+.public-profile-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+  padding: 32px 24px;
+  color: white;
+
+  .avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .avatar-circle {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .user-info {
+      flex: 1;
+
+      h2 {
+        margin: 0 0 8px 0;
+        font-size: 1.75rem;
+        font-weight: 600;
+      }
+
+      .user-role {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 12px;
+
+        &.role-client {
+          background-color: rgba(96, 211, 148, 0.2);
+          color: #60d394;
+          border: 1px solid rgba(96, 211, 148, 0.3);
+        }
+
+        &.role-agent {
+          background-color: rgba(251, 191, 36, 0.2);
+          color: #fbbf24;
+          border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        &.role-admin {
+          background-color: rgba(239, 68, 68, 0.2);
+          color: #ef4444;
+          border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+      }
+
+      .verification-status {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.875rem;
+        color: #60d394;
+
+        i {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+/* Profile Details */
+.profile-details {
+  padding: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .detail-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #374151;
+
+    i {
+      color: #1e3a5f;
+      width: 16px;
+    }
+  }
+
+  .detail-value {
+    font-weight: 500;
+    color: #1f2937;
+
+    .role-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+
+      &.role-client {
+        background-color: #d1fae5;
+        color: #065f46;
+      }
+
+      &.role-agent {
+        background-color: #fef3c7;
+        color: #92400e;
+      }
+
+      &.role-admin {
+        background-color: #fee2e2;
+        color: #991b1b;
+      }
+    }
+  }
+}
+
+/* Agent Information */
+.agent-info-section {
+  padding: 24px;
+
+  .section-header {
+    margin-bottom: 20px;
+
+    h4 {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      i {
+        color: #1e3a5f;
+      }
+    }
+  }
+
+  .agent-details {
+    .detail-item {
+      padding: 16px 0;
+    }
+  }
+}
+
+.specialization-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .tag {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid #bae6fd;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 16px;
+  }
+
+  .modal-container {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .profile-header {
+    padding: 24px 20px;
+
+    .avatar-section {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+
+      .avatar-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .profile-details,
+  .agent-info-section {
+    padding: 20px 16px;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .specialization-tags {
+    margin-top: 8px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

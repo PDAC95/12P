@@ -62,6 +62,14 @@ export const routes: Routes = [
     canActivate: [authGuard], // Protected: requires authentication
   },
   {
+    path: 'user/:id',
+    loadComponent: () =>
+      import('./features/users/public-user-profile/public-user-profile').then(
+        (c) => c.PublicUserProfile
+      ),
+    title: 'User Profile - 12P',
+  },
+  {
     path: '**',
     redirectTo: '',
   },
