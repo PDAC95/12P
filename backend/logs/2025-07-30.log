@@ -816,3 +816,220 @@
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
+{
+  "timestamp": "2025-07-30T20:20:39.463Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt expired",
+  "token": "eyJhbGciOiJIUzI1NiIs..."
+}
+{
+  "timestamp": "2025-07-30T20:21:00.025Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-30T20:21:00.316Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "lastLogin": "2025-07-30T20:21:00.298Z"
+}
+{
+  "timestamp": "2025-07-30T20:21:43.259Z",
+  "level": "WARN",
+  "message": "Authorization failed - insufficient permissions",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "userRole": "client",
+  "requiredRoles": [
+    "agent",
+    "admin"
+  ]
+}
+{
+  "timestamp": "2025-07-30T20:22:19.464Z",
+  "level": "WARN",
+  "message": "Authorization failed - insufficient permissions",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "userRole": "client",
+  "requiredRoles": [
+    "agent",
+    "admin"
+  ]
+}
+{
+  "timestamp": "2025-07-30T20:23:22.919Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "jane.smith@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-30T20:23:22.922Z",
+  "level": "WARN",
+  "message": "Login attempt with non-existent email",
+  "email": "jane.smith@example.com"
+}
+{
+  "timestamp": "2025-07-30T20:25:09.285Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-30T20:25:09.543Z",
+  "level": "WARN",
+  "message": "Login attempt with invalid password",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-07-30T20:25:52.189Z",
+  "level": "ERROR",
+  "message": "Unexpected token '.', ...\"  },\r\n    ...\r\n  ]\r\n\"... is not valid JSON",
+  "stack": "SyntaxError: Unexpected token '.', ...\"  },\r\n    ...\r\n  ]\r\n\"... is not valid JSON\n    at JSON.parse (<anonymous>)\n    at parse (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\body-parser\\lib\\types\\json.js:92:19)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\body-parser\\lib\\read.js:128:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n    at invokeCallback (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\raw-body\\index.js:238:16)\n    at done (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:518:28)\n    at endReadableNT (node:internal/streams/readable:1698:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)",
+  "request": {
+    "method": "GET",
+    "url": "/api/users/debug/list",
+    "ip": "::1",
+    "userAgent": "PostmanRuntime/7.44.1",
+    "body": {},
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-07-30T20:27:10.958Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-30T20:27:11.257Z",
+  "level": "WARN",
+  "message": "Login attempt with invalid password",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-07-30T20:27:32.383Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-30T20:27:32.670Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-07-30T20:27:32.664Z"
+}
+{
+  "timestamp": "2025-07-30T20:29:15.859Z",
+  "level": "INFO",
+  "message": "New property created successfully",
+  "propertyId": "688a809b0afbf4b7dccbf89e",
+  "createdBy": "686d7dc38de09a4f48df03af",
+  "userRole": "agent",
+  "title": "Test Property via API",
+  "price": 450000
+}
+{
+  "timestamp": "2025-07-30T20:35:00.159Z",
+  "level": "INFO",
+  "message": "New property created successfully",
+  "propertyId": "688a81f40afbf4b7dccbf8a1",
+  "createdBy": "686d7dc38de09a4f48df03af",
+  "userRole": "agent",
+  "title": "Test Property via API",
+  "price": 450000
+}
+{
+  "timestamp": "2025-07-30T20:36:45.728Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-30T20:36:46.008Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "lastLogin": "2025-07-30T20:36:46.004Z"
+}
+{
+  "timestamp": "2025-07-30T20:37:03.935Z",
+  "level": "WARN",
+  "message": "Authorization failed - insufficient permissions",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "userRole": "client",
+  "requiredRoles": [
+    "agent",
+    "admin"
+  ]
+}
+{
+  "timestamp": "2025-07-30T20:41:58.174Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "limit": "5",
+    "sort": "-createdAt"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-30T20:41:58.175Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 5,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-30T20:41:58.179Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 5,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-30T20:43:35.152Z",
+  "level": "WARN",
+  "message": "Authorization failed - insufficient permissions",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "userRole": "client",
+  "requiredRoles": [
+    "agent",
+    "admin"
+  ]
+}
