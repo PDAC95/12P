@@ -24,15 +24,43 @@
       </span>
     </div>
 
+    <!-- Agent Information Section -->
+    <div class="agent-info" *ngIf="!isLoadingAgent">
+      <div class="agent-details" *ngIf="agentInfo">
+        <i [class]="getAgentRoleIcon()"></i>
+        <span class="agent-name">{{ getAgentDisplayName() }}</span>
+        <span class="agent-role"
+          >{{ userService.getRoleDisplayName(agentInfo.role) }}</span
+        >
+      </div>
+      <div class="agent-details" *ngIf="!agentInfo">
+        <i class="fas fa-user"></i>
+        <span class="agent-name">Agent info unavailable</span>
+      </div>
+    </div>
+    <div class="agent-info loading" *ngIf="isLoadingAgent">
+      <i class="fas fa-spinner fa-spin"></i>
+      <span>Loading agent info...</span>
+    </div>
+
     <div class="price-section">
       <strong class="price">${{ property.price | number }}</strong>
-      <button
-        class="btn btn-primary btn-sm"
-        [routerLink]="['/properties/detail', property.id]"
-        (click)="onViewDetailsClick()"
-      >
-        View Details
-      </button>
+      <div class="action-buttons">
+        <button
+          class="btn btn-primary btn-sm"
+          [routerLink]="['/properties/detail', property.id]"
+          (click)="onViewDetailsClick()"
+        >
+          View Details
+        </button>
+        <button
+          class="btn btn-outline-secondary btn-sm"
+          [routerLink]="['/user', property.owner]"
+          (click)="onViewAgentClick()"
+        >
+          <i class="fas fa-user"></i> View Agent
+        </button>
+      </div>
     </div>
   </div>
 </div>

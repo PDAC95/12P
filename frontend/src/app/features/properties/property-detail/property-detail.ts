@@ -68,60 +68,56 @@ export class PropertyDetail implements OnInit {
    * @param objectId MongoDB ObjectId string
    */
   private loadBackendProperty(objectId: string) {
-    this.propertyService.getBackendPropertyById(objectId).subscribe({
-      next: (backendProperty) => {
-        if (backendProperty) {
-          console.log(
-            '✅ Backend property loaded successfully:',
-            backendProperty
-          );
-          this.backendProperty = backendProperty;
-          this.property = this.convertBackendToLegacy(backendProperty);
+    // Use the existing getPropertyById method instead of getBackendPropertyById
+    this.propertyService.getPropertyById(objectId).subscribe({
+      next: (property: PropertyModel | undefined) => {
+        if (property) {
+          console.log('✅ Property loaded successfully:', property);
+          this.property = property;
           this.isBackendProperty = true;
         } else {
-          console.warn('❌ Backend property not found, trying legacy service');
-          // Fallback to legacy service
-          this.loadLegacyProperty(parseInt(objectId));
+          console.warn('❌ Property not found, trying legacy service');
+          // Fallback to legacy service with parsed numeric ID
+          this.loadLegacyProperty(parseInt(objectId.slice(-6), 16)); // Use last 6 chars as fallback
         }
         this.loading = false;
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('❌ Error loading backend property:', error);
-        console.log('🔄 Falling back to legacy service');
         // Fallback to legacy service
-        this.loadLegacyProperty(parseInt(objectId));
+        this.loadLegacyProperty(parseInt(objectId.slice(-6), 16));
       },
     });
   }
 
   /**
-   * Load property using legacy numeric ID
-   * @param numericId Numeric property ID
+   * Load property using numeric ID (legacy mock data)
+   * @param id Numeric property ID
    */
-  private loadLegacyProperty(numericId: number) {
-    this.propertyService.getPropertyById(numericId).subscribe({
-      next: (property) => {
+  private loadLegacyProperty(id: number) {
+    this.propertyService.getPropertyById(id).subscribe({
+      next: (property: PropertyModel | undefined) => {
         if (property) {
           console.log('✅ Legacy property loaded successfully:', property);
           this.property = property;
           this.isBackendProperty = false;
         } else {
-          console.warn('❌ Property not found with ID:', numericId);
+          console.warn('❌ Property not found anywhere with ID:', id);
           this.router.navigate(['/properties']);
         }
         this.loading = false;
       },
-      error: (error) => {
+      error: (error: any) => {
         console.error('❌ Error loading legacy property:', error);
-        this.loading = false;
         this.router.navigate(['/properties']);
+        this.loading = false;
       },
     });
   }
 
   /**
-   * Convert backend property to legacy format for display compatibility
-   * @param backendProperty Full backend property data
+   * Convert backend property to legacy format for display
+   * @param backendProperty Backend property model
    * @returns Legacy PropertyModel
    */
   private convertBackendToLegacy(
@@ -130,198 +126,55 @@ export class PropertyDetail implements OnInit {
     const primaryImage =
       backendProperty.images?.find((img) => img.isPrimary)?.url ||
       backendProperty.images?.[0]?.url ||
-      'https://via.placeholder.com/800x600/cccccc/969696?text=No+Image';
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80';
 
-    const locationString =
+    const numericId = this.generateNumericId(backendProperty._id);
+    const formattedLocation =
       backendProperty.fullAddress ||
-      `${backendProperty.location.address}, ${backendProperty.location.city}, ${backendProperty.location.province}`;
-
-    const numericId = this.hashStringToNumber(backendProperty._id);
+      `${backendProperty.location.city}, ${backendProperty.location.province}`;
 
     return {
       id: numericId,
       title: backendProperty.title,
       price: backendProperty.price,
-      location: locationString,
+      location: formattedLocation,
       type: backendProperty.type,
       bedrooms: backendProperty.bedrooms,
       bathrooms: backendProperty.bathrooms,
       area: backendProperty.area,
       image: primaryImage,
       description: backendProperty.description,
+      owner: backendProperty.owner, // Include owner field
     };
   }
 
   /**
-   * Hash string to number for legacy compatibility
+   * Generate numeric ID from ObjectId for legacy compatibility
+   * @param objectId MongoDB ObjectId string
+   * @returns Numeric ID
    */
-  private hashStringToNumber(str: string): number {
+  private generateNumericId(objectId: string): number {
     let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
+    for (let i = 0; i < objectId.length; i++) {
+      const char = objectId.charCodeAt(i);
       hash = (hash << 5) - hash + char;
       hash = hash & hash;
     }
-    return Math.abs(hash);
+    return Math.abs(hash) % 1000000;
   }
 
-  goBack() {
+  /**
+   * Navigate back to properties list
+   */
+  goBack(): void {
     this.router.navigate(['/properties']);
   }
 
-  // Enhanced methods for backend properties
-
   /**
-   * Get primary image or fallback
+   * Contact the property owner
    */
-  getPrimaryImage(): string {
-    if (this.isBackendProperty && this.backendProperty) {
-      return (
-        this.backendProperty.images?.find((img) => img.isPrimary)?.url ||
-        this.backendProperty.images?.[0]?.url ||
-        'https://via.placeholder.com/800x600/cccccc/969696?text=No+Image'
-      );
-    }
-    return (
-      this.property?.image ||
-      'https://via.placeholder.com/800x600/cccccc/969696?text=No+Image'
-    );
-  }
-
-  /**
-   * Get all property images
-   */
-  getAllImages(): Array<{ url: string; alt: string; isPrimary: boolean }> {
-    if (this.isBackendProperty && this.backendProperty?.images) {
-      return this.backendProperty.images;
-    }
-    // Return single image for legacy properties
-    return [
-      {
-        url: this.getPrimaryImage(),
-        alt: this.property?.title || 'Property Image',
-        isPrimary: true,
-      },
-    ];
-  }
-
-  /**
-   * Get formatted location
-   */
-  getFullLocation(): string {
-    if (this.isBackendProperty && this.backendProperty) {
-      return (
-        this.backendProperty.fullAddress ||
-        `${this.backendProperty.location.address}, ${this.backendProperty.location.city}, ${this.backendProperty.location.province}`
-      );
-    }
-    return this.property?.location || 'Location not specified';
-  }
-
-  /**
-   * Get property features - real data from backend or mock for legacy
-   */
-  getPropertyFeatures(): string[] {
-    if (this.isBackendProperty && this.backendProperty?.features) {
-      return this.backendProperty.features;
-    }
-
-    // Mock features for legacy properties based on type
-    const baseFeatures = ['Modern Kitchen', 'Hardwood Floors', 'Central Air'];
-
-    if (this.property?.type === 'Condo') {
-      return [...baseFeatures, 'Balcony', 'Gym Access', 'Concierge'];
-    } else if (this.property?.type === 'Detached House') {
-      return [...baseFeatures, 'Private Garden', 'Garage', 'Fireplace'];
-    } else if (this.property?.type === 'Townhouse') {
-      return [...baseFeatures, 'Patio', 'Storage', 'Parking'];
-    }
-
-    return [
-      ...baseFeatures,
-      'Parking Available',
-      'Close to Transit',
-      'Pet Friendly',
-    ];
-  }
-
-  /**
-   * Get property status for display
-   */
-  getPropertyStatus(): string {
-    if (this.isBackendProperty && this.backendProperty) {
-      return this.backendProperty.status;
-    }
-    return 'available'; // Default for legacy properties
-  }
-
-  /**
-   * Get listing type for display
-   */
-  getListingType(): string {
-    if (this.isBackendProperty && this.backendProperty) {
-      return this.backendProperty.listingType;
-    }
-    return 'sale'; // Default for legacy properties
-  }
-
-  /**
-   * Get formatted address components
-   */
-  getAddressComponents(): {
-    address: string;
-    city: string;
-    province: string;
-    postalCode?: string;
-  } {
-    if (this.isBackendProperty && this.backendProperty) {
-      return this.backendProperty.location;
-    }
-
-    // Parse legacy location string
-    const parts = this.property?.location.split(', ') || [];
-    return {
-      address: parts[0] || '',
-      city: parts[1] || '',
-      province: parts[2] || '',
-    };
-  }
-
-  /**
-   * Check if property has coordinates for map display
-   */
-  hasCoordinates(): boolean {
-    return !!(
-      this.isBackendProperty &&
-      this.backendProperty?.location.coordinates?.latitude &&
-      this.backendProperty?.location.coordinates?.longitude
-    );
-  }
-
-  /**
-   * Get coordinates for map
-   */
-  getCoordinates(): { latitude: number; longitude: number } | null {
-    if (this.hasCoordinates()) {
-      return this.backendProperty!.location.coordinates!;
-    }
-    return null;
-  }
-
-  /**
-   * Format created date
-   */
-  getCreatedDate(): string {
-    if (this.isBackendProperty && this.backendProperty) {
-      return new Date(this.backendProperty.createdAt).toLocaleDateString();
-    }
-    return 'Recently listed';
-  }
-
-  /**
-   * Check if this is a real backend property with full data
-   */
-  isRealProperty(): boolean {
-    return this.isBackendProperty;
+  contactOwner(): void {
+    console.log('📞 Contact owner clicked for property:', this.property?.id);
+    // This will be implemented later when we add contact functionality
   }
 }

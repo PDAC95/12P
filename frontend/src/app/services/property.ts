@@ -50,6 +50,7 @@ export interface PropertyModel {
   area: number;
   image: string;
   description: string;
+  owner: string; // Add owner field - contains User ID
 }
 
 // API Response interfaces - Updated to match actual backend response
@@ -103,6 +104,7 @@ export class Property {
         'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
       description:
         'Stunning modern condo in the heart of downtown Kitchener with city views',
+      owner: '686d7dc38de09a4f48df03af', // John Doe - agent
     },
     {
       id: 2,
@@ -112,147 +114,117 @@ export class Property {
       type: 'Detached House',
       bedrooms: 4,
       bathrooms: 3,
-      area: 2100,
+      area: 2200,
       image:
-        'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+        'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
       description:
-        'Beautiful family home near University of Waterloo with large backyard',
+        'Beautiful family home with spacious backyard and modern amenities',
+      owner: '686d7dc38de09a4f48df03b0', // Jane Smith - agent
     },
     {
       id: 3,
-      title: 'Luxury Townhouse in Cambridge',
+      title: 'Luxury Cambridge Townhouse',
       price: 650000,
       location: 'Cambridge, ON',
       type: 'Townhouse',
       bedrooms: 3,
       bathrooms: 2,
-      area: 1650,
+      area: 1800,
       image:
-        'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description: 'Executive townhouse in prestigious Cambridge neighborhood',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      description: 'Elegant townhouse with premium finishes and great location',
+      owner: '686d7dc38de09a4f48df03af', // John Doe - agent
     },
     {
       id: 4,
-      title: 'Cozy Bungalow in Baden',
-      price: 525000,
-      location: 'Baden, ON',
+      title: 'Cozy Guelph Bungalow',
+      price: 590000,
+      location: 'Guelph, ON',
       type: 'Bungalow',
       bedrooms: 3,
       bathrooms: 2,
       area: 1400,
       image:
-        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description:
-        'Charming bungalow in quiet Baden community with modern updates',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      description: 'Charming bungalow perfect for first-time homebuyers',
+      owner: '686d7dc38de09a4f48df03b0', // Jane Smith - agent
     },
     {
       id: 5,
-      title: 'Executive Loft in Uptown Waterloo',
-      price: 395000,
-      location: 'Uptown Waterloo, ON',
+      title: 'Urban Loft in Kitchener',
+      price: 425000,
+      location: 'Arts District, Kitchener, ON',
       type: 'Loft',
       bedrooms: 1,
       bathrooms: 1,
-      area: 750,
+      area: 850,
       image:
-        'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description:
-        'Industrial chic loft in trendy Uptown Waterloo with exposed brick',
-    },
-    {
-      id: 6,
-      title: 'Suburban Family Home in Guelph',
-      price: 675000,
-      location: 'Guelph, ON',
-      type: 'Detached House',
-      bedrooms: 4,
-      bathrooms: 3,
-      area: 1950,
-      image:
-        'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description:
-        'Perfect family home in established Guelph neighborhood with mature trees',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      description: 'Industrial-style loft with exposed brick and high ceilings',
+      owner: '686d7dc38de09a4f48df03af', // John Doe - agent
     },
   ];
 
-  constructor(private http: HttpClient) {
-    console.log('🏠 Property Service initialized with API URL:', this.apiUrl);
-  }
+  constructor(private http: HttpClient) {}
 
   /**
-   * Get all properties with optional filtering and pagination
-   * @param params Optional query parameters for filtering
-   * @returns Observable of properties array (converted to legacy format)
+   * Get all properties with optional filters
+   * Fetches from backend API and converts to legacy format for frontend compatibility
+   * Falls back to mock data if API is unavailable
+   * @param filters Optional query parameters for filtering
+   * @returns Observable<PropertyModel[]>
    */
-  getProperties(params?: {
-    page?: number;
-    limit?: number;
-    city?: string;
-    type?: string;
-    minPrice?: number;
-    maxPrice?: number;
-    bedrooms?: number;
-    bathrooms?: number;
-    listingType?: string;
-    search?: string;
-  }): Observable<PropertyModel[]> {
-    // Build query parameters
-    let httpParams = new HttpParams();
-    if (params) {
-      Object.keys(params).forEach((key) => {
-        const value = params[key as keyof typeof params];
-        if (value !== undefined && value !== null) {
-          httpParams = httpParams.set(key, value.toString());
+  getProperties(filters?: any): Observable<PropertyModel[]> {
+    console.log('🏠 getProperties called with filters:', filters);
+
+    // Build query parameters for API call
+    let params = new HttpParams();
+    if (filters) {
+      Object.keys(filters).forEach((key) => {
+        if (filters[key] != null && filters[key] !== '') {
+          params = params.set(key, filters[key].toString());
         }
       });
     }
 
-    console.log('🔄 Fetching properties from backend:', this.apiUrl);
-    console.log('📊 Query parameters:', params);
+    console.log('🔄 Making API call with params:', params.toString());
 
-    return this.http
-      .get<PaginatedApiResponse>(this.apiUrl, { params: httpParams })
-      .pipe(
-        map((response) => {
-          console.log('✅ Backend response received:', response);
+    return this.http.get<PaginatedApiResponse>(this.apiUrl, { params }).pipe(
+      map((response) => {
+        console.log('✅ Properties fetched from backend:', response);
 
-          // Check if response is successful and has data
-          if (
-            response.success &&
-            response.data &&
-            Array.isArray(response.data)
-          ) {
-            console.log(
-              '📋 Converting',
-              response.data.length,
-              'properties from backend'
-            );
-            const convertedProperties = response.data.map((property) =>
-              this.convertBackendToLegacy(property)
-            );
+        if (response.success && Array.isArray(response.data)) {
+          // Convert backend properties to legacy format
+          const convertedProperties = response.data.map((property) =>
+            this.convertBackendToLegacy(property)
+          );
 
-            // Cache the converted properties for later use in getPropertyById
-            this.convertedPropertiesCache = convertedProperties;
+          // Update cache for future use
+          this.convertedPropertiesCache = convertedProperties;
 
-            return convertedProperties;
-          }
-
-          // If response format is unexpected, throw error to trigger fallback
-          console.warn('⚠️ Unexpected response format:', response);
-          throw new Error('Invalid response format from backend');
-        }),
-        catchError((error) => {
-          console.error('❌ Error fetching properties from backend:', error);
-          console.log('🔄 Falling back to mock data');
-          return of(this.mockProperties);
-        })
-      );
+          console.log(
+            '🔄 Converted properties from backend:',
+            convertedProperties.length
+          );
+          return convertedProperties;
+        } else {
+          console.warn('⚠️ Invalid response format from backend:', response);
+          return this.mockProperties;
+        }
+      }),
+      catchError((error) => {
+        console.error('❌ Error fetching properties from backend:', error);
+        console.log('🔄 Falling back to mock data');
+        return of(this.mockProperties);
+      })
+    );
   }
 
   /**
-   * Get property by ID from backend
-   * @param id Property ID (accepts both string ObjectId and number for compatibility)
-   * @returns Observable of property or undefined
+   * Get a single property by ID
+   * Supports both ObjectId (from backend) and numeric ID (legacy mock data)
+   * @param id Property ID (string ObjectId or number)
+   * @returns Observable<PropertyModel | undefined>
    */
   getPropertyById(id: string | number): Observable<PropertyModel | undefined> {
     console.log('🔍 getPropertyById called with:', id, typeof id);
@@ -338,73 +310,72 @@ export class Property {
     const primaryImage =
       backendProperty.images?.find((img) => img.isPrimary)?.url ||
       backendProperty.images?.[0]?.url ||
-      'https://via.placeholder.com/800x600/cccccc/969696?text=No+Image';
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80';
 
-    // Build location string
-    const locationString =
+    // Generate a simple numeric ID for frontend compatibility
+    const numericId = this.generateNumericId(backendProperty._id);
+
+    // Format location string from backend location object
+    const formattedLocation =
       backendProperty.fullAddress ||
-      `${backendProperty.location.address}, ${backendProperty.location.city}, ${backendProperty.location.province}`;
-
-    // Convert ObjectId to numeric ID for legacy compatibility
-    const numericId = this.hashStringToNumber(backendProperty._id);
-
-    console.log('🔄 Converting backend property:', {
-      originalId: backendProperty._id,
-      convertedId: numericId,
-      title: backendProperty.title,
-      price: backendProperty.price,
-    });
+      `${backendProperty.location.city}, ${backendProperty.location.province}`;
 
     return {
       id: numericId,
       title: backendProperty.title,
       price: backendProperty.price,
-      location: locationString,
+      location: formattedLocation,
       type: backendProperty.type,
       bedrooms: backendProperty.bedrooms,
       bathrooms: backendProperty.bathrooms,
       area: backendProperty.area,
       image: primaryImage,
       description: backendProperty.description,
+      owner: backendProperty.owner, // Map owner field from backend
     };
   }
 
   /**
-   * Convert string to consistent numeric ID for legacy compatibility
-   * @param str String to convert (typically ObjectId)
-   * @returns Numeric ID
+   * Generate a numeric ID from MongoDB ObjectId for frontend compatibility
+   * Uses a simple hash to convert ObjectId string to numeric ID
+   * @param objectId MongoDB ObjectId string
+   * @returns Numeric ID for frontend use
    */
-  private hashStringToNumber(str: string): number {
+  private generateNumericId(objectId: string): number {
+    // Simple hash function to convert ObjectId to numeric ID
     let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
+    for (let i = 0; i < objectId.length; i++) {
+      const char = objectId.charCodeAt(i);
       hash = (hash << 5) - hash + char;
       hash = hash & hash; // Convert to 32-bit integer
     }
-    return Math.abs(hash);
+    // Ensure positive number and reasonable range
+    return Math.abs(hash) % 1000000;
   }
 
   /**
-   * Get backend property model directly (for future use)
-   * @param id Property ObjectId
-   * @returns Observable of BackendPropertyModel
+   * Search properties with advanced filters
+   * @param searchTerm Search query
+   * @param filters Additional filters (price range, type, etc.)
+   * @returns Observable<PropertyModel[]>
    */
-  getBackendPropertyById(
-    id: string
-  ): Observable<BackendPropertyModel | undefined> {
-    return this.http
-      .get<ApiResponse<BackendPropertyModel>>(`${this.apiUrl}/${id}`)
-      .pipe(
-        map((response) => {
-          if (response.success && response.data) {
-            return response.data;
-          }
-          throw new Error('Property not found');
-        }),
-        catchError((error) => {
-          console.error('❌ Error fetching backend property:', error);
-          return of(undefined);
-        })
-      );
+  searchProperties(
+    searchTerm: string,
+    filters?: any
+  ): Observable<PropertyModel[]> {
+    console.log('🔍 Searching properties:', { searchTerm, filters });
+
+    const searchParams: any = {};
+
+    if (searchTerm && searchTerm.trim()) {
+      searchParams.search = searchTerm.trim();
+    }
+
+    // Merge additional filters
+    if (filters) {
+      Object.assign(searchParams, filters);
+    }
+
+    return this.getProperties(searchParams);
   }
 }
