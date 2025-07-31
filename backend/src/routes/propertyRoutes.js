@@ -3,7 +3,8 @@ const {
   getProperties,
   getPropertyById,
   createProperty,
-  updateProperty, // Add this import
+  updateProperty,
+  deleteProperty, // Add this import
 } = require("../controllers/propertyController");
 const { authenticate, authorize } = require("../middleware/auth");
 
@@ -52,6 +53,21 @@ router.put(
     "Only agents can update property listings. Please update your account to 'Property Lister' to edit properties."
   ),
   updateProperty
+);
+
+/**
+ * @route   DELETE /api/properties/:id
+ * @desc    Delete an existing property listing
+ * @access  Private (only owner agent or admin)
+ */
+router.delete(
+  "/:id",
+  authenticate,
+  authorize(
+    ["agent", "admin"],
+    "Only agents can delete property listings. Please update your account to 'Property Lister' to delete properties."
+  ),
+  deleteProperty
 );
 
 module.exports = router;

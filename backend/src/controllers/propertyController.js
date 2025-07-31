@@ -448,9 +448,106 @@ const updateProperty = async (req, res, next) => {
   }
 };
 
+/**
+ * Delete property listing
+ * @route DELETE /api/properties/:id
+ * @access Private (only owner agent or admin)
+ */
+const deleteProperty = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    // Check if user is agent or admin
+    if (req.user.role !== "agent" && req.user.role !== "admin") {
+      logWarning("Non-agent user attempted to delete property", {
+        userId: req.user.id,
+        userRole: req.user.role,
+        email: req.user.email,
+      });
+      return sendError(
+        res,
+        "Only agents can delete property listings. Please update your account to 'Property Lister' to delete properties.",
+        403
+      );
+    }
+
+    // Find the property first
+    const existingProperty = await Property.findById(id);
+
+    if (!existingProperty) {
+      logInfo("Property not found for deletion", { propertyId: id });
+      return sendNotFound(res, "Property");
+    }
+
+    // Check if user is the owner of the property (or admin)
+    if (
+      req.user.role !== "admin" &&
+      existingProperty.owner.toString() !== req.user.id.toString()
+    ) {
+      logWarning("User attempted to delete property they don't own", {
+        userId: req.user.id,
+        propertyId: id,
+        propertyOwner: existingProperty.owner,
+      });
+      return sendError(
+        res,
+        "You can only delete properties that you own.",
+        403
+      );
+    }
+
+    // Store property info for logging before deletion
+    const propertyInfo = {
+      id: existingProperty._id,
+      title: existingProperty.title,
+      price: existingProperty.price,
+      owner: existingProperty.owner,
+    };
+
+    // Delete the property from database
+    await Property.findByIdAndDelete(id);
+
+    logInfo("Property deleted successfully", {
+      propertyId: propertyInfo.id,
+      deletedBy: req.user.id,
+      userRole: req.user.role,
+      title: propertyInfo.title,
+      price: propertyInfo.price,
+    });
+
+    // Return success response with deleted property info
+    sendSuccess(
+      res,
+      {
+        deletedProperty: propertyInfo,
+        message: "Property has been permanently deleted",
+      },
+      "Property deleted successfully",
+      200
+    );
+  } catch (error) {
+    if (error.name === "CastError") {
+      logInfo("Invalid property ID format for deletion", {
+        propertyId: req.params.id,
+      });
+      return sendNotFound(res, "Property");
+    }
+
+    logError("Error deleting property", {
+      error: error.message,
+      stack: error.stack,
+      userId: req.user?.id,
+      propertyId: req.params.id,
+    });
+
+    next(error);
+  }
+};
+
 module.exports = {
   getProperties,
   getPropertyById,
   createProperty,
   updateProperty,
+  deleteProperty,
 };

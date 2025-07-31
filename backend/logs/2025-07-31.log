@@ -627,3 +627,140 @@
     "updatedAt"
   ]
 }
+{
+  "timestamp": "2025-07-31T20:31:26.893Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:31:26.904Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:31:26.937Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:31:26.958Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 69
+}
+{
+  "timestamp": "2025-07-31T20:31:26.960Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:31:37.129Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:31:37.133Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:31:37.161Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:31:37.184Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 69
+}
+{
+  "timestamp": "2025-07-31T20:31:37.188Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:34:51.396Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:34:51.404Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:34:51.444Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:34:51.470Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 69
+}
+{
+  "timestamp": "2025-07-31T20:34:51.474Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:35:51.965Z",
+  "level": "INFO",
+  "message": "Property deleted successfully",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "deletedBy": "686d7dc38de09a4f48df03af",
+  "userRole": "agent",
+  "title": "Final Updated Property",
+  "price": 425000
+}
+{
+  "timestamp": "2025-07-31T20:37:09.587Z",
+  "level": "DEBUG",
+  "message": "Getting property by ID",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-31T20:37:09.591Z",
+  "level": "INFO",
+  "message": "Property not found",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb"
+}
