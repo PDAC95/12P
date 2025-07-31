@@ -15,6 +15,7 @@ const { logInfo, logError } = require("./utils/logger");
 const propertyRoutes = require("./routes/propertyRoutes");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const favoritesRoutes = require("./routes/favoritesRoutes");
 
 // Create Express application
 const app = express();
@@ -50,6 +51,7 @@ logInfo("12P Backend API Starting", {
 app.use("/api/properties", propertyRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/favorites", favoritesRoutes);
 
 // Health check route with enhanced response
 app.get("/api/health", (req, res) => {

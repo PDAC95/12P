@@ -105,6 +105,12 @@ const userSchema = new mongoose.Schema(
         },
       ],
     },
+    favorites: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Property",
+      },
+    ],
   },
   {
     timestamps: true,
@@ -129,7 +135,8 @@ const userSchema = new mongoose.Schema(
 userSchema.index({ email: 1 });
 userSchema.index({ role: 1, isActive: 1 });
 userSchema.index({ createdAt: -1 });
-userSchema.index({ resetPasswordToken: 1 }); // Index for password reset lookups
+userSchema.index({ resetPasswordToken: 1 });
+userSchema.index({ favorites: 1 });
 
 // Virtual for full name
 userSchema.virtual("fullName").get(function () {

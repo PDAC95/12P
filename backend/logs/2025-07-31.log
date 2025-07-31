@@ -764,3 +764,465 @@
   "message": "Property not found",
   "propertyId": "688bccbd2a47a3d4c7ce48cb"
 }
+{
+  "timestamp": "2025-07-31T20:42:39.715Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:42:39.719Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:42:39.746Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:42:39.767Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:42:39.770Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:43:08.883Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:43:08.888Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:43:08.919Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:43:08.941Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:43:08.944Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:44:06.490Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:44:06.496Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:44:06.534Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:44:06.556Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:44:06.559Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:44:16.192Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:44:16.203Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:44:16.241Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:44:16.276Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:44:16.280Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:44:44.282Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:44:44.287Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:44:44.325Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:44:44.354Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:44:44.358Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:44:55.079Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:44:55.085Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:44:55.112Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:44:55.132Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:44:55.134Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:45:22.037Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:47:16.197Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:47:16.201Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:47:16.233Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:47:16.259Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:47:16.262Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:52:19.469Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-31T20:52:19.761Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-07-31T20:52:19.744Z"
+}
+{
+  "timestamp": "2025-07-31T20:54:35.435Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "your_token_here..."
+}
+{
+  "timestamp": "2025-07-31T20:55:21.708Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "your_token_here..."
+}
+{
+  "timestamp": "2025-07-31T20:55:27.882Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-31T20:55:28.178Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-07-31T20:55:28.173Z"
+}
+{
+  "timestamp": "2025-07-31T20:55:50.903Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "your_token_here..."
+}
+{
+  "timestamp": "2025-07-31T20:56:02.656Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "your_token_here..."
+}
+{
+  "timestamp": "2025-07-31T20:56:54.625Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-31T20:56:54.889Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-07-31T20:56:54.884Z"
+}
+{
+  "timestamp": "2025-07-31T20:58:08.284Z",
+  "level": "INFO",
+  "message": "Adding property to favorites",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a809b0afbf4b7dccbf89e",
+  "userRole": "agent"
+}
+{
+  "timestamp": "2025-07-31T20:58:08.290Z",
+  "level": "ERROR",
+  "message": "Error adding property to favorites",
+  "error": "Cannot read properties of undefined (reading 'some')",
+  "stack": "TypeError: Cannot read properties of undefined (reading 'some')\n    at addToFavorites (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\favoritesController.js:52:46)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a809b0afbf4b7dccbf89e"
+}
+{
+  "timestamp": "2025-07-31T20:58:08.292Z",
+  "level": "ERROR",
+  "message": "Cannot read properties of undefined (reading 'some')",
+  "stack": "TypeError: Cannot read properties of undefined (reading 'some')\n    at addToFavorites (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\favoritesController.js:52:46)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "request": {
+    "method": "POST",
+    "url": "/api/favorites/688a809b0afbf4b7dccbf89e",
+    "ip": "::1",
+    "userAgent": "PostmanRuntime/7.44.1",
+    "body": {},
+    "params": {},
+    "query": {}
+  },
+  "user": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:58:52.756Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "your_token_here..."
+}
+{
+  "timestamp": "2025-07-31T21:01:25.691Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T21:01:25.696Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T21:01:25.723Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T21:01:25.744Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T21:01:25.747Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T21:01:47.826Z",
+  "level": "INFO",
+  "message": "Adding property to favorites",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a809b0afbf4b7dccbf89e",
+  "userRole": "agent"
+}
+{
+  "timestamp": "2025-07-31T21:01:47.849Z",
+  "level": "INFO",
+  "message": "Property added to favorites successfully",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a809b0afbf4b7dccbf89e",
+  "propertyTitle": "Test Property via API",
+  "totalFavorites": 1
+}
+{
+  "timestamp": "2025-07-31T21:03:05.374Z",
+  "level": "INFO",
+  "message": "Getting user favorites",
+  "userId": "686d7dc38de09a4f48df03af",
+  "userRole": "agent"
+}
+{
+  "timestamp": "2025-07-31T21:03:05.388Z",
+  "level": "INFO",
+  "message": "User favorites retrieved successfully",
+  "userId": "686d7dc38de09a4f48df03af",
+  "totalFavorites": 1
+}
