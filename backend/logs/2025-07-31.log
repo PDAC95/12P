@@ -1,0 +1,629 @@
+{
+  "timestamp": "2025-07-31T19:47:29.711Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T19:47:29.716Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T19:47:29.761Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T19:47:29.831Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T19:47:29.834Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T19:49:51.834Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T19:49:51.838Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T19:49:51.861Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T19:49:51.880Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T19:49:51.882Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.049Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.123Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.125Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-31T19:50:20.137Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 50,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-31T19:50:20.141Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "listingType": "sale"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.142Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "listingType": "sale"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-07-31T19:50:20.150Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 50,
+  "page": 1,
+  "limit": 10,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-07-31T19:50:20.195Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "requestedBy": "::1"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.202Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.207Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "requestedBy": "::1"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.209Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.216Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "requestedBy": "::1"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.219Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.225Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.229Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.234Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-07-31T19:50:20.240Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-07-31T19:52:34.592Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-31T19:52:34.924Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "lastLogin": "2025-07-31T19:52:34.901Z"
+}
+{
+  "timestamp": "2025-07-31T19:53:31.027Z",
+  "level": "WARN",
+  "message": "Authorization failed - insufficient permissions",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "userRole": "client",
+  "requiredRoles": [
+    "agent",
+    "admin"
+  ]
+}
+{
+  "timestamp": "2025-07-31T19:54:13.861Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-31T19:54:14.118Z",
+  "level": "WARN",
+  "message": "Login attempt with invalid password",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-07-31T19:55:17.352Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.44.1"
+}
+{
+  "timestamp": "2025-07-31T19:55:17.639Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-07-31T19:55:17.635Z"
+}
+{
+  "timestamp": "2025-07-31T19:55:52.601Z",
+  "level": "ERROR",
+  "message": "Error updating property",
+  "error": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at updateProperty (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\propertyController.js:322:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a81f40afbf4b7dccbf8a1",
+  "requestBody": {
+    "title": "Updated Test Property via API",
+    "description": "This property has been updated through the API",
+    "price": 475000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "features": [
+      "Updated",
+      "Renovated",
+      "Modern"
+    ]
+  }
+}
+{
+  "timestamp": "2025-07-31T19:55:52.603Z",
+  "level": "ERROR",
+  "message": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at updateProperty (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\propertyController.js:322:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "request": {
+    "method": "PUT",
+    "url": "/api/properties/688a81f40afbf4b7dccbf8a1",
+    "ip": "::1",
+    "userAgent": "PostmanRuntime/7.44.1",
+    "body": {
+      "title": "Updated Test Property via API",
+      "description": "This property has been updated through the API",
+      "price": 475000,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "features": [
+        "Updated",
+        "Renovated",
+        "Modern"
+      ]
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:00:59.553Z",
+  "level": "ERROR",
+  "message": "Error updating property",
+  "error": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at updateProperty (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\propertyController.js:322:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a81f40afbf4b7dccbf8a1",
+  "requestBody": {
+    "title": "Updated Test Property via API",
+    "description": "This property has been updated through the API",
+    "price": 475000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "features": [
+      "Updated",
+      "Renovated",
+      "Modern"
+    ]
+  }
+}
+{
+  "timestamp": "2025-07-31T20:00:59.555Z",
+  "level": "ERROR",
+  "message": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at updateProperty (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\propertyController.js:322:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "request": {
+    "method": "PUT",
+    "url": "/api/properties/688a81f40afbf4b7dccbf8a1",
+    "ip": "::1",
+    "userAgent": "PostmanRuntime/7.44.1",
+    "body": {
+      "title": "Updated Test Property via API",
+      "description": "This property has been updated through the API",
+      "price": 475000,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "features": [
+        "Updated",
+        "Renovated",
+        "Modern"
+      ]
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:02:56.371Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:02:56.380Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:02:56.425Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:02:56.465Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:02:56.469Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:03:24.453Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:03:24.456Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:03:24.481Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:03:24.506Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-07-31T20:03:24.510Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:03:28.318Z",
+  "level": "WARN",
+  "message": "User attempted to update property they don't own",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a81f40afbf4b7dccbf8a1",
+  "propertyOwner": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:04:09.716Z",
+  "level": "WARN",
+  "message": "User attempted to update property they don't own",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a81f40afbf4b7dccbf8a1",
+  "propertyOwner": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:06:21.466Z",
+  "level": "INFO",
+  "message": "New property created successfully",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "createdBy": "686d7dc38de09a4f48df03af",
+  "userRole": "agent",
+  "title": "New Property for Update Test",
+  "price": 350000
+}
+{
+  "timestamp": "2025-07-31T20:06:48.646Z",
+  "level": "WARN",
+  "message": "User attempted to update property they don't own",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688a81f40afbf4b7dccbf8a1",
+  "propertyOwner": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:07:21.671Z",
+  "level": "WARN",
+  "message": "User attempted to update property they don't own",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "propertyOwner": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:10:13.360Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-07-31T20:10:42.176Z",
+  "level": "DEBUG",
+  "message": "Getting property by ID",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-07-31T20:10:42.179Z",
+  "level": "INFO",
+  "message": "Property retrieved successfully",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb"
+}
+{
+  "timestamp": "2025-07-31T20:14:48.343Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:14:48.348Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:14:48.382Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:14:48.405Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 69
+}
+{
+  "timestamp": "2025-07-31T20:14:48.408Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:15:27.630Z",
+  "level": "WARN",
+  "message": "User attempted to update property they don't own",
+  "userId": "686d7dc38de09a4f48df03af",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "propertyOwner": "686d7dc38de09a4f48df03af"
+}
+{
+  "timestamp": "2025-07-31T20:18:04.614Z",
+  "level": "INFO",
+  "message": "12P Backend API Starting",
+  "environment": "development",
+  "port": "5001",
+  "frontendUrl": "http://localhost:4200"
+}
+{
+  "timestamp": "2025-07-31T20:18:04.618Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-07-31T20:18:04.649Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-07-31T20:18:04.673Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 69
+}
+{
+  "timestamp": "2025-07-31T20:18:04.677Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-07-31T20:18:23.096Z",
+  "level": "INFO",
+  "message": "Property updated successfully",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "updatedBy": "686d7dc38de09a4f48df03af",
+  "userRole": "agent",
+  "title": "UPDATED - Property for Update Test",
+  "fieldsUpdated": [
+    "title",
+    "description",
+    "price",
+    "bedrooms",
+    "bathrooms",
+    "features",
+    "status",
+    "updatedAt"
+  ]
+}
+{
+  "timestamp": "2025-07-31T20:20:32.748Z",
+  "level": "INFO",
+  "message": "Property updated successfully",
+  "propertyId": "688bccbd2a47a3d4c7ce48cb",
+  "updatedBy": "686d7dc38de09a4f48df03af",
+  "userRole": "agent",
+  "title": "Final Updated Property",
+  "fieldsUpdated": [
+    "title",
+    "price",
+    "bedrooms",
+    "features",
+    "updatedAt"
+  ]
+}

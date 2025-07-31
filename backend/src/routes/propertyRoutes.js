@@ -2,9 +2,10 @@ const express = require("express");
 const {
   getProperties,
   getPropertyById,
-  createProperty, // Agregar esta importación
+  createProperty,
+  updateProperty, // Add this import
 } = require("../controllers/propertyController");
-const { authenticate, authorize } = require("../middleware/auth"); // Agregar estas importaciones
+const { authenticate, authorize } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -36,6 +37,21 @@ router.post(
     "Only agents can create property listings. Please update your account to 'Property Lister' to list properties."
   ),
   createProperty
+);
+
+/**
+ * @route   PUT /api/properties/:id
+ * @desc    Update an existing property listing
+ * @access  Private (only owner agent or admin)
+ */
+router.put(
+  "/:id",
+  authenticate,
+  authorize(
+    ["agent", "admin"],
+    "Only agents can update property listings. Please update your account to 'Property Lister' to edit properties."
+  ),
+  updateProperty
 );
 
 module.exports = router;

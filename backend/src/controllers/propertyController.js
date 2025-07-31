@@ -4,7 +4,7 @@ const {
   sendError,
   sendNotFound,
 } = require("../utils/apiResponse");
-const { logInfo, logError, logDebug } = require("../utils/logger");
+const { logInfo, logError, logDebug, logWarning } = require("../utils/logger");
 const { createError } = require("../utils/errorMessages");
 
 /**
@@ -283,8 +283,174 @@ const createProperty = async (req, res, next) => {
   }
 };
 
+/**
+ * Update property listing
+ * @route PUT /api/properties/:id
+ * @access Private (only owner agent or admin)
+ */
+const updateProperty = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    // Check if user is agent or admin
+    if (req.user.role !== "agent" && req.user.role !== "admin") {
+      logWarning("Non-agent user attempted to update property", {
+        userId: req.user.id,
+        userRole: req.user.role,
+        email: req.user.email,
+      });
+      return sendError(
+        res,
+        "Only agents can update property listings. Please update your account to 'Property Lister' to edit properties.",
+        403
+      );
+    }
+
+    // Find the property first
+    const existingProperty = await Property.findById(id);
+
+    if (!existingProperty) {
+      logInfo("Property not found for update", { propertyId: id });
+      return sendNotFound(res, "Property");
+    }
+
+    // Debug: Log the IDs to compare
+    console.log("🔍 DEBUG - req.user:", req.user);
+    console.log("🔍 DEBUG - req.user.id:", req.user.id);
+    console.log("🔍 DEBUG - existingProperty.owner:", existingProperty.owner);
+    console.log(
+      "🔍 DEBUG - existingProperty.owner.toString():",
+      existingProperty.owner.toString()
+    );
+    console.log(
+      "🔍 DEBUG - Comparison result:",
+      existingProperty.owner.toString() !== req.user.id
+    );
+
+    // Check if user is the owner of the property (or admin)
+    if (
+      req.user.role !== "admin" &&
+      existingProperty.owner.toString() !== req.user.id.toString()
+    ) {
+      logWarning("User attempted to update property they don't own", {
+        userId: req.user.id,
+        propertyId: id,
+        propertyOwner: existingProperty.owner,
+      });
+      return sendError(
+        res,
+        "You can only update properties that you own.",
+        403
+      );
+    }
+
+    const {
+      title,
+      description,
+      price,
+      location,
+      type,
+      bedrooms,
+      bathrooms,
+      area,
+      features,
+      images,
+      listingType,
+      status,
+    } = req.body;
+
+    // Validate required fields if they are provided
+    if (title !== undefined && !title.trim()) {
+      return sendError(res, "Title cannot be empty", 400);
+    }
+    if (description !== undefined && !description.trim()) {
+      return sendError(res, "Description cannot be empty", 400);
+    }
+    if (price !== undefined && (isNaN(price) || price < 0)) {
+      return sendError(res, "Price must be a valid positive number", 400);
+    }
+    if (area !== undefined && (isNaN(area) || area < 0)) {
+      return sendError(res, "Area must be a valid positive number", 400);
+    }
+
+    // Validate location object if provided
+    if (location) {
+      if (location.address !== undefined && !location.address.trim()) {
+        return sendError(res, "Location address cannot be empty", 400);
+      }
+      if (location.city !== undefined && !location.city.trim()) {
+        return sendError(res, "Location city cannot be empty", 400);
+      }
+      if (location.province !== undefined && !location.province.trim()) {
+        return sendError(res, "Location province cannot be empty", 400);
+      }
+    }
+
+    // Build update data object with only provided fields
+    const updateData = {};
+
+    if (title !== undefined) updateData.title = title.trim();
+    if (description !== undefined) updateData.description = description.trim();
+    if (price !== undefined) updateData.price = Number(price);
+    if (location !== undefined)
+      updateData.location = { ...existingProperty.location, ...location };
+    if (type !== undefined) updateData.type = type;
+    if (bedrooms !== undefined) updateData.bedrooms = Number(bedrooms) || 0;
+    if (bathrooms !== undefined) updateData.bathrooms = Number(bathrooms) || 0;
+    if (area !== undefined) updateData.area = Number(area);
+    if (features !== undefined) updateData.features = features || [];
+    if (images !== undefined) updateData.images = images || [];
+    if (listingType !== undefined) updateData.listingType = listingType;
+    if (status !== undefined) updateData.status = status;
+
+    // Update the updatedAt timestamp
+    updateData.updatedAt = new Date();
+
+    // Update the property
+    const updatedProperty = await Property.findByIdAndUpdate(id, updateData, {
+      new: true, // Return the updated document
+      runValidators: true, // Run mongoose validators
+    });
+
+    logInfo("Property updated successfully", {
+      propertyId: updatedProperty._id,
+      updatedBy: req.user.id,
+      userRole: req.user.role,
+      title: updatedProperty.title,
+      fieldsUpdated: Object.keys(updateData),
+    });
+
+    sendSuccess(res, updatedProperty, "Property updated successfully", 200);
+  } catch (error) {
+    if (error.name === "CastError") {
+      logInfo("Invalid property ID format for update", {
+        propertyId: req.params.id,
+      });
+      return sendNotFound(res, "Property");
+    }
+
+    if (error.name === "ValidationError") {
+      const errorMessages = Object.values(error.errors).map(
+        (err) => err.message
+      );
+      return sendError(res, errorMessages.join(", "), 400);
+    }
+
+    logError("Error updating property", {
+      error: error.message,
+      stack: error.stack,
+      userId: req.user?.id,
+      propertyId: req.params.id,
+      requestBody: req.body,
+    });
+
+    next(error);
+  }
+};
+
 module.exports = {
   getProperties,
   getPropertyById,
   createProperty,
+  updateProperty,
 };
