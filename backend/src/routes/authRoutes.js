@@ -4,9 +4,11 @@ const {
   login,
   getCurrentUser,
   updateCurrentUser,
-  changePassword, // Add this import
+  changePassword,
   forgotPassword,
   resetPassword,
+  sendVerificationEmail, // Add this import
+  verifyEmail, // Add this import (we'll create it next)
 } = require("../controllers/authController");
 const { authenticate } = require("../middleware/auth");
 
@@ -27,6 +29,30 @@ router.post("/register", register);
  * @body    {email, password}
  */
 router.post("/login", login);
+
+/**
+ * @route   POST /api/auth/send-verification
+ * @desc    Send or resend email verification
+ * @access  Public (can work with or without authentication)
+ * @body    {email}
+ */
+router.post("/send-verification", sendVerificationEmail);
+
+/**
+ * @route   POST /api/auth/resend-verification
+ * @desc    Alias for send-verification
+ * @access  Public
+ * @body    {email}
+ */
+router.post("/resend-verification", sendVerificationEmail);
+
+/**
+ * @route   GET /api/auth/verify-email/:token
+ * @desc    Verify email with token
+ * @access  Public
+ * @params  {token}
+ */
+router.get("/verify-email/:token", verifyEmail);
 
 /**
  * @route   GET /api/auth/me

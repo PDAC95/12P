@@ -1,110 +1,68 @@
-// Load environment variables first
-require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const path = require("path");
+require("dotenv").config();
 
-// Import utilities and middleware
-const errorHandler = require("./middleware/errorHandler");
-const { sendSuccess, sendNotFound } = require("./utils/apiResponse");
-const { logInfo, logError } = require("./utils/logger");
+// Database connection
+const connectDB = require("./config/database");
 
-// Import route handlers
-const propertyRoutes = require("./routes/propertyRoutes");
+// Import email service
+const emailService = require("./services/emailService");
+
+// Import routes
 const authRoutes = require("./routes/authRoutes");
+const propertyRoutes = require("./routes/propertyRoutes");
 const userRoutes = require("./routes/userRoutes");
 const favoritesRoutes = require("./routes/favoritesRoutes");
 
-// Create Express application
+// Import error handler middleware
+const errorHandler = require("./middleware/errorHandler");
+
+// Initialize express app
 const app = express();
 
-// Security middleware
+// Connect to MongoDB
+connectDB();
+
+// Middleware
 app.use(helmet());
-
-// CORS configuration - Using environment variable
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:4200",
-    credentials: true,
-  })
-);
-
-// Logging middleware - Different levels based on environment
-const logLevel = process.env.NODE_ENV === "production" ? "combined" : "dev";
-app.use(morgan(logLevel));
-
-// Body parsing middleware - Using environment variable for limit
-const maxFileSize = process.env.MAX_FILE_SIZE || "10mb";
-app.use(express.json({ limit: maxFileSize }));
+app.use(cors());
+app.use(morgan("dev"));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Log application startup
-logInfo("12P Backend API Starting", {
-  environment: process.env.NODE_ENV || "development",
-  port: process.env.PORT || 5001,
-  frontendUrl: process.env.FRONTEND_URL || "http://localhost:4200",
-});
+// Static files
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+
+// Initialize email service
+console.log("📧 Initializing email service...");
 
 // API Routes
-app.use("/api/properties", propertyRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/properties", propertyRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/favorites", favoritesRoutes);
 
-// Health check route with enhanced response
+// Health check endpoint
 app.get("/api/health", (req, res) => {
-  try {
-    const healthData = {
-      status: "OK",
-      environment: process.env.NODE_ENV || "development",
-      version: "1.0.0",
-      uptime: process.uptime(),
-      timestamp: new Date().toISOString(),
-      memory: {
-        used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024) + " MB",
-        total:
-          Math.round(process.memoryUsage().heapTotal / 1024 / 1024) + " MB",
-      },
-      endpoints: {
-        properties: "/api/properties",
-        auth: "/api/auth",
-      },
-    };
-
-    logInfo("Health check accessed", { ip: req.ip });
-    sendSuccess(res, healthData, "12P Backend API is running healthy");
-  } catch (error) {
-    logError("Health check failed", {
-      error: error.message,
-      stack: error.stack,
-    });
-    next(error);
-  }
+  res.status(200).json({
+    success: true,
+    message: "API is running",
+    timestamp: new Date().toISOString(),
+  });
 });
 
-// Test error endpoint (only in development)
-if (process.env.NODE_ENV === "development") {
-  app.get("/api/test-error", (req, res, next) => {
-    const error = new Error("This is a test error for development");
-    error.statusCode = 500;
-    next(error);
+// 404 handler
+app.use("*", (req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `Cannot ${req.method} ${req.originalUrl}`,
   });
-}
-
-// 404 handler for unmatched routes
-app.all("*", (req, res) => {
-  logInfo("Route not found", {
-    path: req.originalUrl,
-    method: req.method,
-    ip: req.ip,
-  });
-
-  sendNotFound(res, "API endpoint");
 });
 
-// Global error handling middleware (must be last)
+// Error handler middleware (must be last)
 app.use(errorHandler);
 
 module.exports = app;

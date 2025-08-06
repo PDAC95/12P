@@ -1,116 +1,340 @@
 const User = require("../models/User");
+const jwt = require("jsonwebtoken");
 const {
   sendSuccess,
   sendError,
   sendValidationError,
 } = require("../utils/apiResponse");
-const { logInfo, logError, logWarning } = require("../utils/logger");
+const { logInfo, logError, logDebug } = require("../utils/logger");
 const { createError } = require("../utils/errorMessages");
+const {
+  generateVerificationToken,
+  generatePasswordResetToken,
+} = require("../utils/tokenGenerator");
+const emailService = require("../services/emailService");
 
 /**
- * Register new user
+ * Register a new user
  * @route POST /api/auth/register
  * @access Public
  */
 const register = async (req, res, next) => {
   try {
-    const { firstName, lastName, email, password, phone, role, agentInfo } =
-      req.body;
+    const { firstName, lastName, email, password, role = "client" } = req.body;
 
-    logInfo("User registration attempt", {
-      email,
-      role,
-      ip: req.ip,
-      userAgent: req.get("User-Agent"),
-    });
+    logDebug("Registration attempt", { email, role });
 
-    // Validate required fields
+    // Validation
     if (!firstName || !lastName || !email || !password) {
-      const errorObj = createError("VALIDATION", "REQUIRED_FIELD");
-      return sendValidationError(
-        res,
-        "First name, last name, email and password are required"
-      );
+      return sendValidationError(res, "All fields are required");
     }
 
     // Check if user already exists
-    const existingUser = await User.findOne({ email: email.toLowerCase() });
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
-      logWarning("Registration attempt with existing email", { email });
       const errorObj = createError("AUTH", "USER_EXISTS");
-      return sendError(res, errorObj.message, errorObj.statusCode);
+      return sendError(res, errorObj.message, 409);
     }
-
-    // Validate password strength
-    if (password.length < 8) {
-      const errorObj = createError("AUTH", "PASSWORD_TOO_WEAK");
-      return sendValidationError(res, errorObj.message);
-    }
-
-    // Create user data
-    const userData = {
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
-      email: email.toLowerCase().trim(),
-      password,
-      role: role || "client",
-    };
-
-    // Add optional fields
-    if (phone) userData.phone = phone.trim();
-    if (role === "agent" && agentInfo) userData.agentInfo = agentInfo;
 
     // Create new user
-    const newUser = new User(userData);
-    await newUser.save();
-
-    // Generate JWT token
-    const token = newUser.generateAuthToken();
-
-    // Prepare response data
-    const responseData = {
-      user: {
-        id: newUser._id,
-        firstName: newUser.firstName,
-        lastName: newUser.lastName,
-        fullName: newUser.fullName,
-        email: newUser.email,
-        phone: newUser.phone,
-        role: newUser.role,
-        isEmailVerified: newUser.isEmailVerified,
-        createdAt: newUser.createdAt,
-        ...(newUser.role === "agent" && { agentInfo: newUser.agentInfo }),
-      },
-      token,
-      expiresIn: process.env.JWT_EXPIRES_IN || "7d",
-    };
-
-    logInfo("User registration successful", {
-      userId: newUser._id,
-      email: newUser.email,
-      role: newUser.role,
+    const user = await User.create({
+      firstName,
+      lastName,
+      email,
+      password,
+      role,
+      isEmailVerified: false, // Start with unverified email
     });
 
-    sendSuccess(res, responseData, "User registered successfully", 201);
+    // Generate verification token
+    const verificationData = generateVerificationToken();
+    await user.setEmailVerificationToken(
+      verificationData.token,
+      verificationData.expiresAt
+    );
+
+    // Send verification email
+    const emailSent = await emailService.sendVerificationEmail(
+      user.email,
+      user.fullName,
+      verificationData.token
+    );
+
+    if (!emailSent.success) {
+      logError("Failed to send verification email", {
+        userId: user._id,
+        email: user.email,
+        error: emailSent.error,
+      });
+    }
+
+    // Generate JWT token (but user will need to verify email to use most features)
+    const token = jwt.sign(
+      { id: user._id, email: user.email, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRES_IN || "7d" }
+    );
+
+    const responseData = {
+      user: {
+        id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        fullName: user.fullName,
+        email: user.email,
+        role: user.role,
+        isEmailVerified: user.isEmailVerified,
+        createdAt: user.createdAt,
+      },
+      token,
+      emailSent: emailSent.success,
+      message: emailSent.success
+        ? "Registration successful! Please check your email to verify your account."
+        : "Registration successful! Please verify your email to access all features.",
+    };
+
+    logInfo("User registered successfully", {
+      userId: user._id,
+      email: user.email,
+      role: user.role,
+      emailSent: emailSent.success,
+    });
+
+    sendSuccess(res, responseData, responseData.message, 201);
   } catch (error) {
-    // Handle duplicate key error (email already exists)
-    if (error.code === 11000) {
-      const errorObj = createError("AUTH", "USER_EXISTS");
-      return sendError(res, errorObj.message, errorObj.statusCode);
-    }
-
-    // Handle validation errors
-    if (error.name === "ValidationError") {
-      const errorMessages = Object.values(error.errors).map(
-        (err) => err.message
-      );
-      return sendValidationError(res, errorMessages.join(", "));
-    }
-
-    logError("Registration failed - server error", {
+    logError("Registration failed", {
       error: error.message,
       stack: error.stack,
-      email: req.body.email,
+      body: req.body,
+    });
+
+    if (error.name === "ValidationError") {
+      const messages = Object.values(error.errors).map((err) => err.message);
+      return sendValidationError(res, messages.join(", "));
+    }
+
+    if (error.code === 11000) {
+      const errorObj = createError("AUTH", "USER_EXISTS");
+      return sendError(res, errorObj.message, 409);
+    }
+
+    next(error);
+  }
+};
+
+/**
+ * Resend verification email
+ * @route POST /api/auth/send-verification
+ * @access Private
+ */
+const sendVerificationEmail = async (req, res, next) => {
+  try {
+    const userId = req.user?.id;
+    const { email } = req.body;
+
+    // Use email from body or from authenticated user
+    const userEmail = email || req.user?.email;
+
+    if (!userEmail) {
+      return sendValidationError(res, "Email is required");
+    }
+
+    // Find user
+    const user = await User.findOne({
+      email: userEmail,
+      ...(userId && { _id: userId }),
+    });
+
+    if (!user) {
+      const errorObj = createError("AUTH", "USER_NOT_FOUND");
+      return sendError(res, errorObj.message, 404);
+    }
+
+    // Check if already verified
+    if (user.isEmailVerified) {
+      return sendSuccess(
+        res,
+        { isEmailVerified: true },
+        "Email is already verified",
+        200
+      );
+    }
+
+    // Check rate limiting (5 minutes between emails)
+    if (!user.canSendVerificationEmail()) {
+      const timeRemaining = Math.ceil(
+        (5 * 60 * 1000 - (Date.now() - user.lastVerificationEmailSent)) /
+          1000 /
+          60
+      );
+      return sendError(
+        res,
+        `Please wait ${timeRemaining} minute(s) before requesting another verification email`,
+        429
+      );
+    }
+
+    // Generate new verification token
+    const verificationData = generateVerificationToken();
+    await user.setEmailVerificationToken(
+      verificationData.token,
+      verificationData.expiresAt
+    );
+
+    // Send verification email
+    const emailSent = await emailService.sendVerificationEmail(
+      user.email,
+      user.fullName,
+      verificationData.token
+    );
+
+    if (!emailSent.success) {
+      logError("Failed to send verification email", {
+        userId: user._id,
+        email: user.email,
+        error: emailSent.error,
+      });
+      return sendError(
+        res,
+        "Failed to send verification email. Please try again later.",
+        500
+      );
+    }
+
+    // Update rate limiting info
+    await user.updateVerificationEmailSent();
+
+    logInfo("Verification email sent", {
+      userId: user._id,
+      email: user.email,
+      attempt: user.verificationEmailCount,
+    });
+
+    sendSuccess(
+      res,
+      {
+        emailSent: true,
+        email: user.email,
+      },
+      "Verification email sent successfully. Please check your inbox.",
+      200
+    );
+  } catch (error) {
+    logError("Send verification email failed", {
+      error: error.message,
+      stack: error.stack,
+      userId: req.user?.id,
+    });
+
+    next(error);
+  }
+};
+
+/**
+ * Verify email with token
+ * @route GET /api/auth/verify-email/:token
+ * @access Public
+ */
+const verifyEmail = async (req, res, next) => {
+  try {
+    const { token } = req.params;
+
+    if (!token) {
+      return sendValidationError(res, "Verification token is required");
+    }
+
+    logDebug("Email verification attempt", { token });
+
+    // Find user with this token
+    const user = await User.findOne({
+      emailVerificationToken: token,
+      emailVerificationExpires: { $gt: Date.now() },
+    }).select("+emailVerificationToken +emailVerificationExpires");
+
+    if (!user) {
+      logError("Invalid or expired verification token", { token });
+      return sendError(
+        res,
+        "Invalid or expired verification token. Please request a new verification email.",
+        400
+      );
+    }
+
+    // Check if already verified
+    if (user.isEmailVerified) {
+      return sendSuccess(
+        res,
+        {
+          isEmailVerified: true,
+          email: user.email,
+        },
+        "Email is already verified",
+        200
+      );
+    }
+
+    // Verify the email
+    await user.verifyEmail();
+
+    // Send welcome email
+    const welcomeEmailSent = await emailService.sendWelcomeEmail(
+      user.email,
+      user.fullName
+    );
+
+    if (!welcomeEmailSent.success) {
+      logError("Failed to send welcome email", {
+        userId: user._id,
+        email: user.email,
+        error: welcomeEmailSent.error,
+      });
+    }
+
+    // Generate new JWT token with verified status
+    const jwtToken = jwt.sign(
+      {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+        isEmailVerified: true,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRES_IN || "7d" }
+    );
+
+    logInfo("Email verified successfully", {
+      userId: user._id,
+      email: user.email,
+    });
+
+    // Prepare response
+    const responseData = {
+      success: true,
+      user: {
+        id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        fullName: user.fullName,
+        email: user.email,
+        role: user.role,
+        isEmailVerified: true,
+        emailVerifiedAt: user.emailVerifiedAt,
+      },
+      token: jwtToken,
+      redirectUrl: "/dashboard", // Frontend can use this to redirect
+    };
+
+    sendSuccess(
+      res,
+      responseData,
+      "Email verified successfully! Welcome to Plaice Real Estate.",
+      200
+    );
+  } catch (error) {
+    logError("Email verification failed", {
+      error: error.message,
+      stack: error.stack,
+      token: req.params.token,
     });
 
     next(error);
@@ -658,7 +882,9 @@ module.exports = {
   login,
   getCurrentUser,
   updateCurrentUser,
+  sendVerificationEmail,
   changePassword,
   forgotPassword,
   resetPassword,
+  verifyEmail,
 };

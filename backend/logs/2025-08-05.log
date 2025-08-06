@@ -1,0 +1,297 @@
+{
+  "timestamp": "2025-08-05T19:59:47.566Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T19:59:47.592Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T19:59:47.593Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-05T19:59:47.640Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-05T19:59:47.716Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-05T19:59:47.718Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-05T20:02:59.275Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:02:59.294Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:02:59.296Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-05T20:02:59.311Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-05T20:02:59.331Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-05T20:02:59.334Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-05T20:03:23.750Z",
+  "level": "INFO",
+  "message": "SIGINT received, shutting down gracefully"
+}
+{
+  "timestamp": "2025-08-05T20:03:23.752Z",
+  "level": "INFO",
+  "message": "HTTP server closed"
+}
+{
+  "timestamp": "2025-08-05T20:03:29.587Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:03:29.611Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:03:29.615Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-05T20:03:29.639Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-05T20:03:29.669Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-05T20:03:29.673Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-05T20:04:38.830Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:04:38.863Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:04:38.866Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-05T20:04:38.889Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-05T20:04:38.925Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-05T20:04:38.930Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-05T20:07:38.957Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:07:38.980Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:07:38.982Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-05T20:07:38.998Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-05T20:07:39.023Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-05T20:07:39.027Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-05T20:07:48.780Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:07:48.805Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:07:48.807Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-05T20:07:48.824Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-05T20:07:48.848Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-05T20:07:48.852Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-05T20:09:49.387Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:09:49.413Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-05T20:09:49.416Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-05T20:09:49.436Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-05T20:09:49.463Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-05T20:09:49.466Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
