@@ -1,0 +1,86 @@
+<!-- Email Verification Processing -->
+<div class="verify-email-page">
+  <div class="verify-container">
+    <!-- Logo Header -->
+    <div class="verify-header">
+      <a routerLink="/" class="logo-link">
+        <img
+          src="assets/images/logos/logo-navbar.png"
+          alt="Plaice Real Estate"
+          height="50"
+          class="logo"
+        />
+      </a>
+    </div>
+
+    <!-- Verification Card -->
+    <div class="verify-card">
+      <!-- Loading State -->
+      <div class="verify-content" *ngIf="isVerifying">
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+        <h2 class="verify-title">Verifying your email...</h2>
+        <p class="verify-description">
+          Please wait while we verify your email address.
+        </p>
+      </div>
+
+      <!-- Success State -->
+      <div class="verify-content" *ngIf="!isVerifying && verificationSuccess">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="verify-title">Email Verified Successfully!</h2>
+        <p class="verify-description">
+          Your email <strong>{{ userEmail }}</strong> has been verified.
+        </p>
+        <p class="redirect-message">
+          <i class="fas fa-spinner fa-pulse"></i>
+          Redirecting you to dashboard in 3 seconds...
+        </p>
+        <button class="btn btn-primary" (click)="goToDashboard()">
+          <i class="fas fa-arrow-right"></i>
+          Go to Dashboard Now
+        </button>
+      </div>
+
+      <!-- Error State -->
+      <div class="verify-content" *ngIf="!isVerifying && !verificationSuccess">
+        <div class="error-icon">
+          <i class="fas fa-times-circle"></i>
+        </div>
+        <h2 class="verify-title">Verification Failed</h2>
+        <p class="verify-description error-message">{{ verificationError }}</p>
+
+        <div class="error-actions">
+          <button class="btn btn-primary" (click)="resendVerification()">
+            <i class="fas fa-redo"></i>
+            Request New Verification Email
+          </button>
+          <button class="btn btn-secondary" (click)="goToLogin()">
+            <i class="fas fa-sign-in-alt"></i>
+            Back to Login
+          </button>
+        </div>
+
+        <div class="help-text">
+          <p>Common reasons for verification failure:</p>
+          <ul>
+            <li>The verification link has expired (24 hours)</li>
+            <li>The email has already been verified</li>
+            <li>The link was incorrectly copied</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Footer -->
+    <div class="support-footer">
+      <p>
+        Having trouble?
+        <a href="mailto:support@plaice.com">Contact Support</a>
+      </p>
+    </div>
+  </div>
+</div>

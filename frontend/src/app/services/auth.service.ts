@@ -1,7 +1,7 @@
 // frontend/src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap, map } from 'rxjs';
 import { Router } from '@angular/router';
 
 export interface User {
@@ -322,5 +322,92 @@ export class AuthService {
       console.error('Error decoding token:', error);
       return null;
     }
+  }
+
+  /**
+   * Send or resend verification email
+   */
+  resendVerificationEmail(email: string): Observable<any> {
+    const url = `${this.API_URL}/send-verification`;
+
+    console.log('📧 Requesting verification email for:', email);
+
+    return this.http.post<any>(url, { email }).pipe(
+      tap((response) => {
+        if (response.success) {
+          console.log('✅ Verification email sent successfully');
+        }
+      })
+    );
+  }
+
+  /**
+   * Verify email with token
+   */
+  verifyEmail(token: string): Observable<any> {
+    const url = `${this.API_URL}/verify-email/${token}`;
+
+    console.log('🔐 Verifying email with token');
+
+    return this.http.get<any>(url).pipe(
+      tap((response) => {
+        if (response.success && response.data) {
+          // Update current user with verified status
+          if (response.data.user) {
+            const updatedUser = {
+              ...response.data.user,
+              isEmailVerified: true,
+            };
+
+            // Update user in BehaviorSubject
+            this.currentUserSubject.next(updatedUser);
+
+            // Update localStorage
+            localStorage.setItem(this.USER_KEY, JSON.stringify(updatedUser));
+
+            // Update token if provided
+            if (response.data.token) {
+              localStorage.setItem(this.TOKEN_KEY, response.data.token);
+            }
+          }
+
+          console.log('✅ Email verified successfully');
+        }
+      })
+    );
+  }
+
+  /**
+   * Check if current user's email is verified
+   */
+  isEmailVerified(): boolean {
+    const currentUser = this.getCurrentUserValue();
+    return currentUser?.isEmailVerified || false;
+  }
+
+  /**
+   * Get verification status observable
+   */
+  getEmailVerificationStatus(): Observable<boolean> {
+    return this.currentUser$.pipe(
+      map((user) => user?.isEmailVerified || false)
+    );
+  }
+
+  /**
+   * Request password reset
+   */
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post(`${this.API_URL}/forgot-password`, { email });
+  }
+
+  /**
+   * Reset password with token
+   */
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.API_URL}/reset-password`, {
+      token,
+      password: newPassword,
+    });
   }
 }

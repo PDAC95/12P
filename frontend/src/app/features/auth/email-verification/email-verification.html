@@ -1,0 +1,49 @@
+<!-- Email Verification Screen -->
+<div class="email-verification-page">
+  <div class="verification-container">
+    <!-- Logo Header -->
+    <div class="verification-header">
+      <a routerLink="/" class="logo-link">
+        <img
+          src="assets/images/logos/logo-navbar.png"
+          alt="Plaice Real Estate"
+          height="50"
+          class="logo"
+        />
+      </a>
+    </div>
+
+    <!-- Verification Card -->
+    <div class="verification-card">
+      <!-- Icon -->
+      <div class="email-icon">
+        <i class="fas fa-envelope-open-text"></i>
+      </div>
+
+      <!-- Title -->
+      <h1 class="verification-title">Verify your email address</h1>
+
+      <!-- Description -->
+      <p class="verification-description">
+        We've sent a verification email to:
+      </p>
+      <p class="user-email">{{ userEmail }}</p>
+
+      <p class="verification-instructions">
+        Please check your inbox and click the verification link to activate your
+        account. The link will expire in 24 hours.
+      </p>
+
+      <!-- Success Message -->
+      <div class="alert alert-success" *ngIf="resendSuccess">
+        <i class="fas fa-check-circle"></i>
+        <span
+          >Verification email sent successfully! Please check your inbox.</span
+        >
+      </div>
+
+      <!-- Error Message -->
+      <div class="alert alert-error" *ngIf="resendError"></div>
+    </div>
+  </div>
+</div>

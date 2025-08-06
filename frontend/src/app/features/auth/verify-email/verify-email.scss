@@ -1,0 +1,337 @@
+// Verify Email Component Styles
+.verify-email-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #3cade9 0%, #7ed321 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.verify-container {
+  width: 100%;
+  max-width: 500px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.verify-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .logo-link {
+    display: inline-block;
+
+    .logo {
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.verify-card {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.verify-content {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+// Loading State
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 3rem;
+    color: #3cade9;
+    animation: spin 1s linear infinite;
+  }
+}
+
+// Success State
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, #10b981 0%, #7ed321 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.5s ease-out;
+
+  i {
+    font-size: 3rem;
+    color: white;
+  }
+}
+
+// Error State
+.error-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: shake 0.5s ease-out;
+
+  i {
+    font-size: 3rem;
+    color: white;
+  }
+}
+
+.verify-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0b2c3d;
+  margin-bottom: 1rem;
+  font-family: "Lora", serif;
+}
+
+.verify-description {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+
+  strong {
+    color: #016450;
+    font-weight: 600;
+  }
+
+  &.error-message {
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #fca5a5;
+  }
+}
+
+.redirect-message {
+  color: #10b981;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+// Action Buttons
+.error-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.875rem 2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &.btn-primary {
+    background: linear-gradient(135deg, #3cade9 0%, #2a8fc4 100%);
+    color: white;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(60, 173, 233, 0.3);
+    }
+  }
+
+  &.btn-secondary {
+    background: white;
+    color: #64748b;
+    border: 2px solid #e2e8f0;
+
+    &:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+  }
+
+  i {
+    font-size: 0.9rem;
+  }
+}
+
+// Help Text
+.help-text {
+  text-align: left;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+
+  p {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      color: #64748b;
+      font-size: 0.9rem;
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+
+      &:before {
+        content: "•";
+        position: absolute;
+        left: 0.5rem;
+        color: #ef4444;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Support Footer
+.support-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: white;
+  font-size: 0.9rem;
+
+  a {
+    color: white;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+// Responsive Design
+@media (max-width: 480px) {
+  .verify-container {
+    padding: 1rem;
+  }
+
+  .verify-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .verify-title {
+    font-size: 1.5rem;
+  }
+
+  .loading-spinner,
+  .success-icon,
+  .error-icon {
+    width: 60px;
+    height: 60px;
+
+    i {
+      font-size: 2.5rem;
+    }
+  }
+
+  .error-actions {
+    .btn {
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+    }
+  }
+}

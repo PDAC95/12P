@@ -39,16 +39,6 @@ export const routes: Routes = [
     canActivate: [agentGuard], // Protected: only agents can access
   },
   {
-    path: 'auth/login',
-    loadComponent: () =>
-      import('./features/auth/login/login').then((c) => c.Login),
-  },
-  {
-    path: 'auth/register',
-    loadComponent: () =>
-      import('./features/auth/register/register').then((c) => c.Register),
-  },
-  {
     path: 'chat',
     redirectTo: 'ai-search',
     pathMatch: 'full',
@@ -68,6 +58,42 @@ export const routes: Routes = [
         (c) => c.PublicUserProfile
       ),
     title: 'User Profile - 12P',
+  },
+  // Authentication routes
+  {
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        loadComponent: () =>
+          import('./features/auth/login/login').then((m) => m.Login),
+      },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('./features/auth/register/register').then((m) => m.Register),
+      },
+      {
+        path: 'email-verification',
+        loadComponent: () =>
+          import('./features/auth/email-verification/email-verification').then(
+            (m) => m.EmailVerification
+          ),
+      },
+      {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+      },
+    ],
+  },
+  // Email verification route (outside auth for direct link access)
+  {
+    path: 'verify-email/:token',
+    loadComponent: () =>
+      import('./features/auth/verify-email/verify-email').then(
+        (m) => m.VerifyEmail
+      ),
   },
   {
     path: '**',
