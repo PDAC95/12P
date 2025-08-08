@@ -397,3 +397,319 @@
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
+{
+  "timestamp": "2025-08-08T13:38:53.461Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:38:53.496Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:38:53.499Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-08T13:38:53.521Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-08T13:38:53.547Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-08T13:38:53.551Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-08T13:38:58.716Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:38:58.737Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:38:58.738Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-08T13:38:58.749Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-08T13:38:58.765Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-08T13:38:58.767Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-08T13:39:15.754Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:39:15.771Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:39:15.772Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-08T13:39:15.787Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-08T13:39:15.808Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-08T13:39:15.810Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-08T13:39:23.609Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:39:23.641Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:39:23.643Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-08T13:39:23.655Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-08T13:39:23.673Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-08T13:39:23.675Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-08T13:49:31.312Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:49:31.338Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:49:31.339Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-08T13:49:31.354Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-08T13:49:31.368Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-08T13:49:31.371Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-08T13:50:18.584Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:50:18.602Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-08T13:50:18.603Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-08T13:50:18.619Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-08T13:50:18.628Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-08T13:50:18.630Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-08T13:51:33.735Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "test@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.45.0"
+}
+{
+  "timestamp": "2025-08-08T13:51:33.736Z",
+  "level": "ERROR",
+  "message": "Login failed - server error",
+  "error": "User.findByEmailWithPassword is not a function",
+  "stack": "TypeError: User.findByEmailWithPassword is not a function\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:366:29)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:47:12)",
+  "email": "test@example.com"
+}
+{
+  "timestamp": "2025-08-08T13:51:33.740Z",
+  "level": "ERROR",
+  "message": "User.findByEmailWithPassword is not a function",
+  "stack": "TypeError: User.findByEmailWithPassword is not a function\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:366:29)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:47:12)",
+  "request": {
+    "method": "POST",
+    "url": "/api/auth/login",
+    "ip": "::1",
+    "userAgent": "PostmanRuntime/7.45.0",
+    "body": {
+      "email": "test@example.com",
+      "password": "test123"
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-08-08T13:53:00.417Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.45.0"
+}
+{
+  "timestamp": "2025-08-08T13:53:00.419Z",
+  "level": "ERROR",
+  "message": "Login failed - server error",
+  "error": "User.findByEmailWithPassword is not a function",
+  "stack": "TypeError: User.findByEmailWithPassword is not a function\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:366:29)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:47:12)",
+  "email": "john.doe@example.com"
+}
+{
+  "timestamp": "2025-08-08T13:53:00.421Z",
+  "level": "ERROR",
+  "message": "User.findByEmailWithPassword is not a function",
+  "stack": "TypeError: User.findByEmailWithPassword is not a function\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:366:29)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:175:3)\n    at router (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\router\\index.js:47:12)",
+  "request": {
+    "method": "POST",
+    "url": "/api/auth/login",
+    "ip": "::1",
+    "userAgent": "PostmanRuntime/7.45.0",
+    "body": {
+      "email": "john.doe@example.com",
+      "password": "password123"
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
