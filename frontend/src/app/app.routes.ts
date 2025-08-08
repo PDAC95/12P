@@ -1,17 +1,23 @@
-// src/app/app.routes.ts
+// frontend/src/app/app.routes.ts - Actualizar con el guard de verificación
+
 import { Routes } from '@angular/router';
 import { authGuard, agentGuard } from './guards/auth.guard';
+import {
+  emailVerifiedGuard,
+  optionalEmailVerifiedGuard,
+} from './guards/email-verified-guard';
 
 export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home').then((c) => c.Home),
+    canActivate: [optionalEmailVerifiedGuard], // Optional: shows banner if not verified
   },
   {
     path: 'properties',
     loadComponent: () =>
       import('./pages/properties/properties').then((c) => c.Properties),
-    canActivate: [authGuard], // Protected: requires authentication
+    canActivate: [authGuard, emailVerifiedGuard], // Requires auth AND email verification
   },
   {
     path: 'properties/detail/:id',
@@ -19,29 +25,25 @@ export const routes: Routes = [
       import('./features/properties/property-detail/property-detail').then(
         (c) => c.PropertyDetail
       ),
-    canActivate: [authGuard], // Protected: requires authentication
+    canActivate: [authGuard, emailVerifiedGuard], // Requires verification to view details
   },
   {
     path: 'ai-search',
     loadComponent: () =>
       import('./pages/ai-search/ai-search').then((c) => c.AiSearch),
-    canActivate: [authGuard], // Protected: requires authentication
+    canActivate: [authGuard, emailVerifiedGuard], // Requires verification for AI features
   },
   {
     path: 'contact',
     loadComponent: () =>
       import('./pages/contact/contact').then((c) => c.Contact),
+    // No verification required for contact page
   },
   {
     path: 'add-property',
     loadComponent: () =>
       import('./pages/add-property/add-property').then((c) => c.AddProperty),
-    canActivate: [agentGuard], // Protected: only agents can access
-  },
-  {
-    path: 'chat',
-    redirectTo: 'ai-search',
-    pathMatch: 'full',
+    canActivate: [agentGuard, emailVerifiedGuard], // Agents must verify email
   },
   {
     path: 'users/profile',
@@ -49,17 +51,50 @@ export const routes: Routes = [
       import('./features/users/user-profile/user-profile').then(
         (c) => c.UserProfile
       ),
-    canActivate: [authGuard], // Protected: requires authentication
+    canActivate: [authGuard, optionalEmailVerifiedGuard], // Can view but with limitations
   },
+
+  // Admin Dashboard
   {
-    path: 'user/:id',
+    path: 'admin/dashboard',
     loadComponent: () =>
-      import('./features/users/public-user-profile/public-user-profile').then(
-        (c) => c.PublicUserProfile
+      import('./pages/dashboard/admin-dashboard/admin-dashboard').then(
+        (c) => c.AdminDashboard
       ),
-    title: 'User Profile - 12P',
+    canActivate: [authGuard, emailVerifiedGuard], // Admin must verify email
   },
-  // Authentication routes
+
+  // Agent Dashboard
+  {
+    path: 'agent/dashboard',
+    loadComponent: () =>
+      import('./pages/dashboard/agent-dashboard/agent-dashboard').then(
+        (c) => c.AgentDashboard
+      ),
+    canActivate: [agentGuard, emailVerifiedGuard], // Agent must verify email
+  },
+
+  // User Dashboard
+  {
+    path: 'user/dashboard',
+    loadComponent: () =>
+      import('./features/users/user-dashboard/user-dashboard').then(
+        (c) => c.UserDashboard
+      ),
+    canActivate: [authGuard, emailVerifiedGuard], // User must verify email
+  },
+
+  // Generic dashboard route
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./features/dashboard-router/dashboard-router').then(
+        (c) => c.DashboardRouter
+      ),
+    canActivate: [authGuard, emailVerifiedGuard], // Requires verification
+  },
+
+  // Authentication routes (no verification needed)
   {
     path: 'auth',
     children: [
@@ -87,7 +122,8 @@ export const routes: Routes = [
       },
     ],
   },
-  // Email verification route (outside auth for direct link access)
+
+  // Email verification route (no guard needed)
   {
     path: 'verify-email/:token',
     loadComponent: () =>
@@ -95,6 +131,7 @@ export const routes: Routes = [
         (m) => m.VerifyEmail
       ),
   },
+
   {
     path: '**',
     redirectTo: '',

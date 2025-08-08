@@ -1,3 +1,35 @@
+<div
+  class="email-verification-banner"
+  *ngIf="showEmailVerificationBanner && isUserLoggedIn"
+>
+  <div class="container">
+    <div class="banner-content">
+      <div class="banner-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <div class="banner-message">
+        <strong>Email Verification Required</strong>
+        <span class="email-text"
+          >Please verify your email address ({{ userEmail }}) to access all
+          features.</span
+        >
+      </div>
+      <div class="banner-actions">
+        <button class="btn btn-verify" (click)="goToEmailVerification()">
+          Verify Email
+        </button>
+        <button
+          class="btn btn-close"
+          (click)="closeVerificationBanner()"
+          title="Hide this message"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <nav
   class="navbar navbar-expand-lg fixed-top"
   [class.navbar-scrolled]="isScrolled"

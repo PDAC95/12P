@@ -1,49 +1,124 @@
-<!-- Email Verification Screen -->
+<!-- frontend/src/app/features/auth/email-verification/email-verification.html -->
+
 <div class="email-verification-page">
+  <!-- Banner de notificación -->
+  <div class="notification-banner">
+    <div class="container">
+      <div class="banner-content">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Email Verification Required</span>
+        <p>
+          Please verify your email address ({{ userEmail }}) to access all
+          features.
+        </p>
+        <button class="btn-verify" (click)="goToVerifyEmail()">
+          Verify Email
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
   <div class="verification-container">
-    <!-- Logo Header -->
-    <div class="verification-header">
-      <a routerLink="/" class="logo-link">
+    <div class="verification-card">
+      <!-- Logo -->
+      <div class="logo-section">
         <img
           src="assets/images/logos/logo-navbar.png"
-          alt="Plaice Real Estate"
-          height="50"
+          alt="Plaice"
           class="logo"
         />
-      </a>
-    </div>
-
-    <!-- Verification Card -->
-    <div class="verification-card">
-      <!-- Icon -->
-      <div class="email-icon">
-        <i class="fas fa-envelope-open-text"></i>
+        <h1>Plaice</h1>
       </div>
 
-      <!-- Title -->
-      <h1 class="verification-title">Verify your email address</h1>
+      <!-- Icono de email -->
+      <div class="email-icon">
+        <i class="fas fa-envelope"></i>
+      </div>
 
-      <!-- Description -->
-      <p class="verification-description">
-        We've sent a verification email to:
-      </p>
-      <p class="user-email">{{ userEmail }}</p>
+      <!-- Título y mensaje -->
+      <h2>Verify your email address</h2>
+      <p class="description">We've sent a verification email to:</p>
+      <p class="email-address">{{ userEmail }}</p>
 
-      <p class="verification-instructions">
+      <p class="instructions">
         Please check your inbox and click the verification link to activate your
         account. The link will expire in 24 hours.
       </p>
 
-      <!-- Success Message -->
-      <div class="alert alert-success" *ngIf="resendSuccess">
-        <i class="fas fa-check-circle"></i>
-        <span
-          >Verification email sent successfully! Please check your inbox.</span
+      <!-- Sección de acciones -->
+      <div class="actions-section">
+        <!-- Botón para reenviar email -->
+        <button
+          class="btn btn-resend"
+          (click)="resendVerificationEmail()"
+          [disabled]="isResending || resendCountdown > 0"
         >
-      </div>
+          <span *ngIf="!isResending && resendCountdown === 0">
+            <i class="fas fa-redo"></i> Resend Verification Email
+          </span>
+          <span *ngIf="isResending">
+            <i class="fas fa-spinner fa-spin"></i> Sending...
+          </span>
+          <span *ngIf="resendCountdown > 0">
+            Resend in {{ getCountdownText() }}
+          </span>
+        </button>
 
-      <!-- Error Message -->
-      <div class="alert alert-error" *ngIf="resendError"></div>
+        <!-- Mensajes de éxito/error -->
+        <div class="alert alert-success" *ngIf="resendSuccess">
+          <i class="fas fa-check-circle"></i>
+          Verification email sent successfully! Check your inbox.
+        </div>
+
+        <div class="alert alert-error" *ngIf="resendError">
+          <i class="fas fa-exclamation-circle"></i>
+          {{ resendError }}
+        </div>
+
+        <!-- Sección para desarrollo/testing -->
+        <div class="dev-section">
+          <p class="dev-note">
+            <strong>Development Mode:</strong> Check your console for the
+            verification token
+          </p>
+
+          <!-- Input manual para el token -->
+          <div class="token-input-section">
+            <label>Have a verification token? Enter it here:</label>
+            <div class="token-input-group">
+              <input
+                type="text"
+                [(ngModel)]="manualToken"
+                placeholder="Paste your verification token"
+                class="token-input"
+              />
+              <button
+                class="btn btn-verify-token"
+                (click)="verifyWithToken()"
+                [disabled]="!manualToken || isVerifying"
+              >
+                <span *ngIf="!isVerifying">Verify</span>
+                <span *ngIf="isVerifying">
+                  <i class="fas fa-spinner fa-spin"></i> Verifying...
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Enlaces adicionales -->
+        <div class="additional-links">
+          <p>
+            Wrong email address?
+            <a (click)="changeEmail()" class="link">Change email</a>
+          </p>
+          <p>
+            Already verified?
+            <a routerLink="/auth/login" class="link">Go to login</a>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
