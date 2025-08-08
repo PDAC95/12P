@@ -71,7 +71,13 @@ const getUserFavorites = async (req, res, next) => {
       page,
     });
 
-    sendSuccess(res, response, "Favorites retrieved successfully");
+    res.status(200).json({
+      success: true,
+      message: "Favorites retrieved successfully",
+      data: response.favorites,
+      pagination: response.pagination,
+      timestamp: new Date().toISOString(),
+    });
   } catch (error) {
     logError("Get user favorites error", {
       error: error.message,
