@@ -36,8 +36,9 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
       trim: true,
+      // Regex más flexible para aceptar varios formatos de teléfono
       match: [
-        /^(\+\d{1,3}[- ]?)?\d{10}$/,
+        /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}$/,
         "Please provide a valid phone number",
       ],
     },
@@ -332,6 +333,26 @@ userSchema.methods.toJSON = function () {
   delete user.lockUntil;
   delete user.__v;
   return user;
+};
+
+// Static method to find user by email with password included
+userSchema.statics.findByEmailWithPassword = async function (email) {
+  return await this.findOne({ email: email.toLowerCase() }).select("+password");
+};
+
+// Method to generate JWT token
+userSchema.methods.generateAuthToken = function () {
+  const jwt = require("jsonwebtoken");
+  return jwt.sign(
+    {
+      id: this._id,
+      email: this.email,
+      role: this.role,
+      isEmailVerified: this.isEmailVerified,
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: process.env.JWT_EXPIRES_IN || "7d" }
+  );
 };
 
 const User = mongoose.model("User", userSchema);
