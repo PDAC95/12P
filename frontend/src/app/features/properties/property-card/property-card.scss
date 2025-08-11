@@ -13,31 +13,27 @@
 
 .card-img-container {
   position: relative;
-  height: 200px;
   overflow: hidden;
-
-  .card-img-top {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover .card-img-top {
-    transform: scale(1.05);
-  }
 
   .property-type-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(1, 100, 80, 0.9);
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 4px 12px;
+    padding: 5px 15px;
     border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    backdrop-filter: blur(10px);
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 5;
+    backdrop-filter: blur(5px);
+  }
+
+  .favorite-button-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
   }
 }
 
@@ -226,5 +222,18 @@
     .btn {
       text-align: center;
     }
+  }
+}
+
+// Agregar al final de property-card.scss
+
+.card-img-container {
+  position: relative;
+
+  .favorite-button-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
   }
 }

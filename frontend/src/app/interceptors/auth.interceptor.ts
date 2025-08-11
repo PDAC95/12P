@@ -11,10 +11,11 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authToken = authService.getToken();
 
   // Check if this is a request to our API that needs authentication
-  const isApiUrl = req.url.includes('/api/');
+  // Updated to check for localhost:5001 OR /api/
+  const isApiUrl =
+    req.url.includes('localhost:5001') || req.url.includes('/api/');
   const isAuthEndpoint =
-    req.url.includes('/api/auth/login') ||
-    req.url.includes('/api/auth/register');
+    req.url.includes('/auth/login') || req.url.includes('/auth/register');
 
   // Only add token to API requests that are not login/register endpoints
   if (isApiUrl && !isAuthEndpoint && authToken) {
@@ -25,6 +26,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       },
     });
 
+    console.log('🔑 Adding auth token to request:', req.url);
     return next(authRequest);
   }
 

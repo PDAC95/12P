@@ -4,9 +4,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-// New interface matching backend MongoDB model
 export interface BackendPropertyModel {
-  _id: string;
+  _id: string | { $oid: string }; // MongoDB puede devolver el ID en cualquiera de estos formatos
   title: string;
   description: string;
   price: number;
@@ -29,18 +28,21 @@ export interface BackendPropertyModel {
     url: string;
     alt: string;
     isPrimary: boolean;
+    _id?: string | { $oid: string };
   }>;
   status: 'available' | 'sold' | 'rented' | 'pending';
   listingType: 'sale' | 'rent';
-  owner: string;
-  createdAt: string;
-  updatedAt: string;
-  fullAddress?: string; // Virtual field from backend
+  owner: string | { $oid: string };
+  createdAt: string | { $date: string };
+  updatedAt: string | { $date: string };
+  fullAddress?: string;
+  __v?: number;
 }
 
 // Legacy interface for compatibility with existing frontend
 export interface PropertyModel {
   id: number;
+  _id: string;
   title: string;
   price: number;
   location: string;
@@ -89,82 +91,6 @@ export class Property {
   // Cache for converted properties to avoid redundant conversions
   private convertedPropertiesCache: PropertyModel[] = [];
 
-  // Keep mock data for fallback during development
-  private mockProperties: PropertyModel[] = [
-    {
-      id: 1,
-      title: 'Modern Downtown Kitchener Condo',
-      price: 485000,
-      location: 'Downtown Kitchener, ON',
-      type: 'Condo',
-      bedrooms: 2,
-      bathrooms: 2,
-      area: 950,
-      image:
-        'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description:
-        'Stunning modern condo in the heart of downtown Kitchener with city views',
-      owner: '686d7dc38de09a4f48df03af', // John Doe - agent
-    },
-    {
-      id: 2,
-      title: 'Family Home in Waterloo',
-      price: 725000,
-      location: 'Waterloo, ON',
-      type: 'Detached House',
-      bedrooms: 4,
-      bathrooms: 3,
-      area: 2200,
-      image:
-        'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description:
-        'Beautiful family home with spacious backyard and modern amenities',
-      owner: '686d7dc38de09a4f48df03b0', // Jane Smith - agent
-    },
-    {
-      id: 3,
-      title: 'Luxury Cambridge Townhouse',
-      price: 650000,
-      location: 'Cambridge, ON',
-      type: 'Townhouse',
-      bedrooms: 3,
-      bathrooms: 2,
-      area: 1800,
-      image:
-        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description: 'Elegant townhouse with premium finishes and great location',
-      owner: '686d7dc38de09a4f48df03af', // John Doe - agent
-    },
-    {
-      id: 4,
-      title: 'Cozy Guelph Bungalow',
-      price: 590000,
-      location: 'Guelph, ON',
-      type: 'Bungalow',
-      bedrooms: 3,
-      bathrooms: 2,
-      area: 1400,
-      image:
-        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description: 'Charming bungalow perfect for first-time homebuyers',
-      owner: '686d7dc38de09a4f48df03b0', // Jane Smith - agent
-    },
-    {
-      id: 5,
-      title: 'Urban Loft in Kitchener',
-      price: 425000,
-      location: 'Arts District, Kitchener, ON',
-      type: 'Loft',
-      bedrooms: 1,
-      bathrooms: 1,
-      area: 850,
-      image:
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      description: 'Industrial-style loft with exposed brick and high ceilings',
-      owner: '686d7dc38de09a4f48df03af', // John Doe - agent
-    },
-  ];
-
   constructor(private http: HttpClient) {}
 
   /**
@@ -177,7 +103,6 @@ export class Property {
   getProperties(filters?: any): Observable<PropertyModel[]> {
     console.log('🏠 getProperties called with filters:', filters);
 
-    // Build query parameters for API call
     let params = new HttpParams();
     if (filters) {
       Object.keys(filters).forEach((key) => {
@@ -187,35 +112,35 @@ export class Property {
       });
     }
 
-    console.log('🔄 Making API call with params:', params.toString());
-
     return this.http.get<PaginatedApiResponse>(this.apiUrl, { params }).pipe(
       map((response) => {
-        console.log('✅ Properties fetched from backend:', response);
+        console.log('✅ Raw response from backend:', response);
 
         if (response.success && Array.isArray(response.data)) {
-          // Convert backend properties to legacy format
+          if (response.data.length > 0) {
+            console.log('🔍 First property raw structure:', response.data[0]);
+            console.log('🔍 First property _id:', response.data[0]._id);
+          }
+
           const convertedProperties = response.data.map((property) =>
             this.convertBackendToLegacy(property)
           );
 
-          // Update cache for future use
-          this.convertedPropertiesCache = convertedProperties;
+          if (convertedProperties.length > 0) {
+            console.log('🔄 First converted property:', convertedProperties[0]);
+          }
 
-          console.log(
-            '🔄 Converted properties from backend:',
-            convertedProperties.length
-          );
+          this.convertedPropertiesCache = convertedProperties;
           return convertedProperties;
         } else {
-          console.warn('⚠️ Invalid response format from backend:', response);
-          return this.mockProperties;
+          console.error('⚠️ Invalid response format from backend:', response);
+          return []; // Retornar array vacío en lugar de mockProperties
         }
       }),
       catchError((error) => {
         console.error('❌ Error fetching properties from backend:', error);
-        console.log('🔄 Falling back to mock data');
-        return of(this.mockProperties);
+        // NO retornar mock data, solo array vacío
+        return of([]);
       })
     );
   }
@@ -252,15 +177,14 @@ export class Property {
         );
     }
 
-    // Handle numeric IDs - check both converted cache and mock data
+    // Handle numeric IDs - check converted cache
     const numericId = typeof id === 'string' ? parseInt(id) : id;
-
     console.log('🔄 Numeric ID detected:', numericId);
 
-    // First, try to find in converted properties cache (from backend data)
+    // Check in converted properties cache
     if (this.convertedPropertiesCache.length > 0) {
       const cachedProperty = this.convertedPropertiesCache.find(
-        (p) => p.id === numericId
+        (p: PropertyModel) => p.id === numericId
       );
       if (cachedProperty) {
         console.log(
@@ -271,17 +195,8 @@ export class Property {
       }
     }
 
-    // If not found in cache, try mock data
-    const mockProperty = this.mockProperties.find((p) => p.id === numericId);
-    if (mockProperty) {
-      console.log('✅ Property found in mock data:', mockProperty.title);
-      return of(mockProperty);
-    }
-
-    // If not found anywhere, try to get all properties first to populate cache
-    console.log(
-      '🔄 Property not found in cache, fetching all properties to populate cache'
-    );
+    // If not found in cache, try to get all properties first
+    console.log('🔄 Property not found in cache, fetching all properties');
     return this.getProperties().pipe(
       map((allProperties) => {
         const foundProperty = allProperties.find((p) => p.id === numericId);
@@ -306,22 +221,35 @@ export class Property {
   private convertBackendToLegacy(
     backendProperty: BackendPropertyModel
   ): PropertyModel {
-    // Get primary image or first image, fallback to placeholder
+    // Extraer el ID real manejando ambos formatos posibles
+    const propertyId =
+      typeof backendProperty._id === 'string'
+        ? backendProperty._id
+        : backendProperty._id.$oid;
+
+    // Extraer el owner ID manejando ambos formatos
+    const ownerId =
+      typeof backendProperty.owner === 'string'
+        ? backendProperty.owner
+        : backendProperty.owner.$oid;
+
+    // Obtener imagen principal o primera imagen
     const primaryImage =
       backendProperty.images?.find((img) => img.isPrimary)?.url ||
       backendProperty.images?.[0]?.url ||
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80';
 
-    // Generate a simple numeric ID for frontend compatibility
-    const numericId = this.generateNumericId(backendProperty._id);
+    // Generar ID numérico para compatibilidad visual
+    const numericId = this.generateNumericId(propertyId);
 
-    // Format location string from backend location object
+    // Formatear ubicación
     const formattedLocation =
       backendProperty.fullAddress ||
       `${backendProperty.location.city}, ${backendProperty.location.province}`;
 
     return {
       id: numericId,
+      _id: propertyId, // IMPORTANTE: Ahora SÍ guardamos el ObjectId real
       title: backendProperty.title,
       price: backendProperty.price,
       location: formattedLocation,
@@ -331,7 +259,7 @@ export class Property {
       area: backendProperty.area,
       image: primaryImage,
       description: backendProperty.description,
-      owner: backendProperty.owner, // Map owner field from backend
+      owner: ownerId,
     };
   }
 

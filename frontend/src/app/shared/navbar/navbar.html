@@ -69,6 +69,12 @@
             >Properties</a
           >
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/properties" routerLinkActive="active"
+            >Properties</a
+          >
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/ai-search" routerLinkActive="active"
             >AI Search</a
@@ -82,6 +88,19 @@
       </ul>
 
       <div class="d-flex align-items-center">
+        <a
+          *ngIf="isUserLoggedIn"
+          routerLink="/favorites"
+          class="favorites-nav-icon me-3"
+          title="My Favorites"
+        >
+          <app-heart-icon
+            [checked]="false"
+            [disabled]="false"
+            size="small"
+          ></app-heart-icon>
+        </a>
+
         <div class="user-dropdown-container position-relative me-3">
           <div class="user-avatar" (click)="toggleUserDropdown()">
             <img

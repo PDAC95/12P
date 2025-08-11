@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PropertyModel } from '../../../services/property';
 import { UserService, BasicUserInfo } from '../../../services/user.service';
+import { FavoriteButton } from '../../../shared/components/favorite-button/favorite-button';
 
 @Component({
   selector: 'app-property-card',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FavoriteButton],
   templateUrl: './property-card.html',
   styleUrl: './property-card.scss',
 })
@@ -66,6 +67,17 @@ export class PropertyCard implements OnInit {
       default:
         return 'fas fa-user';
     }
+  }
+
+  // Handle favorite change
+  onFavoriteChanged(isFavorited: boolean) {
+    // Ver el objeto completo para debug
+    console.log('❤️ Property object:', this.property);
+    console.log('❤️ All property keys:', Object.keys(this.property));
+    console.log('❤️ Favorite status changed:', {
+      propertyId: this.property.id,
+      isFavorited: isFavorited,
+    });
   }
 
   // Debug method to check what's happening with navigation

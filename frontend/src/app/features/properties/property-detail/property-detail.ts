@@ -128,13 +128,18 @@ export class PropertyDetail implements OnInit {
       backendProperty.images?.[0]?.url ||
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80';
 
-    const numericId = this.generateNumericId(backendProperty._id);
+    const propertyId =
+      typeof backendProperty._id === 'string'
+        ? backendProperty._id
+        : backendProperty._id.$oid;
+    const numericId = this.generateNumericId(propertyId);
     const formattedLocation =
       backendProperty.fullAddress ||
       `${backendProperty.location.city}, ${backendProperty.location.province}`;
 
     return {
       id: numericId,
+      _id: propertyId,
       title: backendProperty.title,
       price: backendProperty.price,
       location: formattedLocation,
@@ -144,7 +149,10 @@ export class PropertyDetail implements OnInit {
       area: backendProperty.area,
       image: primaryImage,
       description: backendProperty.description,
-      owner: backendProperty.owner, // Include owner field
+      owner:
+        typeof backendProperty.owner === 'string'
+          ? backendProperty.owner
+          : backendProperty.owner.$oid,
     };
   }
 

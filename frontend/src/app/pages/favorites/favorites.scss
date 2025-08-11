@@ -1,0 +1,166 @@
+// frontend/src/app/pages/favorites/favorites.scss
+
+.favorites-page {
+  min-height: 100vh;
+  padding: 120px 0 40px; // Ajustado para el navbar
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-family: "Outfit", sans-serif;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    color: #016450 !important;
+  }
+
+  p {
+    color: #6c757d;
+    font-size: 1.1rem;
+  }
+}
+
+.alert {
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorites-grid {
+  margin-bottom: 3rem;
+
+  .row {
+    margin: 0 -15px;
+  }
+
+  .col-md-6,
+  .col-lg-4 {
+    padding: 0 15px;
+  }
+}
+
+.favorite-notes {
+  padding: 0.75rem 1rem;
+  background: #fff3cd;
+  border-left: 3px solid #ffc107;
+  margin-top: -1px;
+  border-radius: 0 0 8px 8px;
+
+  i {
+    color: #856404;
+    margin-right: 0.5rem;
+  }
+
+  small {
+    color: #856404;
+    font-size: 0.875rem;
+  }
+}
+
+.favorite-tags {
+  padding: 0.75rem 1rem;
+  background: white;
+  border-top: 1px solid #dee2e6;
+  border-radius: 0 0 8px 8px;
+
+  .badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    background-color: #6c757d;
+  }
+}
+
+.favorites-summary {
+  padding: 2rem 0;
+  border-top: 1px solid #dee2e6;
+  margin-top: 2rem;
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+// Pagination styles
+.pagination {
+  margin-top: 2rem;
+
+  .page-link {
+    color: #016450;
+    border-color: #dee2e6;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      background-color: #f8f9fa;
+      border-color: #016450;
+      color: #016450;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(1, 100, 80, 0.25);
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: #016450;
+    border-color: #016450;
+    color: white;
+  }
+
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #dee2e6;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .page-header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  .favorites-page {
+    padding-top: 100px;
+  }
+}

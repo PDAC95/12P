@@ -1,0 +1,121 @@
+<!-- frontend/src/app/pages/favorites/favorites.html -->
+
+<div class="favorites-page">
+  <div class="container">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>My Favorite Properties</h1>
+      <p class="subtitle">Properties you've saved for later</p>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p>Loading your favorites...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !isLoading" class="alert alert-danger" role="alert">
+      {{ error }}
+      <button
+        class="btn btn-sm btn-outline-danger ms-3"
+        (click)="loadFavorites()"
+      >
+        Try Again
+      </button>
+    </div>
+
+    <!-- Empty State -->
+    <app-empty-state
+      *ngIf="!isLoading && !error && favorites.length === 0"
+      title="No favorites yet"
+      message="Start exploring properties and save your favorites here"
+      buttonText="Browse Properties"
+      buttonLink="/properties"
+      icon="heart"
+    ></app-empty-state>
+
+    <!-- Favorites Grid -->
+    <div
+      *ngIf="!isLoading && !error && favorites.length > 0"
+      class="favorites-grid"
+    >
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let favorite of favorites">
+          <app-property-card
+            [property]="favorite.property"
+            (favoriteChanged)="onFavoriteChanged(favorite.property)"
+          ></app-property-card>
+
+          <!-- Notes Section -->
+          <div class="favorite-notes" *ngIf="favorite.notes">
+            <small class="text-muted">
+              <i class="fas fa-sticky-note"></i> {{ favorite.notes }}
+            </small>
+          </div>
+
+          <!-- Tags -->
+          <div
+            class="favorite-tags"
+            *ngIf="favorite.tags && favorite.tags.length > 0"
+          >
+            <span
+              class="badge bg-secondary me-1"
+              *ngFor="let tag of favorite.tags"
+            >
+              {{ tag }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <nav *ngIf="totalPages > 1" aria-label="Favorites pagination">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a
+              class="page-link"
+              (click)="goToPage(currentPage - 1)"
+              style="cursor: pointer"
+            >
+              Previous
+            </a>
+          </li>
+
+          <li
+            class="page-item"
+            *ngFor="let page of [].constructor(totalPages); let i = index"
+            [class.active]="currentPage === i + 1"
+          >
+            <a
+              class="page-link"
+              (click)="goToPage(i + 1)"
+              style="cursor: pointer"
+            >
+              {{ i + 1 }}
+            </a>
+          </li>
+
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a
+              class="page-link"
+              (click)="goToPage(currentPage + 1)"
+              style="cursor: pointer"
+            >
+              Next
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Summary -->
+    <div *ngIf="!isLoading && totalItems > 0" class="favorites-summary">
+      <p class="text-center text-muted">
+        Showing {{ favorites.length }} of {{ totalItems }} favorite properties
+      </p>
+    </div>
+  </div>
+</div>

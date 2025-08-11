@@ -1,0 +1,24 @@
+<!-- frontend/src/app/shared/components/empty-state/empty-state.html -->
+
+<div class="empty-state">
+  <div class="empty-state-icon">
+    <i
+      [class]="'fas fa-' + icon"
+      [class.fa-heart]="icon === 'heart'"
+      [class.fa-inbox]="icon === 'inbox'"
+      [class.fa-search]="icon === 'search'"
+    ></i>
+  </div>
+
+  <h3 class="empty-state-title">{{ title }}</h3>
+
+  <p class="empty-state-message" *ngIf="message">{{ message }}</p>
+
+  <a
+    *ngIf="buttonText && buttonLink"
+    [routerLink]="buttonLink"
+    class="btn btn-primary empty-state-button"
+  >
+    {{ buttonText }}
+  </a>
+</div>

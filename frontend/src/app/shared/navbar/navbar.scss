@@ -327,3 +327,25 @@
 body.has-verification-banner {
   padding-top: 132px; // 80px navbar + 52px banner
 }
+
+// frontend/src/app/shared/navbar/navbar.scss - Agregar estos estilos
+
+.favorites-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  // Override heart-icon styles for navbar
+  ::ng-deep .con-like {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+}

@@ -2,7 +2,17 @@
 <div class="card h-100 shadow-sm property-card">
   <div class="card-img-container">
     <img [src]="property.image" class="card-img-top" [alt]="property.title" />
+
+    <!-- Property type badge on the left -->
     <div class="property-type-badge">{{ property.type }}</div>
+
+    <!-- Favorite button on the right -->
+    <app-favorite-button
+      class="favorite-button-wrapper"
+      [propertyId]="property._id"
+      size="medium"
+      (favoriteChanged)="onFavoriteChanged($event)"
+    ></app-favorite-button>
   </div>
 
   <div class="card-body">

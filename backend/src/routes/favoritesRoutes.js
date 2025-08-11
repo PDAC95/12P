@@ -1,4 +1,4 @@
-// backend/src/routes/favoriteRoutes.js
+// backend/src/routes/favoritesRoutes.js
 
 const express = require("express");
 const {

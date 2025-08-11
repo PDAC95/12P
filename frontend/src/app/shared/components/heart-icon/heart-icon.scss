@@ -1,0 +1,123 @@
+// frontend/src/app/shared/components/heart-icon/heart-icon.scss
+
+.con-like {
+  --red: rgb(255, 50, 50);
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+
+  &:hover:not(.is-disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  // Size variations
+  &--small {
+    width: 35px;
+    height: 35px;
+  }
+
+  &--medium {
+    width: 45px;
+    height: 45px;
+  }
+
+  &--large {
+    width: 55px;
+    height: 55px;
+  }
+
+  // Disabled state
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.like {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 20;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.checkmark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outline,
+.filled {
+  fill: var(--red);
+  position: absolute;
+  width: 60%;
+  height: 60%;
+}
+
+.filled {
+  animation: kfr-filled 0.5s;
+  display: none;
+}
+
+.celebrate {
+  position: absolute;
+  animation: kfr-celebrate 0.5s;
+  animation-fill-mode: forwards;
+  display: none;
+}
+
+.poly {
+  stroke: var(--red);
+  fill: var(--red);
+}
+
+.like:checked ~ .checkmark .filled {
+  display: block;
+}
+
+.like:checked ~ .checkmark .celebrate {
+  display: block;
+}
+
+// Animations
+@keyframes kfr-filled {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes kfr-celebrate {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+    display: none;
+  }
+}

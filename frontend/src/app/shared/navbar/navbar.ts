@@ -5,10 +5,11 @@ import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { AuthService, User } from '../../services/auth.service';
+import { HeartIcon } from '../components/heart-icon/heart-icon';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, HeartIcon],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })

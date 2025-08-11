@@ -54,6 +54,13 @@ export const routes: Routes = [
     canActivate: [authGuard, optionalEmailVerifiedGuard], // Can view but with limitations
   },
 
+  {
+    path: 'favorites',
+    loadComponent: () =>
+      import('./pages/favorites/favorites').then((c) => c.Favorites),
+    canActivate: [authGuard, emailVerifiedGuard], // Requiere autenticación y email verificado
+  },
+
   // Admin Dashboard
   {
     path: 'admin/dashboard',
