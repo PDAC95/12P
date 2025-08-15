@@ -2227,3 +2227,266 @@
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
+{
+  "timestamp": "2025-08-11T15:45:00.337Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "6895f54ee797e78a1bfde855",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.488Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.492Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-11T15:45:08.499Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-11T15:45:08.505Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.506Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-11T15:45:08.510Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-11T15:45:08.534Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.541Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.550Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.558Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.563Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.575Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.582Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.588Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.593Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.602Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.610Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.619Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.626Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.632Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.638Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.644Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.651Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.659Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.666Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.673Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.680Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.687Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.693Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:08.701Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-11T15:45:11.094Z",
+  "level": "INFO",
+  "message": "Property added to favorites",
+  "userId": "6895f54ee797e78a1bfde855",
+  "propertyId": "68701af3cb44616dc8a566af",
+  "favoriteId": "689a1007ae3d1a7b46bfd695"
+}
+{
+  "timestamp": "2025-08-11T15:45:12.987Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "6895f54ee797e78a1bfde855",
+  "count": 1,
+  "page": "1"
+}
+{
+  "timestamp": "2025-08-11T17:18:48.166Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "6895f54ee797e78a1bfde855",
+  "email": "nuevo@gmail.com"
+}
+{
+  "timestamp": "2025-08-11T17:18:48.232Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "6895f54ee797e78a1bfde855",
+  "count": 1,
+  "page": "1"
+}
+{
+  "timestamp": "2025-08-11T17:18:48.236Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "6895f54ee797e78a1bfde855",
+  "count": 1,
+  "page": "1"
+}

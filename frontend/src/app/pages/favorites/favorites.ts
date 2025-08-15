@@ -1,11 +1,12 @@
 // frontend/src/app/pages/favorites/favorites.ts
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FavoritesService, Favorite } from '../../services/favorites';
 import { PropertyCard } from '../../features/properties/property-card/property-card';
 import { EmptyState } from '../../shared/components/empty-state/empty-state';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-favorites',
@@ -14,7 +15,7 @@ import { EmptyState } from '../../shared/components/empty-state/empty-state';
   templateUrl: './favorites.html',
   styleUrl: './favorites.scss',
 })
-export class Favorites implements OnInit {
+export class Favorites implements OnInit, OnDestroy {
   favorites: any[] = [];
   isLoading: boolean = true;
   error: string = '';
@@ -24,10 +25,28 @@ export class Favorites implements OnInit {
   totalPages: number = 0;
   totalItems: number = 0;
 
+  // Subscription to track changes
+  private favoriteChangesSubscription: Subscription = new Subscription();
+
   constructor(private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
     this.loadFavorites();
+
+    // Subscribe to favorite changes to auto-refresh
+    this.favoriteChangesSubscription =
+      this.favoritesService.favoriteIds$.subscribe(() => {
+        // Small delay to ensure backend is updated
+        setTimeout(() => {
+          this.loadFavorites();
+        }, 300);
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.favoriteChangesSubscription) {
+      this.favoriteChangesSubscription.unsubscribe();
+    }
   }
 
   loadFavorites(): void {
@@ -41,13 +60,13 @@ export class Favorites implements OnInit {
           this.favorites = response.data.map((fav) => {
             console.log('🔍 Processing favorite:', fav);
 
-            // Extraer la propiedad del favorito
+            // Extract property from favorite
             const property = fav.property;
 
             if (property) {
-              // Mapear al formato que espera PropertyCard
+              // Map to format expected by PropertyCard
               const formattedProperty = {
-                id: property.id || 0, // Necesita un id numérico
+                id: property.id || 0,
                 _id: property._id,
                 title: property.title,
                 price: property.price,
@@ -80,6 +99,7 @@ export class Favorites implements OnInit {
           this.favorites = [];
         }
 
+        console.log('💫 Final favorites list:', this.favorites.length, 'items');
         this.isLoading = false;
       },
       error: (error) => {
@@ -91,8 +111,8 @@ export class Favorites implements OnInit {
   }
 
   onFavoriteChanged(property: any): void {
-    // Reload favorites when one is removed
-    this.loadFavorites();
+    console.log('❤️ Favorite changed for property:', property);
+    // The subscription will handle the refresh automatically
   }
 
   goToPage(page: number): void {
