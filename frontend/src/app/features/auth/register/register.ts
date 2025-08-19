@@ -79,16 +79,64 @@ export class Register {
     try {
       this.isLoading = true;
       this.registerError = '';
+      console.log('🔐 Google Registration initiated');
 
-      // TODO: Implement Google OAuth registration
-      console.log('Google registration not yet implemented');
-      this.registerError = 'Google registration coming soon!';
-    } catch (error) {
-      console.error('Google registration error:', error);
-      this.registerError = 'Failed to register with Google';
-    } finally {
+      // Importamos GoogleAuthService dinámicamente
+      const module = await import('../../../services/google-auth.service');
+      const googleAuthService = new module.GoogleAuthService();
+
+      // Get Google credential
+      const credential = await googleAuthService.signInWithPopup();
+      console.log('✅ Google credential received:', credential);
+
+      // Call backend with Google token (same as login, Google handles both)
+      this.authService.loginWithGoogle(credential).subscribe({
+        next: (response) => {
+          console.log('✅ Google registration/login successful:', response);
+          this.isLoading = false;
+
+          // Redirect based on user role (same as login)
+          this.redirectBasedOnRole();
+        },
+        error: (error) => {
+          console.error('❌ Google registration failed:', error);
+          this.registerError =
+            error.error?.message ||
+            'Google registration failed. Please try again.';
+          this.isLoading = false;
+        },
+      });
+    } catch (error: any) {
+      console.error('❌ Google sign-in error:', error);
+      this.registerError = 'Google sign-in failed. Please try again.';
       this.isLoading = false;
     }
+  }
+
+  // Agregar este método helper (copiado de login.ts):
+  private redirectBasedOnRole(): void {
+    const user = this.authService.getCurrentUserValue();
+
+    if (!user) {
+      this.router.navigate(['/']);
+      return;
+    }
+
+    // Redirect based on user role
+    switch (user.role) {
+      case 'admin':
+        this.router.navigate(['/admin/dashboard']);
+        break;
+      case 'agent':
+        this.router.navigate(['/agent/dashboard']);
+        break;
+      case 'client':
+      default:
+        this.router.navigate(['/']);
+        break;
+    }
+
+    console.log(`🔄 Redirecting ${user.role} to appropriate dashboard`);
   }
 
   /**

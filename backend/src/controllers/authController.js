@@ -877,6 +877,118 @@ const changePassword = async (req, res, next) => {
   }
 };
 
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+/**
+ * Google OAuth login
+ * @route POST /api/auth/google
+ * @access Public
+ */
+const googleLogin = async (req, res, next) => {
+  try {
+    const { token } = req.body;
+
+    logInfo("Google login attempt", {
+      hasToken: !!token,
+      ip: req.ip,
+    });
+
+    if (!token) {
+      return sendError(res, "Google token is required", 400);
+    }
+
+    // Verify Google token
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const { sub: googleId, email, name, picture } = payload;
+
+    logInfo("Google token verified", { email, name });
+
+    // Check if user exists
+    let user = await User.findOne({
+      $or: [{ email: email }, { googleId: googleId }],
+    });
+
+    if (user) {
+      // Update existing user
+      user.googleId = googleId;
+      user.authProvider = "google";
+      user.isEmailVerified = true; // Google emails are pre-verified
+      user.lastLogin = new Date();
+      if (picture) user.profilePicture = picture;
+      await user.save();
+    } else {
+      // Create new user
+      user = new User({
+        firstName: name.split(" ")[0] || name,
+        lastName: name.split(" ").slice(1).join(" ") || "",
+        email: email,
+        googleId: googleId,
+        authProvider: "google",
+        role: "client",
+        isEmailVerified: true,
+        profilePicture: picture,
+        lastLogin: new Date(),
+      });
+      await user.save();
+    }
+
+    // Generate JWT token
+    const jwtToken = jwt.sign(
+      {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRE || "7d" }
+    );
+
+    const userData = {
+      user: {
+        id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        fullName: `${user.firstName} ${user.lastName}`.trim(),
+        email: user.email,
+        role: user.role,
+        isEmailVerified: user.isEmailVerified,
+        profilePicture: user.profilePicture,
+        lastLogin: user.lastLogin,
+        createdAt: user.createdAt,
+      },
+      token: jwtToken,
+      expiresIn: process.env.JWT_EXPIRE || "7d",
+    };
+
+    logInfo("Google login successful", {
+      userId: user._id,
+      email: user.email,
+      role: user.role,
+      isNewUser: !user.lastLogin,
+    });
+
+    sendSuccess(res, userData, "Google login successful", 200);
+  } catch (error) {
+    if (error.message.includes("Token used too late")) {
+      logError("Google token expired", { error: error.message });
+      return sendError(res, "Google token has expired", 401);
+    }
+
+    logError("Google login error", {
+      error: error.message,
+      stack: error.stack,
+    });
+
+    next(error);
+  }
+};
+
 module.exports = {
   register,
   login,
@@ -887,4 +999,5 @@ module.exports = {
   forgotPassword,
   resetPassword,
   verifyEmail,
+  googleLogin,
 };

@@ -7,8 +7,9 @@ const {
   changePassword,
   forgotPassword,
   resetPassword,
-  sendVerificationEmail, // Add this import
-  verifyEmail, // Add this import (we'll create it next)
+  sendVerificationEmail,
+  verifyEmail,
+  googleLogin,
 } = require("../controllers/authController");
 const { authenticate } = require("../middleware/auth");
 
@@ -53,6 +54,13 @@ router.post("/resend-verification", sendVerificationEmail);
  * @params  {token}
  */
 router.get("/verify-email/:token", verifyEmail);
+
+/**
+ * @route POST /api/auth/google
+ * @desc Google OAuth login
+ * @access Public
+ */
+router.post("/google", googleLogin);
 
 /**
  * @route   GET /api/auth/me

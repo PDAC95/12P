@@ -100,6 +100,23 @@ export class AuthService {
   }
 
   /**
+   * Login with Google credential
+   */
+  loginWithGoogle(credential: string): Observable<AuthResponse> {
+    return this.http
+      .post<AuthResponse>(`${this.API_URL}/google`, {
+        token: credential,
+      })
+      .pipe(
+        tap((response) => {
+          if (response.success) {
+            this.handleAuthSuccess(response.data);
+          }
+        })
+      );
+  }
+
+  /**
    * Register new user
    */
   register(userData: RegisterData): Observable<AuthResponse> {

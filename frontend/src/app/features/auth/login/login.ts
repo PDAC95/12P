@@ -109,8 +109,41 @@ export class Login {
 
   // Social login methods (placeholder for future implementation)
   loginWithGoogle(): void {
-    console.log('🔑 Google Login initiated');
-    // TODO: Implement Google OAuth login
+    console.log('🔐 Google Login initiated');
+    this.isSubmitting = true;
+    this.loginError = '';
+
+    // Importamos GoogleAuthService
+    import('../../../services/google-auth.service').then((module) => {
+      const googleAuthService = new module.GoogleAuthService();
+
+      googleAuthService
+        .signInWithPopup()
+        .then((credential) => {
+          console.log('✅ Google credential received:', credential);
+
+          // Call backend with Google token
+          this.authService.loginWithGoogle(credential).subscribe({
+            next: (response) => {
+              console.log('✅ Google login successful:', response);
+              this.isSubmitting = false;
+              this.redirectBasedOnRole();
+            },
+            error: (error) => {
+              console.error('❌ Google login failed:', error);
+              this.loginError =
+                error.error?.message ||
+                'Google login failed. Please try again.';
+              this.isSubmitting = false;
+            },
+          });
+        })
+        .catch((error) => {
+          console.error('❌ Google sign-in error:', error);
+          this.loginError = 'Google sign-in failed. Please try again.';
+          this.isSubmitting = false;
+        });
+    });
   }
 
   loginWithFacebook(): void {

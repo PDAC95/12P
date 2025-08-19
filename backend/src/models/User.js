@@ -174,6 +174,20 @@ const userSchema = new mongoose.Schema(
         ref: "Property",
       },
     ],
+    googleId: {
+      type: String,
+      unique: true,
+      sparse: true, // permite que sea null para usuarios que no usan Google
+    },
+    authProvider: {
+      type: String,
+      enum: ["local", "google"],
+      default: "local",
+    },
+    profilePicture: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,

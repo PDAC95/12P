@@ -1,0 +1,90 @@
+// frontend/src/app/shared/components/google-login-button/google-login-button.scss
+.google-login-btn {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #3c4043;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-color: #dadce0;
+  }
+
+  &:active:not(:disabled) {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .btn-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .google-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #4285f4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .btn-text {
+    white-space: nowrap;
+  }
+
+  &.loading {
+    .google-icon {
+      display: none;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive design
+@media (max-width: 640px) {
+  .google-login-btn {
+    height: 44px;
+    font-size: 13px;
+
+    .btn-content {
+      gap: 10px;
+    }
+
+    .google-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
