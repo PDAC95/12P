@@ -140,19 +140,21 @@ export class Register {
   }
 
   /**
-   * Handle Facebook registration
+   * Handle Apple registration
    */
-  async registerWithFacebook(): Promise<void> {
+  async registerWithApple(): Promise<void> {
     try {
       this.isLoading = true;
       this.registerError = '';
 
-      // TODO: Implement Facebook OAuth registration
-      console.log('Facebook registration not yet implemented');
-      this.registerError = 'Facebook registration coming soon!';
+      // TODO: Implement Apple OAuth registration (pending Apple Developer credentials)
+      console.log(
+        'Apple registration not yet implemented - pending Apple Developer account'
+      );
+      this.registerError = 'Apple Sign-In coming soon!';
     } catch (error) {
-      console.error('Facebook registration error:', error);
-      this.registerError = 'Failed to register with Facebook';
+      console.error('Apple registration error:', error);
+      this.registerError = 'Failed to register with Apple';
     } finally {
       this.isLoading = false;
     }

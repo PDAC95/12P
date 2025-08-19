@@ -26,6 +26,7 @@ export class Login {
   };
 
   isSubmitting = false;
+  isLoading = false; // Added missing property
   showPassword = false;
   loginError = '';
 
@@ -48,14 +49,14 @@ export class Login {
 
       this.authService.login(credentials).subscribe({
         next: (response) => {
-          console.log('✅ Login successful:', response);
+          console.log('âœ… Login successful:', response);
           this.isSubmitting = false;
 
           // Redirect based on user role
           this.redirectBasedOnRole();
         },
         error: (error) => {
-          console.error('❌ Login failed:', error);
+          console.error('âŒ Login failed:', error);
           this.isSubmitting = false;
 
           // Handle different types of errors
@@ -120,17 +121,17 @@ export class Login {
       googleAuthService
         .signInWithPopup()
         .then((credential) => {
-          console.log('✅ Google credential received:', credential);
+          console.log('âœ… Google credential received:', credential);
 
           // Call backend with Google token
           this.authService.loginWithGoogle(credential).subscribe({
             next: (response) => {
-              console.log('✅ Google login successful:', response);
+              console.log('âœ… Google login successful:', response);
               this.isSubmitting = false;
               this.redirectBasedOnRole();
             },
             error: (error) => {
-              console.error('❌ Google login failed:', error);
+              console.error('âŒ Google login failed:', error);
               this.loginError =
                 error.error?.message ||
                 'Google login failed. Please try again.';
@@ -139,15 +140,31 @@ export class Login {
           });
         })
         .catch((error) => {
-          console.error('❌ Google sign-in error:', error);
+          console.error('âŒ Google sign-in error:', error);
           this.loginError = 'Google sign-in failed. Please try again.';
           this.isSubmitting = false;
         });
     });
   }
 
-  loginWithFacebook(): void {
-    console.log('🔑 Facebook Login initiated');
-    // TODO: Implement Facebook OAuth login
+  /**
+   * Handle Apple login
+   */
+  async loginWithApple(): Promise<void> {
+    try {
+      this.isLoading = true;
+      this.loginError = '';
+
+      // TODO: Implement Apple OAuth login (pending Apple Developer credentials)
+      console.log(
+        'Apple login not yet implemented - pending Apple Developer account'
+      );
+      this.loginError = 'Apple Sign-In coming soon!';
+    } catch (error) {
+      console.error('Apple login error:', error);
+      this.loginError = 'Failed to login with Apple';
+    } finally {
+      this.isLoading = false;
+    }
   }
 }

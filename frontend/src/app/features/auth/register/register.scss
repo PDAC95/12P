@@ -605,3 +605,32 @@
     }
   }
 }
+
+// Apple Sign-In Button (consistent with social-btn style)
+.social-btn.btn-apple {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+
+  &:hover {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    background: #000000;
+    border-color: #333333;
+    color: #ffffff;
+  }
+
+  &:disabled {
+    background: #666666;
+    border-color: #666666;
+    color: #cccccc;
+    transform: none;
+    box-shadow: none;
+  }
+}

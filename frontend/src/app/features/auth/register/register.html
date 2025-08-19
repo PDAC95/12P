@@ -29,11 +29,12 @@
           </button>
           <button
             type="button"
-            class="social-btn"
-            (click)="registerWithFacebook()"
+            class="social-btn btn-apple"
+            (click)="registerWithApple()"
+            [disabled]="isLoading"
           >
-            <i class="fab fa-facebook-f"></i>
-            <span>Sign up with Facebook</span>
+            <i class="fab fa-apple"></i>
+            <span>Sign up with Apple</span>
           </button>
         </div>
 

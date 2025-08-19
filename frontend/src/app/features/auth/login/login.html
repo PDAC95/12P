@@ -25,11 +25,12 @@
           </button>
           <button
             type="button"
-            class="social-btn"
-            (click)="loginWithFacebook()"
+            class="social-btn btn-apple"
+            (click)="loginWithApple()"
+            [disabled]="isLoading"
           >
-            <i class="fab fa-facebook-f"></i>
-            <span>Continue with Facebook</span>
+            <i class="fab fa-apple"></i>
+            <span>Continue with Apple</span>
           </button>
         </div>
 
