@@ -1,8 +1,16 @@
 // frontend/src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap, map } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  tap,
+  map,
+  catchError,
+  throwError,
+} from 'rxjs';
 import { Router } from '@angular/router';
+import { TokenService } from './token.service';
 
 export interface User {
   id: string;
@@ -32,6 +40,7 @@ export interface AuthResponse {
   data: {
     user: User;
     token: string;
+    refreshToken?: string;
     expiresIn: string;
   };
   timestamp: string;
@@ -79,7 +88,11 @@ export class AuthService {
   public currentUser$ = this.currentUserSubject.asObservable();
   public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private tokenService: TokenService
+  ) {
     // Check token validity on service initialization
     this.checkTokenValidity();
   }
@@ -193,9 +206,19 @@ export class AuthService {
    * Logout user and clear stored data
    */
   logout(): void {
+    // Clear tokens using TokenService
+    if (this.tokenService) {
+      this.tokenService.clearTokens();
+    }
+
+    // Clear legacy stored data
     this.clearStoredData();
+
+    // Update authentication state
     this.currentUserSubject.next(null);
     this.isAuthenticatedSubject.next(false);
+
+    console.log('🚪 User logged out successfully');
     this.router.navigate(['/auth/login']);
   }
 
@@ -203,6 +226,15 @@ export class AuthService {
    * Get stored authentication token
    */
   getToken(): string | null {
+    // Try TokenService first (for new refresh token system)
+    if (this.tokenService) {
+      const tokenFromService = this.tokenService.getAccessToken();
+      if (tokenFromService) {
+        return tokenFromService;
+      }
+    }
+
+    // Fallback to legacy token storage
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
@@ -255,10 +287,22 @@ export class AuthService {
   private handleAuthSuccess(authData: {
     user: User;
     token: string;
+    refreshToken?: string;
     expiresIn: string;
   }): void {
-    // Store token and user data
-    localStorage.setItem(this.TOKEN_KEY, authData.token);
+    // Store tokens using TokenService if refresh token is available
+    if (authData.refreshToken && this.tokenService) {
+      this.tokenService.setTokens(
+        authData.token,
+        authData.refreshToken,
+        authData.expiresIn
+      );
+    } else {
+      // Fallback to old method for backward compatibility
+      localStorage.setItem(this.TOKEN_KEY, authData.token);
+    }
+
+    // Store user data
     localStorage.setItem(this.USER_KEY, JSON.stringify(authData.user));
 
     // Update subjects
@@ -269,6 +313,7 @@ export class AuthService {
       user: authData.user.email,
       role: authData.user.role,
       expiresIn: authData.expiresIn,
+      hasRefreshToken: !!authData.refreshToken,
     });
   }
 
@@ -289,6 +334,16 @@ export class AuthService {
    * Check if there's a valid token in storage
    */
   private hasValidToken(): boolean {
+    // Check if TokenService is available and has valid tokens
+    if (
+      this.tokenService &&
+      this.tokenService.hasValidTokens() &&
+      !this.tokenService.isTokenExpired()
+    ) {
+      return true;
+    }
+
+    // Fallback to legacy token checking
     const token = this.getToken();
     if (!token) return false;
 
@@ -299,6 +354,9 @@ export class AuthService {
 
       if (isExpired) {
         this.clearStoredData();
+        if (this.tokenService) {
+          this.tokenService.clearTokens();
+        }
         return false;
       }
 
@@ -306,6 +364,9 @@ export class AuthService {
     } catch (error) {
       console.error('Error checking token validity:', error);
       this.clearStoredData();
+      if (this.tokenService) {
+        this.tokenService.clearTokens();
+      }
       return false;
     }
   }
@@ -316,6 +377,9 @@ export class AuthService {
   private checkTokenValidity(): void {
     if (!this.hasValidToken()) {
       this.clearStoredData();
+      if (this.tokenService) {
+        this.tokenService.clearTokens();
+      }
       this.currentUserSubject.next(null);
       this.isAuthenticatedSubject.next(false);
     }
@@ -364,7 +428,7 @@ export class AuthService {
   verifyEmail(token: string): Observable<any> {
     const url = `${this.API_URL}/verify-email/${token}`;
 
-    console.log('🔐 Verifying email with token');
+    console.log('🔍 Verifying email with token');
 
     return this.http.get<any>(url).pipe(
       tap((response) => {
@@ -426,5 +490,24 @@ export class AuthService {
       token,
       password: newPassword,
     });
+  }
+
+  /**
+   * Refresh access token using refresh token
+   */
+  refreshToken(refreshToken: string): Observable<any> {
+    const refreshData = {
+      refreshToken: refreshToken,
+    };
+
+    return this.http.post<any>(`${this.API_URL}/refresh`, refreshData).pipe(
+      tap((response) => {
+        console.log('✅ Token refreshed successfully', response);
+      }),
+      catchError((error) => {
+        console.error('❌ Token refresh failed', error);
+        return throwError(() => error);
+      })
+    );
   }
 }

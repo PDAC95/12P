@@ -114,6 +114,31 @@ const userSchema = new mongoose.Schema(
       type: Date,
       select: false,
     },
+    // Refresh token fields
+    refreshTokens: [
+      {
+        token: {
+          type: String,
+          required: true,
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+        expiresAt: {
+          type: Date,
+          required: true,
+        },
+        deviceInfo: {
+          userAgent: String,
+          ip: String,
+        },
+      },
+    ],
+    refreshTokenVersion: {
+      type: Number,
+      default: 0,
+    },
     // User preferences
     preferences: {
       notifications: {
@@ -367,6 +392,49 @@ userSchema.methods.generateAuthToken = function () {
     process.env.JWT_SECRET,
     { expiresIn: process.env.JWT_EXPIRES_IN || "7d" }
   );
+};
+
+// Generate refresh token
+userSchema.methods.generateRefreshToken = function () {
+  const jwt = require("jsonwebtoken");
+
+  return jwt.sign(
+    {
+      id: this._id,
+      version: this.refreshTokenVersion,
+      type: "refresh",
+    },
+    process.env.JWT_REFRESH_SECRET || process.env.JWT_SECRET,
+    { expiresIn: "30d" }
+  );
+};
+
+// Add refresh token to user
+userSchema.methods.addRefreshToken = function (token, deviceInfo = {}) {
+  const expiresAt = new Date();
+  expiresAt.setDate(expiresAt.getDate() + 30); // 30 days
+
+  this.refreshTokens.push({
+    token,
+    expiresAt,
+    deviceInfo,
+  });
+
+  // Keep only last 5 refresh tokens per user
+  if (this.refreshTokens.length > 5) {
+    this.refreshTokens = this.refreshTokens.slice(-5);
+  }
+};
+
+// Remove specific refresh token
+userSchema.methods.removeRefreshToken = function (token) {
+  this.refreshTokens = this.refreshTokens.filter((rt) => rt.token !== token);
+};
+
+// Remove all refresh tokens
+userSchema.methods.removeAllRefreshTokens = function () {
+  this.refreshTokens = [];
+  this.refreshTokenVersion += 1;
 };
 
 const User = mongoose.model("User", userSchema);

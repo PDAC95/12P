@@ -10,6 +10,9 @@ const {
   sendVerificationEmail,
   verifyEmail,
   googleLogin,
+  refreshToken,
+  logout,
+  logoutAllDevices,
 } = require("../controllers/authController");
 const { authenticate } = require("../middleware/auth");
 
@@ -100,5 +103,26 @@ router.post("/forgot-password", forgotPassword);
  * @body    {token, password}
  */
 router.post("/reset-password", resetPassword);
+
+/**
+ * @route POST /api/auth/refresh
+ * @desc Refresh access token using refresh token
+ * @access Public
+ */
+router.post("/refresh", refreshToken);
+
+/**
+ * @route POST /api/auth/logout
+ * @desc Logout and invalidate refresh token
+ * @access Private
+ */
+router.post("/logout", authenticate, logout);
+
+/**
+ * @route POST /api/auth/logout-all
+ * @desc Logout from all devices (invalidate all refresh tokens)
+ * @access Private
+ */
+router.post("/logout-all", authenticate, logoutAllDevices);
 
 module.exports = router;

@@ -395,10 +395,18 @@ const login = async (req, res, next) => {
 
     // Update last login
     user.lastLogin = new Date();
-    await user.save();
 
-    // Generate JWT token
-    const token = user.generateAuthToken();
+    // Generate JWT tokens
+    const accessToken = user.generateAuthToken();
+    const refreshToken = user.generateRefreshToken();
+
+    // Store refresh token
+    const deviceInfo = {
+      userAgent: req.get("User-Agent"),
+      ip: req.ip,
+    };
+    user.addRefreshToken(refreshToken, deviceInfo);
+    await user.save();
 
     // Prepare response data (password is automatically excluded)
     const responseData = {
@@ -415,7 +423,8 @@ const login = async (req, res, next) => {
         createdAt: user.createdAt,
         ...(user.role === "agent" && { agentInfo: user.agentInfo }),
       },
-      token,
+      token: accessToken,
+      refreshToken: refreshToken,
       expiresIn: process.env.JWT_EXPIRES_IN || "7d",
     };
 
@@ -989,6 +998,136 @@ const googleLogin = async (req, res, next) => {
   }
 };
 
+/**
+ * Refresh access token
+ * @route POST /api/auth/refresh
+ * @access Public
+ */
+const refreshToken = async (req, res, next) => {
+  try {
+    const { refreshToken } = req.body;
+
+    if (!refreshToken) {
+      return sendError(res, "Refresh token is required", 400);
+    }
+
+    // Verify refresh token
+    const decoded = jwt.verify(
+      refreshToken,
+      process.env.JWT_REFRESH_SECRET || process.env.JWT_SECRET
+    );
+
+    // Find user and check if refresh token exists
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return sendError(res, "User not found", 404);
+    }
+
+    // Check if refresh token exists in user's tokens
+    const tokenExists = user.refreshTokens.some(
+      (rt) => rt.token === refreshToken && rt.expiresAt > new Date()
+    );
+    if (!tokenExists) {
+      return sendError(res, "Invalid refresh token", 401);
+    }
+
+    // Generate new access token
+    const newAccessToken = user.generateAuthToken();
+
+    logInfo("Token refreshed successfully", {
+      userId: user._id,
+      email: user.email,
+    });
+
+    sendSuccess(
+      res,
+      {
+        token: newAccessToken,
+        user: {
+          id: user._id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          role: user.role,
+          isEmailVerified: user.isEmailVerified,
+        },
+      },
+      "Token refreshed successfully",
+      200
+    );
+  } catch (error) {
+    if (error.name === "JsonWebTokenError") {
+      return sendError(res, "Invalid refresh token", 401);
+    }
+    if (error.name === "TokenExpiredError") {
+      return sendError(res, "Refresh token expired", 401);
+    }
+
+    logError("Token refresh failed", {
+      error: error.message,
+      stack: error.stack,
+    });
+    next(error);
+  }
+};
+
+/**
+ * Logout user (invalidate refresh token)
+ * @route POST /api/auth/logout
+ * @access Private
+ */
+const logout = async (req, res, next) => {
+  try {
+    const { refreshToken } = req.body;
+    const user = req.user;
+
+    if (refreshToken) {
+      user.removeRefreshToken(refreshToken);
+      await user.save();
+    }
+
+    logInfo("User logged out", {
+      userId: user._id,
+      email: user.email,
+    });
+
+    sendSuccess(res, null, "Logged out successfully", 200);
+  } catch (error) {
+    logError("Logout failed", {
+      error: error.message,
+      userId: req.user?._id,
+    });
+    next(error);
+  }
+};
+
+/**
+ * Logout from all devices
+ * @route POST /api/auth/logout-all
+ * @access Private
+ */
+const logoutAllDevices = async (req, res, next) => {
+  try {
+    const user = req.user;
+
+    user.removeAllRefreshTokens();
+    await user.save();
+
+    logInfo("User logged out from all devices", {
+      userId: user._id,
+      email: user.email,
+    });
+
+    sendSuccess(res, null, "Logged out from all devices successfully", 200);
+  } catch (error) {
+    logError("Logout all devices failed", {
+      error: error.message,
+      userId: req.user?._id,
+    });
+    next(error);
+  }
+};
+
 module.exports = {
   register,
   login,
@@ -1000,4 +1139,7 @@ module.exports = {
   resetPassword,
   verifyEmail,
   googleLogin,
+  refreshToken,
+  logout,
+  logoutAllDevices,
 };
