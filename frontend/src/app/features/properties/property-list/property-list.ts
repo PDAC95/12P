@@ -150,13 +150,12 @@ export class PropertyList implements OnInit, OnChanges {
    * Prepare properties data for map display
    */
   private prepareMapProperties(properties: any[]): MapProperty[] {
-    return properties.map((property, index) => ({
+    return properties.map((property) => ({
       id: property.id || property._id,
       title: property.title,
-      // Coordenadas de ejemplo en el área de Ontario/Waterloo
-      // TODO: Estas coordenadas deberían venir de la base de datos
-      lat: 43.4643 + (Math.random() - 0.5) * 0.3, // Variación de ~15km
-      lng: -80.5204 + (Math.random() - 0.5) * 0.3, // Variación de ~15km
+      // Usar coordenadas reales de la base de datos
+      lat: property.location?.coordinates?.latitude || 43.4643, // Fallback si no hay coordenadas
+      lng: property.location?.coordinates?.longitude || -80.5204, // Fallback si no hay coordenadas
       price: property.price,
       type: property.type,
     }));
@@ -178,13 +177,22 @@ export class PropertyList implements OnInit, OnChanges {
       return [43.4643, -80.5204]; // Default Waterloo coordinates
     }
 
-    // Calculate center based on properties
+    // Calculate center based on actual property coordinates
+    const validProperties = this.mapProperties.filter(
+      (prop) =>
+        prop.lat && prop.lng && prop.lat !== 43.4643 && prop.lng !== -80.5204 // Exclude fallback coordinates
+    );
+
+    if (validProperties.length === 0) {
+      return [43.4643, -80.5204]; // Fallback if no valid coordinates
+    }
+
     const avgLat =
-      this.mapProperties.reduce((sum, prop) => sum + prop.lat, 0) /
-      this.mapProperties.length;
+      validProperties.reduce((sum, prop) => sum + prop.lat, 0) /
+      validProperties.length;
     const avgLng =
-      this.mapProperties.reduce((sum, prop) => sum + prop.lng, 0) /
-      this.mapProperties.length;
+      validProperties.reduce((sum, prop) => sum + prop.lng, 0) /
+      validProperties.length;
 
     return [avgLat, avgLng];
   }
