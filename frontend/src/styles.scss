@@ -5,6 +5,7 @@
 
 // Import Modern Fonts
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "leaflet/dist/leaflet.css";
 
 /*-----------------------------------------------------------------------------------
     DESIGN SYSTEM - CUSTOM PROPERTIES
@@ -775,4 +776,30 @@ $breakpoint-2xl: 1536px;
   -webkit-backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.95) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*-----------------------------------------------------------------------------------
+    LEAFLET
+-----------------------------------------------------------------------------------*/
+
+/* Custom map container styles */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .leaflet-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+  }
+}
+
+/* Fix for Leaflet marker icons */
+.leaflet-marker-icon {
+  margin-left: -12px !important;
+  margin-top: -41px !important;
 }

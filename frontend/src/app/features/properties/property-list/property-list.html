@@ -23,6 +23,32 @@
       </p>
     </div>
 
+    <!-- View Toggle -->
+    <div *ngIf="!loading && !noResults" class="view-toggle mb-4">
+      <div class="btn-group" role="group" aria-label="View toggle">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          [class.active]="!showMapView"
+          (click)="showMapView = false"
+          title="List View"
+        >
+          <i class="fas fa-list"></i>
+          <span class="d-none d-md-inline ms-2">List</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          [class.active]="showMapView"
+          (click)="showMapView = true"
+          title="Map View"
+        >
+          <i class="fas fa-map"></i>
+          <span class="d-none d-md-inline ms-2">Map</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Loading State -->
     <div *ngIf="loading" class="loading-container">
       <div class="text-center py-5">
@@ -33,13 +59,35 @@
       </div>
     </div>
 
-    <!-- Properties Grid -->
-    <div *ngIf="!loading && !noResults" class="properties-grid">
-      <app-property-card
-        *ngFor="let property of filteredProperties"
-        [property]="property"
-        class="property-card-item"
-      ></app-property-card>
+    <!-- Map View -->
+    <div *ngIf="!loading && !noResults && showMapView" class="map-view">
+      <div class="map-container mb-4">
+        <app-map
+          [properties]="mapProperties"
+          [center]="getMapCenter()"
+          [zoom]="11"
+        >
+        </app-map>
+      </div>
+
+      <!-- Map Properties Summary -->
+      <div class="map-summary">
+        <p class="text-center text-muted">
+          <i class="fas fa-map-marker-alt me-2"></i>
+          {{ mapProperties.length }} properties shown on map
+        </p>
+      </div>
+    </div>
+
+    <!-- List View (Properties Grid) -->
+    <div *ngIf="!loading && !noResults && !showMapView" class="list-view">
+      <div class="properties-grid">
+        <app-property-card
+          *ngFor="let property of filteredProperties; trackBy: trackByPropertyId"
+          [property]="property"
+          class="property-card-item"
+        ></app-property-card>
+      </div>
     </div>
 
     <!-- No Results State -->
@@ -66,7 +114,13 @@
     >
       <div class="results-summary">
         <p class="text-center text-muted">
-          End of results - {{ filteredProperties.length }} properties displayed
+          <span *ngIf="!showMapView">
+            End of results - {{ filteredProperties.length }} properties
+            displayed
+          </span>
+          <span *ngIf="showMapView">
+            Switch to list view to see all property details
+          </span>
         </p>
       </div>
     </div>
