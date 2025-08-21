@@ -196,4 +196,13 @@ export class PropertyList implements OnInit, OnChanges {
 
     return [avgLat, avgLng];
   }
+
+  /**
+   * Get filtered properties for display based on radius/map selection
+   */
+  getFilteredPropertiesForDisplay(): any[] {
+    // For now, return the same properties as shown on map
+    // Later we'll implement actual radius filtering logic
+    return this.properties.slice(0, 8); // Show max 8 properties below map
+  }
 }

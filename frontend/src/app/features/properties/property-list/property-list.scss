@@ -369,3 +369,118 @@
     height: 400px;
   }
 }
+
+/* Map View Specific Styles */
+.map-view {
+  .map-with-sidebar {
+    margin-bottom: 1rem;
+
+    app-map {
+      display: block;
+
+      :deep(.map-layout) {
+        // Ensure proper layout structure
+        .map-main-section {
+          .map-sidebar {
+            // Ensure sidebar scrolls properly
+            app-map-controls {
+              :deep(.map-controls-panel) {
+                .controls-content {
+                  max-height: 300px; // Fixed max height
+                  overflow-y: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .properties-count-section {
+    margin-bottom: 1.5rem;
+
+    .properties-count {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+
+      i {
+        color: var(--primary);
+      }
+    }
+  }
+
+  .filtered-properties-section {
+    .filtered-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .no-properties-in-area {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      margin: 2rem 0;
+
+      p {
+        margin: 0;
+        color: #64748b;
+        font-size: 0.9rem;
+
+        i {
+          color: #94a3b8;
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments for map view
+@media (max-width: 768px) {
+  .map-view {
+    .properties-count-section {
+      text-align: center;
+
+      .properties-count {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    .filtered-properties-section {
+      .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .map-view {
+    .filtered-properties-section {
+      .filtered-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

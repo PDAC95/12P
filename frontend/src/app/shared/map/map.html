@@ -1,14 +1,81 @@
 <!-- frontend/src/app/shared/map/map.html -->
-<div class="map-container">
-  <div id="map" class="w-100 h-100"></div>
+<div class="map-layout">
+  <!-- Top Section: Sidebar + Map -->
+  <div class="map-main-section">
+    <!-- Sidebar Controls (same height as map) -->
+    <div class="map-sidebar" *ngIf="showControls">
+      <app-map-controls
+        (referencePointSelected)="onReferencePointSelected($event)"
+        (radiusChanged)="onRadiusChanged($event)"
+        [hideRadiusSection]="true"
+      >
+      </app-map-controls>
+    </div>
 
-  <!-- Loading state -->
-  <div *ngIf="isLoading" class="map-loading">
-    <div class="loading-spinner">
-      <i class="fas fa-spinner fa-spin"></i>
-      <span>Loading map...</span>
+    <!-- Map Container -->
+    <div class="map-content" [class.with-sidebar]="showControls">
+      <div class="map-container">
+        <div id="map" class="w-100 h-100"></div>
+
+        <!-- Loading state -->
+        <div class="map-loading" *ngIf="isLoading">
+          <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Loading map...</span>
+          </div>
+        </div>
+
+        <!-- Reference Point Info (top-right overlay) -->
+        <div class="reference-info" *ngIf="currentReferencePoint && !isLoading">
+          <div class="reference-summary">
+            <i class="fas fa-map-marker-alt me-2"></i>
+            <span class="reference-text">{{ currentReferencePoint.name }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Map controls will go here later -->
+  <!-- Bottom Section: Radius Controls -->
+  <div class="radius-controls-section" *ngIf="showControls">
+    <div class="radius-controls-container">
+      <div class="radius-header">
+        <i class="fas fa-ruler-combined me-2"></i>
+        <span>Search Radius: <strong>{{ currentRadius }}km</strong></span>
+      </div>
+
+      <div class="radius-controls">
+        <!-- Slider -->
+        <div class="radius-slider-wrapper">
+          <input
+            type="range"
+            class="form-range radius-slider"
+            min="1"
+            max="50"
+            step="1"
+            [value]="currentRadius"
+            (input)="onRadiusInputChange($event)"
+          />
+          <div class="slider-labels">
+            <span>1km</span>
+            <span>25km</span>
+            <span>50km</span>
+          </div>
+        </div>
+
+        <!-- Quick buttons -->
+        <div class="quick-radius">
+          <button
+            *ngFor="let radius of [2, 5, 10, 20]"
+            type="button"
+            class="radius-quick-btn"
+            [class.active]="currentRadius === radius"
+            (click)="setRadius(radius)"
+          >
+            {{ radius }}km
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

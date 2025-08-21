@@ -1,0 +1,154 @@
+<!-- frontend/src/app/shared/map/map-controls.html -->
+<div class="map-controls-panel">
+  <!-- Header -->
+  <div class="controls-header">
+    <h6 class="controls-title">
+      <i class="fas fa-search-location me-2"></i>
+      Search by Distance
+    </h6>
+  </div>
+
+  <!-- Selected Reference Point -->
+  <div *ngIf="selectedReferencePoint" class="selected-reference mb-3">
+    <div class="selected-point">
+      <div class="point-info">
+        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+        <span class="point-name">{{ selectedReferencePoint.name }}</span>
+      </div>
+      <button
+        type="button"
+        class="btn-clear"
+        (click)="clearReferencePoint()"
+        title="Clear selection"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Scrollable Content Area -->
+  <div class="controls-content">
+    <!-- Reference Point Selection -->
+    <div class="reference-selection mb-3">
+      <label class="form-label">Select Reference Point:</label>
+
+      <!-- Current Location -->
+      <button
+        type="button"
+        class="control-btn current-location-btn"
+        (click)="getCurrentLocation()"
+        [disabled]="isGettingLocation"
+      >
+        <i
+          class="fas"
+          [class.fa-location-dot]="!isGettingLocation"
+          [class.fa-spinner]="isGettingLocation"
+          [class.fa-spin]="isGettingLocation"
+        ></i>
+        <span
+          >{{ isGettingLocation ? 'Getting Location...' : 'Use My Location'
+          }}</span
+        >
+      </button>
+
+      <!-- Address Input -->
+      <div class="address-input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter an address..."
+          [(ngModel)]="addressInput"
+          (keyup.enter)="searchAddress()"
+        />
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-sm"
+          (click)="searchAddress()"
+          [disabled]="!addressInput.trim()"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <!-- City Selector -->
+      <div class="city-selector mb-3">
+        <label class="city-label">Select City:</label>
+        <select
+          class="form-select city-select"
+          [(ngModel)]="selectedCity"
+          (change)="onCityChange()"
+        >
+          <option *ngFor="let city of cities" [value]="city.id">
+            {{ city.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Preset Locations -->
+      <div class="preset-locations">
+        <label class="preset-label"
+          >Popular Locations in {{ getSelectedCityName() }}:</label
+        >
+        <div class="preset-scroll-container">
+          <div class="preset-grid">
+            <button
+              *ngFor="let location of presetLocations"
+              type="button"
+              class="preset-btn"
+              (click)="selectPresetLocation(location)"
+              [title]="location.name"
+            >
+              <i
+                class="fas"
+                [class.fa-building]="location.type === 'downtown'"
+                [class.fa-graduation-cap]="location.type === 'university' || location.type === 'college'"
+                [class.fa-shopping-cart]="location.type === 'shopping'"
+                [class.fa-tree]="location.type === 'park'"
+                [class.fa-store]="location.type === 'market'"
+              ></i>
+              <span>{{ location.name }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed Bottom Section - Radius Selection (solo si no está oculta) -->
+  <div *ngIf="!hideRadiusSection" class="radius-selection">
+    <label class="form-label">
+      Search Radius: <strong>{{ selectedRadius }}km</strong>
+    </label>
+
+    <!-- Radius Slider -->
+    <div class="radius-slider-group">
+      <input
+        type="range"
+        class="form-range radius-slider"
+        min="1"
+        max="50"
+        step="1"
+        [(ngModel)]="selectedRadius"
+        (input)="onRadiusChange()"
+      />
+      <div class="slider-labels">
+        <span>1km</span>
+        <span>25km</span>
+        <span>50km</span>
+      </div>
+    </div>
+
+    <!-- Quick Radius Buttons -->
+    <div class="quick-radius">
+      <button
+        *ngFor="let radius of getQuickRadiusOptions()"
+        type="button"
+        class="radius-quick-btn"
+        [class.active]="selectedRadius === radius"
+        (click)="setRadius(radius)"
+      >
+        {{ radius }}km
+      </button>
+    </div>
+  </div>
+</div>

@@ -61,21 +61,42 @@
 
     <!-- Map View -->
     <div *ngIf="!loading && !noResults && showMapView" class="map-view">
-      <div class="map-container mb-4">
+      <!-- Map with Sidebar -->
+      <div class="map-with-sidebar">
         <app-map
           [properties]="mapProperties"
           [center]="getMapCenter()"
           [zoom]="11"
+          [showControls]="true"
         >
         </app-map>
       </div>
 
-      <!-- Map Properties Summary -->
-      <div class="map-summary">
-        <p class="text-center text-muted">
+      <!-- Properties Count (below sidebar) -->
+      <div class="properties-count-section">
+        <div class="properties-count">
           <i class="fas fa-map-marker-alt me-2"></i>
           {{ mapProperties.length }} properties shown on map
-        </p>
+        </div>
+      </div>
+
+      <!-- Filtered Properties List (below map) -->
+      <div class="filtered-properties-section">
+        <h4 class="filtered-title">Properties in Selected Area</h4>
+        <div *ngIf="mapProperties.length > 0" class="properties-grid">
+          <app-property-card
+            *ngFor="let property of getFilteredPropertiesForDisplay(); trackBy: trackByPropertyId"
+            [property]="property"
+            class="property-card-item"
+          ></app-property-card>
+        </div>
+        <div *ngIf="mapProperties.length === 0" class="no-properties-in-area">
+          <p class="text-muted text-center py-4">
+            <i class="fas fa-search me-2"></i>
+            No properties found in the selected area. Try adjusting your search
+            radius or reference point.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -109,18 +130,12 @@
 
     <!-- Results Summary Footer -->
     <div
-      *ngIf="!loading && !noResults && filteredProperties.length > 0"
+      *ngIf="!loading && !noResults && filteredProperties.length > 0 && !showMapView"
       class="results-footer"
     >
       <div class="results-summary">
         <p class="text-center text-muted">
-          <span *ngIf="!showMapView">
-            End of results - {{ filteredProperties.length }} properties
-            displayed
-          </span>
-          <span *ngIf="showMapView">
-            Switch to list view to see all property details
-          </span>
+          End of results - {{ filteredProperties.length }} properties displayed
         </p>
       </div>
     </div>
