@@ -38,6 +38,11 @@ export class PropertyList implements OnInit, OnChanges {
   mapProperties: MapProperty[] = [];
   showMapView: boolean = false;
 
+  // Geographic filtering properties (NUEVAS)
+  currentReferencePoint: any = null;
+  currentRadius: number = 5;
+  filteredPropertiesForDisplay: any[] = [];
+
   // States
   isLoading: boolean = false;
   loading: boolean = false; // Alias for template
@@ -101,6 +106,9 @@ export class PropertyList implements OnInit, OnChanges {
         this.mapProperties = this.prepareMapProperties(properties);
         console.log('🗺️ Map properties prepared:', this.mapProperties.length);
 
+        // Apply geographic filtering if reference point is set
+        this.updateGeographicFiltering();
+
         // Check if no results
         this.noResults = properties.length === 0;
 
@@ -147,18 +155,181 @@ export class PropertyList implements OnInit, OnChanges {
   }
 
   /**
+   * Generate random coordinates within Kitchener-Waterloo region
+   */
+  private generateRandomCoordinates(): { lat: number; lng: number } {
+    // Base coordinates for Kitchener-Waterloo region
+    const baseRegions = [
+      { lat: 43.4516, lng: -80.4925, name: 'Kitchener' }, // Kitchener center
+      { lat: 43.4643, lng: -80.5204, name: 'Waterloo' }, // Waterloo center
+      { lat: 43.3616, lng: -80.3144, name: 'Cambridge' }, // Cambridge center
+      { lat: 43.5448, lng: -80.2482, name: 'Guelph' }, // Guelph center
+    ];
+
+    // Pick a random region
+    const region = baseRegions[Math.floor(Math.random() * baseRegions.length)];
+
+    // Generate coordinates within ~10km radius of the selected region
+    const range = 0.08; // Approximately 10km in degrees
+
+    return {
+      lat: region.lat + (Math.random() - 0.5) * range,
+      lng: region.lng + (Math.random() - 0.5) * range,
+    };
+  }
+
+  /**
    * Prepare properties data for map display
    */
   private prepareMapProperties(properties: any[]): MapProperty[] {
-    return properties.map((property) => ({
-      id: property.id || property._id,
-      title: property.title,
-      // Usar coordenadas reales de la base de datos
-      lat: property.location?.coordinates?.latitude || 43.4643, // Fallback si no hay coordenadas
-      lng: property.location?.coordinates?.longitude || -80.5204, // Fallback si no hay coordenadas
-      price: property.price,
-      type: property.type,
-    }));
+    return properties.map((property) => {
+      // Check if property has real coordinates from database
+      const hasRealCoordinates =
+        property.location?.coordinates?.latitude &&
+        property.location?.coordinates?.longitude;
+
+      let coordinates;
+      if (hasRealCoordinates) {
+        // Use real coordinates from database
+        coordinates = {
+          lat: property.location.coordinates.latitude,
+          lng: property.location.coordinates.longitude,
+        };
+        console.log(
+          `🎯 Using real coordinates for ${property.title}:`,
+          coordinates
+        );
+      } else {
+        // Generate random coordinates for properties without real ones
+        coordinates = this.generateRandomCoordinates();
+        console.log(
+          `🎲 Generated random coordinates for ${property.title}:`,
+          coordinates
+        );
+      }
+
+      return {
+        id: property.id || property._id,
+        title: property.title,
+        lat: coordinates.lat,
+        lng: coordinates.lng,
+        price: property.price,
+        type: property.type,
+      };
+    });
+  }
+
+  /**
+   * Handle reference point selection from map (NUEVO)
+   */
+  onReferencePointSelected(referencePoint: any): void {
+    console.log('📍 Reference point received in PropertyList:', referencePoint);
+    this.currentReferencePoint = referencePoint;
+    this.updateGeographicFiltering();
+  }
+
+  /**
+   * Handle radius change from map controls (NUEVO)
+   */
+  onRadiusChanged(radius: number): void {
+    console.log('📏 Radius changed in PropertyList:', radius);
+    this.currentRadius = radius;
+    this.updateGeographicFiltering();
+  }
+
+  /**
+   * Calculate distance between two points using Haversine formula (NUEVO)
+   */
+  private calculateDistance(
+    lat1: number,
+    lng1: number,
+    lat2: number,
+    lng2: number
+  ): number {
+    const R = 6371; // Earth's radius in kilometers
+    const dLat = this.degreesToRadians(lat2 - lat1);
+    const dLng = this.degreesToRadians(lng2 - lng1);
+
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.degreesToRadians(lat1)) *
+        Math.cos(this.degreesToRadians(lat2)) *
+        Math.sin(dLng / 2) *
+        Math.sin(dLng / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c;
+
+    return Math.round(distance * 100) / 100; // Round to 2 decimal places
+  }
+
+  /**
+   * Convert degrees to radians (NUEVO)
+   */
+  private degreesToRadians(degrees: number): number {
+    return degrees * (Math.PI / 180);
+  }
+
+  /**
+   * Update filtered properties based on current reference point and radius (NUEVO)
+   */
+  private updateGeographicFiltering(): void {
+    if (!this.currentReferencePoint) {
+      this.filteredPropertiesForDisplay = [];
+      console.log('🔍 No reference point set, cleared filtered properties');
+      return;
+    }
+
+    // Filter properties within the radius
+    this.filteredPropertiesForDisplay = this.properties.filter(
+      (property, index) => {
+        const mapProperty = this.mapProperties[index];
+        if (!mapProperty) return false;
+
+        const distance = this.calculateDistance(
+          this.currentReferencePoint.lat,
+          this.currentReferencePoint.lng,
+          mapProperty.lat,
+          mapProperty.lng
+        );
+
+        const isWithinRadius = distance <= this.currentRadius;
+
+        if (isWithinRadius) {
+          console.log(
+            `✅ Property "${property.title}" is ${distance}km away (within ${this.currentRadius}km)`
+          );
+        }
+
+        return isWithinRadius;
+      }
+    );
+
+    console.log(`🎯 Geographic filtering results:`, {
+      referencePoint: this.currentReferencePoint.name || 'Custom Location',
+      radius: this.currentRadius,
+      totalProperties: this.properties.length,
+      filteredCount: this.filteredPropertiesForDisplay.length,
+    });
+  }
+
+  /**
+   * Get distance from current reference point for display (NUEVO)
+   */
+  getDistanceFromReference(property: any): number {
+    if (!this.currentReferencePoint) return 0;
+
+    const propertyIndex = this.properties.indexOf(property);
+    const mapProperty = this.mapProperties[propertyIndex];
+
+    if (!mapProperty) return 0;
+
+    return this.calculateDistance(
+      this.currentReferencePoint.lat,
+      this.currentReferencePoint.lng,
+      mapProperty.lat,
+      mapProperty.lng
+    );
   }
 
   /**
@@ -198,11 +369,9 @@ export class PropertyList implements OnInit, OnChanges {
   }
 
   /**
-   * Get filtered properties for display based on radius/map selection
+   * Get filtered properties for display based on radius/map selection (ACTUALIZADO)
    */
   getFilteredPropertiesForDisplay(): any[] {
-    // For now, return the same properties as shown on map
-    // Later we'll implement actual radius filtering logic
-    return this.properties.slice(0, 8); // Show max 8 properties below map
+    return this.filteredPropertiesForDisplay;
   }
 }

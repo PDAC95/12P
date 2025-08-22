@@ -2,6 +2,8 @@
 import {
   Component,
   Input,
+  Output,
+  EventEmitter,
   OnInit,
   OnDestroy,
   AfterViewInit,
@@ -30,7 +32,10 @@ export class Map implements OnInit, AfterViewInit, OnDestroy {
   @Input() properties: MapProperty[] = [];
   @Input() center: [number, number] = [43.4643, -80.5204]; // Waterloo, Ontario default
   @Input() zoom: number = 11;
-  @Input() showControls: boolean = true; // New input to show/hide controls
+  @Input() showControls: boolean = true;
+
+  @Output() referencePointSelected = new EventEmitter<ReferencePoint>();
+  @Output() radiusChanged = new EventEmitter<number>();
 
   private map!: L.Map;
   private markers: L.Marker[] = [];
@@ -149,6 +154,9 @@ export class Map implements OnInit, AfterViewInit, OnDestroy {
     // Center map on reference point
     this.map.setView([referencePoint.lat, referencePoint.lng], 12);
 
+    // Emit event to parent component
+    this.referencePointSelected.emit(referencePoint);
+
     console.log('📍 Reference point selected:', referencePoint);
   }
 
@@ -158,6 +166,9 @@ export class Map implements OnInit, AfterViewInit, OnDestroy {
   onRadiusChanged(radius: number): void {
     this.currentRadius = radius;
     this.updateRadiusCircle();
+
+    // Emit event to parent component
+    this.radiusChanged.emit(radius);
 
     console.log('📏 Radius changed to:', radius + 'km');
   }
@@ -169,6 +180,10 @@ export class Map implements OnInit, AfterViewInit, OnDestroy {
     const radius = parseInt(event.target.value);
     this.currentRadius = radius;
     this.updateRadiusCircle();
+
+    // Emit event to parent component
+    this.radiusChanged.emit(radius);
+
     console.log('📏 Radius changed to:', radius + 'km');
   }
 
@@ -178,6 +193,10 @@ export class Map implements OnInit, AfterViewInit, OnDestroy {
   setRadius(radius: number): void {
     this.currentRadius = radius;
     this.updateRadiusCircle();
+
+    // Emit event to parent component
+    this.radiusChanged.emit(radius);
+
     console.log('📏 Radius set to:', radius + 'km');
   }
 
@@ -197,6 +216,9 @@ export class Map implements OnInit, AfterViewInit, OnDestroy {
     this.currentReferencePoint = referencePoint;
     this.addReferenceMarker(referencePoint);
     this.updateRadiusCircle();
+
+    // Emit event to parent component
+    this.referencePointSelected.emit(referencePoint);
 
     console.log('📍 Map clicked - reference point set:', referencePoint);
   }

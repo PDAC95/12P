@@ -65,19 +65,24 @@
       <div class="map-with-sidebar">
         <app-map
           [properties]="mapProperties"
-          [center]="getMapCenter()"
-          [zoom]="11"
-          [showControls]="true"
+          (referencePointSelected)="onReferencePointSelected($event)"
+          (radiusChanged)="onRadiusChanged($event)"
         >
         </app-map>
       </div>
 
       <!-- Properties Count (below sidebar) -->
-      <div class="properties-count-section">
-        <div class="properties-count">
-          <i class="fas fa-map-marker-alt me-2"></i>
-          {{ mapProperties.length }} properties shown on map
-        </div>
+      <div class="properties-count" *ngIf="currentReferencePoint">
+        <i class="fas fa-map-marker-alt me-2"></i>
+        <span
+          >{{ filteredPropertiesForDisplay.length }} properties within {{
+          currentRadius }}km</span
+        >
+      </div>
+
+      <div class="properties-count" *ngIf="!currentReferencePoint">
+        <i class="fas fa-map me-2"></i>
+        <span>{{ mapProperties.length }} properties shown on map</span>
       </div>
 
       <!-- Filtered Properties List (below map) -->

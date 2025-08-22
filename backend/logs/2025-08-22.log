@@ -1,0 +1,2147 @@
+{
+  "timestamp": "2025-08-22T14:29:39.439Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-22T14:29:39.459Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-22T14:29:39.460Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-22T14:29:39.477Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-22T14:29:39.491Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-22T14:29:39.495Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.734Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.735Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:29:59.745Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:29:59.754Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.756Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:29:59.774Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:29:59.804Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.809Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.815Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.820Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.825Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.831Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.836Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.841Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.846Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.852Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.856Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:29:59.861Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:07.975Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:07.980Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:07.984Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:07.988Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:07.991Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:07.996Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:08.001Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:30:08.005Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:14.860Z",
+  "level": "INFO",
+  "message": "Google login attempt",
+  "hasToken": true,
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.200Z",
+  "level": "INFO",
+  "message": "Google token verified",
+  "email": "pdmckinster@gmail.com",
+  "name": "Pat D"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.223Z",
+  "level": "INFO",
+  "message": "Google login successful",
+  "userId": "68939c61763cd93e0cd13304",
+  "email": "pdmckinster@gmail.com",
+  "role": "client",
+  "isNewUser": false
+}
+{
+  "timestamp": "2025-08-22T14:57:15.246Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.256Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:57:15.269Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:57:15.281Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.284Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:57:15.293Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:57:15.296Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.301Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.307Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.316Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.323Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.329Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.334Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.339Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.346Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.352Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.357Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:15.363Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.533Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.535Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:57:17.545Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:57:17.549Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.550Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:57:17.558Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:57:17.565Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.571Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.576Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.582Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.587Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.591Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.597Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.602Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.607Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.613Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.618Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:17.624Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.848Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.853Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.857Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.862Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.868Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.873Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.880Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:26.886Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.309Z",
+  "level": "INFO",
+  "message": "Google login attempt",
+  "hasToken": true,
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.311Z",
+  "level": "INFO",
+  "message": "Google token verified",
+  "email": "pdmckinster@gmail.com",
+  "name": "Pat D"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.321Z",
+  "level": "INFO",
+  "message": "Google login successful",
+  "userId": "68939c61763cd93e0cd13304",
+  "email": "pdmckinster@gmail.com",
+  "role": "client",
+  "isNewUser": false
+}
+{
+  "timestamp": "2025-08-22T14:57:44.351Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.353Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:57:44.364Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:57:44.372Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.376Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:57:44.383Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:57:44.398Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.405Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.411Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.418Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.427Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.435Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.446Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.461Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.469Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.477Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.483Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:57:44.491Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:01.914Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:58:01.916Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:58:01.921Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T14:58:01.926Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T14:58:01.939Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:58:01.991Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T14:58:02.008Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.012Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.015Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.019Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.036Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.039Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.042Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.046Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.059Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.062Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.067Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:02.070Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.678Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.683Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.685Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.692Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.697Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.700Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.702Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T14:58:11.703Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.192Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.201Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T17:30:21.245Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T17:30:21.251Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.252Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T17:30:21.261Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T17:30:21.283Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.304Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.326Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.343Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.349Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.355Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.362Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.368Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.374Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.381Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.387Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:21.399Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.681Z",
+  "level": "INFO",
+  "message": "Google login attempt",
+  "hasToken": true,
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.684Z",
+  "level": "INFO",
+  "message": "Google token verified",
+  "email": "pdmckinster@gmail.com",
+  "name": "Pat D"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.724Z",
+  "level": "INFO",
+  "message": "Google login successful",
+  "userId": "68939c61763cd93e0cd13304",
+  "email": "pdmckinster@gmail.com",
+  "role": "client",
+  "isNewUser": false
+}
+{
+  "timestamp": "2025-08-22T17:30:30.740Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.742Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T17:30:30.751Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T17:30:30.759Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.766Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T17:30:30.783Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T17:30:30.793Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.799Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.807Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.816Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.823Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.830Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.837Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.851Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.858Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.868Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.876Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:30.885Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T17:30:49.780Z",
+  "level": "INFO",
+  "message": "SIGINT received, shutting down gracefully"
+}
+{
+  "timestamp": "2025-08-22T17:30:49.782Z",
+  "level": "INFO",
+  "message": "HTTP server closed"
+}
+{
+  "timestamp": "2025-08-22T18:55:28.381Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-22T18:55:28.400Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-22T18:55:28.401Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-22T18:55:28.419Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-22T18:55:28.440Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-22T18:55:28.442Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-22T18:55:32.320Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T18:55:32.322Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T18:55:32.332Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T18:55:32.342Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T18:55:32.344Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T18:55:32.352Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T18:58:06.613Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.618Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T18:58:06.644Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T18:58:06.654Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.660Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T18:58:06.682Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T18:58:06.686Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.700Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.715Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.727Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.740Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.750Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.757Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.763Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.772Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.780Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.786Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:06.795Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.677Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.681Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.687Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.691Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.695Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.700Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.705Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T18:58:13.710Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.153Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.154Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T19:14:45.160Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T19:14:45.165Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.166Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T19:14:45.173Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T19:14:45.193Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.200Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.206Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.211Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.215Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.221Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.226Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.231Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.240Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.247Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.255Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:14:45.268Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.237Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.242Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.247Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.252Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.256Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.261Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.268Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:15:00.276Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.226Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.227Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T19:17:57.234Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T19:17:57.240Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.242Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T19:17:57.247Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T19:17:57.278Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.284Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.288Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.293Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.297Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.302Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.308Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.314Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.328Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.338Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.344Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:17:57.351Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.484Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.486Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T19:20:10.493Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T19:20:10.499Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.502Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-22T19:20:10.510Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 68,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-22T19:20:10.528Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.534Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.539Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.545Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.550Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.555Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.561Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.570Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.576Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.585Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.591Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:10.597Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:39.775Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:39.779Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:39.783Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:20:39.785Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:21:29.995Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:41.787Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:50.223Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:50.226Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:50.231Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:54.596Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:54.598Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:54.604Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:54.607Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:28:54.610Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-22T19:29:06.159Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
