@@ -59,8 +59,170 @@
       </div>
     </div>
 
-    <!-- Map View -->
-    <div *ngIf="!loading && !noResults && showMapView" class="map-view">
+    <!-- Mobile Search Controls (visible only on mobile when map view is active) -->
+    <div *ngIf="!loading && !noResults && showMapView" class="mobile-search-controls d-block d-md-none">
+      <div class="search-controls-card">
+        <h5 class="controls-title">
+          <i class="fas fa-search me-2"></i>
+          Search Properties by Location
+        </h5>
+        
+        <!-- GPS Location Button -->
+        <button 
+          type="button" 
+          class="btn btn-primary w-100 mb-3 use-location-btn"
+          (click)="useCurrentLocation()"
+          [disabled]="isGettingLocation"
+        >
+          <i class="fas fa-location-crosshairs me-2"></i>
+          <span *ngIf="!isGettingLocation">Use My Current Location</span>
+          <span *ngIf="isGettingLocation">Getting location...</span>
+        </button>
+
+        <!-- Address Search Input -->
+        <div class="address-search mb-3">
+          <label class="form-label">Or search by address:</label>
+          <div class="input-group">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Enter address..."
+              [(ngModel)]="addressSearchQuery"
+              (keyup.enter)="searchByAddress()"
+            >
+            <button 
+              class="btn btn-outline-primary" 
+              type="button"
+              (click)="searchByAddress()"
+              [disabled]="!addressSearchQuery || addressSearchQuery.trim() === ''"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- City Selection -->
+        <div class="city-selection mb-3">
+          <label class="form-label">Select a city:</label>
+          <div class="city-buttons">
+            <button 
+              *ngFor="let city of availableCities"
+              type="button"
+              class="btn btn-outline-secondary city-btn"
+              [class.active]="selectedCity === city.name"
+              (click)="selectCity(city)"
+            >
+              {{ city.name }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Popular Locations -->
+        <div class="popular-locations mb-3">
+          <label class="form-label">Popular locations:</label>
+          <div class="location-tags">
+            <button 
+              *ngFor="let location of popularLocations"
+              type="button"
+              class="location-tag"
+              (click)="selectPopularLocation(location)"
+            >
+              <i class="fas fa-star me-1"></i>
+              {{ location.name }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Radius Controls -->
+        <div class="radius-controls-mobile">
+          <label class="form-label">
+            Search radius: <strong>{{ currentRadius }}km</strong>
+          </label>
+          
+          <!-- Radius Slider -->
+          <div class="radius-slider-container mb-2">
+            <input 
+              type="range" 
+              class="form-range" 
+              min="1" 
+              max="50" 
+              step="1"
+              [(ngModel)]="currentRadius"
+              (change)="onRadiusChanged(currentRadius)"
+            >
+            <div class="slider-labels">
+              <span>1km</span>
+              <span>25km</span>
+              <span>50km</span>
+            </div>
+          </div>
+
+          <!-- Quick Radius Buttons -->
+          <div class="quick-radius-buttons">
+            <button 
+              *ngFor="let radius of [2, 5, 10, 20]"
+              type="button"
+              class="btn btn-sm radius-btn"
+              [class.btn-primary]="currentRadius === radius"
+              [class.btn-outline-primary]="currentRadius !== radius"
+              (click)="setMobileRadius(radius)"
+            >
+              {{ radius }}km
+            </button>
+          </div>
+        </div>
+
+        <!-- Current Selection Display -->
+        <div class="current-selection" *ngIf="currentReferencePoint">
+          <div class="alert alert-info mb-0">
+            <i class="fas fa-map-marker-alt me-2"></i>
+            Searching {{ currentRadius }}km around {{ currentReferencePoint.name }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Properties Count -->
+      <div class="mobile-properties-count" *ngIf="currentReferencePoint">
+        <div class="count-badge">
+          <i class="fas fa-home me-2"></i>
+          <span>{{ filteredPropertiesForDisplay.length }} properties found within {{ currentRadius }}km</span>
+        </div>
+      </div>
+      <div class="mobile-properties-count" *ngIf="!currentReferencePoint">
+        <div class="count-badge">
+          <i class="fas fa-list me-2"></i>
+          <span>{{ properties.length }} properties available</span>
+        </div>
+      </div>
+
+      <!-- Mobile Filtered Properties Grid -->
+      <div class="mobile-filtered-properties">
+        <div *ngIf="currentReferencePoint && filteredPropertiesForDisplay.length > 0" class="properties-grid">
+          <app-property-card
+            *ngFor="let property of filteredPropertiesForDisplay; trackBy: trackByPropertyId"
+            [property]="property"
+            class="property-card-item"
+          ></app-property-card>
+        </div>
+        <div *ngIf="currentReferencePoint && filteredPropertiesForDisplay.length === 0" class="no-properties-mobile">
+          <div class="empty-state">
+            <i class="fas fa-search-location"></i>
+            <p>No properties found within {{ currentRadius }}km of {{ currentReferencePoint.name }}</p>
+            <small>Try increasing the search radius or selecting a different location</small>
+          </div>
+        </div>
+        <div *ngIf="!currentReferencePoint" class="properties-grid">
+          <app-property-card
+            *ngFor="let property of properties; trackBy: trackByPropertyId"
+            [property]="property"
+            class="property-card-item"
+          ></app-property-card>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map View (hidden on mobile) -->
+    <div *ngIf="!loading && !noResults && showMapView" class="map-view d-none d-md-block">
       <!-- Map with Sidebar -->
       <div class="map-with-sidebar">
         <app-map

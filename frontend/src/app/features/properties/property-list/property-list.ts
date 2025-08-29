@@ -10,6 +10,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { PropertyCard } from '../property-card/property-card';
 import { Property } from '../../../services/property';
 import { Map, MapProperty } from '../../../shared/map/map';
@@ -17,7 +18,7 @@ import { Map, MapProperty } from '../../../shared/map/map';
 @Component({
   selector: 'app-property-list',
   standalone: true,
-  imports: [CommonModule, PropertyCard, Map],
+  imports: [CommonModule, FormsModule, PropertyCard, Map],
   templateUrl: './property-list.html',
   styleUrl: './property-list.scss',
 })
@@ -42,6 +43,24 @@ export class PropertyList implements OnInit, OnChanges {
   currentReferencePoint: any = null;
   currentRadius: number = 5;
   filteredPropertiesForDisplay: any[] = [];
+
+  // Mobile controls properties
+  isGettingLocation: boolean = false;
+  addressSearchQuery: string = '';
+  selectedCity: string = '';
+  availableCities = [
+    { name: 'Waterloo', lat: 43.4643, lng: -80.5204 },
+    { name: 'Kitchener', lat: 43.4516, lng: -80.4925 },
+    { name: 'Cambridge', lat: 43.3616, lng: -80.3144 },
+    { name: 'Guelph', lat: 43.5448, lng: -80.2482 }
+  ];
+  popularLocations = [
+    { name: 'University of Waterloo', lat: 43.4723, lng: -80.5449 },
+    { name: 'Conestoga Mall', lat: 43.4980, lng: -80.5265 },
+    { name: 'Fairview Park Mall', lat: 43.4249, lng: -80.4392 },
+    { name: 'Downtown Kitchener', lat: 43.4516, lng: -80.4925 },
+    { name: 'Uptown Waterloo', lat: 43.4653, lng: -80.5227 }
+  ];
 
   // States
   isLoading: boolean = false;
@@ -373,5 +392,116 @@ export class PropertyList implements OnInit, OnChanges {
    */
   getFilteredPropertiesForDisplay(): any[] {
     return this.filteredPropertiesForDisplay;
+  }
+
+  /**
+   * Mobile-specific methods
+   */
+  useCurrentLocation(): void {
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported by your browser');
+      return;
+    }
+
+    this.isGettingLocation = true;
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const referencePoint = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          name: 'My Location'
+        };
+        this.currentReferencePoint = referencePoint;
+        this.selectedCity = '';
+        this.updateGeographicFiltering();
+        this.isGettingLocation = false;
+        console.log('📍 GPS location obtained:', referencePoint);
+      },
+      (error) => {
+        this.isGettingLocation = false;
+        let errorMessage = 'Unable to get your location. ';
+        switch(error.code) {
+          case error.PERMISSION_DENIED:
+            errorMessage += 'Please enable location permissions.';
+            break;
+          case error.POSITION_UNAVAILABLE:
+            errorMessage += 'Location information is unavailable.';
+            break;
+          case error.TIMEOUT:
+            errorMessage += 'Request timed out.';
+            break;
+          default:
+            errorMessage += 'An unknown error occurred.';
+        }
+        alert(errorMessage);
+        console.error('❌ Geolocation error:', error);
+      }
+    );
+  }
+
+  searchByAddress(): void {
+    if (!this.addressSearchQuery || this.addressSearchQuery.trim() === '') {
+      return;
+    }
+
+    // For now, we'll use a simple geocoding simulation
+    // In a real app, you'd call a geocoding API
+    const searchQuery = this.addressSearchQuery.toLowerCase();
+    
+    // Check if the query matches any known locations
+    const allLocations = [...this.availableCities, ...this.popularLocations];
+    const matchedLocation = allLocations.find(loc => 
+      loc.name.toLowerCase().includes(searchQuery)
+    );
+
+    if (matchedLocation) {
+      this.currentReferencePoint = {
+        lat: matchedLocation.lat,
+        lng: matchedLocation.lng,
+        name: matchedLocation.name
+      };
+      this.selectedCity = '';
+      this.updateGeographicFiltering();
+      console.log('📍 Address search matched:', matchedLocation);
+    } else {
+      // Default to center of Waterloo region if no match
+      this.currentReferencePoint = {
+        lat: 43.4643,
+        lng: -80.5204,
+        name: this.addressSearchQuery
+      };
+      this.selectedCity = '';
+      this.updateGeographicFiltering();
+      console.log('📍 Address search - using default location for:', this.addressSearchQuery);
+    }
+  }
+
+  selectCity(city: any): void {
+    this.currentReferencePoint = {
+      lat: city.lat,
+      lng: city.lng,
+      name: city.name
+    };
+    this.selectedCity = city.name;
+    this.addressSearchQuery = '';
+    this.updateGeographicFiltering();
+    console.log('🏙️ City selected:', city);
+  }
+
+  selectPopularLocation(location: any): void {
+    this.currentReferencePoint = {
+      lat: location.lat,
+      lng: location.lng,
+      name: location.name
+    };
+    this.selectedCity = '';
+    this.addressSearchQuery = '';
+    this.updateGeographicFiltering();
+    console.log('⭐ Popular location selected:', location);
+  }
+
+  setMobileRadius(radius: number): void {
+    this.currentRadius = radius;
+    this.onRadiusChanged(radius);
   }
 }

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile View Test - 12P Properties</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #016450;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #016450;
+        }
+        .test-section h2 {
+            color: #0b2c3d;
+            margin-top: 0;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.success {
+            background: #10b981;
+            color: white;
+        }
+        .status.warning {
+            background: #f59e0b;
+            color: white;
+        }
+        .test-list {
+            list-style: none;
+            padding: 0;
+        }
+        .test-list li {
+            padding: 10px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .check {
+            color: #10b981;
+            font-size: 20px;
+        }
+        .instructions {
+            background: #e0f2fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .code {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mobile-Responsive Search Controls Implementation</h1>
+        
+        <div class="test-section">
+            <h2>Implementation Summary <span class="status success">COMPLETED</span></h2>
+            <p>Successfully implemented mobile-responsive search controls for property filtering on the feature/mobile-responsive-map branch.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Features Implemented</h2>
+            <ul class="test-list">
+                <li>
+                    <span>✅ Mobile Search Controls (visible only on screens < 768px)</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span>✅ "Use My Location" GPS button</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span>✅ Address search input with search button</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span>✅ City dropdown (Waterloo, Kitchener, Cambridge, Guelph)</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span>✅ Popular locations as clickable tags</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span>✅ Radius controls with slider and quick buttons (2km, 5km, 10km, 20km)</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span>✅ Map hidden on mobile, shown on desktop/tablet</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span>✅ All existing filtering logic preserved</span>
+                    <span class="check">✓</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>Files Modified</h2>
+            <ul class="test-list">
+                <li>
+                    <span><strong>property-list.html</strong> - Added mobile search controls section</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span><strong>property-list.ts</strong> - Added mobile control methods and properties</span>
+                    <span class="check">✓</span>
+                </li>
+                <li>
+                    <span><strong>property-list.scss</strong> - Added responsive styles for mobile view</span>
+                    <span class="check">✓</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>How to Test</h2>
+            <div class="instructions">
+                <p><strong>Desktop View (≥768px):</strong></p>
+                <ol>
+                    <li>Open the application at <a href="http://localhost:4200" target="_blank">http://localhost:4200</a></li>
+                    <li>Navigate to the Properties page</li>
+                    <li>Click the "Map" view toggle button</li>
+                    <li>Verify the map displays with sidebar controls</li>
+                    <li>Test filtering by selecting locations and adjusting radius</li>
+                </ol>
+                
+                <p><strong>Mobile View (<768px):</strong></p>
+                <ol>
+                    <li>Open browser DevTools (F12)</li>
+                    <li>Toggle device toolbar (Ctrl+Shift+M)</li>
+                    <li>Select a mobile device preset (e.g., iPhone 12 Pro)</li>
+                    <li>Navigate to Properties page and select "Map" view</li>
+                    <li>Verify map is hidden and search controls are visible</li>
+                    <li>Test each control:
+                        <ul>
+                            <li>Click "Use My Location" button</li>
+                            <li>Enter an address and search</li>
+                            <li>Select different cities</li>
+                            <li>Click popular location tags</li>
+                            <li>Adjust radius with slider and quick buttons</li>
+                        </ul>
+                    </li>
+                    <li>Verify filtered properties appear below controls</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Key Implementation Details</h2>
+            <div class="code">
+// Bootstrap utility classes used for responsive display:
+// d-block d-md-none - Shows on mobile, hidden on tablet/desktop
+// d-none d-md-block - Hidden on mobile, shown on tablet/desktop
+            </div>
+            <p>The mobile controls use the same filtering methods as the desktop map, ensuring consistent functionality across all screen sizes.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Next Steps</h2>
+            <p>The implementation is complete and ready for testing. All existing functionality has been preserved while adding the mobile-responsive interface.</p>
+        </div>
+    </div>
+</body>
+</html>
