@@ -1061,3 +1061,2514 @@
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
+{
+  "timestamp": "2025-08-29T15:03:03.539Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T15:03:03.544Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T15:07:25.069Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0"
+}
+{
+  "timestamp": "2025-08-29T15:07:25.414Z",
+  "level": "ERROR",
+  "message": "Login failed - server error",
+  "error": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T15:07:25.417Z",
+  "level": "ERROR",
+  "message": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "request": {
+    "method": "POST",
+    "url": "/api/auth/login",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0",
+    "body": {
+      "email": "agent@test.com",
+      "password": "password123"
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-08-29T15:08:11.303Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d4fc45d85566fff88ef9f",
+  "requestedBy": "::1"
+}
+{
+  "timestamp": "2025-08-29T15:08:54.856Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "maria.gonzalez@test.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0"
+}
+{
+  "timestamp": "2025-08-29T15:08:55.232Z",
+  "level": "ERROR",
+  "message": "Login failed - server error",
+  "error": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "email": "maria.gonzalez@test.com"
+}
+{
+  "timestamp": "2025-08-29T15:08:55.234Z",
+  "level": "ERROR",
+  "message": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "request": {
+    "method": "POST",
+    "url": "/api/auth/login",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0",
+    "body": {
+      "email": "maria.gonzalez@test.com",
+      "password": "password123"
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-08-29T15:08:56.188Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "maria.gonzalez@test.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0"
+}
+{
+  "timestamp": "2025-08-29T15:08:56.500Z",
+  "level": "ERROR",
+  "message": "Login failed - server error",
+  "error": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "email": "maria.gonzalez@test.com"
+}
+{
+  "timestamp": "2025-08-29T15:08:56.502Z",
+  "level": "ERROR",
+  "message": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "request": {
+    "method": "POST",
+    "url": "/api/auth/login",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0",
+    "body": {
+      "email": "maria.gonzalez@test.com",
+      "password": "password123"
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-08-29T15:09:16.701Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0"
+}
+{
+  "timestamp": "2025-08-29T15:09:16.976Z",
+  "level": "ERROR",
+  "message": "Login failed - server error",
+  "error": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T15:09:16.978Z",
+  "level": "ERROR",
+  "message": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:388:7)",
+  "request": {
+    "method": "POST",
+    "url": "/api/auth/login",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0",
+    "body": {
+      "email": "agent@test.com",
+      "password": "password123"
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-08-29T15:22:54.023Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0"
+}
+{
+  "timestamp": "2025-08-29T15:22:54.346Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-08-29T15:22:54.313Z"
+}
+{
+  "timestamp": "2025-08-29T15:57:30.163Z",
+  "level": "INFO",
+  "message": "Verification email sent",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T15:57:59.186Z",
+  "level": "DEBUG",
+  "message": "Email verification attempt",
+  "token": "71b58a41809c6f01fde06a1e2dba1c65e838c30781a391ea609ca390d0a151cb"
+}
+{
+  "timestamp": "2025-08-29T15:57:59.237Z",
+  "level": "INFO",
+  "message": "Email verified successfully",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.371Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.405Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.408Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.432Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.475Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:07:53.480Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.707Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.731Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.733Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.756Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:07:53.772Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:07:53.776Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.152Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.153Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.173Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.173Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.174Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.174Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.189Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.189Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.200Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:47:55.203Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:47:55.203Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:47:55.205Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:48:59.453Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:48:59.487Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:48:59.490Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:48:59.513Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:48:59.532Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:48:59.536Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:49:00.009Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:49:00.050Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:49:00.054Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:49:00.082Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:49:00.109Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:49:00.119Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.154Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.178Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.180Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.207Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.219Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.227Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:49:07.232Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.250Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.252Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.272Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:49:07.290Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:49:07.295Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.776Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.794Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.795Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.808Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.811Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.818Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:54:27.820Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.832Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.833Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.847Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:54:27.859Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:54:27.861Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:54:31.626Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@example.com",
+  "ip": "::1",
+  "userAgent": "axios/1.11.0"
+}
+{
+  "timestamp": "2025-08-29T16:54:31.631Z",
+  "level": "ERROR",
+  "message": "Login failed - server error",
+  "error": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:369:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "email": "agent@example.com"
+}
+{
+  "timestamp": "2025-08-29T16:54:31.633Z",
+  "level": "ERROR",
+  "message": "logWarning is not defined",
+  "stack": "ReferenceError: logWarning is not defined\n    at login (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\controllers\\authController.js:369:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+  "request": {
+    "method": "POST",
+    "url": "/api/auth/login",
+    "ip": "::1",
+    "userAgent": "axios/1.11.0",
+    "body": {
+      "email": "agent@example.com",
+      "password": "password123"
+    },
+    "params": {},
+    "query": {}
+  },
+  "user": "Anonymous"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.023Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.047Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.049Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.063Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.076Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:54:49.078Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.370Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.388Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.389Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.402Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:54:49.411Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:54:49.413Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:54:53.247Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@example.com",
+  "ip": "::1",
+  "userAgent": "axios/1.11.0"
+}
+{
+  "timestamp": "2025-08-29T16:54:53.251Z",
+  "level": "WARN",
+  "message": "Login attempt with non-existent email",
+  "email": "agent@example.com"
+}
+{
+  "timestamp": "2025-08-29T16:55:07.608Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:07.626Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:07.627Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:55:07.640Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:55:07.657Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:55:07.660Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:55:08.044Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:08.064Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:08.065Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:55:08.078Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:55:08.090Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:55:08.093Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.350Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.370Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.371Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.385Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.398Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:55:15.401Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.683Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.701Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.702Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.714Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:55:15.725Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:55:15.728Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:55:19.453Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "agent@example.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.454Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.473Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.474Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.487Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.497Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:55:34.499Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.889Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.909Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.910Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.926Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:55:34.938Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:55:34.940Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:55:38.740Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "agent@example.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:55:47.165Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "test@test.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.088Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.111Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.112Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.135Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.150Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:56:13.153Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.575Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.599Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.602Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.620Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:56:13.634Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:56:13.637Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:56:17.484Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "agent@example.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:56:17.588Z",
+  "level": "INFO",
+  "message": "User registered successfully",
+  "userId": "68b1dbb15ee12cc11432dedf",
+  "email": "agent@example.com",
+  "role": "agent",
+  "emailSent": true
+}
+{
+  "timestamp": "2025-08-29T16:56:17.606Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "undefined..."
+}
+{
+  "timestamp": "2025-08-29T16:56:33.201Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.225Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.227Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.241Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.253Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:56:33.256Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.716Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.737Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.739Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.758Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:56:33.777Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:56:33.781Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:56:37.429Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "agent@example.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:56:37.449Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@example.com",
+  "ip": "::1",
+  "userAgent": "axios/1.11.0"
+}
+{
+  "timestamp": "2025-08-29T16:56:37.541Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "68b1dbb15ee12cc11432dedf",
+  "email": "agent@example.com",
+  "role": "agent",
+  "lastLogin": "2025-08-29T16:56:37.520Z"
+}
+{
+  "timestamp": "2025-08-29T16:56:37.552Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "undefined..."
+}
+{
+  "timestamp": "2025-08-29T16:56:55.194Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.228Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.230Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.259Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.278Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:56:55.283Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.639Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.668Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.669Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.685Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:56:55.701Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:56:55.704Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:56:59.687Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "agent@example.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:56:59.716Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@example.com",
+  "ip": "::1",
+  "userAgent": "axios/1.11.0"
+}
+{
+  "timestamp": "2025-08-29T16:56:59.830Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "68b1dbb15ee12cc11432dedf",
+  "email": "agent@example.com",
+  "role": "agent",
+  "lastLogin": "2025-08-29T16:56:59.803Z"
+}
+{
+  "timestamp": "2025-08-29T16:56:59.844Z",
+  "level": "WARN",
+  "message": "Invalid JWT token",
+  "error": "jwt malformed",
+  "token": "undefined..."
+}
+{
+  "timestamp": "2025-08-29T16:57:13.560Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:13.588Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:13.590Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:57:13.615Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:57:13.652Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:57:13.658Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:57:14.072Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:14.093Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:14.095Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:57:14.111Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:57:14.123Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 68
+}
+{
+  "timestamp": "2025-08-29T16:57:14.127Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:57:18.204Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "agent@example.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:57:18.231Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@example.com",
+  "ip": "::1",
+  "userAgent": "axios/1.11.0"
+}
+{
+  "timestamp": "2025-08-29T16:57:18.334Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "68b1dbb15ee12cc11432dedf",
+  "email": "agent@example.com",
+  "role": "agent",
+  "lastLogin": "2025-08-29T16:57:18.312Z"
+}
+{
+  "timestamp": "2025-08-29T16:57:18.372Z",
+  "level": "DEBUG",
+  "message": "Processing uploaded images",
+  "fileCount": 3,
+  "files": [
+    "1756486638367-713026411-test-image-1.jpg",
+    "1756486638368-16756397-test-image-2.jpg",
+    "1756486638368-810504137-test-image-3.jpg"
+  ]
+}
+{
+  "timestamp": "2025-08-29T16:57:18.394Z",
+  "level": "INFO",
+  "message": "New property created successfully",
+  "propertyId": "68b1dbee665d4b070fd19466",
+  "createdBy": "68b1dbb15ee12cc11432dedf",
+  "userRole": "agent",
+  "title": "Test Property with Multiple Images",
+  "price": 500000
+}
+{
+  "timestamp": "2025-08-29T16:57:18.416Z",
+  "level": "DEBUG",
+  "message": "Processing uploaded images for update",
+  "fileCount": 1,
+  "files": [
+    "1756486638410-673054982-test-image-1.jpg"
+  ]
+}
+{
+  "timestamp": "2025-08-29T16:57:18.430Z",
+  "level": "INFO",
+  "message": "Property updated successfully",
+  "propertyId": "68b1dbee665d4b070fd19466",
+  "updatedBy": "68b1dbb15ee12cc11432dedf",
+  "userRole": "agent",
+  "title": "Updated Property with Additional Images",
+  "fieldsUpdated": [
+    "title",
+    "images",
+    "updatedAt"
+  ]
+}
+{
+  "timestamp": "2025-08-29T16:57:31.408Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.431Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.432Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.452Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.468Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 69
+}
+{
+  "timestamp": "2025-08-29T16:57:31.471Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.851Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.872Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.873Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.888Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:57:31.900Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 69
+}
+{
+  "timestamp": "2025-08-29T16:57:31.904Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T16:57:36.246Z",
+  "level": "DEBUG",
+  "message": "Registration attempt",
+  "email": "agent@example.com",
+  "role": "agent"
+}
+{
+  "timestamp": "2025-08-29T16:57:36.275Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@example.com",
+  "ip": "::1",
+  "userAgent": "axios/1.11.0"
+}
+{
+  "timestamp": "2025-08-29T16:57:36.395Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "68b1dbb15ee12cc11432dedf",
+  "email": "agent@example.com",
+  "role": "agent",
+  "lastLogin": "2025-08-29T16:57:36.368Z"
+}
+{
+  "timestamp": "2025-08-29T16:57:36.428Z",
+  "level": "DEBUG",
+  "message": "Processing uploaded images",
+  "fileCount": 3,
+  "files": [
+    "1756486656424-176811154-test-image-1.jpg",
+    "1756486656424-642120120-test-image-2.jpg",
+    "1756486656424-290055128-test-image-3.jpg"
+  ]
+}
+{
+  "timestamp": "2025-08-29T16:57:36.439Z",
+  "level": "INFO",
+  "message": "New property created successfully",
+  "propertyId": "68b1dc00612f1f72fb2b2f84",
+  "createdBy": "68b1dbb15ee12cc11432dedf",
+  "userRole": "agent",
+  "title": "Test Property with Multiple Images",
+  "price": 500000
+}
+{
+  "timestamp": "2025-08-29T16:57:36.460Z",
+  "level": "DEBUG",
+  "message": "Processing uploaded images for update",
+  "fileCount": 1,
+  "files": [
+    "1756486656454-835246829-test-image-1.jpg"
+  ]
+}
+{
+  "timestamp": "2025-08-29T16:57:36.474Z",
+  "level": "INFO",
+  "message": "Property updated successfully",
+  "propertyId": "68b1dc00612f1f72fb2b2f84",
+  "updatedBy": "68b1dbb15ee12cc11432dedf",
+  "userRole": "agent",
+  "title": "Updated Property with Additional Images",
+  "fieldsUpdated": [
+    "title",
+    "images",
+    "updatedAt"
+  ]
+}
+{
+  "timestamp": "2025-08-29T16:57:53.686Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:53.716Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:53.718Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:57:53.738Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:57:53.761Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 70
+}
+{
+  "timestamp": "2025-08-29T16:57:53.766Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-08-29T16:57:54.150Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:54.178Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T16:57:54.180Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T16:57:54.199Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T16:57:54.223Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 70
+}
+{
+  "timestamp": "2025-08-29T16:57:54.231Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T17:05:02.858Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T17:05:28.772Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T17:05:49.453Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T17:05:49.473Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-08-29T17:05:49.475Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-08-29T17:05:49.493Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-08-29T17:05:49.507Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 70
+}
+{
+  "timestamp": "2025-08-29T17:05:49.510Z",
+  "level": "ERROR",
+  "message": "Uncaught Exception",
+  "error": "listen EADDRINUSE: address already in use :::5001",
+  "stack": "Error: listen EADDRINUSE: address already in use :::5001\n    at Server.setupListenHandle [as _listen2] (node:net:1939:16)\n    at listenInCluster (node:net:1996:12)\n    at Server.listen (node:net:2101:7)\n    at Function.listen (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\node_modules\\express\\lib\\application.js:635:24)\n    at startServer (C:\\Users\\patri\\OneDrive\\Desktop\\12GA\\web\\12p\\backend\\src\\server.js:24:24)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+}
+{
+  "timestamp": "2025-08-29T17:08:23.386Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.321Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.393Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.395Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:08:34.404Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:08:34.410Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.411Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:08:34.417Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:08:34.449Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.456Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.461Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.463Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.467Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.471Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.476Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.482Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.487Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.493Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.498Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.504Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:08:34.509Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.083Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.085Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:10:57.090Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:10:57.094Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.096Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:10:57.102Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:10:57.113Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.120Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.125Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.130Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.139Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.144Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.149Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.157Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.162Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.168Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.174Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:10:57.179Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.189Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.264Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.265Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:16:12.275Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:16:12.281Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.283Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:16:12.294Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:16:12.324Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.330Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.336Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.343Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.352Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.360Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.371Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.379Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.392Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.400Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.410Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.418Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:12.425Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:20.901Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T17:16:20.946Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:16:20.947Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:16:20.954Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:16:20.959Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:16:20.960Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:16:20.967Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:16:20.990Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-08-29T17:16:20.996Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.003Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.012Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.025Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.032Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.039Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.048Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.057Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.065Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.074Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.081Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:21.089Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.872Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.913Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.915Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:16:27.921Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:16:27.930Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.931Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-08-29T17:16:27.944Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 70,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-08-29T17:16:27.973Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.979Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.985Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.991Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:27.997Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.004Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.011Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.018Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.024Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.032Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.039Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.046Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-08-29T17:16:28.054Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}

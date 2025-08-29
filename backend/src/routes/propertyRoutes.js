@@ -7,6 +7,7 @@ const {
   deleteProperty, // Add this import
 } = require("../controllers/propertyController");
 const { authenticate, authorize } = require("../middleware/auth");
+const { handleUpload } = require("../middleware/upload");
 
 const router = express.Router();
 
@@ -27,8 +28,9 @@ router.get("/:id", getPropertyById);
 
 /**
  * @route   POST /api/properties
- * @desc    Create a new property listing
+ * @desc    Create a new property listing with optional image uploads
  * @access  Private (agents and admins only)
+ * @body    Form data with images field for file uploads (max 10 files, 5MB each)
  */
 router.post(
   "/",
@@ -37,13 +39,15 @@ router.post(
     ["agent", "admin"],
     "Only agents can create property listings. Please update your account to 'Property Lister' to list properties."
   ),
+  handleUpload,
   createProperty
 );
 
 /**
  * @route   PUT /api/properties/:id
- * @desc    Update an existing property listing
+ * @desc    Update an existing property listing with optional image uploads
  * @access  Private (only owner agent or admin)
+ * @body    Form data with images field for file uploads (max 10 files, 5MB each)
  */
 router.put(
   "/:id",
@@ -52,6 +56,7 @@ router.put(
     ["agent", "admin"],
     "Only agents can update property listings. Please update your account to 'Property Lister' to edit properties."
   ),
+  handleUpload,
   updateProperty
 );
 

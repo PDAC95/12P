@@ -6,6 +6,7 @@ const {
 } = require("../utils/apiResponse");
 const { logInfo, logError, logDebug, logWarning } = require("../utils/logger");
 const { createError } = require("../utils/errorMessages");
+const { deleteUploadedFiles, getFileUrls } = require("../middleware/upload");
 
 /**
  * Get all properties with optional filtering and pagination
@@ -235,6 +236,18 @@ const createProperty = async (req, res, next) => {
       );
     }
 
+    // Handle uploaded files if present
+    let processedImages = images || [];
+    
+    if (req.files && req.files.length > 0) {
+      // Process uploaded files into image objects
+      processedImages = getFileUrls(req.files, req);
+      logDebug("Processing uploaded images", { 
+        fileCount: req.files.length,
+        files: req.files.map(f => f.filename)
+      });
+    }
+
     // Create property data
     const propertyData = {
       title: title.trim(),
@@ -246,7 +259,7 @@ const createProperty = async (req, res, next) => {
       bathrooms: Number(bathrooms) || 0,
       area: Number(area),
       features: features || [],
-      images: images || [],
+      images: processedImages,
       listingType: listingType || "sale",
       owner: req.user.id, // Automatically assign to authenticated user
       status: "available",
@@ -265,6 +278,14 @@ const createProperty = async (req, res, next) => {
 
     sendSuccess(res, newProperty, "Property created successfully", 201);
   } catch (error) {
+    // Clean up uploaded files on error
+    if (req.files && req.files.length > 0) {
+      deleteUploadedFiles(req.files);
+      logDebug("Cleaned up uploaded files after error", {
+        fileCount: req.files.length
+      });
+    }
+
     if (error.name === "ValidationError") {
       const errorMessages = Object.values(error.errors).map(
         (err) => err.message
@@ -386,6 +407,27 @@ const updateProperty = async (req, res, next) => {
       }
     }
 
+    // Handle uploaded files if present
+    let processedImages = images;
+    
+    if (req.files && req.files.length > 0) {
+      // Process uploaded files into image objects
+      const newImages = getFileUrls(req.files, req);
+      logDebug("Processing uploaded images for update", { 
+        fileCount: req.files.length,
+        files: req.files.map(f => f.filename)
+      });
+      
+      // If images were provided in body, merge with uploaded files
+      // Otherwise, append to existing images
+      if (images !== undefined) {
+        processedImages = [...(images || []), ...newImages];
+      } else {
+        // Append new images to existing ones
+        processedImages = [...(existingProperty.images || []), ...newImages];
+      }
+    }
+
     // Build update data object with only provided fields
     const updateData = {};
 
@@ -399,7 +441,7 @@ const updateProperty = async (req, res, next) => {
     if (bathrooms !== undefined) updateData.bathrooms = Number(bathrooms) || 0;
     if (area !== undefined) updateData.area = Number(area);
     if (features !== undefined) updateData.features = features || [];
-    if (images !== undefined) updateData.images = images || [];
+    if (processedImages !== undefined) updateData.images = processedImages;
     if (listingType !== undefined) updateData.listingType = listingType;
     if (status !== undefined) updateData.status = status;
 
@@ -422,6 +464,14 @@ const updateProperty = async (req, res, next) => {
 
     sendSuccess(res, updatedProperty, "Property updated successfully", 200);
   } catch (error) {
+    // Clean up uploaded files on error
+    if (req.files && req.files.length > 0) {
+      deleteUploadedFiles(req.files);
+      logDebug("Cleaned up uploaded files after update error", {
+        fileCount: req.files.length
+      });
+    }
+
     if (error.name === "CastError") {
       logInfo("Invalid property ID format for update", {
         propertyId: req.params.id,

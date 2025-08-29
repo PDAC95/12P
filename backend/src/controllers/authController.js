@@ -5,7 +5,7 @@ const {
   sendError,
   sendValidationError,
 } = require("../utils/apiResponse");
-const { logInfo, logError, logDebug } = require("../utils/logger");
+const { logInfo, logError, logDebug, logWarning } = require("../utils/logger");
 const { createError } = require("../utils/errorMessages");
 const {
   generateVerificationToken,

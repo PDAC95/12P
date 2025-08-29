@@ -53,11 +53,6 @@
           <div class="step-number">2</div>
           <div class="step-label">Features & Images</div>
         </div>
-        <div class="step-line" [class.completed]="currentStep > 2"></div>
-        <div class="step" [class.active]="currentStep >= 3">
-          <div class="step-number">3</div>
-          <div class="step-label">Contact Info</div>
-        </div>
       </div>
 
       <!-- Form Container -->
@@ -155,17 +150,79 @@
             </div>
 
             <div class="form-row">
-              <div class="form-group full-width">
-                <label for="location">Location *</label>
+              <div class="form-group">
+                <label for="address">Street Address *</label>
                 <input
                   type="text"
-                  id="location"
-                  name="location"
-                  [(ngModel)]="propertyForm.location"
+                  id="address"
+                  name="address"
+                  [(ngModel)]="propertyForm.location.address"
                   required
                   class="form-control"
-                  placeholder="e.g., Downtown Toronto, ON"
+                  placeholder="e.g., 123 Main Street"
                 />
+              </div>
+              <div class="form-group">
+                <label for="city">City *</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  [(ngModel)]="propertyForm.location.city"
+                  required
+                  class="form-control"
+                  placeholder="e.g., Toronto"
+                />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="province">Province *</label>
+                <select
+                  id="province"
+                  name="province"
+                  [(ngModel)]="propertyForm.location.province"
+                  required
+                  class="form-control"
+                >
+                  <option value="">Select province</option>
+                  <option value="Ontario">Ontario</option>
+                  <option value="Quebec">Quebec</option>
+                  <option value="British Columbia">British Columbia</option>
+                  <option value="Alberta">Alberta</option>
+                  <option value="Manitoba">Manitoba</option>
+                  <option value="Saskatchewan">Saskatchewan</option>
+                  <option value="Nova Scotia">Nova Scotia</option>
+                  <option value="New Brunswick">New Brunswick</option>
+                  <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                  <option value="Prince Edward Island">Prince Edward Island</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="postalCode">Postal Code</label>
+                <input
+                  type="text"
+                  id="postalCode"
+                  name="postalCode"
+                  [(ngModel)]="propertyForm.location.postalCode"
+                  class="form-control"
+                  placeholder="e.g., M5V 3A8"
+                />
+              </div>
+              <div class="form-group">
+                <label for="listingType">Listing Type *</label>
+                <select
+                  id="listingType"
+                  name="listingType"
+                  [(ngModel)]="propertyForm.listingType"
+                  required
+                  class="form-control"
+                >
+                  <option value="sale">For Sale</option>
+                  <option value="rent">For Rent</option>
+                  <option value="coliving">Co-living</option>
+                </select>
               </div>
             </div>
 
@@ -207,78 +264,82 @@
 
             <div class="form-group">
               <label>Property Images</label>
-              <div class="image-upload-area">
+              
+              <!-- Upload Area -->
+              <div 
+                class="image-upload-area"
+                [class.dragging]="isDragging"
+                (dragover)="onDragOver($event)"
+                (dragleave)="onDragLeave($event)"
+                (drop)="onDrop($event)"
+                *ngIf="selectedImages.length < maxImages"
+              >
                 <div class="upload-placeholder">
                   <i class="fas fa-cloud-upload-alt"></i>
                   <h4>Upload Property Images</h4>
                   <p>Drag and drop images here or click to browse</p>
-                  <button type="button" class="upload-btn">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    accept="image/jpeg,image/jpg,image/png,image/webp"
+                    multiple
+                    (change)="onFileSelect($event)"
+                    style="display: none"
+                  />
+                  <button 
+                    type="button" 
+                    class="upload-btn"
+                    onclick="document.getElementById('fileInput')?.click()"
+                  >
                     Choose Images
                   </button>
                 </div>
               </div>
+
+              <!-- Error Message -->
+              <div class="upload-error" *ngIf="uploadError">
+                <i class="fas fa-exclamation-circle"></i>
+                {{ uploadError }}
+              </div>
+
+              <!-- Image Previews -->
+              <div class="image-previews" *ngIf="selectedImages.length > 0">
+                <div 
+                  class="preview-item" 
+                  *ngFor="let image of selectedImages; let i = index"
+                  [class.primary]="i === 0"
+                >
+                  <img [src]="image.preview" [alt]="'Property image ' + (i + 1)" />
+                  <div class="preview-overlay">
+                    <button 
+                      type="button" 
+                      class="btn-primary-image"
+                      (click)="setPrimaryImage(i)"
+                      *ngIf="i !== 0"
+                      title="Set as primary image"
+                    >
+                      <i class="fas fa-star"></i>
+                    </button>
+                    <button 
+                      type="button" 
+                      class="btn-remove"
+                      (click)="removeImage(i)"
+                      title="Remove image"
+                    >
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <span class="primary-badge" *ngIf="i === 0">Primary</span>
+                </div>
+              </div>
+
               <p class="upload-hint">
-                You can upload up to 10 images. Supported formats: JPG, PNG,
-                WEBP
+                You can upload up to {{ maxImages }} images ({{ selectedImages.length }}/{{ maxImages }} selected). 
+                Supported formats: JPG, PNG, WEBP. Max size: 5MB per image.
               </p>
             </div>
           </div>
 
-          <!-- Step 3: Contact Information -->
-          <div class="form-step" *ngIf="currentStep === 3">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="contactName">Full Name *</label>
-                <input
-                  type="text"
-                  id="contactName"
-                  name="contactName"
-                  [(ngModel)]="propertyForm.contactName"
-                  required
-                  class="form-control"
-                  placeholder="Enter your full name"
-                />
-              </div>
-              <div class="form-group">
-                <label for="contactEmail">Email Address *</label>
-                <input
-                  type="email"
-                  id="contactEmail"
-                  name="contactEmail"
-                  [(ngModel)]="propertyForm.contactEmail"
-                  required
-                  class="form-control"
-                  placeholder="Enter your email"
-                />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="contactPhone">Phone Number</label>
-                <input
-                  type="tel"
-                  id="contactPhone"
-                  name="contactPhone"
-                  [(ngModel)]="propertyForm.contactPhone"
-                  class="form-control"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-            </div>
-
-            <div class="terms-section">
-              <label class="checkbox-container">
-                <input type="checkbox" required />
-                <span class="checkmark"></span>
-                <span class="terms-text">
-                  I agree to the
-                  <a href="#" class="terms-link">Terms of Service</a> and
-                  <a href="#" class="terms-link">Privacy Policy</a>
-                </span>
-              </label>
-            </div>
-          </div>
 
           <!-- Navigation Buttons -->
           <div class="form-navigation">
