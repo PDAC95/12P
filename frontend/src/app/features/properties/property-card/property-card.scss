@@ -1,19 +1,43 @@
 /* src/app/features/properties/property-card/property-card.scss */
 .property-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid transparent;
   border-radius: 12px;
   overflow: hidden;
+  position: relative;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  // Selected state
+  &.comparison-selected {
+    border-color: #016450;
+    box-shadow: 0 0 0 3px rgba(1, 100, 80, 0.1) !important;
+
+    &:hover {
+      box-shadow: 0 0 0 3px rgba(1, 100, 80, 0.15), 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    }
   }
 }
 
 .card-img-container {
   position: relative;
   overflow: hidden;
+
+  &.selected-for-comparison {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(1, 100, 80, 0.1);
+      pointer-events: none;
+    }
+  }
 
   .property-type-badge {
     position: absolute;
@@ -29,11 +53,109 @@
     backdrop-filter: blur(5px);
   }
 
-  .favorite-button-wrapper {
+  // Comparison indicator badge
+  .comparison-indicator {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #016450;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: slideDown 0.3s ease-out;
+
+    i {
+      font-size: 0.9rem;
+    }
+  }
+
+  // Action buttons container
+  .card-actions {
     position: absolute;
     top: 10px;
     right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     z-index: 10;
+  }
+
+  // Compare button
+  .compare-button {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(5px);
+
+    i {
+      font-size: 1.1rem;
+      color: #64748b;
+      transition: color 0.3s ease;
+    }
+
+    &:hover:not(.disabled) {
+      background: #ffffff;
+      border-color: #016450;
+      transform: scale(1.1);
+
+      i {
+        color: #016450;
+      }
+    }
+
+    &.selected {
+      background: #016450;
+      border-color: #016450;
+
+      i {
+        color: white;
+      }
+
+      &:hover {
+        background: #014d3e;
+        border-color: #014d3e;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    // Counter badge
+    .compare-counter {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      background: #b39359;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: 10px;
+      min-width: 24px;
+      text-align: center;
+      white-space: nowrap;
+    }
   }
 }
 
@@ -225,15 +347,28 @@
   }
 }
 
-// Agregar al final de property-card.scss
-
-.card-img-container {
-  position: relative;
-
-  .favorite-button-wrapper {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 10;
+// Animations
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
   }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Selection animation for the card
+.property-card.comparison-selected {
+  animation: pulse 0.3s ease-out;
 }

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Comparison Drawer - PLAICE-279.2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h1 .badge {
+            background: #016450;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .test-info {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #016450;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-color: #016450;
+        }
+        .feature-card h3 {
+            color: #016450;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-card .icon {
+            font-size: 24px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.complete {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .test-actions {
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #016450 0%, #014d3e 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        .test-actions h2 {
+            margin-top: 0;
+            color: white;
+        }
+        .test-actions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .test-actions li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .btn-open {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #016450;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn-open:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        }
+        .implementation-status {
+            background: #e6fffa;
+            border: 2px solid #016450;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .implementation-status h3 {
+            color: #016450;
+            margin-top: 0;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        .check-item .check {
+            color: #10b981;
+            font-size: 20px;
+        }
+        .screenshots {
+            margin: 30px 0;
+        }
+        .screenshots h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .screenshot-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .screenshot-card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            🎯 Property Comparison Drawer Test
+            <span class="badge">PLAICE-279.2</span>
+        </h1>
+        
+        <div class="test-info">
+            <strong>Component:</strong> CompareDrawer<br>
+            <strong>Location:</strong> /app/shared/components/compare-drawer/<br>
+            <strong>Status:</strong> Implementation Complete ✅<br>
+            <strong>Description:</strong> Bottom drawer component that shows selected properties and expands to fullscreen comparison view
+        </div>
+
+        <div class="implementation-status">
+            <h3>✅ Implementation Checklist</h3>
+            <div class="check-item">
+                <span class="check">✓</span>
+                <span>CompareDrawer component created with TypeScript, HTML, and SCSS</span>
+            </div>
+            <div class="check-item">
+                <span class="check">✓</span>
+                <span>Collapsed state showing mini property cards with thumbnails</span>
+            </div>
+            <div class="check-item">
+                <span class="check">✓</span>
+                <span>Expanded fullscreen overlay with detailed comparison</span>
+            </div>
+            <div class="check-item">
+                <span class="check">✓</span>
+                <span>Smooth animations between collapsed and expanded states</span>
+            </div>
+            <div class="check-item">
+                <span class="check">✓</span>
+                <span>Integration with ComparisonService for state management</span>
+            </div>
+            <div class="check-item">
+                <span class="check">✓</span>
+                <span>Mobile-responsive design with adapted layouts</span>
+            </div>
+            <div class="check-item">
+                <span class="check">✓</span>
+                <span>Integrated into main app layout (app.ts and app.html)</span>
+            </div>
+        </div>
+
+        <h2>🚀 Key Features Implemented</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3><span class="icon">📱</span> Two-State Design</h3>
+                <p><strong>Collapsed:</strong> Bottom bar with mini property cards showing thumbnails, names, and prices</p>
+                <p><strong>Expanded:</strong> Fullscreen overlay with side-by-side property comparison</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3><span class="icon">✨</span> Smart Animations</h3>
+                <ul>
+                    <li>Slide-up animation when drawer appears</li>
+                    <li>Smooth transitions between states</li>
+                    <li>Fade-in effect for backdrop</li>
+                    <li>Slide-in animation for property cards</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3><span class="icon">🎨</span> Visual Features</h3>
+                <ul>
+                    <li>Property thumbnails in collapsed view</li>
+                    <li>Selection counter (1/3, 2/3, 3/3)</li>
+                    <li>Remove buttons on each card</li>
+                    <li>Clear all button</li>
+                    <li>Compare button (disabled until 2+ properties)</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3><span class="icon">📊</span> Comparison View</h3>
+                <ul>
+                    <li>Full property images</li>
+                    <li>Price comparison</li>
+                    <li>Bedrooms & bathrooms</li>
+                    <li>Area in square feet</li>
+                    <li>Property type</li>
+                    <li>Location details</li>
+                    <li>Action buttons (View Details, Contact)</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3><span class="icon">📱</span> Mobile Responsive</h3>
+                <ul>
+                    <li>Adapted drawer height for mobile</li>
+                    <li>Single column layout in comparison</li>
+                    <li>Touch-friendly buttons</li>
+                    <li>Optimized spacing</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3><span class="icon">🔄</span> State Management</h3>
+                <ul>
+                    <li>Syncs with ComparisonService</li>
+                    <li>Auto-shows when first property selected</li>
+                    <li>Auto-hides when all removed</li>
+                    <li>Session storage persistence</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-actions">
+            <h2>📋 Testing Instructions</h2>
+            <ol>
+                <li><strong>Open the application:</strong> Navigate to the properties listing page</li>
+                <li><strong>Select properties:</strong> Click the compare checkbox button on property cards (square icon in top-right)</li>
+                <li><strong>Observe drawer appearance:</strong> The bottom drawer should slide up when first property is selected</li>
+                <li><strong>Add more properties:</strong> Select up to 3 properties total (max limit enforced)</li>
+                <li><strong>Test collapsed view:</strong>
+                    <ul>
+                        <li>Mini cards show with property thumbnails</li>
+                        <li>Counter shows "2 properties selected" etc.</li>
+                        <li>Can scroll horizontally if many properties</li>
+                        <li>Remove button (X) on each mini card works</li>
+                    </ul>
+                </li>
+                <li><strong>Open comparison:</strong> Click "Compare" button (enabled with 2+ properties)</li>
+                <li><strong>Test expanded view:</strong>
+                    <ul>
+                        <li>Fullscreen overlay with backdrop</li>
+                        <li>Side-by-side property comparison</li>
+                        <li>All features displayed in grid</li>
+                        <li>Can remove individual properties</li>
+                        <li>Close button returns to collapsed state</li>
+                    </ul>
+                </li>
+                <li><strong>Test responsiveness:</strong> Resize window or use device emulation to test mobile view</li>
+            </ol>
+            
+            <a href="http://localhost:4200/properties" target="_blank" class="btn-open">
+                🚀 Open Application to Test
+            </a>
+        </div>
+
+        <div class="screenshots">
+            <h3>📸 Expected Behavior</h3>
+            <div class="screenshot-grid">
+                <div class="screenshot-card">
+                    <h4>Collapsed State</h4>
+                    <p>Bottom drawer with mini property cards, showing thumbnails and basic info. "Compare" button visible when 2+ properties selected.</p>
+                </div>
+                <div class="screenshot-card">
+                    <h4>Expanded State</h4>
+                    <p>Fullscreen overlay with detailed side-by-side comparison. Each property shows full image, features, and action buttons.</p>
+                </div>
+                <div class="screenshot-card">
+                    <h4>Mobile View</h4>
+                    <p>Responsive design with single column layout in comparison view and adapted drawer height for mobile devices.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-info" style="margin-top: 30px;">
+            <strong>💡 Note:</strong> The drawer automatically appears when you select your first property and disappears when all properties are deselected. The comparison feature requires at least 2 properties to be meaningful, so the Compare button is disabled with only 1 property selected.
+        </div>
+    </div>
+</body>
+</html>

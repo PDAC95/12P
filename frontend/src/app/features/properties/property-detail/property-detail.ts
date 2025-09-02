@@ -7,6 +7,7 @@ import {
   PropertyModel,
   BackendPropertyModel,
 } from '../../../services/property';
+import { ComparisonService } from '../../../services/comparison.service';
 
 @Component({
   selector: 'app-property-detail',
@@ -20,15 +21,55 @@ export class PropertyDetail implements OnInit {
   backendProperty: BackendPropertyModel | null = null; // Store full backend data
   loading = true;
   isBackendProperty = false; // Track if this is real backend data
+  isInComparison = false;
+  canAddToComparison = true;
+  comparisonCount = 0;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private propertyService: PropertyService
+    private propertyService: PropertyService,
+    private comparisonService: ComparisonService
   ) {}
 
   ngOnInit() {
     this.loadProperty();
+    this.subscribeToComparison();
+  }
+
+  private subscribeToComparison() {
+    this.comparisonService.selectedProperties$.subscribe(properties => {
+      if (this.property) {
+        this.isInComparison = this.comparisonService.isPropertySelected(this.property._id);
+        this.comparisonCount = properties.length;
+        this.canAddToComparison = this.comparisonService.canAddMore() || this.isInComparison;
+      }
+    });
+  }
+
+  toggleComparison() {
+    if (!this.property) return;
+    
+    const success = this.comparisonService.toggleProperty(this.property);
+    
+    if (!success && !this.isInComparison) {
+      // Show feedback that max items reached
+      alert('Maximum 3 properties can be compared at once');
+    }
+  }
+
+  getComparisonButtonText(): string {
+    if (this.isInComparison) {
+      return 'Remove from Comparison';
+    } else if (this.canAddToComparison) {
+      return `Add to Comparison (${this.comparisonCount}/3)`;
+    } else {
+      return 'Comparison Full (3/3)';
+    }
+  }
+
+  getComparisonIcon(): string {
+    return this.isInComparison ? 'fas fa-check-square' : 'far fa-square';
   }
 
   loadProperty() {

@@ -23,6 +23,43 @@
 .property-detail {
   .back-navigation {
     margin-bottom: 3rem;
+    
+    .btn-comparison {
+      background: white;
+      border: 2px solid #016450;
+      color: #016450;
+      padding: 0.6rem 1.25rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-family: "Karla", sans-serif;
+      transition: all 0.3s ease;
+      
+      i {
+        margin-right: 0.5rem;
+      }
+      
+      &:hover:not(:disabled) {
+        background: #016450;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(1, 100, 80, 0.3);
+      }
+      
+      &.selected {
+        background: #016450;
+        color: white;
+        
+        &:hover {
+          background: #014d3e;
+          border-color: #014d3e;
+        }
+      }
+      
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
 
     .btn {
       border-radius: 15px; // Border radius Bery

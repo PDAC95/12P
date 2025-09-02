@@ -1,10 +1,13 @@
 // src/app/features/properties/property-card/property-card.ts
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PropertyModel } from '../../../services/property';
 import { UserService, BasicUserInfo } from '../../../services/user.service';
 import { FavoriteButton } from '../../../shared/components/favorite-button/favorite-button';
+import { ComparisonService } from '../../../services/comparison.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-property-card',
@@ -13,16 +16,40 @@ import { FavoriteButton } from '../../../shared/components/favorite-button/favor
   templateUrl: './property-card.html',
   styleUrl: './property-card.scss',
 })
-export class PropertyCard implements OnInit {
+export class PropertyCard implements OnInit, OnDestroy {
   @Input() property!: PropertyModel;
 
   agentInfo: BasicUserInfo | null = null;
   isLoadingAgent = true;
+  isSelectedForComparison = false;
+  canAddToComparison = true;
+  comparisonCount = 0;
+  private destroy$ = new Subject<void>();
 
-  constructor(public userService: UserService) {}
+  constructor(
+    public userService: UserService,
+    private comparisonService: ComparisonService
+  ) {}
 
   ngOnInit() {
     this.loadAgentInfo();
+    this.initializeComparisonState();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private initializeComparisonState() {
+    // Subscribe to comparison state changes
+    this.comparisonService.selectedProperties$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(properties => {
+        this.isSelectedForComparison = this.comparisonService.isPropertySelected(this.property._id);
+        this.comparisonCount = properties.length;
+        this.canAddToComparison = this.comparisonService.canAddMore() || this.isSelectedForComparison;
+      });
   }
 
   private loadAgentInfo() {
@@ -98,5 +125,41 @@ export class PropertyCard implements OnInit {
       agentName: this.agentInfo?.fullName,
       navigateTo: `/user/${this.property.owner}`,
     });
+  }
+
+  // Handle compare button click
+  onCompareClick(event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+    
+    const success = this.comparisonService.toggleProperty(this.property);
+    
+    if (!success && !this.isSelectedForComparison) {
+      // Show feedback that max items reached
+      console.warn('Cannot add more properties to comparison. Maximum of 3 reached.');
+    }
+    
+    console.log('🔄 Compare toggled for property:', {
+      propertyId: this.property._id,
+      title: this.property.title,
+      isSelected: !this.isSelectedForComparison,
+      totalSelected: this.comparisonService.getSelectedCount()
+    });
+  }
+
+  // Get comparison button tooltip
+  getCompareTooltip(): string {
+    if (this.isSelectedForComparison) {
+      return 'Remove from comparison';
+    } else if (!this.canAddToComparison) {
+      return 'Maximum 3 properties for comparison';
+    } else {
+      return `Add to comparison (${this.comparisonService.getCounterText()})`;
+    }
+  }
+
+  // Get comparison button icon
+  getCompareIcon(): string {
+    return this.isSelectedForComparison ? 'fas fa-check-square' : 'far fa-square';
   }
 }

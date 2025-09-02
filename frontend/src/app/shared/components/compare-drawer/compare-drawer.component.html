@@ -1,0 +1,557 @@
+<!-- src/app/shared/components/compare-drawer/compare-drawer.component.html -->
+
+<!-- Backdrop for expanded view -->
+<div 
+  class="compare-backdrop"
+  [@backdropState]="isExpanded ? 'visible' : 'hidden'"
+  (click)="onBackdropClick()"
+></div>
+
+<!-- Compare Drawer -->
+<div 
+  class="compare-drawer"
+  [@drawerState]="drawerState"
+  [class.collapsed]="!isExpanded"
+  [class.expanded]="isExpanded"
+  (click)="onDrawerClick($event)"
+>
+  
+  <!-- Collapsed State -->
+  <div class="drawer-collapsed" *ngIf="!isExpanded">
+    <div class="drawer-content-horizontal">
+      <!-- Left section: Counter -->
+      <div class="counter-section">
+        <i class="fas fa-layer-group"></i>
+        <span class="counter-text">{{ selectedProperties.length }}/{{ maxProperties }}</span>
+        <span class="counter-label">Selected</span>
+      </div>
+      
+      <!-- Middle section: Properties (horizontal scroll) -->
+      <div class="properties-section">
+        <div class="properties-row">
+          <!-- Mini property cards -->
+          <div 
+            *ngFor="let property of selectedProperties" 
+            class="mini-property-item"
+            [attr.data-property-id]="property._id"
+          >
+            <button 
+              class="remove-btn"
+              (click)="removeProperty(property._id, $event)"
+              title="Remove"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+            <div class="property-image">
+              <img [src]="property.image" [alt]="property.title" />
+            </div>
+            <div class="property-title">{{ property.title }}</div>
+          </div>
+          
+          <!-- Add more slots -->
+          <div 
+            *ngFor="let slot of getEmptySlotArray()" 
+            class="empty-slot"
+          >
+            <div class="add-icon">
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="add-label">Add</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right section: Actions -->
+      <div class="actions-section">
+        <button 
+          class="btn-clear"
+          (click)="showClearConfirmationDialog()"
+          title="Clear all"
+        >
+          <i class="fas fa-times-circle"></i>
+          <span>Clear</span>
+        </button>
+        <button 
+          class="btn-compare"
+          (click)="toggleExpanded()"
+          [disabled]="selectedProperties.length < 2"
+        >
+          <i class="fas fa-chart-bar"></i>
+          <span>Compare</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Expanded State -->
+  <div class="drawer-expanded" *ngIf="isExpanded">
+    <!-- Desktop Header -->
+    <div class="expanded-header desktop-header">
+      <h2>Property Comparison</h2>
+      <div class="header-actions">
+        <button 
+          class="btn-action"
+          (click)="shareComparison()"
+          title="Share comparison"
+        >
+          <i class="fas fa-share-alt"></i>
+          Share
+        </button>
+        <button 
+          class="btn-action"
+          *ngIf="isLoggedIn()"
+          (click)="saveComparison()"
+          [disabled]="isSaving"
+          title="Save comparison"
+        >
+          <i class="fas" [class.fa-save]="!saveSuccess" [class.fa-check]="saveSuccess"></i>
+          {{ saveSuccess ? 'Saved!' : 'Save' }}
+        </button>
+        <button 
+          class="btn-clear-expanded"
+          (click)="showClearConfirmationDialog()"
+        >
+          <i class="fas fa-trash"></i>
+          Clear All
+        </button>
+        <button 
+          class="btn-close"
+          (click)="toggleExpanded()"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+      <div class="mobile-header-top">
+        <button class="btn-back" (click)="toggleExpanded()">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <h3>Compare Properties</h3>
+        <button class="btn-menu" (click)="toggleMobileMenu()">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Property Selector -->
+      <div class="mobile-property-selector" *ngIf="selectedProperties.length > 0">
+        <div class="selector-tabs">
+          <button 
+            *ngFor="let property of selectedProperties; let i = index"
+            class="property-tab"
+            [class.active]="mobileActivePropertyIndex === i"
+            (click)="setMobileActiveProperty(i)"
+          >
+            <span class="tab-number">{{ i + 1 }}</span>
+            <span class="tab-title">{{ property.title | slice:0:15 }}{{ property.title.length > 15 ? '...' : '' }}</span>
+          </button>
+        </div>
+        <div class="property-indicator">
+          <span>Property {{ mobileActivePropertyIndex + 1 }} of {{ selectedProperties.length }}</span>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu Dropdown -->
+      <div class="mobile-menu-dropdown" *ngIf="showMobileMenu">
+        <button (click)="shareComparison(); toggleMobileMenu()">
+          <i class="fas fa-share-alt"></i> Share
+        </button>
+        <button *ngIf="isLoggedIn()" (click)="saveComparison(); toggleMobileMenu()">
+          <i class="fas fa-save"></i> Save
+        </button>
+        <button (click)="showClearConfirmationDialog(); toggleMobileMenu()">
+          <i class="fas fa-trash"></i> Clear All
+        </button>
+      </div>
+    </div>
+    
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button 
+        *ngFor="let filter of filters"
+        class="filter-btn"
+        [class.active]="activeFilter === filter.id"
+        (click)="setActiveFilter(filter.id)"
+      >
+        <i [class]="filter.icon"></i>
+        <span>{{ filter.label }}</span>
+      </button>
+    </div>
+    
+    <div class="comparison-content">
+      <!-- Desktop Comparison Table View -->
+      <div class="comparison-table-container desktop-view">
+        <div class="comparison-table">
+          <!-- Property Headers Row -->
+          <div class="table-header-row">
+            <div class="feature-header-cell">
+              <span class="category-label">{{ getCategoryTitle() }}</span>
+            </div>
+            <div class="property-header-cell" *ngFor="let property of selectedProperties; let i = index" [attr.data-property-id]="property._id">
+              <div class="property-card-header">
+                <img [src]="property.image" [alt]="property.title" (click)="viewPropertyDetails(property.id)" />
+                <div class="property-info">
+                  <h4 (click)="viewPropertyDetails(property.id)" class="clickable-title">{{ property.title }}</h4>
+                  <p class="property-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ property.location }}
+                  </p>
+                  <button 
+                    class="btn-remove-inline"
+                    (click)="removeProperty(property._id, $event)"
+                    title="Remove from comparison"
+                  >
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Empty property slots -->
+            <div class="property-header-cell empty" *ngFor="let slot of getEmptySlots()">
+              <div class="empty-property-slot">
+                <i class="fas fa-plus-circle"></i>
+                <span>Add Property</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Feature Rows -->
+          <div class="feature-section">
+            <div 
+              class="feature-row"
+              *ngFor="let feature of currentFeatures"
+              [class.has-difference]="hasSignificantDifference(feature)"
+            >
+              <div class="feature-label-cell">
+                <i [class]="feature.icon"></i>
+                <span>{{ feature.label }}</span>
+                <i 
+                  class="fas fa-info-circle info-icon" 
+                  *ngIf="hasSignificantDifference(feature)"
+                  title="Significant difference detected"
+                ></i>
+              </div>
+              
+              <!-- Property Values -->
+              <div 
+                class="feature-value-cell"
+                *ngFor="let property of selectedProperties; let i = index"
+                [class]="getComparisonClass(feature, i)"
+              >
+                <div class="value-content">
+                  <span class="value-text">{{ formatFeatureValue(getPropertyFeatures(property)[feature.key], feature.format) }}</span>
+                </div>
+                <div 
+                  class="value-indicator" 
+                  *ngIf="getComparisonClass(feature, i) === 'best-value'"
+                >
+                  <div class="indicator-badge">
+                    <i [class]="getFeatureIcon(feature)"></i>
+                    <span class="indicator-label">Best</span>
+                  </div>
+                </div>
+                <div 
+                  class="value-indicator warning" 
+                  *ngIf="getComparisonClass(feature, i) === 'highest-value'"
+                >
+                  <div class="indicator-badge">
+                    <i class="fas fa-arrow-up"></i>
+                    <span class="indicator-label">High</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Empty cells for missing properties -->
+              <div class="feature-value-cell empty" *ngFor="let slot of getEmptySlots()">
+                <span class="empty-value">-</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Action Buttons Row -->
+          <div class="table-action-row">
+            <div class="feature-header-cell"></div>
+            <div class="property-action-cell" *ngFor="let property of selectedProperties">
+              <div class="action-buttons">
+                <button 
+                  class="btn-view-full"
+                  (click)="viewPropertyDetails(property.id)"
+                >
+                  <i class="fas fa-external-link-alt"></i>
+                  View Full Details
+                </button>
+                <button 
+                  class="btn-contact-agent"
+                  (click)="contactAgent(property, $event)"
+                >
+                  <i class="fas fa-user-tie"></i>
+                  Contact Agent
+                </button>
+              </div>
+            </div>
+            <div class="property-action-cell empty" *ngFor="let slot of getEmptySlots()"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Comparison View -->
+      <div class="mobile-comparison-view" *ngIf="selectedProperties.length > 0">
+        <!-- Mobile Property Card -->
+        <div class="mobile-property-card" *ngIf="selectedProperties[mobileActivePropertyIndex]">
+          <div class="property-hero">
+            <img 
+              [src]="selectedProperties[mobileActivePropertyIndex].image" 
+              [alt]="selectedProperties[mobileActivePropertyIndex].title"
+              (click)="viewPropertyDetails(selectedProperties[mobileActivePropertyIndex].id)"
+            />
+            <button 
+              class="btn-remove-mobile"
+              (click)="removeProperty(selectedProperties[mobileActivePropertyIndex]._id, $event)"
+            >
+              <i class="fas fa-times"></i> Remove
+            </button>
+          </div>
+          
+          <div class="property-info-mobile">
+            <h3 (click)="viewPropertyDetails(selectedProperties[mobileActivePropertyIndex].id)">
+              {{ selectedProperties[mobileActivePropertyIndex].title }}
+            </h3>
+            <p class="location-mobile">
+              <i class="fas fa-map-marker-alt"></i>
+              {{ selectedProperties[mobileActivePropertyIndex].location }}
+            </p>
+            <div class="price-mobile">
+              {{ formatPrice(selectedProperties[mobileActivePropertyIndex].price) }}
+            </div>
+          </div>
+          
+          <!-- Swipeable comparison with other properties -->
+          <div class="comparison-toggle" *ngIf="selectedProperties.length > 1">
+            <button 
+              class="toggle-btn"
+              [class.active]="showMobileComparison"
+              (click)="toggleMobileComparison()"
+            >
+              <i class="fas fa-balance-scale"></i>
+              Compare with others ({{ selectedProperties.length - 1 }})
+              <i class="fas" [class.fa-chevron-down]="!showMobileComparison" [class.fa-chevron-up]="showMobileComparison"></i>
+            </button>
+          </div>
+          
+          <!-- Feature Categories as Accordion -->
+          <div class="mobile-features-accordion">
+            <div 
+              *ngFor="let category of mobileFeatureCategories"
+              class="accordion-item"
+              [class.expanded]="category.expanded"
+            >
+              <button 
+                class="accordion-header"
+                (click)="toggleAccordion(category)"
+              >
+                <div class="header-content">
+                  <i [class]="category.icon"></i>
+                  <span>{{ category.label }}</span>
+                  <span class="badge" *ngIf="category.badge">{{ category.badge }}</span>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+              </button>
+              
+              <div class="accordion-content" *ngIf="category.expanded">
+                <div 
+                  *ngFor="let feature of category.features"
+                  class="feature-item-mobile"
+                  [class.highlight]="isFeatureHighlighted(feature)"
+                >
+                  <div class="feature-label">
+                    <i [class]="feature.icon"></i>
+                    {{ feature.label }}
+                  </div>
+                  <div class="feature-value">
+                    <span class="value">{{ formatFeatureValue(getPropertyFeatures(selectedProperties[mobileActivePropertyIndex])[feature.key], feature.format) }}</span>
+                    <span class="comparison-indicator" *ngIf="showMobileComparison && hasComparisonData(feature)">
+                      <i class="fas fa-trophy best-indicator" *ngIf="isBestValue(feature, mobileActivePropertyIndex)"></i>
+                      <span class="vs-others" *ngIf="!isBestValue(feature, mobileActivePropertyIndex)">
+                        vs avg: {{ getAverageValue(feature) }}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mobile Action Buttons -->
+          <div class="mobile-action-buttons">
+            <button 
+              class="btn-mobile-action primary"
+              (click)="viewPropertyDetails(selectedProperties[mobileActivePropertyIndex].id)"
+            >
+              <i class="fas fa-eye"></i>
+              View Details
+            </button>
+            <button 
+              class="btn-mobile-action secondary"
+              (click)="contactAgent(selectedProperties[mobileActivePropertyIndex], $event)"
+            >
+              <i class="fas fa-envelope"></i>
+              Contact
+            </button>
+          </div>
+        </div>
+        
+        <!-- Swipe Navigation Dots -->
+        <div class="swipe-navigation" *ngIf="selectedProperties.length > 1">
+          <div class="swipe-dots">
+            <span 
+              *ngFor="let property of selectedProperties; let i = index"
+              class="dot"
+              [class.active]="mobileActivePropertyIndex === i"
+              (click)="setMobileActiveProperty(i)"
+            ></span>
+          </div>
+          <div class="swipe-hint">
+            <i class="fas fa-hand-point-left"></i>
+            Swipe to compare
+            <i class="fas fa-hand-point-right"></i>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Summary Section -->
+      <div class="comparison-summary" *ngIf="selectedProperties.length >= 2">
+        <div class="summary-card">
+          <h4>Quick Insights</h4>
+          <div class="insights-grid">
+            <div class="insight-item">
+              <i class="fas fa-trophy"></i>
+              <span class="insight-label">Best Value</span>
+              <span class="insight-value">{{ getBestValueProperty() }}</span>
+            </div>
+            <div class="insight-item">
+              <i class="fas fa-expand-arrows-alt"></i>
+              <span class="insight-label">Largest Space</span>
+              <span class="insight-value">{{ getLargestProperty() }}</span>
+            </div>
+            <div class="insight-item">
+              <i class="fas fa-bed"></i>
+              <span class="insight-label">Most Bedrooms</span>
+              <span class="insight-value">{{ getMostBedrooms() }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Share Modal -->
+<div class="modal-backdrop" *ngIf="showShareModal" (click)="closeShareModal()">
+  <div class="modal-content share-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Share Comparison</h3>
+      <button class="btn-close-modal" (click)="closeShareModal()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Share this property comparison with others:</p>
+      <div class="share-url-container">
+        <input 
+          type="text" 
+          [value]="shareUrl" 
+          readonly 
+          class="share-url-input"
+        />
+        <button class="btn-copy" (click)="copyShareUrl()">
+          <i class="fas fa-copy"></i>
+          Copy
+        </button>
+      </div>
+      <div class="social-share-buttons">
+        <button class="social-btn facebook" (click)="shareOnSocial('facebook')">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button class="social-btn twitter" (click)="shareOnSocial('twitter')">
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button class="social-btn whatsapp" (click)="shareOnSocial('whatsapp')">
+          <i class="fab fa-whatsapp"></i>
+        </button>
+        <button class="social-btn email" (click)="shareOnSocial('email')">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div class="modal-backdrop" *ngIf="showContactModal" (click)="closeContactModal()">
+  <div class="modal-content contact-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Contact Agent</h3>
+      <button class="btn-close-modal" (click)="closeContactModal()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-body" *ngIf="selectedPropertyForContact">
+      <div class="property-summary">
+        <img [src]="selectedPropertyForContact.image" [alt]="selectedPropertyForContact.title" />
+        <div class="property-details">
+          <h4>{{ selectedPropertyForContact.title }}</h4>
+          <p>{{ selectedPropertyForContact.location }}</p>
+          <p class="price">{{ formatPrice(selectedPropertyForContact.price) }}</p>
+        </div>
+      </div>
+      <form (submit)="sendContactMessage(messageInput.value); $event.preventDefault()">
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea 
+            #messageInput
+            class="form-control"
+            rows="4"
+            placeholder="Hello, I'm interested in this property..."
+            required
+          ></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" (click)="closeContactModal()">
+            Cancel
+          </button>
+          <button type="submit" class="btn-send">
+            <i class="fas fa-paper-plane"></i>
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Clear Confirmation Dialog -->
+<div class="modal-backdrop" *ngIf="showClearConfirmation" (click)="cancelClear()">
+  <div class="modal-content confirm-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Clear All Properties?</h3>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to remove all properties from comparison?</p>
+      <p class="warning-text">
+        <i class="fas fa-exclamation-triangle"></i>
+        This action cannot be undone.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" (click)="cancelClear()">
+        Cancel
+      </button>
+      <button class="btn-confirm-clear" (click)="clearAll()">
+        <i class="fas fa-trash"></i>
+        Clear All
+      </button>
+    </div>
+  </div>
+</div>

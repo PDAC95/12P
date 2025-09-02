@@ -4,10 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/navbar/navbar';
 import { Footer } from './shared/footer/footer';
 import { AuthService } from './services/auth.service';
+import { CompareDrawerComponent } from './shared/components/compare-drawer/compare-drawer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer],
+  imports: [RouterOutlet, Navbar, Footer, CompareDrawerComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

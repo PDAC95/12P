@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm start)",
+      "Bash(start test-comparison.html)",
+      "Bash(start test-comparison-drawer.html)",
+      "Bash(npx ng:*)",
+      "Bash(curl:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": []

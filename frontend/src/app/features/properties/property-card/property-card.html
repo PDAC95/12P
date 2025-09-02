@@ -1,18 +1,39 @@
 <!-- src/app/features/properties/property-card/property-card.html -->
-<div class="card h-100 shadow-sm property-card">
-  <div class="card-img-container">
+<div class="card h-100 shadow-sm property-card" [class.comparison-selected]="isSelectedForComparison">
+  <div class="card-img-container" [class.selected-for-comparison]="isSelectedForComparison">
     <img [src]="property.image" class="card-img-top" [alt]="property.title" />
 
     <!-- Property type badge on the left -->
     <div class="property-type-badge">{{ property.type }}</div>
 
-    <!-- Favorite button on the right -->
-    <app-favorite-button
-      class="favorite-button-wrapper"
-      [propertyId]="property._id"
-      size="medium"
-      (favoriteChanged)="onFavoriteChanged($event)"
-    ></app-favorite-button>
+    <!-- Comparison indicator -->
+    <div class="comparison-indicator" *ngIf="isSelectedForComparison">
+      <i class="fas fa-check-circle"></i>
+      <span>Selected</span>
+    </div>
+
+    <!-- Action buttons container -->
+    <div class="card-actions">
+      <!-- Compare button -->
+      <button 
+        class="compare-button"
+        [class.selected]="isSelectedForComparison"
+        [class.disabled]="!canAddToComparison && !isSelectedForComparison"
+        [disabled]="!canAddToComparison && !isSelectedForComparison"
+        [title]="getCompareTooltip()"
+        (click)="onCompareClick($event)"
+      >
+        <i [class]="getCompareIcon()"></i>
+        <span class="compare-counter" *ngIf="comparisonCount > 0">{{ comparisonCount }}/3</span>
+      </button>
+      
+      <!-- Favorite button -->
+      <app-favorite-button
+        [propertyId]="property._id"
+        size="medium"
+        (favoriteChanged)="onFavoriteChanged($event)"
+      ></app-favorite-button>
+    </div>
   </div>
 
   <div class="card-body">

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Property Comparison Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background: #016450;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #014d3e;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .comparison-list {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .property-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .counter {
+            font-size: 18px;
+            font-weight: bold;
+            color: #016450;
+        }
+    </style>
+</head>
+<body>
+    <h1>Property Comparison Selection Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Manual Testing</h2>
+        <p>Selected: <span class="counter" id="counter">0/3</span></p>
+        <button onclick="addRandomProperty()">Add Random Property</button>
+        <button onclick="clearAll()">Clear All</button>
+        <button onclick="testMaxLimit()">Test Max Limit</button>
+        <div id="comparison-list" class="comparison-list">
+            <p>No properties selected</p>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5001/api';
+        const results = document.getElementById('test-results');
+        const counter = document.getElementById('counter');
+        const listDiv = document.getElementById('comparison-list');
+        
+        // Test suite
+        async function runTests() {
+            results.innerHTML = '<div class="info">Running tests...</div>';
+            
+            try {
+                // Test 1: API Health Check
+                const healthResponse = await fetch(`${API_URL}/health`);
+                const healthData = await healthResponse.json();
+                addResult('API Health Check', healthData.success, 'API is running');
+                
+                // Test 2: Get initial comparison list
+                const getResponse = await fetch(`${API_URL}/compare`, {
+                    credentials: 'include'
+                });
+                const getData = await getResponse.json();
+                addResult('Get Comparison List', getData.success, `Count: ${getData.data.count}`);
+                
+                // Test 3: Fetch properties to test with
+                const propsResponse = await fetch(`${API_URL}/properties?limit=5`);
+                const propsData = await propsResponse.json();
+                const testProperties = propsData.data.properties || [];
+                addResult('Fetch Test Properties', testProperties.length > 0, `Found ${testProperties.length} properties`);
+                
+                if (testProperties.length > 0) {
+                    // Test 4: Add property to comparison
+                    const addResponse = await fetch(`${API_URL}/compare/${testProperties[0]._id}`, {
+                        method: 'POST',
+                        credentials: 'include'
+                    });
+                    const addData = await addResponse.json();
+                    addResult('Add Property to Comparison', addData.success, `Count: ${addData.data?.count || 0}`);
+                    
+                    // Test 5: Try to add same property again (should fail)
+                    const duplicateResponse = await fetch(`${API_URL}/compare/${testProperties[0]._id}`, {
+                        method: 'POST',
+                        credentials: 'include'
+                    });
+                    const duplicateData = await duplicateResponse.json();
+                    addResult('Prevent Duplicate', !duplicateData.success, duplicateData.error || 'Duplicate prevented');
+                    
+                    // Test 6: Remove property
+                    const removeResponse = await fetch(`${API_URL}/compare/${testProperties[0]._id}`, {
+                        method: 'DELETE',
+                        credentials: 'include'
+                    });
+                    const removeData = await removeResponse.json();
+                    addResult('Remove Property', removeData.success, `Count: ${removeData.data?.count || 0}`);
+                    
+                    // Test 7: Test max limit (add 4 properties, 4th should fail)
+                    let addedCount = 0;
+                    for (let i = 0; i < 4 && i < testProperties.length; i++) {
+                        const response = await fetch(`${API_URL}/compare/${testProperties[i]._id}`, {
+                            method: 'POST',
+                            credentials: 'include'
+                        });
+                        const data = await response.json();
+                        if (data.success) addedCount++;
+                    }
+                    addResult('Max Limit Test', addedCount === 3, `Added ${addedCount} properties (max 3)`);
+                    
+                    // Test 8: Clear all
+                    const clearResponse = await fetch(`${API_URL}/compare`, {
+                        method: 'DELETE',
+                        credentials: 'include'
+                    });
+                    const clearData = await clearResponse.json();
+                    addResult('Clear All', clearData.success && clearData.data.count === 0, 'List cleared');
+                }
+                
+                results.innerHTML += '<div class="success"><strong>All tests completed!</strong></div>';
+                
+            } catch (error) {
+                results.innerHTML += `<div class="error">Test Error: ${error.message}</div>`;
+            }
+        }
+        
+        function addResult(testName, passed, message) {
+            const status = passed ? 'success' : 'error';
+            const icon = passed ? '✓' : '✗';
+            results.innerHTML += `
+                <div class="status ${status}">
+                    ${icon} <strong>${testName}:</strong> ${message}
+                </div>
+            `;
+        }
+        
+        // Manual testing functions
+        async function addRandomProperty() {
+            try {
+                const response = await fetch(`${API_URL}/properties?limit=10`);
+                const data = await response.json();
+                const properties = data.data.properties || [];
+                
+                if (properties.length === 0) {
+                    alert('No properties available');
+                    return;
+                }
+                
+                const randomProp = properties[Math.floor(Math.random() * properties.length)];
+                
+                const addResponse = await fetch(`${API_URL}/compare/${randomProp._id}`, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                const addData = await addResponse.json();
+                
+                if (addData.success) {
+                    updateDisplay(addData.data);
+                } else {
+                    alert(addData.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        async function clearAll() {
+            try {
+                const response = await fetch(`${API_URL}/compare`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                updateDisplay(data.data);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        async function testMaxLimit() {
+            try {
+                const response = await fetch(`${API_URL}/properties?limit=5`);
+                const data = await response.json();
+                const properties = data.data.properties || [];
+                
+                for (let i = 0; i < 4 && i < properties.length; i++) {
+                    await fetch(`${API_URL}/compare/${properties[i]._id}`, {
+                        method: 'POST',
+                        credentials: 'include'
+                    });
+                }
+                
+                const getResponse = await fetch(`${API_URL}/compare`, {
+                    credentials: 'include'
+                });
+                const getData = await getResponse.json();
+                updateDisplay(getData.data);
+                
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        function updateDisplay(data) {
+            counter.textContent = `${data.count}/3`;
+            
+            if (data.properties && data.properties.length > 0) {
+                listDiv.innerHTML = data.properties.map(p => `
+                    <div class="property-item">
+                        <span>${p.title} - $${p.price?.toLocaleString()}</span>
+                        <button onclick="removeProperty('${p._id}')">Remove</button>
+                    </div>
+                `).join('');
+            } else {
+                listDiv.innerHTML = '<p>No properties selected</p>';
+            }
+        }
+        
+        async function removeProperty(id) {
+            try {
+                const response = await fetch(`${API_URL}/compare/${id}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                updateDisplay(data.data);
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+        
+        // Run tests on load
+        window.onload = () => {
+            runTests();
+        };
+    </script>
+</body>
+</html>

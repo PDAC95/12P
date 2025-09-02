@@ -53,6 +53,17 @@ export interface PropertyModel {
   image: string;
   description: string;
   owner: string; // Add owner field - contains User ID
+  // Additional fields for comparison
+  yearBuilt?: number;
+  floors?: number;
+  garage?: number;
+  neighborhood?: string;
+  schoolDistrict?: string;
+  distanceToDowntown?: string;
+  heating?: string;
+  cooling?: string;
+  parking?: string;
+  amenities?: string[];
 }
 
 // API Response interfaces - Updated to match actual backend response

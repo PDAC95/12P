@@ -12,11 +12,23 @@
 
   <!-- Property Detail Content -->
   <div *ngIf="!loading && property" class="property-detail">
-    <!-- Back Button -->
+    <!-- Back Button and Actions -->
     <div class="back-navigation">
-      <button class="btn btn-outline-secondary" (click)="goBack()">
-        <i class="fas fa-arrow-left"></i> Back to Properties
-      </button>
+      <div class="d-flex justify-content-between align-items-center">
+        <button class="btn btn-outline-secondary" (click)="goBack()">
+          <i class="fas fa-arrow-left"></i> Back to Properties
+        </button>
+        <button 
+          class="btn btn-comparison"
+          [class.selected]="isInComparison"
+          [disabled]="!canAddToComparison && !isInComparison"
+          (click)="toggleComparison()"
+          [title]="getComparisonButtonText()"
+        >
+          <i [class]="getComparisonIcon()"></i>
+          {{ getComparisonButtonText() }}
+        </button>
+      </div>
     </div>
 
     <!-- Property Header -->
