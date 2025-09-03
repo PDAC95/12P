@@ -81,6 +81,26 @@ export const routes: Routes = [
     canActivate: [agentGuard, emailVerifiedGuard], // Agent must verify email
   },
 
+  // Agent My Properties
+  {
+    path: 'agent/my-properties',
+    loadComponent: () =>
+      import('./pages/agent/my-properties/my-properties').then(
+        (c) => c.MyProperties
+      ),
+    canActivate: [agentGuard, emailVerifiedGuard], // Agent must verify email
+  },
+
+  // Agent Edit Property
+  {
+    path: 'agent/properties/edit/:id',
+    loadComponent: () =>
+      import('./pages/agent/edit-property/edit-property').then(
+        (c) => c.EditProperty
+      ),
+    canActivate: [agentGuard, emailVerifiedGuard], // Agent must verify email
+  },
+
   // User Dashboard
   {
     path: 'user/dashboard',

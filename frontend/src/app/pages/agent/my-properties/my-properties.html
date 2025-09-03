@@ -1,0 +1,340 @@
+<div class="my-properties-page">
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-left">
+          <h1 class="page-title">My Properties</h1>
+          <p class="page-description">Manage your property listings</p>
+        </div>
+        <div class="header-right">
+          <button class="btn btn-primary" (click)="addNewProperty()">
+            <i class="fas fa-plus"></i> Add New Property
+          </button>
+        </div>
+      </div>
+      
+      <!-- Statistics Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">{{ stats.total }}</div>
+          <div class="stat-label">Total Properties</div>
+        </div>
+        <div class="stat-card success">
+          <div class="stat-value">{{ stats.active }}</div>
+          <div class="stat-label">Active</div>
+        </div>
+        <div class="stat-card warning">
+          <div class="stat-value">{{ stats.inactive }}</div>
+          <div class="stat-label">Inactive</div>
+        </div>
+        <div class="stat-card info">
+          <div class="stat-value">{{ stats.totalViews }}</div>
+          <div class="stat-label">Total Views</div>
+        </div>
+        <div class="stat-card primary">
+          <div class="stat-value">{{ stats.totalFavorites }}</div>
+          <div class="stat-label">Total Favorites</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters-wrapper">
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            placeholder="Search by title, location..."
+            [(ngModel)]="searchTerm"
+            (input)="onSearch($any($event.target).value)"
+            class="search-input"
+          />
+        </div>
+        
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+          <select class="filter-select" [(ngModel)]="selectedStatus" (change)="onStatusChange()">
+            <option *ngFor="let status of statusOptions" [value]="status.value">
+              {{ status.label }}
+            </option>
+          </select>
+          
+          <select class="filter-select" [(ngModel)]="selectedType" (change)="onTypeChange()">
+            <option value="all">All Types</option>
+            <option *ngFor="let type of propertyTypes" [value]="type">{{ type }}</option>
+          </select>
+          
+          <select class="filter-select" [(ngModel)]="selectedListingType" (change)="onListingTypeChange()">
+            <option value="all">All Listings</option>
+            <option value="sale">For Sale</option>
+            <option value="rent">For Rent</option>
+            <option value="coliving">Co-Living</option>
+          </select>
+          
+          <select class="filter-select" [(ngModel)]="sortBy" (change)="onSortChange()">
+            <option *ngFor="let sort of sortOptions" [value]="sort.value">
+              {{ sort.label }}
+            </option>
+          </select>
+          
+          <button class="btn-icon" (click)="toggleSortOrder()" [title]="sortOrder === 'asc' ? 'Ascending' : 'Descending'">
+            <i class="fas" [class.fa-sort-amount-up]="sortOrder === 'asc'" [class.fa-sort-amount-down]="sortOrder === 'desc'"></i>
+          </button>
+          
+          <div class="view-toggle">
+            <button class="btn-icon" [class.active]="viewMode === 'grid'" (click)="viewMode = 'grid'">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="btn-icon" [class.active]="viewMode === 'list'" (click)="viewMode = 'list'">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Properties Content -->
+  <section class="properties-content">
+    <div class="container">
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading properties...</p>
+      </div>
+
+      <!-- Error State -->
+      <div *ngIf="error && !isLoading" class="error-state">
+        <i class="fas fa-exclamation-circle"></i>
+        <p>{{ error }}</p>
+        <button class="btn btn-primary" (click)="loadMyProperties()">Try Again</button>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="!isLoading && !error && properties.length === 0" class="empty-state">
+        <i class="fas fa-home"></i>
+        <h3>No Properties Yet</h3>
+        <p>Start by adding your first property listing</p>
+        <button class="btn btn-primary" (click)="addNewProperty()">
+          <i class="fas fa-plus"></i> Add Property
+        </button>
+      </div>
+
+      <!-- Grid View -->
+      <div *ngIf="!isLoading && !error && properties.length > 0 && viewMode === 'grid'" class="properties-grid">
+        <div *ngFor="let property of filteredProperties" class="property-card-wrapper">
+          <div class="property-card">
+            <div class="property-image">
+              <img [src]="getPropertyImage(property)" [alt]="property.title">
+              <div class="property-badges">
+                <span class="badge" [ngClass]="getStatusClass(property.status)">
+                  {{ getStatusLabel(property.status) }}
+                </span>
+                <span class="badge badge-type">{{ property.type }}</span>
+              </div>
+              <div class="property-stats">
+                <span><i class="fas fa-eye"></i> {{ property.statistics.views }}</span>
+                <span><i class="fas fa-heart"></i> {{ property.statistics.favorites }}</span>
+              </div>
+            </div>
+            <div class="property-content">
+              <h3 class="property-title">{{ property.title }}</h3>
+              <p class="property-location">
+                <i class="fas fa-map-marker-alt"></i>
+                {{ property.location.city }}, {{ property.location.state }}
+              </p>
+              <div class="property-details">
+                <span class="property-price">{{ formatPrice(property.price) }}</span>
+                <span class="property-meta">
+                  <i class="fas fa-bed"></i> {{ property.bedrooms }} |
+                  <i class="fas fa-bath"></i> {{ property.bathrooms }}
+                </span>
+              </div>
+              <div class="property-info">
+                <span class="info-item">
+                  <i class="fas fa-calendar"></i>
+                  {{ property.statistics.daysOnMarket }} days on market
+                </span>
+              </div>
+              <div class="property-actions">
+                <button class="btn btn-sm btn-outline" (click)="viewProperty(property)">
+                  <i class="fas fa-eye"></i> View
+                </button>
+                <button class="btn btn-sm btn-outline" (click)="editProperty(property)">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+                <button 
+                  class="btn btn-sm btn-outline"
+                  (click)="toggleStatus(property)"
+                  [title]="property.status === 'available' ? 'Deactivate' : 'Activate'"
+                >
+                  <i class="fas fa-power-off"></i>
+                  {{ property.status === 'available' ? 'Deactivate' : 'Activate' }}
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="deleteProperty(property)">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- List View -->
+      <div *ngIf="!isLoading && !error && properties.length > 0 && viewMode === 'list'" class="properties-list">
+        <table class="properties-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Location</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Stats</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let property of filteredProperties">
+              <td class="property-cell">
+                <div class="property-info-cell">
+                  <img [src]="getPropertyImage(property)" [alt]="property.title" class="property-thumb">
+                  <div>
+                    <h4>{{ property.title }}</h4>
+                    <span class="text-muted">{{ property.type }} - {{ property.listingType }}</span>
+                  </div>
+                </div>
+              </td>
+              <td>{{ property.location.city }}, {{ property.location.state }}</td>
+              <td>{{ formatPrice(property.price) }}</td>
+              <td>
+                <span class="badge" [ngClass]="getStatusClass(property.status)">
+                  {{ getStatusLabel(property.status) }}
+                </span>
+              </td>
+              <td>
+                <div class="stats-cell">
+                  <span><i class="fas fa-eye"></i> {{ property.statistics.views }}</span>
+                  <span><i class="fas fa-heart"></i> {{ property.statistics.favorites }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action" (click)="viewProperty(property)" title="View">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" (click)="editProperty(property)" title="Edit">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" (click)="toggleStatus(property)" 
+                    [title]="property.status === 'available' ? 'Deactivate' : 'Activate'">
+                    <i class="fas fa-power-off"></i>
+                  </button>
+                  <button class="btn-action danger" (click)="deleteProperty(property)" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div *ngIf="!isLoading && !error && totalPages > 1" class="pagination">
+        <button 
+          class="btn-page" 
+          (click)="goToPage(currentPage - 1)" 
+          [disabled]="currentPage === 1"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+        
+        <button 
+          class="btn-page" 
+          (click)="goToPage(currentPage + 1)" 
+          [disabled]="currentPage === totalPages"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-overlay" *ngIf="showDeleteModal" (click)="closeDeleteModal()">
+    <div class="modal-dialog" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2><i class="fas fa-exclamation-triangle"></i> Confirm Deletion</h2>
+        <button class="btn-close" (click)="closeDeleteModal()" [disabled]="isDeleting">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <p class="warning-message">
+          Are you sure you want to delete this property?
+        </p>
+        
+        <div class="property-info" *ngIf="propertyToDelete">
+          <img [src]="getPropertyImage(propertyToDelete)" [alt]="propertyToDelete.title" class="property-thumbnail">
+          <div class="property-details">
+            <h3>{{ propertyToDelete.title }}</h3>
+            <p class="property-location">
+              <i class="fas fa-map-marker-alt"></i>
+              {{ propertyToDelete.location.city }}, {{ propertyToDelete.location.state }}
+            </p>
+            <p class="property-price">{{ formatPrice(propertyToDelete.price) }}</p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="deleteReason">Reason for deletion (optional)</label>
+          <textarea
+            id="deleteReason"
+            [(ngModel)]="deleteReason"
+            placeholder="e.g., Sold outside platform, No longer available..."
+            rows="3"
+            [disabled]="isDeleting"
+          ></textarea>
+        </div>
+        
+        <div class="warning-note">
+          <i class="fas fa-info-circle"></i>
+          <span>
+            This action will remove the property from all public listings. 
+            The property data will be archived for record-keeping purposes.
+          </span>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button 
+          class="btn btn-secondary" 
+          (click)="closeDeleteModal()"
+          [disabled]="isDeleting"
+        >
+          Cancel
+        </button>
+        <button 
+          class="btn btn-danger" 
+          (click)="confirmDelete()"
+          [disabled]="isDeleting"
+        >
+          <span *ngIf="!isDeleting">
+            <i class="fas fa-trash"></i> Delete Property
+          </span>
+          <span *ngIf="isDeleting">
+            <i class="fas fa-spinner fa-spin"></i> Deleting...
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

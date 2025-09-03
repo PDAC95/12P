@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
-  Property as PropertyService,
+  PropertyService,
   PropertyModel,
   BackendPropertyModel,
 } from '../../../services/property';

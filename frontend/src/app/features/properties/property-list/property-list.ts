@@ -12,7 +12,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PropertyCard } from '../property-card/property-card';
-import { Property } from '../../../services/property';
+import { PropertyService } from '../../../services/property';
 import { Map, MapProperty } from '../../../shared/map/map';
 
 @Component({
@@ -74,7 +74,7 @@ export class PropertyList implements OnInit, OnChanges {
   totalProperties: number = 0;
   itemsPerPage: number = 12;
 
-  constructor(private propertyService: Property) {}
+  constructor(private propertyService: PropertyService) {}
 
   ngOnInit(): void {
     this.loadProperties();

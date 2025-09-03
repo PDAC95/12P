@@ -1,0 +1,440 @@
+<div class="edit-property-page">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading property data...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="loadError && !isLoading" class="error-container">
+    <div class="error-message">
+      <i class="fas fa-exclamation-triangle"></i>
+      <h2>Error Loading Property</h2>
+      <p>{{ loadError }}</p>
+      <button class="btn btn-primary" routerLink="/agent/my-properties">
+        Back to My Properties
+      </button>
+    </div>
+  </div>
+
+  <!-- Edit Form -->
+  <div *ngIf="!isLoading && !loadError" class="container">
+    <!-- Header -->
+    <div class="page-header">
+      <h1>Edit Property</h1>
+      <p>Update your property listing information</p>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress-step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+        <span class="step-number">1</span>
+        <span class="step-label">Property Details</span>
+      </div>
+      <div class="progress-line" [class.completed]="currentStep > 1"></div>
+      <div class="progress-step" [class.active]="currentStep >= 2">
+        <span class="step-number">2</span>
+        <span class="step-label">Media & Features</span>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div *ngIf="isSubmitted" class="success-message">
+      <i class="fas fa-check-circle"></i>
+      <h2>Property Updated Successfully!</h2>
+      <p>{{ successMessage }}</p>
+      <p>Redirecting to your properties...</p>
+    </div>
+
+    <!-- Form -->
+    <form *ngIf="!isSubmitted" (ngSubmit)="onSubmit()" class="property-form">
+      <!-- Step 1: Property Details -->
+      <div *ngIf="currentStep === 1" class="form-step">
+        <h2>Property Information</h2>
+        
+        <!-- Title & Description -->
+        <div class="form-section">
+          <h3>Basic Information</h3>
+          <div class="form-group">
+            <label for="title">Property Title *</label>
+            <input
+              type="text"
+              id="title"
+              [(ngModel)]="propertyForm.title"
+              name="title"
+              placeholder="e.g., Beautiful 3-Bedroom House in Downtown"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="description">Description *</label>
+            <textarea
+              id="description"
+              [(ngModel)]="propertyForm.description"
+              name="description"
+              rows="5"
+              placeholder="Describe your property in detail..."
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="form-section">
+          <h3>Location</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address">Street Address *</label>
+              <input
+                type="text"
+                id="address"
+                [(ngModel)]="propertyForm.location.address"
+                name="address"
+                placeholder="123 Main Street"
+                required
+              />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City *</label>
+              <input
+                type="text"
+                id="city"
+                [(ngModel)]="propertyForm.location.city"
+                name="city"
+                placeholder="Toronto"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="province">Province *</label>
+              <input
+                type="text"
+                id="province"
+                [(ngModel)]="propertyForm.location.province"
+                name="province"
+                placeholder="Ontario"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="postalCode">Postal Code</label>
+              <input
+                type="text"
+                id="postalCode"
+                [(ngModel)]="propertyForm.location.postalCode"
+                name="postalCode"
+                placeholder="M5V 3A8"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Property Details -->
+        <div class="form-section">
+          <h3>Property Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="type">Property Type *</label>
+              <select
+                id="type"
+                [(ngModel)]="propertyForm.type"
+                name="type"
+                required
+              >
+                <option value="">Select Type</option>
+                <option *ngFor="let type of propertyTypes" [value]="type">
+                  {{ type }}
+                </option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="listingType">Listing Type *</label>
+              <select
+                id="listingType"
+                [(ngModel)]="propertyForm.listingType"
+                name="listingType"
+                required
+              >
+                <option value="sale">For Sale</option>
+                <option value="rent">For Rent</option>
+                <option value="coliving">Co-Living</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="status">Status *</label>
+              <select
+                id="status"
+                [(ngModel)]="propertyForm.status"
+                name="status"
+                required
+              >
+                <option value="available">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="draft">Draft</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="price">Price ($) *</label>
+              <input
+                type="number"
+                id="price"
+                [(ngModel)]="propertyForm.price"
+                name="price"
+                placeholder="500000"
+                min="0"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="area">Area (sq ft) *</label>
+              <input
+                type="number"
+                id="area"
+                [(ngModel)]="propertyForm.area"
+                name="area"
+                placeholder="1500"
+                min="0"
+                required
+              />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bedrooms">Bedrooms *</label>
+              <input
+                type="number"
+                id="bedrooms"
+                [(ngModel)]="propertyForm.bedrooms"
+                name="bedrooms"
+                placeholder="3"
+                min="0"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="bathrooms">Bathrooms *</label>
+              <input
+                type="number"
+                id="bathrooms"
+                [(ngModel)]="propertyForm.bathrooms"
+                name="bathrooms"
+                placeholder="2"
+                min="0"
+                step="0.5"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="form-navigation">
+          <button type="button" class="btn btn-secondary" (click)="cancelEdit()">
+            Cancel
+          </button>
+          <button type="button" class="btn btn-primary" (click)="nextStep()">
+            Next Step <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Media & Features -->
+      <div *ngIf="currentStep === 2" class="form-step">
+        <h2>Media & Features</h2>
+        
+        <!-- Images Section -->
+        <div class="form-section">
+          <h3>Property Images</h3>
+          <p class="section-description">
+            Upload up to {{ maxImages }} images. The first image will be the primary photo.
+          </p>
+          
+          <!-- Image Upload Area -->
+          <div
+            class="upload-area"
+            [class.dragging]="isDragging"
+            (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)"
+            (drop)="onDrop($event)"
+          >
+            <input
+              type="file"
+              id="imageInput"
+              multiple
+              accept="image/jpeg,image/jpg,image/png,image/webp"
+              (change)="onImageSelect($event)"
+              #imageInput
+              style="display: none"
+            />
+            
+            <div class="upload-content" (click)="imageInput.click()">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Drag & drop images here or click to browse</p>
+              <small>JPEG, PNG, WebP - Max 5MB each</small>
+            </div>
+          </div>
+          
+          <!-- Upload Error -->
+          <div *ngIf="uploadError" class="error-alert">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ uploadError }}
+          </div>
+          
+          <!-- Image Preview Grid -->
+          <div *ngIf="selectedImages.length > 0" class="image-preview-grid">
+            <div *ngFor="let image of selectedImages; let i = index" 
+                 class="image-preview-item"
+                 [class.marked-for-deletion]="image.markedForDeletion">
+              <img [src]="image.preview" alt="Property image">
+              
+              <div class="image-badges">
+                <span *ngIf="i === 0" class="badge-primary">Primary</span>
+                <span *ngIf="image.isExisting" class="badge-existing">Existing</span>
+                <span *ngIf="image.markedForDeletion" class="badge-deleted">To Delete</span>
+              </div>
+              
+              <div class="image-actions">
+                <button *ngIf="i > 0 && !image.markedForDeletion" 
+                        type="button" 
+                        class="btn-icon"
+                        (click)="setPrimaryImage(i)"
+                        title="Set as primary">
+                  <i class="fas fa-star"></i>
+                </button>
+                <button *ngIf="!image.markedForDeletion"
+                        type="button" 
+                        class="btn-icon btn-danger"
+                        (click)="removeImage(i)"
+                        title="Remove">
+                  <i class="fas fa-times"></i>
+                </button>
+                <button *ngIf="image.markedForDeletion"
+                        type="button" 
+                        class="btn-icon btn-success"
+                        (click)="restoreImage(i)"
+                        title="Restore">
+                  <i class="fas fa-undo"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="form-section">
+          <h3>Walkthrough Video</h3>
+          <p class="section-description">
+            Upload a video tour of your property (optional). Max 50MB, 5 minutes.
+          </p>
+          
+          <!-- Existing Video -->
+          <div *ngIf="selectedVideo?.isExisting && !deleteExistingVideo" class="existing-video">
+            <h4>Current Video</h4>
+            <video [src]="selectedVideo?.preview" controls class="video-preview"></video>
+            <div class="video-actions">
+              <button type="button" class="btn btn-secondary" (click)="removeVideo()">
+                <i class="fas fa-trash"></i> Remove Video
+              </button>
+            </div>
+          </div>
+          
+          <!-- Video Upload Area -->
+          <div *ngIf="!selectedVideo || deleteExistingVideo"
+               class="upload-area video-upload"
+               [class.dragging]="isVideoDragging"
+               (dragover)="onVideoDragOver($event)"
+               (dragleave)="onVideoDragLeave($event)"
+               (drop)="onVideoDrop($event)">
+            <input
+              type="file"
+              id="videoInput"
+              accept="video/mp4,video/quicktime,video/x-msvideo"
+              (change)="onVideoSelect($event)"
+              #videoInput
+              style="display: none"
+            />
+            
+            <div class="upload-content" (click)="videoInput.click()">
+              <i class="fas fa-video"></i>
+              <p>Drag & drop video here or click to browse</p>
+              <small>MP4, MOV, AVI - Max 50MB, 5 minutes</small>
+            </div>
+          </div>
+          
+          <!-- Video Preview -->
+          <div *ngIf="selectedVideo && !selectedVideo.isExisting" class="video-preview-container">
+            <h4>New Video</h4>
+            <video [src]="selectedVideo?.preview" controls class="video-preview"></video>
+            <div class="video-info">
+              <span *ngIf="selectedVideo.file">
+                Size: {{ formatFileSize(selectedVideo.file.size) }}
+              </span>
+            </div>
+            <button type="button" class="btn btn-danger" (click)="removeVideo()">
+              <i class="fas fa-times"></i> Remove
+            </button>
+          </div>
+          
+          <!-- Video Error -->
+          <div *ngIf="videoUploadError" class="error-alert">
+            <i class="fas fa-exclamation-circle"></i>
+            {{ videoUploadError }}
+          </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="form-section">
+          <h3>Property Features</h3>
+          <p class="section-description">Select all features that apply to your property</p>
+          
+          <div class="features-grid">
+            <label *ngFor="let feature of availableFeatures" class="feature-item">
+              <input
+                type="checkbox"
+                [checked]="isFeatureSelected(feature)"
+                (change)="toggleFeature(feature)"
+              />
+              <span class="feature-label">
+                <i class="fas fa-check"></i>
+                {{ feature }}
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="form-navigation">
+          <button type="button" class="btn btn-secondary" (click)="prevStep()">
+            <i class="fas fa-arrow-left"></i> Previous
+          </button>
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+            [disabled]="isSubmitting || !isValidForm()"
+          >
+            <span *ngIf="!isSubmitting">
+              <i class="fas fa-save"></i> Update Property
+            </span>
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i> Updating...
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

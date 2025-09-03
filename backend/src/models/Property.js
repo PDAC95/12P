@@ -117,6 +117,48 @@ const propertySchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    
+    // Analytics fields
+    views: {
+      type: Number,
+      default: 0,
+    },
+    uniqueViews: {
+      type: Number,
+      default: 0,
+    },
+    favoriteCount: {
+      type: Number,
+      default: 0,
+    },
+    inquiryCount: {
+      type: Number,
+      default: 0,
+    },
+    lastViewed: {
+      type: Date,
+      default: null,
+    },
+    
+    // Soft delete fields
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+    deletedAt: {
+      type: Date,
+      default: null,
+    },
+    deletedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
+    },
+    deletionReason: {
+      type: String,
+      default: null,
+    },
+    
     createdAt: {
       type: Date,
       default: Date.now,
@@ -137,6 +179,8 @@ const propertySchema = new mongoose.Schema(
 propertySchema.index({ "location.city": 1, type: 1, status: 1 });
 propertySchema.index({ price: 1, bedrooms: 1, bathrooms: 1 });
 propertySchema.index({ createdAt: -1 });
+propertySchema.index({ isDeleted: 1 }); // Index for soft delete queries
+propertySchema.index({ owner: 1, isDeleted: 1 }); // Compound index for agent queries
 
 // Virtual for full address
 propertySchema.virtual("fullAddress").get(function () {

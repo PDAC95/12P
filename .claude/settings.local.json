@@ -15,7 +15,16 @@
       "Bash(start test-media-viewer.html)",
       "Bash(start test-video-integration.html)",
       "Bash(start test-indicator-fix.html)",
-      "Bash(start test-card-styling-phase2.html)"
+      "Bash(start test-card-styling-phase2.html)",
+      "Bash(start test-agent-dashboard.html)",
+      "Bash(start test-my-properties.html)",
+      "Bash(start test-edit-property.html)",
+      "Bash(start test-delete-property.html)",
+      "Bash(ng serve:*)",
+      "Bash(npm run ng:*)",
+      "Bash(npm run seed:more:*)",
+      "Bash(timeout 5 npm start)",
+      "Bash(start test-properties-loading.html)"
     ],
     "deny": [],
     "ask": []

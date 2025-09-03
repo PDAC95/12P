@@ -4,7 +4,10 @@ const {
   getPropertyById,
   createProperty,
   updateProperty,
-  deleteProperty, // Add this import
+  deleteProperty,
+  getMyProperties,
+  togglePropertyStatus,
+  getAgentStats,
 } = require("../controllers/propertyController");
 const { authenticate, authorize } = require("../middleware/auth");
 const { handleUpload } = require("../middleware/upload");
@@ -18,6 +21,31 @@ const router = express.Router();
  * @query   ?page=1&limit=10&city=Toronto&type=Condo&minPrice=300000&maxPrice=800000&bedrooms=2&bathrooms=1&listingType=sale&search=downtown
  */
 router.get("/", getProperties);
+
+/**
+ * @route   GET /api/properties/agent-stats
+ * @desc    Get comprehensive statistics for authenticated agent
+ * @access  Private (agents only)
+ */
+router.get(
+  "/agent-stats",
+  authenticate,
+  authorize(["agent", "admin"]),
+  getAgentStats
+);
+
+/**
+ * @route   GET /api/properties/my-properties
+ * @desc    Get properties for authenticated agent
+ * @access  Private (agents only)
+ * @query   ?page=1&limit=12&status=active&search=downtown&type=Condo&sortBy=createdAt&sortOrder=desc
+ */
+router.get(
+  "/my-properties",
+  authenticate,
+  authorize(["agent", "admin"]),
+  getMyProperties
+);
 
 /**
  * @route   GET /api/properties/:id
@@ -73,6 +101,18 @@ router.delete(
     "Only agents can delete property listings. Please update your account to 'Property Lister' to delete properties."
   ),
   deleteProperty
+);
+
+/**
+ * @route   PATCH /api/properties/:id/toggle-status
+ * @desc    Toggle property status between active and inactive
+ * @access  Private (only owner agent or admin)
+ */
+router.patch(
+  "/:id/toggle-status",
+  authenticate,
+  authorize(["agent", "admin"]),
+  togglePropertyStatus
 );
 
 module.exports = router;

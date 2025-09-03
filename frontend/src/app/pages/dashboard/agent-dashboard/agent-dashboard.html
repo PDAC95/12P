@@ -5,15 +5,132 @@
     <div class="container">
       <div class="header-content">
         <h1 class="page-title">
-          <span class="title-line">Agent</span>
+          <span class="title-line">Welcome back,</span>
           <span class="title-line"
-            ><span class="highlight">Dashboard</span></span
+            ><span class="highlight">{{ agentName }}</span></span
           >
         </h1>
         <p class="page-description">
-          Welcome to your agent dashboard. Manage your properties and clients
-          here.
+          Manage your property listings, track client inquiries, and monitor your performance.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Stats -->
+  <section class="dashboard-stats">
+    <div class="container">
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="stats-loading">
+        <div class="spinner-border text-primary me-3" role="status">
+          <span class="visually-hidden">Loading statistics...</span>
+        </div>
+        <span>Loading your dashboard statistics...</span>
+      </div>
+
+      <!-- Error State -->
+      <div *ngIf="!isLoading && statsError" class="alert alert-warning">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        {{ statsError }}
+      </div>
+
+      <!-- Stats Grid -->
+      <div *ngIf="!isLoading && !statsError" class="stats-grid">
+        <!-- Total Properties -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ statistics.overview.totalProperties }}</h3>
+            <p class="stat-label">Total Properties</p>
+            <div class="stat-trend" *ngIf="statistics.trends.propertyTrend.direction !== 'neutral'">
+              <i class="fas" 
+                 [class.fa-arrow-up]="statistics.trends.propertyTrend.direction === 'up'" 
+                 [class.fa-arrow-down]="statistics.trends.propertyTrend.direction === 'down'"
+                 [class.text-success]="statistics.trends.propertyTrend.direction === 'up'"
+                 [class.text-danger]="statistics.trends.propertyTrend.direction === 'down'"></i>
+              <span [class.text-success]="statistics.trends.propertyTrend.direction === 'up'"
+                    [class.text-danger]="statistics.trends.propertyTrend.direction === 'down'">
+                {{ statistics.trends.propertyTrend.percentage }}%
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Views -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ statistics.engagement.totalViews | number }}</h3>
+            <p class="stat-label">Total Views</p>
+            <div class="stat-trend" *ngIf="statistics.trends.viewsTrend.direction !== 'neutral'">
+              <i class="fas" 
+                 [class.fa-arrow-up]="statistics.trends.viewsTrend.direction === 'up'" 
+                 [class.fa-arrow-down]="statistics.trends.viewsTrend.direction === 'down'"
+                 [class.text-success]="statistics.trends.viewsTrend.direction === 'up'"
+                 [class.text-danger]="statistics.trends.viewsTrend.direction === 'down'"></i>
+              <span [class.text-success]="statistics.trends.viewsTrend.direction === 'up'"
+                    [class.text-danger]="statistics.trends.viewsTrend.direction === 'down'">
+                {{ statistics.trends.viewsTrend.percentage }}%
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Favorites -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ statistics.engagement.totalFavorites }}</h3>
+            <p class="stat-label">Total Favorites</p>
+          </div>
+        </div>
+
+        <!-- Total Inquiries -->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value">{{ statistics.engagement.totalInquiries }}</h3>
+            <p class="stat-label">Total Inquiries</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Performance Stats -->
+      <div *ngIf="!isLoading && !statsError" class="performance-stats mt-4">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="stat-mini-card">
+              <small>Active Properties</small>
+              <strong>{{ statistics.overview.activeProperties }}</strong>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-mini-card">
+              <small>Avg. Views/Property</small>
+              <strong>{{ statistics.engagement.avgViewsPerProperty | number:'1.0-0' }}</strong>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-mini-card">
+              <small>Conversion Rate</small>
+              <strong>{{ statistics.performance.conversionRate | number:'1.1-1' }}%</strong>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stat-mini-card">
+              <small>Avg. Days on Market</small>
+              <strong>{{ statistics.performance.avgDaysOnMarket | number:'1.0-0' }}</strong>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -23,27 +140,61 @@
     <div class="container">
       <div class="dashboard-grid">
         <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-building"></i>
+          </div>
           <h3>My Properties</h3>
-          <p>Manage your property listings</p>
-          <button class="btn btn-primary">View Properties</button>
+          <p>View and manage your property listings</p>
+          <div class="card-actions">
+            <button class="btn btn-primary" (click)="navigateToProperties()">
+              <i class="fas fa-list"></i> View All
+            </button>
+            <button class="btn btn-outline-primary" (click)="navigateToAddProperty()">
+              <i class="fas fa-plus"></i> Add New
+            </button>
+          </div>
         </div>
 
         <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-comment-dots"></i>
+          </div>
           <h3>Client Inquiries</h3>
-          <p>Review messages from potential clients</p>
-          <button class="btn btn-primary">View Inquiries</button>
+          <p>Respond to messages from potential buyers and renters</p>
+          <div class="card-actions">
+            <button class="btn btn-primary" (click)="navigateToInquiries()">
+              <i class="fas fa-inbox"></i> View Inquiries
+            </button>
+          </div>
+          <div class="badge badge-notification" *ngIf="inquiryCount > 0">
+            {{ inquiryCount }} new
+          </div>
         </div>
 
         <div class="dashboard-card">
-          <h3>Performance</h3>
-          <p>Track your sales and rental metrics</p>
-          <button class="btn btn-primary">View Reports</button>
+          <div class="card-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Performance Analytics</h3>
+          <p>Track views, inquiries, and conversion metrics</p>
+          <div class="card-actions">
+            <button class="btn btn-primary" (click)="navigateToPerformance()">
+              <i class="fas fa-chart-bar"></i> View Reports
+            </button>
+          </div>
         </div>
 
         <div class="dashboard-card">
+          <div class="card-icon">
+            <i class="fas fa-user-cog"></i>
+          </div>
           <h3>Account Settings</h3>
-          <p>Update your profile and preferences</p>
-          <button class="btn btn-primary">Edit Profile</button>
+          <p>Update your profile, contact info, and preferences</p>
+          <div class="card-actions">
+            <button class="btn btn-primary" (click)="navigateToProfile()">
+              <i class="fas fa-edit"></i> Edit Profile
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -102,7 +102,7 @@ interface PaginatedApiResponse {
 @Injectable({
   providedIn: 'root',
 })
-export class Property {
+export class PropertyService {
   // API URL configuration - hardcoded for now, can be moved to config later
   private readonly API_BASE_URL = 'http://localhost:5001/api';
   private readonly apiUrl = `${this.API_BASE_URL}/properties`;
@@ -324,5 +324,77 @@ export class Property {
     }
 
     return this.getProperties(searchParams);
+  }
+
+  /**
+   * Get properties for the authenticated agent
+   * @param params Query parameters for filtering and pagination
+   * @returns Observable with agent's properties and stats
+   */
+  getMyProperties(params: any = {}): Observable<any> {
+    let httpParams = new HttpParams();
+    
+    Object.keys(params).forEach(key => {
+      if (params[key] !== null && params[key] !== undefined) {
+        httpParams = httpParams.set(key, params[key].toString());
+      }
+    });
+
+    return this.http.get<any>(`${this.apiUrl}/my-properties`, { params: httpParams })
+      .pipe(
+        catchError(error => {
+          console.error('Error fetching agent properties:', error);
+          throw error;
+        })
+      );
+  }
+
+  /**
+   * Toggle property status between active and inactive
+   * @param propertyId Property ID
+   * @returns Observable with updated property status
+   */
+  togglePropertyStatus(propertyId: string): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/${propertyId}/toggle-status`, {})
+      .pipe(
+        catchError(error => {
+          console.error('Error toggling property status:', error);
+          throw error;
+        })
+      );
+  }
+
+  /**
+   * Delete a property (soft delete)
+   * @param propertyId Property ID
+   * @param data Optional deletion data (e.g., reason)
+   * @returns Observable with deletion result
+   */
+  deleteProperty(propertyId: string, data: any = {}): Observable<any> {
+    const options = {
+      body: data // Include optional data in the request body
+    };
+    
+    return this.http.delete<any>(`${this.apiUrl}/${propertyId}`, options)
+      .pipe(
+        catchError(error => {
+          console.error('Error deleting property:', error);
+          throw error;
+        })
+      );
+  }
+
+  /**
+   * Get comprehensive statistics for the authenticated agent
+   * @returns Observable with agent statistics
+   */
+  getAgentStats(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/agent-stats`)
+      .pipe(
+        catchError(error => {
+          console.error('Error fetching agent statistics:', error);
+          throw error;
+        })
+      );
   }
 }
