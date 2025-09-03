@@ -6,6 +6,16 @@
     <!-- Property type badge on the left -->
     <div class="property-type-badge">{{ property.type }}</div>
 
+    <!-- Media indicators -->
+    <div class="media-indicators">
+      <span class="media-badge photo-count" *ngIf="getImageCount() > 0">
+        📷 {{ getImageCount() }}
+      </span>
+      <span class="media-badge video-indicator" *ngIf="hasVideo()">
+        🎥
+      </span>
+    </div>
+
     <!-- Comparison indicator -->
     <div class="comparison-indicator" *ngIf="isSelectedForComparison">
       <i class="fas fa-check-circle"></i>

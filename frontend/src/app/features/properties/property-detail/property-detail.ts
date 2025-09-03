@@ -1,5 +1,5 @@
 // src/app/features/properties/property-detail/property-detail.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -17,6 +17,8 @@ import { ComparisonService } from '../../../services/comparison.service';
   styleUrl: './property-detail.scss',
 })
 export class PropertyDetail implements OnInit {
+  @ViewChild('videoPlayer') videoPlayer: ElementRef<HTMLVideoElement> | undefined;
+  
   property: PropertyModel | null = null;
   backendProperty: BackendPropertyModel | null = null; // Store full backend data
   loading = true;
@@ -24,6 +26,13 @@ export class PropertyDetail implements OnInit {
   isInComparison = false;
   canAddToComparison = true;
   comparisonCount = 0;
+  
+  // Media viewer properties
+  activeMediaTab: 'photos' | 'video' = 'photos';
+  currentImageIndex = 0;
+  isLightboxOpen = false;
+  lightboxIndex = 0;
+  isVideoPlaying = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -217,6 +226,131 @@ export class PropertyDetail implements OnInit {
    */
   goBack(): void {
     this.router.navigate(['/properties']);
+  }
+
+  // Media viewer methods
+  setActiveTab(tab: 'photos' | 'video') {
+    this.activeMediaTab = tab;
+    // Pause video when switching away from video tab
+    if (tab !== 'video' && this.videoPlayer?.nativeElement) {
+      this.videoPlayer.nativeElement.pause();
+      this.isVideoPlaying = false;
+    }
+  }
+
+  getImageCount(): number {
+    if (this.property?.images && Array.isArray(this.property.images)) {
+      return this.property.images.length;
+    }
+    return this.property?.image ? 1 : 0;
+  }
+
+  hasVideo(): boolean {
+    return !!(this.property?.walkthrough_video || this.backendProperty?.walkthrough_video);
+  }
+
+  getVideoUrl(): string {
+    const videoPath = this.property?.walkthrough_video || this.backendProperty?.walkthrough_video;
+    if (videoPath && !videoPath.startsWith('http')) {
+      return `http://localhost:5001${videoPath}`;
+    }
+    return videoPath || '';
+  }
+
+  getImages(): any[] {
+    if (this.property?.images && Array.isArray(this.property.images)) {
+      return this.property.images;
+    }
+    if (this.property?.image) {
+      return [{ url: this.property.image, isPrimary: true }];
+    }
+    return [];
+  }
+
+  getCurrentImage(): string {
+    const images = this.getImages();
+    if (images.length > 0) {
+      return this.getImageUrl(images[this.currentImageIndex]);
+    }
+    return this.property?.image || 'https://via.placeholder.com/800x600';
+  }
+
+  getImageUrl(image: any): string {
+    if (typeof image === 'string') {
+      return image;
+    }
+    if (image.url) {
+      if (!image.url.startsWith('http')) {
+        return `http://localhost:5001${image.url}`;
+      }
+      return image.url;
+    }
+    return 'https://via.placeholder.com/800x600';
+  }
+
+  selectImage(index: number) {
+    this.currentImageIndex = index;
+  }
+
+  previousImage() {
+    if (this.currentImageIndex > 0) {
+      this.currentImageIndex--;
+    }
+  }
+
+  nextImage() {
+    const images = this.getImages();
+    if (this.currentImageIndex < images.length - 1) {
+      this.currentImageIndex++;
+    }
+  }
+
+  // Lightbox methods
+  openLightbox(index: number) {
+    this.lightboxIndex = index;
+    this.isLightboxOpen = true;
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox() {
+    this.isLightboxOpen = false;
+    document.body.style.overflow = 'auto';
+  }
+
+  getLightboxImage(): string {
+    const images = this.getImages();
+    if (images.length > 0) {
+      return this.getImageUrl(images[this.lightboxIndex]);
+    }
+    return '';
+  }
+
+  lightboxPrevious() {
+    if (this.lightboxIndex > 0) {
+      this.lightboxIndex--;
+    }
+  }
+
+  lightboxNext() {
+    const images = this.getImages();
+    if (this.lightboxIndex < images.length - 1) {
+      this.lightboxIndex++;
+    }
+  }
+
+  // Video methods
+  toggleVideoPlay() {
+    if (this.videoPlayer?.nativeElement) {
+      const video = this.videoPlayer.nativeElement;
+      if (video.paused) {
+        video.play();
+        this.isVideoPlaying = true;
+      } else {
+        video.pause();
+        this.isVideoPlaying = false;
+      }
+    }
   }
 
   /**

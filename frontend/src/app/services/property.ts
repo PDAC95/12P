@@ -30,6 +30,7 @@ export interface BackendPropertyModel {
     isPrimary: boolean;
     _id?: string | { $oid: string };
   }>;
+  walkthrough_video?: string | null;
   status: 'available' | 'sold' | 'rented' | 'pending';
   listingType: 'sale' | 'rent';
   owner: string | { $oid: string };
@@ -53,6 +54,13 @@ export interface PropertyModel {
   image: string;
   description: string;
   owner: string; // Add owner field - contains User ID
+  // Media fields
+  images?: Array<{
+    url: string;
+    alt: string;
+    isPrimary: boolean;
+  }>;
+  walkthrough_video?: string | null;
   // Additional fields for comparison
   yearBuilt?: number;
   floors?: number;

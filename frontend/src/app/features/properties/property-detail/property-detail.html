@@ -48,13 +48,144 @@
       </div>
     </div>
 
-    <!-- Property Image -->
-    <div class="property-image-section">
-      <img
-        [src]="property.image"
-        [alt]="property.title"
-        class="property-main-image"
-      />
+    <!-- Tabbed Media Viewer -->
+    <div class="media-viewer-section">
+      <!-- Media Tabs -->
+      <div class="media-tabs">
+        <button 
+          class="media-tab"
+          [class.active]="activeMediaTab === 'photos'"
+          (click)="setActiveTab('photos')"
+        >
+          <i class="fas fa-images"></i>
+          Photos <span class="count">({{ getImageCount() }})</span>
+        </button>
+        <button 
+          class="media-tab"
+          [class.active]="activeMediaTab === 'video'"
+          (click)="setActiveTab('video')"
+          *ngIf="hasVideo()"
+        >
+          <i class="fas fa-video"></i>
+          Video Walkthrough
+        </button>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="media-content">
+        <!-- Photos Tab -->
+        <div class="photos-tab" *ngIf="activeMediaTab === 'photos'">
+          <!-- Main Image Display -->
+          <div class="main-image-container" (click)="openLightbox(currentImageIndex)">
+            <img
+              [src]="getCurrentImage()"
+              [alt]="property.title"
+              class="property-main-image"
+            />
+            <div class="image-overlay">
+              <i class="fas fa-expand"></i>
+              <span>Click to enlarge</span>
+            </div>
+          </div>
+          
+          <!-- Thumbnail Gallery -->
+          <div class="thumbnail-gallery" *ngIf="getImages().length > 1">
+            <button 
+              class="gallery-nav prev"
+              (click)="previousImage()"
+              [disabled]="currentImageIndex === 0"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="thumbnails-container">
+              <div class="thumbnails-track">
+                <div 
+                  *ngFor="let image of getImages(); let i = index"
+                  class="thumbnail"
+                  [class.active]="currentImageIndex === i"
+                  (click)="selectImage(i)"
+                >
+                  <img [src]="getImageUrl(image)" [alt]="'Image ' + (i + 1)" />
+                </div>
+              </div>
+            </div>
+            
+            <button 
+              class="gallery-nav next"
+              (click)="nextImage()"
+              [disabled]="currentImageIndex === getImages().length - 1"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Video Tab -->
+        <div class="video-tab" *ngIf="activeMediaTab === 'video'">
+          <div class="video-container" *ngIf="hasVideo()">
+            <video 
+              #videoPlayer
+              [src]="getVideoUrl()"
+              controls
+              preload="metadata"
+              class="property-video"
+              poster=""
+            >
+              Your browser does not support the video tag.
+            </video>
+            
+            <!-- Custom Controls Overlay -->
+            <div class="video-controls">
+              <button class="play-button" (click)="toggleVideoPlay()" *ngIf="!isVideoPlaying">
+                <i class="fas fa-play-circle"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- No Video Message -->
+          <div class="no-video-message" *ngIf="!hasVideo()">
+            <i class="fas fa-video-slash"></i>
+            <h4>No Video Available</h4>
+            <p>This property doesn't have a video walkthrough yet.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lightbox Modal -->
+      <div class="lightbox-modal" *ngIf="isLightboxOpen" (click)="closeLightbox()">
+        <div class="lightbox-content" (click)="$event.stopPropagation()">
+          <button class="lightbox-close" (click)="closeLightbox()">
+            <i class="fas fa-times"></i>
+          </button>
+          
+          <button 
+            class="lightbox-nav prev"
+            (click)="lightboxPrevious(); $event.stopPropagation()"
+            *ngIf="lightboxIndex > 0"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          
+          <img 
+            [src]="getLightboxImage()"
+            [alt]="'Image ' + (lightboxIndex + 1)"
+            class="lightbox-image"
+          />
+          
+          <button 
+            class="lightbox-nav next"
+            (click)="lightboxNext(); $event.stopPropagation()"
+            *ngIf="lightboxIndex < getImages().length - 1"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          
+          <div class="lightbox-counter">
+            {{ lightboxIndex + 1 }} / {{ getImages().length }}
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Property Info Grid -->

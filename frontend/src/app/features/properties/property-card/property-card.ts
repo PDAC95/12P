@@ -162,4 +162,19 @@ export class PropertyCard implements OnInit, OnDestroy {
   getCompareIcon(): string {
     return this.isSelectedForComparison ? 'fas fa-check-square' : 'far fa-square';
   }
+
+  // Get image count for media indicator
+  getImageCount(): number {
+    // Check if property has images array
+    if (this.property.images && Array.isArray(this.property.images)) {
+      return this.property.images.length;
+    }
+    // Fallback: if property has image field, count as 1
+    return this.property.image ? 1 : 0;
+  }
+
+  // Check if property has video
+  hasVideo(): boolean {
+    return !!(this.property.walkthrough_video);
+  }
 }

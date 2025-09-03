@@ -6,7 +6,7 @@ const {
 } = require("../utils/apiResponse");
 const { logInfo, logError, logDebug, logWarning } = require("../utils/logger");
 const { createError } = require("../utils/errorMessages");
-const { deleteUploadedFiles, getFileUrls } = require("../middleware/upload");
+const { deleteUploadedFiles, getFileUrls, getVideoUrl } = require("../middleware/upload");
 
 /**
  * Get all properties with optional filtering and pagination
@@ -238,11 +238,31 @@ const createProperty = async (req, res, next) => {
 
     // Handle uploaded files if present
     let processedImages = images || [];
+    let videoUrl = null;
     
-    if (req.files && req.files.length > 0) {
-      // Process uploaded files into image objects
+    // Check if files were uploaded (new format with separate fields)
+    if (req.files) {
+      // Handle images
+      if (req.files.images && req.files.images.length > 0) {
+        processedImages = getFileUrls(req.files.images, req);
+        logDebug("Processing uploaded images", { 
+          fileCount: req.files.images.length,
+          files: req.files.images.map(f => f.filename)
+        });
+      }
+      
+      // Handle video
+      if (req.files.video && req.files.video.length > 0) {
+        videoUrl = getVideoUrl(req.files.video[0]);
+        logDebug("Processing uploaded video", { 
+          filename: req.files.video[0].filename,
+          size: req.files.video[0].size
+        });
+      }
+    } else if (req.files && req.files.length > 0) {
+      // Fallback for old format (images only as array)
       processedImages = getFileUrls(req.files, req);
-      logDebug("Processing uploaded images", { 
+      logDebug("Processing uploaded images (legacy format)", { 
         fileCount: req.files.length,
         files: req.files.map(f => f.filename)
       });
@@ -260,6 +280,7 @@ const createProperty = async (req, res, next) => {
       area: Number(area),
       features: features || [],
       images: processedImages,
+      walkthrough_video: videoUrl || req.body.walkthrough_video || null,
       listingType: listingType || "sale",
       owner: req.user.id, // Automatically assign to authenticated user
       status: "available",
@@ -279,9 +300,25 @@ const createProperty = async (req, res, next) => {
     sendSuccess(res, newProperty, "Property created successfully", 201);
   } catch (error) {
     // Clean up uploaded files on error
-    if (req.files && req.files.length > 0) {
+    if (req.files) {
+      // Clean up images
+      if (req.files.images && req.files.images.length > 0) {
+        deleteUploadedFiles(req.files.images);
+        logDebug("Cleaned up uploaded images after error", {
+          fileCount: req.files.images.length
+        });
+      }
+      // Clean up video
+      if (req.files.video && req.files.video.length > 0) {
+        deleteUploadedFiles(req.files.video);
+        logDebug("Cleaned up uploaded video after error", {
+          fileCount: req.files.video.length
+        });
+      }
+    } else if (req.files && req.files.length > 0) {
+      // Fallback for old format
       deleteUploadedFiles(req.files);
-      logDebug("Cleaned up uploaded files after error", {
+      logDebug("Cleaned up uploaded files after error (legacy format)", {
         fileCount: req.files.length
       });
     }
@@ -409,21 +446,47 @@ const updateProperty = async (req, res, next) => {
 
     // Handle uploaded files if present
     let processedImages = images;
+    let videoUrl = req.body.walkthrough_video;
     
-    if (req.files && req.files.length > 0) {
-      // Process uploaded files into image objects
+    // Check if files were uploaded (new format with separate fields)
+    if (req.files) {
+      // Handle images
+      if (req.files.images && req.files.images.length > 0) {
+        const newImages = getFileUrls(req.files.images, req);
+        logDebug("Processing uploaded images for update", { 
+          fileCount: req.files.images.length,
+          files: req.files.images.map(f => f.filename)
+        });
+        
+        // If images were provided in body, merge with uploaded files
+        // Otherwise, append to existing images
+        if (images !== undefined) {
+          processedImages = [...(images || []), ...newImages];
+        } else {
+          // Append new images to existing ones
+          processedImages = [...(existingProperty.images || []), ...newImages];
+        }
+      }
+      
+      // Handle video
+      if (req.files.video && req.files.video.length > 0) {
+        videoUrl = getVideoUrl(req.files.video[0]);
+        logDebug("Processing uploaded video for update", { 
+          filename: req.files.video[0].filename,
+          size: req.files.video[0].size
+        });
+      }
+    } else if (req.files && req.files.length > 0) {
+      // Fallback for old format (images only as array)
       const newImages = getFileUrls(req.files, req);
-      logDebug("Processing uploaded images for update", { 
+      logDebug("Processing uploaded images for update (legacy format)", { 
         fileCount: req.files.length,
         files: req.files.map(f => f.filename)
       });
       
-      // If images were provided in body, merge with uploaded files
-      // Otherwise, append to existing images
       if (images !== undefined) {
         processedImages = [...(images || []), ...newImages];
       } else {
-        // Append new images to existing ones
         processedImages = [...(existingProperty.images || []), ...newImages];
       }
     }
@@ -442,6 +505,7 @@ const updateProperty = async (req, res, next) => {
     if (area !== undefined) updateData.area = Number(area);
     if (features !== undefined) updateData.features = features || [];
     if (processedImages !== undefined) updateData.images = processedImages;
+    if (videoUrl !== undefined) updateData.walkthrough_video = videoUrl;
     if (listingType !== undefined) updateData.listingType = listingType;
     if (status !== undefined) updateData.status = status;
 
@@ -465,9 +529,25 @@ const updateProperty = async (req, res, next) => {
     sendSuccess(res, updatedProperty, "Property updated successfully", 200);
   } catch (error) {
     // Clean up uploaded files on error
-    if (req.files && req.files.length > 0) {
+    if (req.files) {
+      // Clean up images
+      if (req.files.images && req.files.images.length > 0) {
+        deleteUploadedFiles(req.files.images);
+        logDebug("Cleaned up uploaded images after update error", {
+          fileCount: req.files.images.length
+        });
+      }
+      // Clean up video
+      if (req.files.video && req.files.video.length > 0) {
+        deleteUploadedFiles(req.files.video);
+        logDebug("Cleaned up uploaded video after update error", {
+          fileCount: req.files.video.length
+        });
+      }
+    } else if (req.files && req.files.length > 0) {
+      // Fallback for old format
       deleteUploadedFiles(req.files);
-      logDebug("Cleaned up uploaded files after update error", {
+      logDebug("Cleaned up uploaded files after update error (legacy format)", {
         fileCount: req.files.length
       });
     }

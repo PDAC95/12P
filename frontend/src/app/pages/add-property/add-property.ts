@@ -30,6 +30,13 @@ export interface ImageFile {
   error?: string;
 }
 
+export interface VideoFile {
+  file: File;
+  preview: string;
+  uploading?: boolean;
+  error?: string;
+}
+
 @Component({
   selector: 'app-add-property',
   standalone: true,
@@ -63,6 +70,14 @@ export class AddProperty {
   maxImages = 10;
   maxFileSize = 5 * 1024 * 1024; // 5MB
   allowedFormats = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+
+  // Video management
+  selectedVideo: VideoFile | null = null;
+  isVideoDragging = false;
+  maxVideoSize = 50 * 1024 * 1024; // 50MB
+  allowedVideoFormats = ['video/mp4', 'video/quicktime', 'video/x-msvideo'];
+  videoUploadError = '';
+  videoUploadProgress = 0;
 
   isSubmitting = false;
   isSubmitted = false;
@@ -215,6 +230,103 @@ export class AddProperty {
     }
   }
 
+  // Video drag & drop handlers
+  onVideoDragOver(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isVideoDragging = true;
+  }
+
+  onVideoDragLeave(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isVideoDragging = false;
+  }
+
+  onVideoDrop(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isVideoDragging = false;
+
+    const files = event.dataTransfer?.files;
+    if (files && files.length > 0) {
+      this.handleVideoFile(files[0]);
+    }
+  }
+
+  // Video file input handler
+  onVideoSelect(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.handleVideoFile(input.files[0]);
+    }
+  }
+
+  // Process selected video file
+  private handleVideoFile(file: File): void {
+    this.videoUploadError = '';
+
+    // Validate file type
+    if (!this.allowedVideoFormats.includes(file.type)) {
+      this.videoUploadError = `Invalid video format: ${file.name}. Only MP4, MOV, and AVI are allowed.`;
+      return;
+    }
+
+    // Validate file size
+    if (file.size > this.maxVideoSize) {
+      this.videoUploadError = `Video file is too large. Maximum size is 50MB.`;
+      return;
+    }
+
+    // Create preview URL for video
+    const videoUrl = URL.createObjectURL(file);
+    
+    // Create video element to check duration
+    const video = document.createElement('video');
+    video.preload = 'metadata';
+    
+    video.onloadedmetadata = () => {
+      // Check video duration (max 5 minutes = 300 seconds)
+      if (video.duration > 300) {
+        this.videoUploadError = 'Video duration exceeds 5 minutes. Please upload a shorter video.';
+        URL.revokeObjectURL(videoUrl);
+        return;
+      }
+      
+      // If all validations pass, set the selected video
+      this.selectedVideo = {
+        file: file,
+        preview: videoUrl
+      };
+    };
+    
+    video.onerror = () => {
+      this.videoUploadError = 'Failed to load video. Please ensure the file is a valid video.';
+      URL.revokeObjectURL(videoUrl);
+    };
+    
+    video.src = videoUrl;
+  }
+
+  // Remove selected video
+  removeVideo(): void {
+    if (this.selectedVideo) {
+      URL.revokeObjectURL(this.selectedVideo.preview);
+      this.selectedVideo = null;
+      this.videoUploadError = '';
+      this.videoUploadProgress = 0;
+    }
+  }
+
+  // Format file size for display
+  formatFileSize(bytes: number): string {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+  }
+
   async onSubmit(): Promise<void> {
     if (this.isValidForm()) {
       this.isSubmitting = true;
@@ -249,6 +361,11 @@ export class AddProperty {
         this.selectedImages.forEach((imageFile) => {
           formData.append('images', imageFile.file);
         });
+
+        // Add video if selected
+        if (this.selectedVideo) {
+          formData.append('video', this.selectedVideo.file);
+        }
 
         // Get auth token
         const token = this.authService.getToken();
@@ -317,6 +434,9 @@ export class AddProperty {
     };
     this.selectedImages = [];
     this.uploadError = '';
+    this.selectedVideo = null;
+    this.videoUploadError = '';
+    this.videoUploadProgress = 0;
   }
 
   getStepTitle(): string {

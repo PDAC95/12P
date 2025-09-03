@@ -97,6 +97,10 @@ const propertySchema = new mongoose.Schema(
         },
       },
     ],
+    walkthrough_video: {
+      type: String,
+      default: null,
+    },
     status: {
       type: String,
       enum: ["available", "sold", "rented", "pending"],

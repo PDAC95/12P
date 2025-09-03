@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Indicators Test - Property Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .property-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .card-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            background: #e2e8f0;
+        }
+        
+        .card-img-top {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .property-type-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 5;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Media Indicators Styling */
+        .media-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+        
+        .media-badge {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .media-badge.photo-count {
+            color: #475569;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .media-badge.photo-count:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .media-badge.video-indicator {
+            color: #dc2626;
+            border: 1px solid rgba(220, 38, 38, 0.15);
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        .media-badge.video-indicator:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(220, 38, 38, 0.2);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 575px) {
+            .media-indicators {
+                bottom: 6px;
+                left: 6px;
+                gap: 6px;
+            }
+            
+            .media-badge {
+                padding: 3px 8px;
+                font-size: 0.8rem;
+                border-radius: 14px;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .media-badge {
+                padding: 2px 6px;
+                font-size: 0.75rem;
+                border-radius: 12px;
+            }
+        }
+        
+        .test-section {
+            margin-bottom: 40px;
+        }
+        
+        .test-title {
+            color: #016450;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-5">📸 Media Indicators Test for Property Cards</h1>
+        
+        <!-- Test Case 1: Property with multiple images and video -->
+        <div class="test-section">
+            <h3 class="test-title">Test Case 1: Property with 5 images and video</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card property-card">
+                        <div class="card-img-container">
+                            <img src="https://via.placeholder.com/400x300/016450/ffffff?text=Property+1" class="card-img-top" alt="Property">
+                            <div class="property-type-badge">Condo</div>
+                            <div class="media-indicators">
+                                <span class="media-badge photo-count">📷 5</span>
+                                <span class="media-badge video-indicator">🎥</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Luxury Downtown Condo</h5>
+                            <p class="text-muted">$750,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Case 2: Property with images only -->
+        <div class="test-section">
+            <h3 class="test-title">Test Case 2: Property with 3 images, no video</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card property-card">
+                        <div class="card-img-container">
+                            <img src="https://via.placeholder.com/400x300/b39359/ffffff?text=Property+2" class="card-img-top" alt="Property">
+                            <div class="property-type-badge">House</div>
+                            <div class="media-indicators">
+                                <span class="media-badge photo-count">📷 3</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Family Home</h5>
+                            <p class="text-muted">$550,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Case 3: Property with video only -->
+        <div class="test-section">
+            <h3 class="test-title">Test Case 3: Property with 1 image and video</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card property-card">
+                        <div class="card-img-container">
+                            <img src="https://via.placeholder.com/400x300/4a5568/ffffff?text=Property+3" class="card-img-top" alt="Property">
+                            <div class="property-type-badge">Townhouse</div>
+                            <div class="media-indicators">
+                                <span class="media-badge photo-count">📷 1</span>
+                                <span class="media-badge video-indicator">🎥</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Modern Townhouse</h5>
+                            <p class="text-muted">$425,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Case 4: Multiple properties in a row -->
+        <div class="test-section">
+            <h3 class="test-title">Test Case 4: Multiple properties in grid layout</h3>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card property-card">
+                        <div class="card-img-container">
+                            <img src="https://via.placeholder.com/400x300/016450/ffffff?text=Grid+1" class="card-img-top" alt="Property">
+                            <div class="property-type-badge">Condo</div>
+                            <div class="media-indicators">
+                                <span class="media-badge photo-count">📷 8</span>
+                                <span class="media-badge video-indicator">🎥</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Waterfront Condo</h5>
+                            <p class="text-muted">$950,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card property-card">
+                        <div class="card-img-container">
+                            <img src="https://via.placeholder.com/400x300/b39359/ffffff?text=Grid+2" class="card-img-top" alt="Property">
+                            <div class="property-type-badge">Apartment</div>
+                            <div class="media-indicators">
+                                <span class="media-badge photo-count">📷 4</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">City Apartment</h5>
+                            <p class="text-muted">$325,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card property-card">
+                        <div class="card-img-container">
+                            <img src="https://via.placeholder.com/400x300/4a5568/ffffff?text=Grid+3" class="card-img-top" alt="Property">
+                            <div class="property-type-badge">Loft</div>
+                            <div class="media-indicators">
+                                <span class="media-badge photo-count">📷 10</span>
+                                <span class="media-badge video-indicator">🎥</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Industrial Loft</h5>
+                            <p class="text-muted">$625,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Test View -->
+        <div class="test-section">
+            <h3 class="test-title">Test Case 5: Mobile View Simulation (narrow column)</h3>
+            <div class="row">
+                <div class="col-12" style="max-width: 350px;">
+                    <div class="card property-card">
+                        <div class="card-img-container">
+                            <img src="https://via.placeholder.com/400x300/016450/ffffff?text=Mobile+View" class="card-img-top" alt="Property">
+                            <div class="property-type-badge">Bungalow</div>
+                            <div class="media-indicators">
+                                <span class="media-badge photo-count">📷 7</span>
+                                <span class="media-badge video-indicator">🎥</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cozy Bungalow</h5>
+                            <p class="text-muted">$475,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-info mt-5">
+            <h5>✅ Media Indicators Implementation Complete</h5>
+            <ul class="mb-0">
+                <li>Photo count indicator shows dynamic number (📷 X)</li>
+                <li>Video indicator appears only when video exists (🎥)</li>
+                <li>Positioned at bottom-left corner of image</li>
+                <li>Subtle design with backdrop blur effect</li>
+                <li>Hover effects for better interactivity</li>
+                <li>Mobile responsive with adjusted sizing</li>
+                <li>Matches app's existing color scheme</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

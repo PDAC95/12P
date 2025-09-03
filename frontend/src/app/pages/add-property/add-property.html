@@ -338,6 +338,99 @@
                 Supported formats: JPG, PNG, WEBP. Max size: 5MB per image.
               </p>
             </div>
+
+            <!-- Video Upload Section -->
+            <div class="form-group">
+              <label>Property Walkthrough Video <span class="optional">(Optional)</span></label>
+              
+              <!-- Video Upload Area -->
+              <div 
+                class="video-upload-area"
+                [class.dragging]="isVideoDragging"
+                (dragover)="onVideoDragOver($event)"
+                (dragleave)="onVideoDragLeave($event)"
+                (drop)="onVideoDrop($event)"
+                *ngIf="!selectedVideo"
+              >
+                <div class="upload-placeholder">
+                  <i class="fas fa-video"></i>
+                  <h4>Upload Walkthrough Video</h4>
+                  <p>Drag and drop a video here or click to browse</p>
+                  <input
+                    type="file"
+                    id="videoInput"
+                    accept="video/mp4,video/quicktime,video/x-msvideo"
+                    (change)="onVideoSelect($event)"
+                    style="display: none"
+                  />
+                  <button 
+                    type="button" 
+                    class="upload-btn"
+                    onclick="document.getElementById('videoInput')?.click()"
+                  >
+                    Choose Video
+                  </button>
+                </div>
+              </div>
+
+              <!-- Video Error Message -->
+              <div class="upload-error" *ngIf="videoUploadError">
+                <i class="fas fa-exclamation-circle"></i>
+                {{ videoUploadError }}
+              </div>
+
+              <!-- Video Preview -->
+              <div class="video-preview" *ngIf="selectedVideo">
+                <div class="preview-container">
+                  <video 
+                    [src]="selectedVideo.preview" 
+                    controls
+                    preload="metadata"
+                    class="video-player"
+                  ></video>
+                  <div class="video-info">
+                    <div class="video-details">
+                      <i class="fas fa-film"></i>
+                      <span class="video-name">{{ selectedVideo.file.name }}</span>
+                      <span class="video-size">{{ formatFileSize(selectedVideo.file.size) }}</span>
+                    </div>
+                    <div class="video-actions">
+                      <button 
+                        type="button" 
+                        class="btn-replace"
+                        onclick="document.getElementById('videoInput')?.click()"
+                        title="Replace video"
+                      >
+                        <i class="fas fa-sync-alt"></i>
+                        Replace
+                      </button>
+                      <button 
+                        type="button" 
+                        class="btn-remove"
+                        (click)="removeVideo()"
+                        title="Remove video"
+                      >
+                        <i class="fas fa-times"></i>
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <!-- Upload Progress -->
+                  <div class="upload-progress" *ngIf="videoUploadProgress > 0 && videoUploadProgress < 100">
+                    <div class="progress-bar">
+                      <div class="progress-fill" [style.width.%]="videoUploadProgress"></div>
+                    </div>
+                    <span class="progress-text">Uploading... {{ videoUploadProgress }}%</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="upload-hint">
+                You can upload one walkthrough video. 
+                Supported formats: MP4, MOV, AVI. Max size: 50MB. Max duration: 5 minutes.
+              </p>
+            </div>
           </div>
 
 

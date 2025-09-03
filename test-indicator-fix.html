@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Card Media Indicator Fix Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0b2c3d;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img-container {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0),
+                        linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            overflow: hidden;
+        }
+
+        .property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Fixed Media Indicators - Small and Discrete */
+        .media-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: inline-flex;
+            gap: 6px;
+            z-index: 5;
+            max-width: fit-content;
+        }
+
+        .media-badge {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3px 8px;
+            border-radius: 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .media-badge.photo-count {
+            color: #475569;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .media-badge.photo-count:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .media-badge.video-indicator {
+            background: linear-gradient(135deg, #016450 0%, #0b2c3d 100%);
+            color: white;
+            border: none;
+            padding: 3px 6px;
+        }
+
+        .media-badge.video-indicator:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(1, 100, 80, 0.25);
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .location {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #016450;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .comparison h2 {
+            color: #0b2c3d;
+            margin-bottom: 20px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .before-section, .after-section {
+            text-align: center;
+        }
+
+        .before-section h3 {
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .after-section h3 {
+            color: #16a34a;
+            margin-bottom: 10px;
+        }
+
+        .issue-list, .fix-list {
+            text-align: left;
+            list-style: none;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .issue-list li, .fix-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .issue-list li::before {
+            content: "❌";
+        }
+
+        .fix-list li::before {
+            content: "✅";
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 575px) {
+            .media-indicators {
+                bottom: 6px;
+                left: 6px;
+                gap: 4px;
+            }
+
+            .media-badge {
+                padding: 2px 6px;
+                font-size: 0.7rem;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .media-indicators {
+                bottom: 5px;
+                left: 5px;
+                gap: 3px;
+            }
+
+            .media-badge {
+                padding: 2px 5px;
+                font-size: 0.65rem;
+                border-radius: 10px;
+            }
+
+            .test-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Property Card Media Indicator Fix</h1>
+        <p class="subtitle">Testing small, discrete photo and video indicators</p>
+
+        <!-- Before/After Comparison -->
+        <div class="comparison">
+            <h2>📊 Issue Resolution</h2>
+            <div class="comparison-grid">
+                <div class="before-section">
+                    <h3>❌ Before (Issues)</h3>
+                    <ul class="issue-list">
+                        <li>Photo indicator taking full image height</li>
+                        <li>Conflicting CSS from property-list.scss</li>
+                        <li>Indicators positioned incorrectly (top-right)</li>
+                        <li>Too large padding and font size</li>
+                        <li>Disrupting visual design</li>
+                    </ul>
+                </div>
+                <div class="after-section">
+                    <h3>✅ After (Fixed)</h3>
+                    <ul class="fix-list">
+                        <li>Small, compact indicators</li>
+                        <li>Removed conflicting ::ng-deep override</li>
+                        <li>Positioned correctly (bottom-left)</li>
+                        <li>Reduced padding (3px 8px) and font (0.75rem)</li>
+                        <li>Professional, subtle appearance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Property Cards -->
+        <h2 style="margin-bottom: 20px; color: #0b2c3d;">📋 Test Property Cards</h2>
+        <div class="test-grid">
+            <!-- Card with Photo Indicator Only -->
+            <div class="property-card">
+                <div class="card-img-container">
+                    <img class="property-image" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop" alt="Property">
+                    <div class="media-indicators">
+                        <span class="media-badge photo-count">📷 5</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Modern Downtown Condo</h3>
+                    <p class="location">📍 Kitchener, ON</p>
+                    <p class="price">$450,000</p>
+                </div>
+            </div>
+
+            <!-- Card with Photo and Video Indicators -->
+            <div class="property-card">
+                <div class="card-img-container">
+                    <img class="property-image" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop" alt="Property">
+                    <div class="media-indicators">
+                        <span class="media-badge photo-count">📷 8</span>
+                        <span class="media-badge video-indicator">🎥</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Luxury Family Home</h3>
+                    <p class="location">📍 Waterloo, ON</p>
+                    <p class="price">$850,000</p>
+                </div>
+            </div>
+
+            <!-- Card with Single Photo -->
+            <div class="property-card">
+                <div class="card-img-container">
+                    <img class="property-image" src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=400&h=300&fit=crop" alt="Property">
+                    <div class="media-indicators">
+                        <span class="media-badge photo-count">📷 1</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Cozy Starter Home</h3>
+                    <p class="location">📍 Cambridge, ON</p>
+                    <p class="price">$350,000</p>
+                </div>
+            </div>
+
+            <!-- Card with Many Photos and Video -->
+            <div class="property-card">
+                <div class="card-img-container">
+                    <img class="property-image" src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=400&h=300&fit=crop" alt="Property">
+                    <div class="media-indicators">
+                        <span class="media-badge photo-count">📷 15</span>
+                        <span class="media-badge video-indicator">🎥</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Executive Estate</h3>
+                    <p class="location">📍 Guelph, ON</p>
+                    <p class="price">$1,200,000</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Test Notice -->
+        <div style="margin-top: 40px; padding: 20px; background: #dcfce7; border-radius: 10px; text-align: center;">
+            <h3 style="color: #166534; margin-bottom: 10px;">✅ Fix Successfully Applied</h3>
+            <p style="color: #16a34a;">Media indicators are now small, discrete, and properly positioned.</p>
+            <p style="color: #16a34a; margin-top: 10px;">Resize your browser to test responsive behavior!</p>
+        </div>
+    </div>
+
+    <script>
+        // Add click interaction to test hover states
+        document.querySelectorAll('.media-badge').forEach(badge => {
+            badge.style.cursor = 'pointer';
+            badge.addEventListener('click', () => {
+                alert(`Indicator clicked: ${badge.textContent}`);
+            });
+        });
+    </script>
+</body>
+</html>

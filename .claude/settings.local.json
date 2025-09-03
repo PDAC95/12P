@@ -9,7 +9,13 @@
       "Bash(start test-comparison-drawer.html)",
       "Bash(npx ng:*)",
       "Bash(curl:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(start test-media-indicators.html)",
+      "Bash(npm run build:*)",
+      "Bash(start test-media-viewer.html)",
+      "Bash(start test-video-integration.html)",
+      "Bash(start test-indicator-fix.html)",
+      "Bash(start test-card-styling-phase2.html)"
     ],
     "deny": [],
     "ask": []
