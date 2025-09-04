@@ -1,0 +1,2238 @@
+{
+  "timestamp": "2025-09-04T13:18:07.758Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-04T13:18:07.776Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-04T13:18:07.778Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-09-04T13:18:07.792Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-09-04T13:18:07.815Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 122
+}
+{
+  "timestamp": "2025-09-04T13:18:07.817Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.045Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.100Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.102Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:21.117Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:22:21.123Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.124Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:21.128Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:22:21.166Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.173Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.175Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.180Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.186Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.191Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.197Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.202Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.208Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.215Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.224Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.234Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:21.241Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:22:24.757Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:22:24.758Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:24.763Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T14:22:30.340Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "createdAt",
+    "sortOrder": "desc"
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:30.341Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:30.346Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:22:35.314Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:22:35.315Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:35.319Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T14:22:50.501Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "createdAt",
+    "sortOrder": "desc"
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:50.502Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:50.506Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:22:54.638Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:22:54.639Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:54.644Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T14:22:59.139Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:22:59.140Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:22:59.143Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T14:23:00.593Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.597Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:00.614Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:23:00.619Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.622Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:00.630Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:23:00.641Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.648Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.652Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.656Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.660Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.664Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.669Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.674Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.682Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.688Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.694Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:00.700Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:02.086Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:23:02.087Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:02.090Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T14:23:05.555Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.556Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:05.562Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:23:05.566Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.566Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:05.572Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:23:05.584Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.589Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.595Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.602Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.609Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.614Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.619Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.625Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.630Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.636Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.643Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:05.651Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:07.082Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:23:07.083Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:07.087Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T14:23:08.657Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.658Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:08.665Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:23:08.670Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.671Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:08.676Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T14:23:08.694Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.699Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.706Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.710Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.714Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.719Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.725Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.731Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.737Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.743Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.748Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:08.754Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T14:23:10.346Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:23:10.347Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:23:10.352Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T14:42:23.224Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T14:42:28.701Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T14:42:28.702Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T14:42:28.705Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T15:13:22.982Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-04T15:13:23.012Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-04T15:13:23.013Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-09-04T15:13:23.035Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-09-04T15:13:23.078Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 122
+}
+{
+  "timestamp": "2025-09-04T15:13:23.082Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-09-04T15:13:23.415Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T15:19:54.391Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.709Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.715Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T15:49:39.789Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 122,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T15:49:39.803Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.805Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T15:49:39.818Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 122,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T15:49:39.871Z",
+  "level": "INFO",
+  "message": "Public user profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "requestedBy": "::1"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.882Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.885Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.896Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.904Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.910Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.916Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.926Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.933Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.941Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.948Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.956Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:39.962Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:46.136Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.114Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.115Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T15:49:48.122Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 122,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T15:49:48.126Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.128Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T15:49:48.135Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 122,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T15:49:48.150Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.156Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.161Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.167Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.171Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.177Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.182Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.188Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.193Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.200Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:48.205Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:50.768Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.888Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.889Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T15:49:51.897Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 122,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T15:49:51.903Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.904Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T15:49:51.910Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 122,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T15:49:51.918Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.924Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.928Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.933Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.939Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.944Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.949Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.954Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.959Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.965Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:49:51.972Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T15:57:50.685Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T16:39:25.900Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T16:53:25.171Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-04T16:53:25.198Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-04T16:53:25.199Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-09-04T16:53:25.224Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-09-04T16:53:25.298Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 122
+}
+{
+  "timestamp": "2025-09-04T16:53:25.301Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.142Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.217Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.219Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:08:58.234Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T17:08:58.239Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.240Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:08:58.245Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T17:08:58.261Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.268Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.272Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.277Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.283Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.289Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.295Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.300Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.306Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.310Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.314Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.318Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:08:58.323Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:09:12.207Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T17:09:12.208Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:09:12.215Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T17:42:47.845Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T17:42:48.013Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T17:42:48.014Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:42:48.018Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T17:42:58.086Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T17:42:58.087Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:42:58.090Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T17:47:56.877Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.879Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:47:56.902Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T17:47:56.912Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.915Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:47:56.924Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T17:47:56.943Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.948Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.952Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.957Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.960Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.965Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.970Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.976Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.982Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.989Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.994Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:56.999Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:57.004Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T17:47:59.806Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T17:47:59.807Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T17:47:59.812Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T18:44:06.343Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T18:44:06.405Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T18:44:06.406Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T18:44:06.410Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T18:53:59.471Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T18:53:59.472Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T18:53:59.479Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T18:54:31.586Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T18:54:31.632Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T18:54:31.633Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T18:54:31.637Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T18:55:21.572Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T18:55:21.627Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T18:55:21.628Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T18:55:21.631Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T19:22:15.812Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "createdAt",
+    "sortOrder": "desc"
+  }
+}
+{
+  "timestamp": "2025-09-04T19:22:15.813Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:22:15.817Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T19:22:20.379Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T19:22:20.381Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:22:20.385Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}

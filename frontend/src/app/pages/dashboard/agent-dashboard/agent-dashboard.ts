@@ -249,72 +249,108 @@ export class AgentDashboard implements OnInit, OnDestroy, AfterViewInit {
     this.isLoading = true;
     this.statsError = null;
     
-    // Load agent properties
-    this.propertyService.getMyProperties()
+    // Load agent properties from real API
+    this.propertyService.getAgentProperties()
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response: any) => {
+          console.log('📥 API Response:', response);
+          
           if (response && response.success) {
-            // Handle empty response gracefully
-            const data = response.data || {};
-            const rawProperties = Array.isArray(data) ? data : 
-                                 (data.properties || data.data || []);
+            // Handle the response data
+            const rawProperties = Array.isArray(response.data) ? response.data : [];
             
-            // Ensure rawProperties is an array
-            const propertiesArray = Array.isArray(rawProperties) ? rawProperties : [];
+            // Map backend properties to dashboard format
+            this.properties = rawProperties.map((p: any) => {
+              // Handle location field - could be string or object
+              let locationString = '';
+              if (typeof p.location === 'string') {
+                locationString = p.location;
+              } else if (p.location && typeof p.location === 'object') {
+                locationString = p.location.address || p.location.city || '';
+                if (p.location.city && p.location.province) {
+                  locationString = `${p.location.city}, ${p.location.province}`;
+                }
+              }
+              
+              // Get primary image or first image
+              let primaryImage = p.image || '/assets/images/property-placeholder.jpg';
+              if (p.images && p.images.length > 0) {
+                const primary = p.images.find((img: any) => img.isPrimary);
+                primaryImage = primary ? primary.url : p.images[0].url;
+              }
+              
+              return {
+                _id: p._id || p.id,
+                title: p.title || 'Untitled Property',
+                location: locationString,
+                price: p.price || 0,
+                type: p.type || 'house',
+                status: p.status || 'available',
+                bedrooms: p.bedrooms || 0,
+                bathrooms: p.bathrooms || 0,
+                area: p.area || 0,
+                views: p.views || 0,
+                inquiries: p.inquiries || 0,
+                createdAt: p.createdAt ? new Date(p.createdAt) : new Date(),
+                image: primaryImage
+              };
+            });
             
-            this.properties = propertiesArray.map((p: any) => ({
-              _id: p._id || p.id,
-              title: p.title || '',
-              location: p.location || '',
-              price: p.price || 0,
-              type: p.type || '',
-              status: p.status || 'active',
-              bedrooms: p.bedrooms || 0,
-              bathrooms: p.bathrooms || 0,
-              area: p.area || 0,
-              views: p.views || Math.floor(Math.random() * 500),
-              inquiries: p.inquiries || Math.floor(Math.random() * 20),
-              createdAt: p.createdAt ? new Date(p.createdAt) : new Date(),
-              image: p.image || '/assets/images/property-placeholder.jpg'
-            }));
+            console.log('✅ Properties loaded:', this.properties.length, 'properties');
             
             this.filteredProperties = [...this.properties];
-            
-            // Update legacy statistics if available
-            if (response.data.stats) {
-              this.statistics = response.data.stats;
-              this.propertyCount = this.statistics.overview?.totalProperties || this.properties.length;
-              this.inquiryCount = this.statistics.engagement?.totalInquiries || 0;
-              this.viewCount = this.statistics.engagement?.totalViews || 0;
-            } else {
-              // Calculate from properties
-              this.propertyCount = this.properties.length;
-              this.viewCount = this.properties.reduce((sum, p) => sum + (p.views || 0), 0);
-              this.inquiryCount = this.properties.reduce((sum, p) => sum + (p.inquiries || 0), 0);
-            }
+            this.propertyCount = this.properties.length;
+            this.viewCount = this.properties.reduce((sum, p) => sum + (p.views || 0), 0);
+            this.inquiryCount = this.properties.reduce((sum, p) => sum + (p.inquiries || 0), 0);
             
             this.calculateStats();
             this.applyFilters();
-            console.log('✅ Properties loaded:', this.properties);
             
             // Initialize charts after data loads
             setTimeout(() => {
               this.initializeCharts();
             }, 100);
           } else {
-            this.statsError = response.message || 'Failed to load properties';
-            console.error('❌ Failed to load properties:', response);
+            // API returned success: false
+            this.properties = [];
+            this.filteredProperties = [];
+            this.statsError = response.message || 'No properties found';
+            console.warn('⚠️ No properties found:', response);
           }
+          
           this.isLoading = false;
         },
         error: (error: any) => {
           console.error('❌ Error loading properties:', error);
-          this.statsError = 'Unable to load properties. Please try again later.';
+          
+          // Handle specific error cases
+          if (error.status === 401 || error.status === 403) {
+            // Unauthorized - redirect to login
+            console.error('🔐 Authentication error, redirecting to login...');
+            this.statsError = 'Session expired. Please login again.';
+            setTimeout(() => {
+              this.router.navigate(['/auth/login']);
+            }, 2000);
+          } else if (error.status === 404) {
+            // Not found - show empty state
+            this.properties = [];
+            this.filteredProperties = [];
+            this.statsError = null; // Don't show error, let empty state show
+            console.log('📭 No properties endpoint or no properties found');
+          } else if (error.status >= 500) {
+            // Server error - show retry option
+            this.statsError = 'Server error. Please try again later.';
+            console.error('🔥 Server error:', error);
+          } else {
+            // Other errors
+            this.statsError = 'Unable to load properties. Please try again.';
+          }
+          
           this.isLoading = false;
           
-          // Load agent stats as fallback
-          this.loadDashboardData();
+          // Calculate stats even with empty array
+          this.calculateStats();
         }
       });
   }

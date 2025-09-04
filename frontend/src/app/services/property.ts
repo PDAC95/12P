@@ -364,6 +364,46 @@ export class PropertyService {
   }
 
   /**
+   * Get properties for the authenticated agent (simplified version for dashboard)
+   * @returns Observable with array of agent's properties
+   */
+  getAgentProperties(): Observable<any> {
+    return this.http.get<ApiResponse<BackendPropertyModel[]>>(`${this.apiUrl}/agent/properties`)
+      .pipe(
+        map((response) => {
+          console.log('Agent properties API response:', response);
+          if (response.success && response.data) {
+            return response;
+          }
+          return { success: false, data: [], message: 'No properties found' };
+        }),
+        catchError(error => {
+          console.error('Error fetching agent properties:', error);
+          
+          // Try alternative endpoint
+          if (error.status === 404) {
+            console.log('Trying alternative endpoint /my-properties');
+            return this.http.get<any>(`${this.apiUrl}/my-properties`)
+              .pipe(
+                map(response => {
+                  if (response.success && response.data?.properties) {
+                    return { success: true, data: response.data.properties };
+                  }
+                  return response;
+                }),
+                catchError(err => {
+                  console.error('Both endpoints failed:', err);
+                  return of({ success: false, data: [], message: 'Failed to load properties', error: err });
+                })
+              );
+          }
+          
+          return of({ success: false, data: [], message: 'Failed to load properties', error: error });
+        })
+      );
+  }
+
+  /**
    * Get property statistics for a specific user
    * @param userId User ID to get stats for
    * @returns Observable with property statistics

@@ -1,24 +1,40 @@
 // src/app/app.ts
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { Navbar } from './shared/navbar/navbar';
 import { Footer } from './shared/footer/footer';
 import { AuthService } from './services/auth.service';
 import { CompareDrawerComponent } from './shared/components/compare-drawer/compare-drawer.component';
+import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer, CompareDrawerComponent],
+  imports: [CommonModule, RouterOutlet, Navbar, Footer, CompareDrawerComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App implements OnInit {
   protected title = 'frontend';
+  protected showNavbar = true;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.initializeApp();
+    this.subscribeToRouterEvents();
+  }
+
+  /**
+   * Subscribe to router events to hide/show navbar based on route
+   */
+  private subscribeToRouterEvents(): void {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        // Hide navbar on agent dashboard route
+        this.showNavbar = !event.url.includes('/agent/dashboard');
+      });
   }
 
   /**

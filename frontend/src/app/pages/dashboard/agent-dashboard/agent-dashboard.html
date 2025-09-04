@@ -6,8 +6,14 @@
     <!-- Brand/Logo -->
     <div class="sidebar-brand">
       <a routerLink="/" class="brand-link">
-        <span class="brand-icon">12P</span>
-        <span class="brand-text" *ngIf="!isSidebarCollapsed">Properties</span>
+        <img *ngIf="!isSidebarCollapsed" 
+             src="assets/images/logos/logo-navbar.png" 
+             alt="12P Logo" 
+             class="sidebar-logo-img">
+        <img *ngIf="isSidebarCollapsed" 
+             src="https://res.cloudinary.com/dsgnzaylf/image/upload/v1757010532/pin_rcsy8w.png" 
+             alt="12P Pin Logo" 
+             class="sidebar-logo-collapsed">
       </a>
     </div>
 
@@ -344,8 +350,20 @@
           </select>
         </div>
 
-        <!-- Properties Table -->
-        <div class="table-responsive">
+        <!-- Empty State - Shows when no properties exist -->
+        <div *ngIf="properties.length === 0 && !isLoading" class="empty-state-container">
+          <div class="empty-state-content">
+            <i class="fas fa-building empty-state-icon"></i>
+            <h3 class="empty-state-title">No Properties Yet</h3>
+            <p class="empty-state-subtitle">Start building your real estate portfolio</p>
+            <button class="btn btn-add-first" routerLink="/add-property">
+              <i class="fas fa-plus-circle"></i> Add Your First Property
+            </button>
+          </div>
+        </div>
+
+        <!-- Properties Table - Shows when properties exist -->
+        <div class="table-responsive" *ngIf="properties.length > 0">
           <table class="properties-table">
             <thead>
               <tr>
@@ -414,19 +432,6 @@
                             (click)="deleteProperty(property)"
                             [disabled]="isLoading">
                       <i class="fas fa-trash" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              
-              <!-- Empty State -->
-              <tr *ngIf="filteredProperties.length === 0">
-                <td colspan="6" class="empty-state">
-                  <div class="empty-message">
-                    <i class="fas fa-home"></i>
-                    <p>No properties found</p>
-                    <button class="btn btn-primary" (click)="navigateToAddProperty()">
-                      Add Your First Property
                     </button>
                   </div>
                 </td>

@@ -306,32 +306,36 @@ a:focus {
     .brand-link {
       display: flex;
       align-items: center;
+      justify-content: center;
       text-decoration: none;
-      color: white;
       transition: all $transition;
+      cursor: pointer;
 
       &:hover {
         transform: scale(1.05);
+        
+        .sidebar-logo-img {
+          transform: translateY(-2px);
+          filter: brightness(1.1);
+        }
       }
-
-      .brand-icon {
-        font-size: 28px;
-        font-weight: 700;
-        font-family: 'Outfit', sans-serif;
-        background: white;
-        color: $primary;
-        width: 45px;
-        height: 45px;
-        @include flex-center;
-        border-radius: $border-radius-sm;
-      }
-
-      .brand-text {
-        margin-left: 15px;
-        font-size: 20px;
-        font-weight: 600;
-        transition: all $transition;
-      }
+    }
+    
+    .sidebar-logo-img {
+      max-width: 120px;
+      height: auto;
+      display: block;
+      transition: all 0.3s ease;
+      filter: brightness(0) invert(1); // Make logo white for dark sidebar
+    }
+    
+    .sidebar-logo-collapsed {
+      max-width: 40px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      transition: all 0.3s ease;
+      filter: brightness(0) invert(1); // Make pin logo white for dark sidebar
     }
   }
 
@@ -1001,6 +1005,66 @@ a:focus {
         border-color: $primary;
         box-shadow: 0 0 0 3px rgba($primary, 0.1);
       }
+    }
+  }
+}
+
+// Empty State Styles
+.empty-state-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: $card-bg;
+  border-radius: $border-radius;
+  @include card-shadow;
+  margin-top: 2rem;
+
+  .empty-state-content {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .empty-state-icon {
+    font-size: 4rem;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .empty-state-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-state-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .btn-add-first {
+    background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: $border-radius-sm;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all $transition;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 137, 123, 0.3);
+    }
+
+    i {
+      font-size: 1.1rem;
     }
   }
 }
