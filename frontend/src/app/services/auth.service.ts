@@ -23,6 +23,8 @@ export interface User {
   isEmailVerified: boolean;
   lastLogin?: Date;
   createdAt: Date;
+  avatar?: string;
+  profileImage?: string;
   preferences?: {
     notifications: {
       email: boolean;

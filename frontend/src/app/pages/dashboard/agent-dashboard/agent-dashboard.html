@@ -1,202 +1,563 @@
-<!-- src/app/pages/dashboard/agent-dashboard.html -->
-<div class="dashboard-page">
-  <!-- Page Header -->
-  <section class="dashboard-header">
-    <div class="container">
-      <div class="header-content">
-        <h1 class="page-title">
-          <span class="title-line">Welcome back,</span>
-          <span class="title-line"
-            ><span class="highlight">{{ agentName }}</span></span
-          >
-        </h1>
-        <p class="page-description">
-          Manage your property listings, track client inquiries, and monitor your performance.
-        </p>
+<!-- Agent Dashboard with Sidebar -->
+<div class="dashboard-container" [class.sidebar-collapsed]="isSidebarCollapsed">
+  
+  <!-- Sidebar -->
+  <aside class="dashboard-sidebar">
+    <!-- Brand/Logo -->
+    <div class="sidebar-brand">
+      <a routerLink="/" class="brand-link">
+        <span class="brand-icon">12P</span>
+        <span class="brand-text" *ngIf="!isSidebarCollapsed">Properties</span>
+      </a>
+    </div>
+
+    <!-- Agent Profile Section -->
+    <div class="sidebar-profile">
+      <div class="profile-avatar">
+        <img *ngIf="currentUser?.profileImage || currentUser?.avatar" 
+             [src]="currentUser?.profileImage || currentUser?.avatar" 
+             [alt]="agentName"
+             class="avatar-img">
+        <div *ngIf="!currentUser?.profileImage && !currentUser?.avatar" class="avatar-initials">
+          {{ agentName ? (agentName.split(' ')[0][0] + (agentName.split(' ')[1]?.[0] || '')).toUpperCase() : 'AG' }}
+        </div>
+      </div>
+      <div class="profile-info" *ngIf="!isSidebarCollapsed">
+        <h4 class="profile-name">{{ agentName }}</h4>
+        <p class="profile-role">Real Estate Agent</p>
       </div>
     </div>
-  </section>
 
-  <!-- Dashboard Stats -->
-  <section class="dashboard-stats">
-    <div class="container">
-      <!-- Loading State -->
-      <div *ngIf="isLoading" class="stats-loading">
-        <div class="spinner-border text-primary me-3" role="status">
-          <span class="visually-hidden">Loading statistics...</span>
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+      <ul class="nav-list">
+        <li class="nav-item" *ngFor="let item of navItems; trackBy: trackByNavItem">
+          <a [routerLink]="item.route" 
+             class="nav-link"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: item.route === '/agent/dashboard'}">
+            <i [class]="item.icon"></i>
+            <span class="nav-text" *ngIf="!isSidebarCollapsed">{{ item.name }}</span>
+            <span class="nav-badge" *ngIf="item.name === 'Inquiries' && inquiryCount > 0 && !isSidebarCollapsed">
+              {{ inquiryCount }}
+            </span>
+          </a>
+        </li>
+        
+        <!-- Separator -->
+        <li class="nav-separator"></li>
+        
+        <!-- Logout -->
+        <li class="nav-item">
+          <a (click)="logout()" class="nav-link logout-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-text" *ngIf="!isSidebarCollapsed">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Toggle (Desktop) -->
+    <div class="sidebar-toggle desktop-only" (click)="toggleSidebar()">
+      <i class="fas" [class.fa-chevron-left]="!isSidebarCollapsed" [class.fa-chevron-right]="isSidebarCollapsed"></i>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="dashboard-main">
+    
+    <!-- Top Header -->
+    <header class="dashboard-header" role="banner">
+      <div class="header-left">
+        <!-- Mobile Menu Toggle -->
+        <button 
+          class="mobile-menu-toggle mobile-only" 
+          (click)="toggleMobileMenu()"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
+          [attr.aria-expanded]="isMobileMenuOpen">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        
+        <!-- Welcome Message -->
+        <div class="welcome-section">
+          <h1 class="welcome-title" id="dashboard-title">Welcome back, {{ agentName }}</h1>
+          <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a routerLink="/" aria-label="Go to home page">Home</a>
+              </li>
+              <li class="breadcrumb-item">Dashboard</li>
+              <li class="breadcrumb-item active" aria-current="page">Agent</li>
+            </ol>
+          </nav>
         </div>
-        <span>Loading your dashboard statistics...</span>
+      </div>
+      
+      <div class="header-right">
+        <!-- Quick Actions -->
+        <button 
+          class="btn-icon" 
+          title="Add Property" 
+          (click)="navigateToAddProperty()"
+          aria-label="Add new property">
+          <i class="fas fa-plus-circle" aria-hidden="true"></i>
+        </button>
+        <button 
+          class="btn-icon" 
+          title="Notifications"
+          aria-label="View notifications"
+          [attr.aria-label]="'View notifications' + (inquiryCount > 0 ? '. ' + inquiryCount + ' new inquiries' : '')">
+          <i class="fas fa-bell" aria-hidden="true"></i>
+          <span class="notification-dot" *ngIf="inquiryCount > 0" 
+                [attr.aria-label]="inquiryCount + ' new notifications'"></span>
+        </button>
+        
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown">
+          <button class="profile-trigger" (click)="navigateToProfile()">
+            <img *ngIf="currentUser?.profileImage || currentUser?.avatar" 
+                 [src]="currentUser?.profileImage || currentUser?.avatar" 
+                 alt="Profile"
+                 class="profile-img"
+>
+            <div *ngIf="!currentUser?.profileImage && !currentUser?.avatar" class="profile-initials">
+              {{ agentName ? agentName.split(' ')[0][0].toUpperCase() : 'A' }}
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+      
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-container">
+        <div class="spinner-wrapper">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="loading-text">Loading dashboard data...</p>
+        </div>
       </div>
 
       <!-- Error State -->
       <div *ngIf="!isLoading && statsError" class="alert alert-warning">
-        <i class="fas fa-exclamation-triangle me-2"></i>
+        <i class="fas fa-exclamation-triangle"></i>
         {{ statsError }}
       </div>
 
-      <!-- Stats Grid -->
-      <div *ngIf="!isLoading && !statsError" class="stats-grid">
-        <!-- Total Properties -->
-        <div class="stat-card">
-          <div class="stat-icon">
-            <i class="fas fa-home"></i>
+      <!-- Statistics Grid -->
+      <section *ngIf="!isLoading" class="stats-grid" role="region" aria-labelledby="stats-heading">
+        <h2 id="stats-heading" class="visually-hidden">Dashboard Statistics</h2>
+        
+        <!-- First Row - 4 cards -->
+        <article class="stat-card">
+          <div class="stat-icon bg-primary" aria-hidden="true">
+            <i class="fas fa-building" aria-hidden="true"></i>
           </div>
           <div class="stat-content">
-            <h3 class="stat-value">{{ statistics.overview.totalProperties }}</h3>
+            <h3 class="stat-value" aria-live="polite">{{ stats?.totalProperties || 0 }}</h3>
             <p class="stat-label">Total Properties</p>
-            <div class="stat-trend" *ngIf="statistics.trends.propertyTrend.direction !== 'neutral'">
-              <i class="fas" 
-                 [class.fa-arrow-up]="statistics.trends.propertyTrend.direction === 'up'" 
-                 [class.fa-arrow-down]="statistics.trends.propertyTrend.direction === 'down'"
-                 [class.text-success]="statistics.trends.propertyTrend.direction === 'up'"
-                 [class.text-danger]="statistics.trends.propertyTrend.direction === 'down'"></i>
-              <span [class.text-success]="statistics.trends.propertyTrend.direction === 'up'"
-                    [class.text-danger]="statistics.trends.propertyTrend.direction === 'down'">
-                {{ statistics.trends.propertyTrend.percentage }}%
-              </span>
+            <div class="stat-trend" aria-label="Property trend over time">
+              <svg class="sparkline" width="60" height="20" viewBox="0 0 60 20" 
+                   role="img" aria-label="Trend showing steady growth">
+                <title>Property growth trend</title>
+                <polyline
+                  fill="none"
+                  stroke="#00897b"
+                  stroke-width="2"
+                  points="0,15 10,10 20,12 30,8 40,10 50,5 60,7"
+                  opacity="0.5"
+                />
+              </svg>
             </div>
           </div>
-        </div>
+        </article>
 
-        <!-- Total Views -->
-        <div class="stat-card">
-          <div class="stat-icon">
-            <i class="fas fa-eye"></i>
+        <article class="stat-card">
+          <div class="stat-icon bg-success" aria-hidden="true">
+            <i class="fas fa-home" aria-hidden="true"></i>
           </div>
           <div class="stat-content">
-            <h3 class="stat-value">{{ statistics.engagement.totalViews | number }}</h3>
+            <h3 class="stat-value" aria-live="polite">{{ stats?.activeListings || 0 }}</h3>
+            <p class="stat-label">Active Listings</p>
+            <div class="stat-trend" aria-label="Active listings trend">
+              <svg class="sparkline" width="60" height="20" viewBox="0 0 60 20"
+                   role="img" aria-label="Trend showing growth">
+                <title>Active listings trend</title>
+                <polyline
+                  fill="none"
+                  stroke="#2e7d32"
+                  stroke-width="2"
+                  points="0,10 10,12 20,8 30,10 40,6 50,8 60,4"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon bg-info" aria-hidden="true">
+            <i class="fas fa-eye" aria-hidden="true"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-value" aria-live="polite">{{ (stats?.totalViews || 0) | number }}</h3>
             <p class="stat-label">Total Views</p>
-            <div class="stat-trend" *ngIf="statistics.trends.viewsTrend.direction !== 'neutral'">
-              <i class="fas" 
-                 [class.fa-arrow-up]="statistics.trends.viewsTrend.direction === 'up'" 
-                 [class.fa-arrow-down]="statistics.trends.viewsTrend.direction === 'down'"
-                 [class.text-success]="statistics.trends.viewsTrend.direction === 'up'"
-                 [class.text-danger]="statistics.trends.viewsTrend.direction === 'down'"></i>
-              <span [class.text-success]="statistics.trends.viewsTrend.direction === 'up'"
-                    [class.text-danger]="statistics.trends.viewsTrend.direction === 'down'">
-                {{ statistics.trends.viewsTrend.percentage }}%
-              </span>
+            <div class="stat-trend positive" aria-label="Views increased by 15%">
+              <i class="fas fa-arrow-up" aria-hidden="true"></i>
+              <span>+15%</span>
             </div>
           </div>
-        </div>
+        </article>
 
-        <!-- Total Favorites -->
-        <div class="stat-card">
-          <div class="stat-icon">
-            <i class="fas fa-heart"></i>
+        <article class="stat-card">
+          <div class="stat-icon bg-warning" aria-hidden="true">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
           </div>
           <div class="stat-content">
-            <h3 class="stat-value">{{ statistics.engagement.totalFavorites }}</h3>
-            <p class="stat-label">Total Favorites</p>
-          </div>
-        </div>
-
-        <!-- Total Inquiries -->
-        <div class="stat-card">
-          <div class="stat-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="stat-content">
-            <h3 class="stat-value">{{ statistics.engagement.totalInquiries }}</h3>
+            <h3 class="stat-value" aria-live="polite">{{ stats?.inquiries || 0 }}</h3>
             <p class="stat-label">Total Inquiries</p>
+            <div class="stat-trend positive" aria-label="Inquiries increased by 8%">
+              <i class="fas fa-arrow-up" aria-hidden="true"></i>
+              <span>+8%</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Second Row - 3 larger cards -->
+      <div *ngIf="!isLoading" class="stats-grid-secondary">
+        <div class="stat-card-large">
+          <div class="stat-header">
+            <h4>Sold Properties</h4>
+            <i class="fas fa-check-circle text-success"></i>
+          </div>
+          <div class="stat-value-large">{{ stats?.soldProperties || 0 }}</div>
+          <div class="stat-trend positive" *ngIf="stats.monthlyGrowth > 0">
+            <i class="fas fa-arrow-up"></i> {{ stats.monthlyGrowth }}% this month
+          </div>
+        </div>
+
+        <div class="stat-card-large">
+          <div class="stat-header">
+            <h4>Average Price</h4>
+            <i class="fas fa-dollar-sign text-primary"></i>
+          </div>
+          <div class="stat-value-large">{{ (stats?.averagePrice || 0) | currency:'USD':'symbol':'1.0-0' }}</div>
+          <div class="stat-subtitle">Based on active listings</div>
+        </div>
+
+        <div class="stat-card-large">
+          <div class="stat-header">
+            <h4>Response Rate</h4>
+            <i class="fas fa-tachometer-alt text-info"></i>
+          </div>
+          <div class="stat-value-large">{{ stats?.responseRate || 0 }}%</div>
+          <div class="progress">
+            <div class="progress-bar" [style.width.%]="stats?.responseRate || 0"></div>
           </div>
         </div>
       </div>
 
-      <!-- Additional Performance Stats -->
-      <div *ngIf="!isLoading && !statsError" class="performance-stats mt-4">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="stat-mini-card">
-              <small>Active Properties</small>
-              <strong>{{ statistics.overview.activeProperties }}</strong>
+      <!-- Charts Section -->
+      <div *ngIf="!isLoading" class="charts-section">
+        <div class="charts-grid">
+          <!-- Performance Chart -->
+          <div class="chart-card performance-chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Monthly Performance</h3>
+              <div class="chart-controls">
+                <button class="period-btn" 
+                        [class.active]="chartPeriod === '6months'"
+                        (click)="changeChartPeriod('6months')">
+                  Last 6 Months
+                </button>
+                <button class="period-btn"
+                        [class.active]="chartPeriod === 'year'"
+                        (click)="changeChartPeriod('year')">
+                  Last Year
+                </button>
+                <button class="period-btn"
+                        [class.active]="chartPeriod === 'all'"
+                        (click)="changeChartPeriod('all')">
+                  All Time
+                </button>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="performanceChart"></canvas>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="stat-mini-card">
-              <small>Avg. Views/Property</small>
-              <strong>{{ statistics.engagement.avgViewsPerProperty | number:'1.0-0' }}</strong>
+          
+          <!-- Status Distribution Chart -->
+          <div class="chart-card status-chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Property Status Distribution</h3>
+              <button class="btn-icon" (click)="refreshCharts()" title="Refresh">
+                <i class="fas fa-sync-alt"></i>
+              </button>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="stat-mini-card">
-              <small>Conversion Rate</small>
-              <strong>{{ statistics.performance.conversionRate | number:'1.1-1' }}%</strong>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="stat-mini-card">
-              <small>Avg. Days on Market</small>
-              <strong>{{ statistics.performance.avgDaysOnMarket | number:'1.0-0' }}</strong>
+            <div class="chart-body">
+              <canvas id="statusChart"></canvas>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Recent Properties Section -->
+      <div *ngIf="!isLoading" class="properties-section">
+        <div class="section-header">
+          <h2 class="section-title">Recent Properties</h2>
+          <button class="btn btn-primary" (click)="navigateToProperties()">
+            View All <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Filters Row -->
+        <div class="filters-row">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" 
+                   placeholder="Search properties..." 
+                   [(ngModel)]="searchTerm"
+                   (input)="onSearchChange(searchTerm)"
+                   class="search-input">
+          </div>
+          
+          <select [(ngModel)]="filterStatus" (change)="applyFilters()" class="filter-select">
+            <option value="all">All Status</option>
+            <option value="active">Active</option>
+            <option value="available">Available</option>
+            <option value="sold">Sold</option>
+            <option value="pending">Pending</option>
+          </select>
+          
+          <select [(ngModel)]="sortBy" (change)="applyFilters()" class="filter-select">
+            <option value="recent">Most Recent</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="views">Most Viewed</option>
+            <option value="inquiries">Most Inquiries</option>
+          </select>
+        </div>
+
+        <!-- Properties Table -->
+        <div class="table-responsive">
+          <table class="properties-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Location</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Views</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let property of getPaginatedProperties(); trackBy: trackByProperty">
+                <td class="property-cell" data-label="Property">
+                  <div class="property-info">
+                    <img [src]="property.image || 'assets/images/no-image.jpg'" 
+                         [alt]="property.title + ' property image'"
+                         class="property-thumb"
+                         loading="lazy"
+>
+                    <div>
+                      <h5 class="property-title">{{ property.title }}</h5>
+                      <p class="property-meta">
+                        <i class="fas fa-bed" aria-hidden="true"></i> {{ property.bedrooms }} |
+                        <i class="fas fa-bath" aria-hidden="true"></i> {{ property.bathrooms }} |
+                        <i class="fas fa-ruler-combined" aria-hidden="true"></i> {{ property.area }} sqft
+                      </p>
+                    </div>
+                  </div>
+                </td>
+                <td data-label="Location">{{ property.location }}</td>
+                <td class="price-cell" data-label="Price">{{ property.price | currency:'USD':'symbol':'1.0-0' }}</td>
+                <td data-label="Status">
+                  <span class="status-badge" 
+                        [class.status-active]="property.status === 'active' || property.status === 'available'"
+                        [class.status-sold]="property.status === 'sold'"
+                        [class.status-pending]="property.status === 'pending'"
+                        [attr.aria-label]="'Property status: ' + property.status">
+                    {{ property.status }}
+                  </span>
+                </td>
+                <td data-label="Views">
+                  <span class="views-count" [attr.aria-label]="'Property has ' + (property.views || 0) + ' views'">
+                    <i class="fas fa-eye" aria-hidden="true"></i> {{ property.views || 0 }}
+                  </span>
+                </td>
+                <td data-label="Actions">
+                  <div class="action-buttons" role="group" aria-label="Property actions">
+                    <button class="btn-action" 
+                            title="View property details"
+                            [attr.aria-label]="'View details for ' + property.title"
+                            (click)="viewProperty(property)"
+                            [disabled]="isLoading">
+                      <i class="fas fa-eye" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn-action" 
+                            title="Edit property"
+                            [attr.aria-label]="'Edit ' + property.title"
+                            (click)="editProperty(property)"
+                            [disabled]="isLoading">
+                      <i class="fas fa-edit" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn-action btn-danger" 
+                            title="Delete property"
+                            [attr.aria-label]="'Delete ' + property.title"
+                            (click)="deleteProperty(property)"
+                            [disabled]="isLoading">
+                      <i class="fas fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              
+              <!-- Empty State -->
+              <tr *ngIf="filteredProperties.length === 0">
+                <td colspan="6" class="empty-state">
+                  <div class="empty-message">
+                    <i class="fas fa-home"></i>
+                    <p>No properties found</p>
+                    <button class="btn btn-primary" (click)="navigateToAddProperty()">
+                      Add Your First Property
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper" *ngIf="totalPages > 1">
+          <div class="pagination">
+            <button class="page-btn" 
+                    [disabled]="currentPage === 1"
+                    (click)="currentPage = currentPage - 1; applyFilters()">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <span class="page-info">
+              Page {{ currentPage }} of {{ totalPages }}
+            </span>
+            
+            <button class="page-btn" 
+                    [disabled]="currentPage === totalPages"
+                    (click)="currentPage = currentPage + 1; applyFilters()">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity Footer -->
+      <div *ngIf="!isLoading" class="activity-section">
+        <h3 class="section-title">Recent Activity</h3>
+        <div class="activity-list">
+          <div class="activity-item">
+            <i class="fas fa-plus-circle text-success"></i>
+            <div class="activity-content">
+              <p class="activity-text">New property added: "Modern Condo in Downtown"</p>
+              <span class="activity-time">2 hours ago</span>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <i class="fas fa-envelope text-info"></i>
+            <div class="activity-content">
+              <p class="activity-text">New inquiry received for "Family House"</p>
+              <span class="activity-time">5 hours ago</span>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <i class="fas fa-eye text-primary"></i>
+            <div class="activity-content">
+              <p class="activity-text">Your property received 50 new views</p>
+              <span class="activity-time">1 day ago</span>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <i class="fas fa-check-circle text-success"></i>
+            <div class="activity-content">
+              <p class="activity-text">Property "Beach House" marked as sold</p>
+              <span class="activity-time">2 days ago</span>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <i class="fas fa-edit text-warning"></i>
+            <div class="activity-content">
+              <p class="activity-text">Property details updated for "Urban Apartment"</p>
+              <span class="activity-time">3 days ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
-  </section>
+  </main>
 
-  <!-- Dashboard Content -->
-  <section class="dashboard-content">
-    <div class="container">
-      <div class="dashboard-grid">
-        <div class="dashboard-card">
-          <div class="card-icon">
-            <i class="fas fa-building"></i>
-          </div>
-          <h3>My Properties</h3>
-          <p>View and manage your property listings</p>
-          <div class="card-actions">
-            <button class="btn btn-primary" (click)="navigateToProperties()">
-              <i class="fas fa-list"></i> View All
-            </button>
-            <button class="btn btn-outline-primary" (click)="navigateToAddProperty()">
-              <i class="fas fa-plus"></i> Add New
-            </button>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="card-icon">
-            <i class="fas fa-comment-dots"></i>
-          </div>
-          <h3>Client Inquiries</h3>
-          <p>Respond to messages from potential buyers and renters</p>
-          <div class="card-actions">
-            <button class="btn btn-primary" (click)="navigateToInquiries()">
-              <i class="fas fa-inbox"></i> View Inquiries
-            </button>
-          </div>
-          <div class="badge badge-notification" *ngIf="inquiryCount > 0">
-            {{ inquiryCount }} new
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="card-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>Performance Analytics</h3>
-          <p>Track views, inquiries, and conversion metrics</p>
-          <div class="card-actions">
-            <button class="btn btn-primary" (click)="navigateToPerformance()">
-              <i class="fas fa-chart-bar"></i> View Reports
-            </button>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="card-icon">
-            <i class="fas fa-user-cog"></i>
-          </div>
-          <h3>Account Settings</h3>
-          <p>Update your profile, contact info, and preferences</p>
-          <div class="card-actions">
-            <button class="btn btn-primary" (click)="navigateToProfile()">
-              <i class="fas fa-edit"></i> Edit Profile
-            </button>
-          </div>
+  <!-- Mobile Sidebar Overlay -->
+  <div class="mobile-overlay" 
+       [class.active]="isMobileMenuOpen"
+       (click)="toggleMobileMenu()"></div>
+  
+  <!-- Mobile Sidebar -->
+  <aside class="mobile-sidebar" [class.active]="isMobileMenuOpen">
+    <!-- Close Button -->
+    <button class="close-sidebar" (click)="toggleMobileMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <!-- Agent Profile -->
+    <div class="mobile-profile">
+      <div class="profile-avatar">
+        <img *ngIf="currentUser?.profileImage || currentUser?.avatar" 
+             [src]="currentUser?.profileImage || currentUser?.avatar" 
+             [alt]="agentName"
+             class="avatar-img">
+        <div *ngIf="!currentUser?.profileImage && !currentUser?.avatar" class="avatar-initials">
+          {{ agentName ? (agentName.split(' ')[0][0] + (agentName.split(' ')[1]?.[0] || '')).toUpperCase() : 'AG' }}
         </div>
       </div>
+      <h4 class="profile-name">{{ agentName }}</h4>
+      <p class="profile-role">Real Estate Agent</p>
     </div>
-  </section>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+      <ul class="nav-list">
+        <li class="nav-item" *ngFor="let item of navItems; trackBy: trackByNavItem">
+          <a [routerLink]="item.route" 
+             class="nav-link"
+             routerLinkActive="active"
+             (click)="toggleMobileMenu()">
+            <i [class]="item.icon"></i>
+            <span class="nav-text">{{ item.name }}</span>
+            <span class="nav-badge" *ngIf="item.name === 'Inquiries' && inquiryCount > 0">
+              {{ inquiryCount }}
+            </span>
+          </a>
+        </li>
+        
+        <li class="nav-separator"></li>
+        
+        <li class="nav-item">
+          <a (click)="logout()" class="nav-link logout-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="nav-text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 </div>
