@@ -2236,3 +2236,528 @@
   "limit": 12,
   "filtersApplied": false
 }
+{
+  "timestamp": "2025-09-04T19:23:03.518Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "createdAt",
+    "sortOrder": "desc"
+  }
+}
+{
+  "timestamp": "2025-09-04T19:23:03.519Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:23:03.526Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T19:23:05.223Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T19:23:05.224Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:23:05.227Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T19:23:51.071Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "createdAt",
+    "sortOrder": "desc"
+  }
+}
+{
+  "timestamp": "2025-09-04T19:23:51.072Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:23:51.082Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T19:27:36.606Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T19:27:36.674Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T19:27:36.675Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:27:36.678Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T19:27:46.577Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T19:27:46.614Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T19:27:46.615Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:27:46.619Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T19:34:49.146Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T19:34:49.147Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T19:34:49.152Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T20:25:33.278Z",
+  "level": "INFO",
+  "message": "User profile retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com"
+}
+{
+  "timestamp": "2025-09-04T20:25:33.428Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T20:25:33.429Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T20:25:33.432Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T20:29:31.156Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T20:29:31.157Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T20:29:31.162Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T20:29:33.757Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T20:29:33.759Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T20:29:33.763Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T20:29:35.592Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
+}
+{
+  "timestamp": "2025-09-04T20:29:35.594Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T20:29:35.601Z",
+  "level": "INFO",
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
+}
+{
+  "timestamp": "2025-09-04T20:29:39.111Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.112Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T20:29:39.117Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T20:29:39.121Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.122Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-04T20:29:39.126Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-04T20:29:39.162Z",
+  "level": "INFO",
+  "message": "User favorites retrieved",
+  "userId": "686d7dc38de09a4f48df03af",
+  "count": 0,
+  "page": "1"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.168Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.173Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.177Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.181Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.185Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.189Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.194Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.199Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.205Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.210Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.215Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-04T20:29:39.219Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}

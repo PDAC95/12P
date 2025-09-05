@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { AgentLayoutComponent } from '../../shared/components/agent-layout/agent-layout.component';
 
 export interface PropertyForm {
   title: string;
@@ -40,7 +41,7 @@ export interface VideoFile {
 @Component({
   selector: 'app-add-property',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, AgentLayoutComponent],
   templateUrl: './add-property.html',
   styleUrl: './add-property.scss',
 })

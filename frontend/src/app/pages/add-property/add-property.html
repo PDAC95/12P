@@ -1,21 +1,27 @@
-<div class="add-property-page">
-  <!-- Page Header -->
-  <section class="add-property-header">
-    <div class="container">
-      <div class="header-content">
-        <h1 class="page-title">
-          <span class="title-line">Add Your</span>
-          <span class="title-line"
-            ><span class="highlight">Property</span></span
-          >
-        </h1>
-        <p class="page-description">
-          List your property with us and reach thousands of potential buyers and
-          renters.
-        </p>
+<!-- Add Property Page with Agent Layout -->
+<app-agent-layout 
+  pageTitle="Add New Property" 
+  pageIcon="fas fa-plus-circle"
+  [showHeaderActions]="false">
+  
+  <div class="add-property-page">
+    <!-- Page Header -->
+    <section class="add-property-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="page-title">
+            <span class="title-line">Add Your</span>
+            <span class="title-line"
+              ><span class="highlight">Property</span></span
+            >
+          </h1>
+          <p class="page-description">
+            List your property with us and reach thousands of potential buyers and
+            renters.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- Success Message -->
   <div class="success-overlay" *ngIf="isSubmitted">
@@ -476,4 +482,5 @@
       </div>
     </div>
   </section>
-</div>
+  </div>
+</app-agent-layout>

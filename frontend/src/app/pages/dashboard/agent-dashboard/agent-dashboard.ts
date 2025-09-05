@@ -94,7 +94,7 @@ export class AgentDashboard implements OnInit, OnDestroy, AfterViewInit {
   // Navigation Items
   navItems = [
     { name: 'Dashboard', icon: 'fas fa-home', route: '/agent/dashboard' },
-    { name: 'My Properties', icon: 'fas fa-building', route: '/agent/my-properties' },
+    { name: 'My Properties', icon: 'fas fa-building', route: '/agent/properties' },
     { name: 'Add Property', icon: 'fas fa-plus-circle', route: '/add-property' },
     { name: 'Inquiries', icon: 'fas fa-envelope', route: '/agent/inquiries' },
     { name: 'Calendar', icon: 'fas fa-calendar', route: '/agent/calendar' },

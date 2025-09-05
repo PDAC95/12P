@@ -81,14 +81,21 @@ export const routes: Routes = [
     canActivate: [agentGuard, emailVerifiedGuard], // Agent must verify email
   },
 
-  // Agent My Properties
+  // Agent My Properties - Dedicated property management page
+  {
+    path: 'agent/properties',
+    loadComponent: () =>
+      import('./pages/my-properties/my-properties').then(
+        (c) => c.MyPropertiesComponent
+      ),
+    canActivate: [agentGuard, emailVerifiedGuard],
+  },
+  
+  // Legacy route redirect
   {
     path: 'agent/my-properties',
-    loadComponent: () =>
-      import('./pages/agent/my-properties/my-properties').then(
-        (c) => c.MyProperties
-      ),
-    canActivate: [agentGuard, emailVerifiedGuard], // Agent must verify email
+    redirectTo: '/agent/properties',
+    pathMatch: 'full'
   },
 
   // Agent Edit Property

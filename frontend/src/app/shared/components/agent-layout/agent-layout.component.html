@@ -1,0 +1,40 @@
+<!-- Agent Dashboard Layout Wrapper -->
+<div class="agent-layout-container" [class.sidebar-collapsed]="isSidebarCollapsed">
+  
+  <!-- Sidebar Component -->
+  <app-agent-sidebar 
+    [isCollapsed]="isSidebarCollapsed"
+    [isMobileOpen]="isMobileSidebarOpen"
+    (toggleCollapse)="toggleSidebar()"
+    (closeMobile)="closeMobileSidebar()">
+  </app-agent-sidebar>
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="mobile-backdrop" 
+       *ngIf="isMobileSidebarOpen" 
+       (click)="closeMobileSidebar()"></div>
+
+  <!-- Main Content Area -->
+  <main class="agent-main">
+    <!-- Header -->
+    <header class="agent-header">
+      <div class="header-left">
+        <button class="mobile-menu-btn" (click)="toggleMobileSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h1 class="page-title">
+          <i [class]="pageIcon"></i>
+          {{ pageTitle }}
+        </h1>
+      </div>
+      <div class="header-right" *ngIf="showHeaderActions">
+        <ng-content select="[header-actions]"></ng-content>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="agent-content">
+      <ng-content></ng-content>
+    </div>
+  </main>
+</div>

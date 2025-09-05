@@ -32,8 +32,8 @@ export class App implements OnInit {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        // Hide navbar on agent dashboard route
-        this.showNavbar = !event.url.includes('/agent/dashboard');
+        // Hide navbar on ALL agent routes and add-property page
+        this.showNavbar = !event.url.includes('/agent/') && !event.url.includes('/add-property');
       });
   }
 
