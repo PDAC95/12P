@@ -33,7 +33,7 @@ $shadow-hover: rgba(0, 0, 0, 0.1);
 
 // Variables
 $sidebar-width: 250px;
-$sidebar-collapsed-width: 70px;
+$sidebar-collapsed-width: 80px;
 $transition: 0.3s ease;
 $border-radius: 12px;
 $border-radius-sm: 8px;
@@ -193,7 +193,7 @@ a:focus {
 
   &.sidebar-collapsed {
     .dashboard-sidebar {
-      width: $sidebar-collapsed-width;
+      width: $sidebar-collapsed-width; // Ensure consistent collapsed width
 
       .brand-text,
       .profile-info,
@@ -206,10 +206,78 @@ a:focus {
       .sidebar-toggle i {
         transform: rotate(180deg);
       }
+
+      // Fix avatar centering when collapsed
+      .sidebar-profile {
+        padding: 20px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .profile-avatar {
+          // Force center alignment
+          margin: 0 auto !important;
+          width: 45px !important;
+          height: 45px !important;
+          position: relative !important;
+          left: auto !important;
+          right: auto !important;
+          transform: none !important;
+          
+          .avatar-img,
+          .avatar-initials {
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 16px !important;
+            border-width: 2px !important;
+          }
+        }
+        
+        // Hide profile text when collapsed
+        .profile-info {
+          display: none;
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      
+      // Center nav icons to align with avatar
+      .sidebar-nav {
+        .nav-link {
+          padding: 15px 0;
+          justify-content: center;
+          
+          i {
+            margin: 0;
+            width: auto;
+            text-align: center;
+          }
+          
+          .nav-text,
+          .nav-badge {
+            display: none;
+          }
+        }
+      }
+      
+      // Center brand/logo
+      .sidebar-brand {
+        .brand-link {
+          justify-content: center;
+          
+          .sidebar-logo-collapsed {
+            margin: 0 auto;
+          }
+        }
+      }
     }
 
     .dashboard-main {
-      margin-left: $sidebar-collapsed-width;
+      margin-left: $sidebar-collapsed-width; // Match the new collapsed width
     }
   }
 

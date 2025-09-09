@@ -27,7 +27,7 @@ export class AgentSidebarComponent implements OnInit {
     { name: 'Inquiries', icon: 'fas fa-envelope', route: '/agent/inquiries' },
     { name: 'Calendar', icon: 'fas fa-calendar', route: '/agent/calendar' },
     { name: 'Analytics', icon: 'fas fa-chart-line', route: '/agent/analytics' },
-    { name: 'Profile', icon: 'fas fa-user', route: '/users/profile' },
+    { name: 'Profile', icon: 'fas fa-user', route: '/agent/profile' },
     { name: 'Settings', icon: 'fas fa-cog', route: '/agent/settings' }
   ];
   

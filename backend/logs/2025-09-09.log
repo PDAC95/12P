@@ -1,22 +1,22 @@
 {
-  "timestamp": "2025-09-05T12:36:19.582Z",
+  "timestamp": "2025-09-09T14:14:20.628Z",
   "level": "INFO",
   "message": "Attempting to connect to MongoDB",
   "uri": "URI provided"
 }
 {
-  "timestamp": "2025-09-05T12:36:19.602Z",
+  "timestamp": "2025-09-09T14:14:20.647Z",
   "level": "INFO",
   "message": "Attempting to connect to MongoDB",
   "uri": "URI provided"
 }
 {
-  "timestamp": "2025-09-05T12:36:19.604Z",
+  "timestamp": "2025-09-09T14:14:20.648Z",
   "level": "INFO",
   "message": "MongoDB Connected Successfully"
 }
 {
-  "timestamp": "2025-09-05T12:36:19.618Z",
+  "timestamp": "2025-09-09T14:14:20.663Z",
   "level": "INFO",
   "message": "MongoDB Connected Successfully",
   "host": "localhost",
@@ -24,13 +24,13 @@
   "database": "12p"
 }
 {
-  "timestamp": "2025-09-05T12:36:19.629Z",
+  "timestamp": "2025-09-09T14:14:20.722Z",
   "level": "INFO",
   "message": "Properties already exist in database",
   "count": 122
 }
 {
-  "timestamp": "2025-09-05T12:36:19.632Z",
+  "timestamp": "2025-09-09T14:14:20.725Z",
   "level": "INFO",
   "message": "Server started successfully",
   "port": "5001",
@@ -40,14 +40,206 @@
   "propertiesEndpoint": "http://localhost:5001/api/properties"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.463Z",
+  "timestamp": "2025-09-09T14:14:40.620Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.621Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-09T14:14:40.640Z",
   "level": "INFO",
-  "message": "User profile retrieved",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-09T14:14:40.651Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.653Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
+}
+{
+  "timestamp": "2025-09-09T14:14:40.659Z",
+  "level": "INFO",
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
+}
+{
+  "timestamp": "2025-09-09T14:14:40.690Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.696Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.702Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.710Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.716Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.722Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.730Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.735Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.743Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.748Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.754Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:40.761Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:14:49.314Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "test@example.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0"
+}
+{
+  "timestamp": "2025-09-09T14:14:49.393Z",
+  "level": "WARN",
+  "message": "Login attempt with invalid password",
+  "userId": "6893a682763cd93e0cd133a4",
+  "email": "test@example.com"
+}
+{
+  "timestamp": "2025-09-09T14:15:41.405Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0"
+}
+{
+  "timestamp": "2025-09-09T14:15:41.656Z",
+  "level": "WARN",
+  "message": "Login attempt with invalid password",
   "userId": "686d7dc38de09a4f48df03af",
   "email": "agent@test.com"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.549Z",
+  "timestamp": "2025-09-09T14:16:23.622Z",
+  "level": "INFO",
+  "message": "Google login attempt",
+  "hasToken": true,
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-09T14:16:23.935Z",
+  "level": "INFO",
+  "message": "Google token verified",
+  "email": "pdmckinster@gmail.com",
+  "name": "Pat D"
+}
+{
+  "timestamp": "2025-09-09T14:16:23.963Z",
+  "level": "INFO",
+  "message": "Google login successful",
+  "userId": "68939c61763cd93e0cd13304",
+  "email": "pdmckinster@gmail.com",
+  "role": "client",
+  "isNewUser": false
+}
+{
+  "timestamp": "2025-09-09T14:16:23.992Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -58,7 +250,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.550Z",
+  "timestamp": "2025-09-09T14:16:23.996Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -75,7 +267,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T12:44:27.560Z",
+  "timestamp": "2025-09-09T14:16:24.008Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -84,7 +276,7 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T12:44:27.565Z",
+  "timestamp": "2025-09-09T14:16:24.017Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -95,7 +287,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.566Z",
+  "timestamp": "2025-09-09T14:16:24.019Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -112,7 +304,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T12:44:27.573Z",
+  "timestamp": "2025-09-09T14:16:24.033Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -121,189 +313,79 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T12:44:27.608Z",
-  "level": "INFO",
-  "message": "User favorites retrieved",
-  "userId": "686d7dc38de09a4f48df03af",
-  "count": 0,
-  "page": "1"
-}
-{
-  "timestamp": "2025-09-05T12:44:27.615Z",
+  "timestamp": "2025-09-09T14:16:24.040Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.621Z",
+  "timestamp": "2025-09-09T14:16:24.046Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.626Z",
+  "timestamp": "2025-09-09T14:16:24.051Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.631Z",
+  "timestamp": "2025-09-09T14:16:24.056Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.637Z",
+  "timestamp": "2025-09-09T14:16:24.061Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.642Z",
+  "timestamp": "2025-09-09T14:16:24.066Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.648Z",
+  "timestamp": "2025-09-09T14:16:24.072Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.657Z",
+  "timestamp": "2025-09-09T14:16:24.076Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.664Z",
+  "timestamp": "2025-09-09T14:16:24.080Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.677Z",
+  "timestamp": "2025-09-09T14:16:24.084Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.688Z",
+  "timestamp": "2025-09-09T14:16:24.089Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T12:44:27.704Z",
+  "timestamp": "2025-09-09T14:16:24.094Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:29.802Z",
-  "level": "DEBUG",
-  "message": "Getting agent's properties",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "query": {}
-}
-{
-  "timestamp": "2025-09-05T13:31:29.803Z",
-  "level": "DEBUG",
-  "message": "Agent properties query built",
-  "query": {
-    "agent": "686d7dc38de09a4f48df03af",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "createdAt": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T13:31:29.808Z",
-  "level": "INFO",
-  "message": "Agent properties retrieved successfully",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "total": 0,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": false
-}
-{
-  "timestamp": "2025-09-05T13:31:31.314Z",
-  "level": "DEBUG",
-  "message": "Getting agent's properties",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "query": {}
-}
-{
-  "timestamp": "2025-09-05T13:31:31.315Z",
-  "level": "DEBUG",
-  "message": "Agent properties query built",
-  "query": {
-    "agent": "686d7dc38de09a4f48df03af",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "createdAt": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T13:31:31.318Z",
-  "level": "INFO",
-  "message": "Agent properties retrieved successfully",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "total": 0,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": false
-}
-{
-  "timestamp": "2025-09-05T13:31:33.542Z",
-  "level": "DEBUG",
-  "message": "Getting agent's properties",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "query": {}
-}
-{
-  "timestamp": "2025-09-05T13:31:33.543Z",
-  "level": "DEBUG",
-  "message": "Agent properties query built",
-  "query": {
-    "agent": "686d7dc38de09a4f48df03af",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "createdAt": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T13:31:33.547Z",
-  "level": "INFO",
-  "message": "Agent properties retrieved successfully",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "total": 0,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": false
-}
-{
-  "timestamp": "2025-09-05T13:31:44.898Z",
+  "timestamp": "2025-09-09T14:16:31.028Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -314,7 +396,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.899Z",
+  "timestamp": "2025-09-09T14:16:31.030Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -331,7 +413,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T13:31:44.906Z",
+  "timestamp": "2025-09-09T14:16:31.037Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -340,7 +422,7 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T13:31:44.910Z",
+  "timestamp": "2025-09-09T14:16:31.042Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -351,7 +433,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.911Z",
+  "timestamp": "2025-09-09T14:16:31.043Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -368,7 +450,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T13:31:44.919Z",
+  "timestamp": "2025-09-09T14:16:31.050Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -377,120 +459,79 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T13:31:44.936Z",
+  "timestamp": "2025-09-09T14:16:31.054Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.941Z",
+  "timestamp": "2025-09-09T14:16:31.060Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.946Z",
+  "timestamp": "2025-09-09T14:16:31.064Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.951Z",
+  "timestamp": "2025-09-09T14:16:31.068Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.955Z",
+  "timestamp": "2025-09-09T14:16:31.072Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.959Z",
+  "timestamp": "2025-09-09T14:16:31.077Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.963Z",
+  "timestamp": "2025-09-09T14:16:31.082Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.968Z",
+  "timestamp": "2025-09-09T14:16:31.087Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.972Z",
+  "timestamp": "2025-09-09T14:16:31.092Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.976Z",
+  "timestamp": "2025-09-09T14:16:31.096Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.980Z",
+  "timestamp": "2025-09-09T14:16:31.101Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:31:44.985Z",
+  "timestamp": "2025-09-09T14:16:31.106Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T13:38:04.134Z",
-  "level": "DEBUG",
-  "message": "Getting agent's properties",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "query": {}
-}
-{
-  "timestamp": "2025-09-05T13:38:04.136Z",
-  "level": "DEBUG",
-  "message": "Agent properties query built",
-  "query": {
-    "agent": "686d7dc38de09a4f48df03af",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "createdAt": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T13:38:04.140Z",
-  "level": "INFO",
-  "message": "Agent properties retrieved successfully",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "total": 0,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": false
-}
-{
-  "timestamp": "2025-09-05T14:16:44.758Z",
-  "level": "INFO",
-  "message": "User profile retrieved",
-  "userId": "686d7dc38de09a4f48df03af",
-  "email": "agent@test.com"
-}
-{
-  "timestamp": "2025-09-05T14:16:44.842Z",
+  "timestamp": "2025-09-09T14:16:54.389Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -501,7 +542,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.844Z",
+  "timestamp": "2025-09-09T14:16:54.390Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -518,7 +559,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T14:16:44.854Z",
+  "timestamp": "2025-09-09T14:16:54.397Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -527,7 +568,7 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T14:16:44.859Z",
+  "timestamp": "2025-09-09T14:16:54.404Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -538,7 +579,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.861Z",
+  "timestamp": "2025-09-09T14:16:54.406Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -555,7 +596,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T14:16:44.869Z",
+  "timestamp": "2025-09-09T14:16:54.414Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -564,162 +605,79 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T14:16:44.909Z",
-  "level": "INFO",
-  "message": "User favorites retrieved",
-  "userId": "686d7dc38de09a4f48df03af",
-  "count": 0,
-  "page": "1"
-}
-{
-  "timestamp": "2025-09-05T14:16:44.916Z",
+  "timestamp": "2025-09-09T14:16:54.419Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.922Z",
+  "timestamp": "2025-09-09T14:16:54.425Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.928Z",
+  "timestamp": "2025-09-09T14:16:54.431Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.934Z",
+  "timestamp": "2025-09-09T14:16:54.435Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.941Z",
+  "timestamp": "2025-09-09T14:16:54.439Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.947Z",
+  "timestamp": "2025-09-09T14:16:54.443Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.955Z",
+  "timestamp": "2025-09-09T14:16:54.448Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.964Z",
+  "timestamp": "2025-09-09T14:16:54.453Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.975Z",
+  "timestamp": "2025-09-09T14:16:54.457Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.985Z",
+  "timestamp": "2025-09-09T14:16:54.461Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:44.998Z",
+  "timestamp": "2025-09-09T14:16:54.466Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:45.008Z",
+  "timestamp": "2025-09-09T14:16:54.472Z",
   "level": "WARN",
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T14:16:56.254Z",
-  "level": "DEBUG",
-  "message": "Getting agent's properties",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "query": {}
-}
-{
-  "timestamp": "2025-09-05T14:16:56.257Z",
-  "level": "DEBUG",
-  "message": "Agent properties query built",
-  "query": {
-    "agent": "686d7dc38de09a4f48df03af",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "createdAt": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T14:16:56.262Z",
-  "level": "INFO",
-  "message": "Agent properties retrieved successfully",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "total": 0,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": false
-}
-{
-  "timestamp": "2025-09-05T14:47:05.647Z",
-  "level": "INFO",
-  "message": "User profile retrieved",
-  "userId": "686d7dc38de09a4f48df03af",
-  "email": "agent@test.com"
-}
-{
-  "timestamp": "2025-09-05T14:47:05.708Z",
-  "level": "DEBUG",
-  "message": "Getting agent's properties",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "query": {}
-}
-{
-  "timestamp": "2025-09-05T14:47:05.709Z",
-  "level": "DEBUG",
-  "message": "Agent properties query built",
-  "query": {
-    "agent": "686d7dc38de09a4f48df03af",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "createdAt": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T14:47:05.712Z",
-  "level": "INFO",
-  "message": "Agent properties retrieved successfully",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "total": 0,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": false
-}
-{
-  "timestamp": "2025-09-05T14:47:13.198Z",
+  "timestamp": "2025-09-09T14:17:02.350Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -730,7 +688,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T14:47:13.199Z",
+  "timestamp": "2025-09-09T14:17:02.351Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -747,7 +705,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T14:47:13.206Z",
+  "timestamp": "2025-09-09T14:17:02.359Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -756,7 +714,7 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T14:47:13.212Z",
+  "timestamp": "2025-09-09T14:17:02.363Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -767,7 +725,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T14:47:13.214Z",
+  "timestamp": "2025-09-09T14:17:02.365Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -784,7 +742,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T14:47:13.220Z",
+  "timestamp": "2025-09-09T14:17:02.381Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -793,98 +751,135 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T14:47:13.246Z",
+  "timestamp": "2025-09-09T14:17:02.390Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.398Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.404Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.410Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.417Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.422Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.427Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.431Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.436Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.441Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.446Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:17:02.451Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:21:51.665Z",
   "level": "INFO",
-  "message": "User favorites retrieved",
-  "userId": "686d7dc38de09a4f48df03af",
-  "count": 0,
-  "page": "1"
+  "message": "Public user profile retrieved",
+  "userId": "686d4fc45d85566fff88ef9f",
+  "requestedBy": "::1"
 }
 {
-  "timestamp": "2025-09-05T14:47:13.248Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
+  "timestamp": "2025-09-09T14:22:27.067Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.45.0"
 }
 {
-  "timestamp": "2025-09-05T14:47:13.252Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
+  "timestamp": "2025-09-09T14:22:27.350Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "lastLogin": "2025-09-09T14:22:27.332Z"
 }
 {
-  "timestamp": "2025-09-05T14:47:13.258Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
+  "timestamp": "2025-09-09T14:23:00.376Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "john.doe@example.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0"
 }
 {
-  "timestamp": "2025-09-05T14:47:13.264Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
+  "timestamp": "2025-09-09T14:23:00.633Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d59cc74e0bd046e2a8d93",
+  "email": "john.doe@example.com",
+  "role": "client",
+  "lastLogin": "2025-09-09T14:23:00.622Z"
 }
 {
-  "timestamp": "2025-09-05T14:47:13.268Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:13.274Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:13.280Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:13.287Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:13.291Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:13.296Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:13.301Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:13.305Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T14:47:15.674Z",
+  "timestamp": "2025-09-09T14:23:00.668Z",
   "level": "DEBUG",
-  "message": "Getting agent's properties",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "query": {}
-}
-{
-  "timestamp": "2025-09-05T14:47:15.676Z",
-  "level": "DEBUG",
-  "message": "Agent properties query built",
+  "message": "Getting properties list",
   "query": {
-    "agent": "686d7dc38de09a4f48df03af",
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
+}
+{
+  "timestamp": "2025-09-09T14:23:00.670Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
     "isDeleted": false
   },
   "pagination": {
@@ -893,271 +888,185 @@
     "skip": 0
   },
   "sort": {
-    "createdAt": -1
+    "price": -1
   }
 }
 {
-  "timestamp": "2025-09-05T14:47:15.680Z",
+  "timestamp": "2025-09-09T14:23:00.680Z",
   "level": "INFO",
-  "message": "Agent properties retrieved successfully",
-  "agentId": "686d7dc38de09a4f48df03af",
-  "total": 0,
+  "message": "Properties retrieved successfully",
+  "total": 51,
   "page": 1,
   "limit": 12,
-  "filtersApplied": false
+  "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T15:00:29.131Z",
-  "level": "INFO",
-  "message": "Attempting to connect to MongoDB",
-  "uri": "URI provided"
+  "timestamp": "2025-09-09T14:23:00.687Z",
+  "level": "DEBUG",
+  "message": "Getting properties list",
+  "query": {
+    "page": "1",
+    "limit": "12",
+    "sortBy": "price"
+  },
+  "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T15:00:29.156Z",
-  "level": "INFO",
-  "message": "Attempting to connect to MongoDB",
-  "uri": "URI provided"
+  "timestamp": "2025-09-09T14:23:00.688Z",
+  "level": "DEBUG",
+  "message": "Query built",
+  "query": {
+    "status": "available",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "price": -1
+  }
 }
 {
-  "timestamp": "2025-09-05T15:00:29.158Z",
+  "timestamp": "2025-09-09T14:23:00.695Z",
   "level": "INFO",
-  "message": "MongoDB Connected Successfully"
+  "message": "Properties retrieved successfully",
+  "total": 51,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T15:00:29.175Z",
-  "level": "INFO",
-  "message": "MongoDB Connected Successfully",
-  "host": "localhost",
-  "port": 27017,
-  "database": "12p"
+  "timestamp": "2025-09-09T14:23:00.709Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:00:29.239Z",
-  "level": "INFO",
-  "message": "Properties already exist in database",
-  "count": 122
+  "timestamp": "2025-09-09T14:23:00.714Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:00:29.241Z",
-  "level": "INFO",
-  "message": "Server started successfully",
-  "port": "5001",
-  "host": "localhost",
-  "environment": "development",
-  "healthCheck": "http://localhost:5001/api/health",
-  "propertiesEndpoint": "http://localhost:5001/api/properties"
+  "timestamp": "2025-09-09T14:23:00.718Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:01:13.366Z",
-  "level": "INFO",
-  "message": "Attempting to connect to MongoDB",
-  "uri": "URI provided"
+  "timestamp": "2025-09-09T14:23:00.722Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:01:13.385Z",
-  "level": "INFO",
-  "message": "Attempting to connect to MongoDB",
-  "uri": "URI provided"
+  "timestamp": "2025-09-09T14:23:00.726Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:01:13.386Z",
-  "level": "INFO",
-  "message": "MongoDB Connected Successfully"
+  "timestamp": "2025-09-09T14:23:00.730Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:01:13.398Z",
-  "level": "INFO",
-  "message": "MongoDB Connected Successfully",
-  "host": "localhost",
-  "port": 27017,
-  "database": "12p"
+  "timestamp": "2025-09-09T14:23:00.735Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:01:13.407Z",
-  "level": "INFO",
-  "message": "Properties already exist in database",
-  "count": 122
+  "timestamp": "2025-09-09T14:23:00.740Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:01:13.410Z",
-  "level": "INFO",
-  "message": "Server started successfully",
-  "port": "5001",
-  "host": "localhost",
-  "environment": "development",
-  "healthCheck": "http://localhost:5001/api/health",
-  "propertiesEndpoint": "http://localhost:5001/api/properties"
+  "timestamp": "2025-09-09T14:23:00.744Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T15:01:50.905Z",
+  "timestamp": "2025-09-09T14:23:00.749Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:23:00.753Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:23:00.759Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:23:27.697Z",
   "level": "INFO",
-  "message": "User profile retrieved",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.45.0"
+}
+{
+  "timestamp": "2025-09-09T14:23:27.973Z",
+  "level": "WARN",
+  "message": "Login attempt with invalid password",
   "userId": "686d7dc38de09a4f48df03af",
   "email": "agent@test.com"
 }
 {
-  "timestamp": "2025-09-05T15:01:50.986Z",
-  "level": "DEBUG",
-  "message": "Getting properties list",
-  "query": {
-    "page": "1",
-    "limit": "12",
-    "sortBy": "price"
-  },
-  "ip": "::1"
-}
-{
-  "timestamp": "2025-09-05T15:01:50.988Z",
-  "level": "DEBUG",
-  "message": "Query built",
-  "query": {
-    "status": "available",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "price": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T15:01:51.004Z",
+  "timestamp": "2025-09-09T14:23:35.701Z",
   "level": "INFO",
-  "message": "Properties retrieved successfully",
-  "total": 51,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": true
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "PostmanRuntime/7.45.0"
 }
 {
-  "timestamp": "2025-09-05T15:01:51.009Z",
-  "level": "DEBUG",
-  "message": "Getting properties list",
-  "query": {
-    "page": "1",
-    "limit": "12",
-    "sortBy": "price"
-  },
-  "ip": "::1"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.010Z",
-  "level": "DEBUG",
-  "message": "Query built",
-  "query": {
-    "status": "available",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "price": -1
-  }
-}
-{
-  "timestamp": "2025-09-05T15:01:51.019Z",
+  "timestamp": "2025-09-09T14:23:36.014Z",
   "level": "INFO",
-  "message": "Properties retrieved successfully",
-  "total": 51,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": true
-}
-{
-  "timestamp": "2025-09-05T15:01:51.047Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.055Z",
-  "level": "INFO",
-  "message": "User favorites retrieved",
+  "message": "User login successful",
   "userId": "686d7dc38de09a4f48df03af",
-  "count": 0,
-  "page": "1"
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-09-09T14:23:36.007Z"
 }
 {
-  "timestamp": "2025-09-05T15:01:51.059Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
+  "timestamp": "2025-09-09T14:24:06.403Z",
+  "level": "INFO",
+  "message": "User login attempt",
+  "email": "agent@test.com",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0"
 }
 {
-  "timestamp": "2025-09-05T15:01:51.066Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
+  "timestamp": "2025-09-09T14:24:06.656Z",
+  "level": "INFO",
+  "message": "User login successful",
+  "userId": "686d7dc38de09a4f48df03af",
+  "email": "agent@test.com",
+  "role": "agent",
+  "lastLogin": "2025-09-09T14:24:06.648Z"
 }
 {
-  "timestamp": "2025-09-05T15:01:51.071Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.076Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.082Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.087Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.092Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.098Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.104Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.109Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:51.115Z",
-  "level": "WARN",
-  "message": "Public profile requested for non-existent user",
-  "userId": "507f1f77bcf86cd799439011"
-}
-{
-  "timestamp": "2025-09-05T15:01:54.495Z",
+  "timestamp": "2025-09-09T14:24:06.761Z",
   "level": "DEBUG",
   "message": "Getting agent's properties",
   "agentId": "686d7dc38de09a4f48df03af",
   "query": {}
 }
 {
-  "timestamp": "2025-09-05T15:01:54.495Z",
+  "timestamp": "2025-09-09T14:24:06.762Z",
   "level": "DEBUG",
   "message": "Agent properties query built",
   "query": {
@@ -1174,7 +1083,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T15:01:54.501Z",
+  "timestamp": "2025-09-09T14:24:06.769Z",
   "level": "INFO",
   "message": "Agent properties retrieved successfully",
   "agentId": "686d7dc38de09a4f48df03af",
@@ -1184,48 +1093,41 @@
   "filtersApplied": false
 }
 {
-  "timestamp": "2025-09-05T15:56:49.943Z",
-  "level": "INFO",
-  "message": "Attempting to connect to MongoDB",
-  "uri": "URI provided"
+  "timestamp": "2025-09-09T14:24:14.867Z",
+  "level": "DEBUG",
+  "message": "Getting agent's properties",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "query": {}
 }
 {
-  "timestamp": "2025-09-05T15:56:49.959Z",
-  "level": "INFO",
-  "message": "Attempting to connect to MongoDB",
-  "uri": "URI provided"
+  "timestamp": "2025-09-09T14:24:14.868Z",
+  "level": "DEBUG",
+  "message": "Agent properties query built",
+  "query": {
+    "agent": "686d7dc38de09a4f48df03af",
+    "isDeleted": false
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 12,
+    "skip": 0
+  },
+  "sort": {
+    "createdAt": -1
+  }
 }
 {
-  "timestamp": "2025-09-05T15:56:49.960Z",
+  "timestamp": "2025-09-09T14:24:14.870Z",
   "level": "INFO",
-  "message": "MongoDB Connected Successfully"
+  "message": "Agent properties retrieved successfully",
+  "agentId": "686d7dc38de09a4f48df03af",
+  "total": 0,
+  "page": 1,
+  "limit": 12,
+  "filtersApplied": false
 }
 {
-  "timestamp": "2025-09-05T15:56:49.974Z",
-  "level": "INFO",
-  "message": "MongoDB Connected Successfully",
-  "host": "localhost",
-  "port": 27017,
-  "database": "12p"
-}
-{
-  "timestamp": "2025-09-05T15:56:49.997Z",
-  "level": "INFO",
-  "message": "Properties already exist in database",
-  "count": 122
-}
-{
-  "timestamp": "2025-09-05T15:56:50.000Z",
-  "level": "INFO",
-  "message": "Server started successfully",
-  "port": "5001",
-  "host": "localhost",
-  "environment": "development",
-  "healthCheck": "http://localhost:5001/api/health",
-  "propertiesEndpoint": "http://localhost:5001/api/properties"
-}
-{
-  "timestamp": "2025-09-05T15:57:31.463Z",
+  "timestamp": "2025-09-09T14:24:18.076Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -1236,7 +1138,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T15:57:31.464Z",
+  "timestamp": "2025-09-09T14:24:18.078Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -1253,7 +1155,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T15:57:31.478Z",
+  "timestamp": "2025-09-09T14:24:18.084Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -1262,7 +1164,7 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T15:57:31.485Z",
+  "timestamp": "2025-09-09T14:24:18.088Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -1273,7 +1175,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T15:57:31.486Z",
+  "timestamp": "2025-09-09T14:24:18.088Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -1290,7 +1192,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T15:57:31.493Z",
+  "timestamp": "2025-09-09T14:24:18.094Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -1299,7 +1201,79 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T16:45:16.165Z",
+  "timestamp": "2025-09-09T14:24:18.107Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.115Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.121Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.127Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.131Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.136Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.141Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.146Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.151Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.156Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.161Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:18.166Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:25.237Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -1310,7 +1284,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T16:45:16.174Z",
+  "timestamp": "2025-09-09T14:24:25.238Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -1327,7 +1301,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T16:45:16.188Z",
+  "timestamp": "2025-09-09T14:24:25.243Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -1336,7 +1310,7 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T16:45:16.193Z",
+  "timestamp": "2025-09-09T14:24:25.248Z",
   "level": "DEBUG",
   "message": "Getting properties list",
   "query": {
@@ -1347,7 +1321,7 @@
   "ip": "::1"
 }
 {
-  "timestamp": "2025-09-05T16:45:16.194Z",
+  "timestamp": "2025-09-09T14:24:25.249Z",
   "level": "DEBUG",
   "message": "Query built",
   "query": {
@@ -1364,7 +1338,7 @@
   }
 }
 {
-  "timestamp": "2025-09-05T16:45:16.212Z",
+  "timestamp": "2025-09-09T14:24:25.254Z",
   "level": "INFO",
   "message": "Properties retrieved successfully",
   "total": 51,
@@ -1373,76 +1347,74 @@
   "filtersApplied": true
 }
 {
-  "timestamp": "2025-09-05T16:46:05.384Z",
-  "level": "DEBUG",
-  "message": "Getting properties list",
-  "query": {
-    "page": "1",
-    "limit": "12",
-    "sortBy": "price"
-  },
-  "ip": "::1"
+  "timestamp": "2025-09-09T14:24:25.267Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T16:46:05.386Z",
-  "level": "DEBUG",
-  "message": "Query built",
-  "query": {
-    "status": "available",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "price": -1
-  }
+  "timestamp": "2025-09-09T14:24:25.275Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T16:46:05.410Z",
-  "level": "INFO",
-  "message": "Properties retrieved successfully",
-  "total": 51,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": true
+  "timestamp": "2025-09-09T14:24:25.279Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T16:46:05.417Z",
-  "level": "DEBUG",
-  "message": "Getting properties list",
-  "query": {
-    "page": "1",
-    "limit": "12",
-    "sortBy": "price"
-  },
-  "ip": "::1"
+  "timestamp": "2025-09-09T14:24:25.284Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T16:46:05.420Z",
-  "level": "DEBUG",
-  "message": "Query built",
-  "query": {
-    "status": "available",
-    "isDeleted": false
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 12,
-    "skip": 0
-  },
-  "sort": {
-    "price": -1
-  }
+  "timestamp": "2025-09-09T14:24:25.289Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }
 {
-  "timestamp": "2025-09-05T16:46:05.442Z",
-  "level": "INFO",
-  "message": "Properties retrieved successfully",
-  "total": 51,
-  "page": 1,
-  "limit": 12,
-  "filtersApplied": true
+  "timestamp": "2025-09-09T14:24:25.293Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:25.298Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:25.302Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:25.307Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:25.311Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:25.315Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
+}
+{
+  "timestamp": "2025-09-09T14:24:25.321Z",
+  "level": "WARN",
+  "message": "Public profile requested for non-existent user",
+  "userId": "507f1f77bcf86cd799439011"
 }

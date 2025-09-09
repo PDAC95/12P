@@ -12,7 +12,7 @@ $shadow: rgba(0, 0, 0, 0.05);
 
 // Variables
 $sidebar-width: 250px;
-$sidebar-collapsed-width: 70px;
+$sidebar-collapsed-width: 80px;
 $transition: 0.3s ease;
 $border-radius: 12px;
 $border-radius-sm: 8px;
@@ -70,10 +70,75 @@ $border-radius-sm: 8px;
     .nav-text {
       opacity: 0;
       visibility: hidden;
+      position: absolute;
     }
     
     .sidebar-toggle i {
       transform: rotate(180deg);
+    }
+    
+    // Center brand/logo when collapsed
+    .sidebar-brand {
+      padding: 20px 10px;
+      
+      .brand-link {
+        justify-content: center;
+      }
+    }
+    
+    // Center profile avatar when collapsed
+    .sidebar-profile {
+      width: 100%;
+      padding: 1rem 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      
+      .profile-avatar {
+        position: relative !important;
+        margin: 0 auto !important;
+        width: 45px !important;
+        height: 45px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        transition: all $transition;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        
+        .avatar-img,
+        .avatar-initials {
+          width: 100% !important;
+          height: 100% !important;
+          border-radius: 50%;
+        }
+        
+        .avatar-initials {
+          font-size: 1rem !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+      }
+    }
+    
+    // Center nav icons
+    .sidebar-nav {
+      .nav-link {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.75rem 0;
+        
+        i {
+          margin: 0;
+          font-size: 1.25rem;
+        }
+      }
     }
   }
   
@@ -136,12 +201,24 @@ $border-radius-sm: 8px;
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all $transition;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .profile-avatar {
     width: 60px;
     height: 60px;
     margin: 0 auto 15px;
     position: relative;
+    transition: all $transition;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    left: auto;
+    right: auto;
 
     .avatar-img {
       width: 100%;
