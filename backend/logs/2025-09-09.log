@@ -1418,3 +1418,44 @@
   "message": "Public profile requested for non-existent user",
   "userId": "507f1f77bcf86cd799439011"
 }
+{
+  "timestamp": "2025-09-09T17:05:26.647Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-09T17:05:26.672Z",
+  "level": "INFO",
+  "message": "Attempting to connect to MongoDB",
+  "uri": "URI provided"
+}
+{
+  "timestamp": "2025-09-09T17:05:26.673Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully"
+}
+{
+  "timestamp": "2025-09-09T17:05:26.694Z",
+  "level": "INFO",
+  "message": "MongoDB Connected Successfully",
+  "host": "localhost",
+  "port": 27017,
+  "database": "12p"
+}
+{
+  "timestamp": "2025-09-09T17:05:26.710Z",
+  "level": "INFO",
+  "message": "Properties already exist in database",
+  "count": 122
+}
+{
+  "timestamp": "2025-09-09T17:05:26.713Z",
+  "level": "INFO",
+  "message": "Server started successfully",
+  "port": "5001",
+  "host": "localhost",
+  "environment": "development",
+  "healthCheck": "http://localhost:5001/api/health",
+  "propertiesEndpoint": "http://localhost:5001/api/properties"
+}
